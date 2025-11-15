@@ -1,7 +1,6 @@
 :root{
     --highlight-color: #2e7753;         /* Contrast ratio: white 5.4, light 4.6 */
     --highlight2-color: #79d4a6;        /* Contrast ratio: dark 5.2 */
-    /* old green color was #459d71 */
     --dark-color: #364956;              /* Contrast ratio: white 9.3 */
     --light-color: #e7f0ee;             /* Contrast ratio: dark 8 */
     --lightest-color: white;
@@ -16,12 +15,13 @@
     src: url(/src/fonts/TX-02-Berkeley-Mono/TX-02-Regular.otf) format("opentype");
 }
 
+/* Mobile First Base Styles */
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
     overflow-y: auto;
     font-family: 'TX-02-Berkeley-Mono', sans-serif;
-    font-size: var(--basic-font);
+    font-size: 16px;
     line-height: 1.5;
 }
 
@@ -33,37 +33,70 @@ body, h1, p {
 body {
     background-color: gainsboro;
     color: #333;
+    padding-top: 70px; /* Space for fixed header */
 }
 
+/* Fixed Header with Shrink Animation */
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     background-color: #333;
     color: #ffffff;
     padding: 15px 20px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    gap: 10px;
+    transition: padding 0.3s ease, gap 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header.shrink {
+    padding: 8px 20px;
+    gap: 5px;
 }
 
 header p {
     font-size: 1.5em;
     font-weight: bold;
+    margin: 0;
+    transition: font-size 0.3s ease;
+}
+
+header.shrink p {
+    font-size: 1.1em;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin-left: 15px;
-    font-size: 1.1em;
+    font-size: 1em;
+    transition: font-size 0.3s ease;
+}
+
+header.shrink nav a {
+    font-size: 0.85em;
 }
 
 nav a:hover {
     text-decoration: underline;
 }
 
+/* Main Content */
 main {
     flex: 1;
-    padding: 20px;
-    max-width: 800px;
+    padding: 15px;
+    max-width: 100%;
     margin: 20px auto;
     background: whitesmoke;
     border-radius: 5px;
@@ -75,24 +108,24 @@ main img {
     height: auto;
     display: block;
     margin: 0 auto 20px;
-    justify-content: center;
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 1.75em;
     color: #444;
     margin-bottom: 10px;
 }
 
 blockquote {
     color: rgba(0, 0, 0, 0.5);
-    padding-left: 1.5em;
-    border-left: 5px solid rgba(0, 0, 0, 0.1);
+    padding-left: 1em;
+    border-left: 4px solid rgba(0, 0, 0, 0.1);
+    margin: 1em 0;
 }
 
 code, pre {
     font-family: monospace, monospace;
-    font-size: 0.9em;
+    font-size: 0.85em;
     background-color: rgba(0, 0, 0, 0.05);
     border-radius: 3px;
     padding: 2px 4px;
@@ -111,9 +144,68 @@ footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 15px 0;
+    padding: 15px 10px;
     margin-top: auto;
-    position: fixed;
     width: 100%;
-    bottom: 0;
+}
+
+/* Tablet and Desktop Styles (768px and up) */
+@media (min-width: 768px) {
+    html {
+        font-size: var(--basic-font);
+    }
+
+    body {
+        padding-top: 80px;
+    }
+
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 15px 20px;
+    }
+
+    header.shrink {
+        padding: 10px 20px;
+    }
+
+    header p {
+        font-size: 1.5em;
+    }
+
+    header.shrink p {
+        font-size: 1.2em;
+    }
+
+    nav {
+        gap: 20px;
+    }
+
+    nav a {
+        font-size: 1.1em;
+        margin-left: 0;
+    }
+
+    header.shrink nav a {
+        font-size: 0.95em;
+    }
+
+    main {
+        padding: 20px;
+        max-width: 800px;
+        margin: 30px auto;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    blockquote {
+        padding-left: 1.5em;
+        border-left: 5px solid rgba(0, 0, 0, 0.1);
+    }
+
+    code, pre {
+        font-size: 0.9em;
+    }
 }

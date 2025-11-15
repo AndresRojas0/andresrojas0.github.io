@@ -296,4 +296,14 @@ Con esto, estamos listos para avanzar al siguiente paso.</p>
     <p>&copy; 2025 AAI|IAA. All rights reserved.</p>
 </footer>
 </body>
+<script>
+  window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+      header.classList.add('shrink');
+    } else {
+      header.classList.remove('shrink');
+    }
+  });
+</script>
 </html>

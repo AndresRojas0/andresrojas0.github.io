@@ -57,4 +57,14 @@ Faltante_Pedido = id + pedido_id + 0{producto_id + cantidad}n
     <p>&copy; 2025 AAI|IAA. All rights reserved.</p>
 </footer>
 </body>
+<script>
+  window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+      header.classList.add('shrink');
+    } else {
+      header.classList.remove('shrink');
+    }
+  });
+</script>
 </html>
