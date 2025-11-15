@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>INCURSIÓN EN EL USO DE IA</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header>
+    <p>AAI | IAA</p>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+    </nav>
+</header>
+  <main>
+    
+<article>
+  <h1>INCURSIÓN EN EL USO DE IA</h1>
+
+  
+    <img src="/images/post-1.svg" alt="INCURSIÓN EN EL USO DE IA" width="600">
+  
+
+  <div>
+    <h2>INTRODUCCIÓN</h2>
+<p>Con el surgimiento del <strong>modelo extenso de lenguaje</strong> o LLM (<em>Large Language Model</em>) en 2018, definido formalmente como un modelo de lenguaje de aprendizaje profundo que consta de una red neuronal* con muchos parámetros (normalmente miles de millones o más) entrenados en grandes cantidades de texto sin etiquetar mediante aprendizaje autosupervisado o aprendizaje semisupervisado, entendiéndose esto como un tipo de <strong>inteligencia artificial</strong> (IA) entrenado con grandes cantidades de datos para entender y generar lenguaje humano de manera natural, se marca un hito en la historia y el inicio de un exponencial crecimiento, masividad y versatilidad de aplicaciones con IA generativa capaces de realizar tareas como escribir texto en lenguaje humano, traducir texto, responder preguntas, mantener diálogos, resumir, analizar y además escribir instrucciones y código en lenguajes de programación.
+<br>
+<em>(*) El concepto de red neuronal surge en 1943 al desarrollarse el primer modelo matemático de una neurona, posteriormente aparecen los conceptos de perceptrón, perceptrón multicapa, red neuronal prealimentada, red neuronal convolucional (Neocognitron), esta última mejorada en 1998 (backpropagation algorithm) y con posterior refinamiento e implementación en unidades de procesamiento gráfico en 2012.</em></p>
+<h2>PARTE I</h2>
+<h3>USANDO IA PARA PROPONER MEJORAS</h3>
+<p>Pensemos el siguiente escenario: como empleado en una pyme tengo la tarea de recorrer un área y realizar una serie de verificaciones puntuales, para ello dispongo de una planilla de cálculo (en documento excel) que debo completar con mi trabajo diario, estructurado en un encabezado con filas y debajo un cuerpo con columnas, todas con sus campos claramente identificados:
+<br>
+Filas</p>
+<ul>
+<li>Tipo de planilla:</li>
+<li>Fecha:</li>
+<li>Nombre empleado:</li>
+<li>Lugar de trabajo:</li>
+<li>Totales:</li>
+</ul>
+<p>Columnas</p>
+<ul>
+<li>Grupo</li>
+<li>Operador</li>
+<li>Código</li>
+<li>Máquina</li>
+<li>Hora</li>
+<li>Estado</li>
+<li>Cantidad/Cantidades</li>
+<li>Sector</li>
+<li>Observaciones</li>
+</ul>
+<p>Al finalizar la jornada, <u>cada planilla completada es enviada por correo electrónico</u> a un encargado o superior, para ser descargadas una por una en una computadora y luego revisadas, nuevamente una por una...</p>
+<blockquote>
+<p>«Can you create a general data structure from this excel?»</p>
+</blockquote>
+<p>Cómo podríamos proponer una mejora a este procedimiento? Con un primer &quot;prompt&quot; (comando o instrucción) como el anterior y agregando el documento excel, todo dentro de una nueva conversación con herramienta IA (ChatGPT, Claude, Gemini, o la de preferencia) usando el navegador de una computadora o aplicación de teléfono móvil. Inmediatamente la IA analiza el documento, genera los scripts para poder &quot;leerlo&quot; y responde con un primer resultado.</p>
+<h3>ESTRUCTURA GENERAL DE DATOS</h3>
+<p>En este caso, la IA tiene problemas al intentar analizar la planilla de cálculo...</p>
+<blockquote>
+<p>«I'll analyze the Excel file to understand its structure and create a general data structure representation for you.»</p>
+</blockquote>
+<pre><code>javascript
+
+// Read and analyze the Excel file
+import * as XLSX from 'xlsx';
+
+const response = await window.fs.readFile('PLANILLA.xlsx');
+const workbook = XLSX.read(response, {
+    cellStyles: true,
+    cellFormulas: true,
+    cellDates: true,
+    cellNF: true,
+    sheetStubs: true
+});
+
+// Explore workbook structure
+console.log(&quot;Workbook metadata:&quot;);
+console.log(workbook.Workbook);
+
+console.log(&quot;\nSheet names:&quot;);
+console.log(workbook.SheetNames);
+
+// Analyze each sheet
+workbook.SheetNames.forEach((sheetName, index) =&gt; {
+    console.log(`\n=== Sheet ${index + 1}: ${sheetName} ===`);
+    const worksheet = workbook.Sheets[sheetName];
+    
+    // Get sheet metadata (properties starting with '!')
+    const metadata = {};
+    Object.keys(worksheet).forEach(key =&gt; {
+        if (key.startsWith('!')) {
+            metadata[key] = worksheet[key];
+        }
+    });
+    console.log(&quot;Sheet metadata:&quot;, metadata);
+    
+    // Convert to JSON to see structure
+    const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, defval: null });
+    console.log(`Dimensions: ${jsonData.length} rows`);
+    
+    if (jsonData.length &gt; 0) {
+        console.log(&quot;First few rows:&quot;);
+        jsonData.slice(0, Math.min(10, jsonData.length)).forEach((row, i) =&gt; {
+            console.log(`Row ${i}:`, row);
+        });
+    }
+});
+</code></pre>
+<p>Mensajes de error mediante, la siguiente respuesta fue:</p>
+<blockquote>
+<p>«I've created a general data structure template for inspection checklists based on the filename you provided. The structure covers the typical components found in daily work forms:»</p>
+<ul>
+<li>Document metadata and identification</li>
+<li>General information about the inspection (date, inspector, location)</li>
+<li>Subject details (what's being inspected)</li>
+<li>Inspection items with status tracking</li>
+<li>Summary and assessment results</li>
+<li>Required actions and follow-up</li>
+<li>Signatures for validation</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>«This structure is flexible and can accommodate various types of inspections (safety, health, quality, compliance, etc.). The data types and validation rules ensure consistency and proper integration with other systems.»</p>
+</blockquote>
+<pre><code>javascript
+
+{
+  // Document metadata
+  inspectionForm: {
+    documentInfo: {
+      title: &quot;Planilla de Trabajo&quot;,
+      date: &quot;2025-07-10&quot;,
+      version: &quot;string&quot;,
+      formId: &quot;string&quot;
+    },
+    
+    // General information section
+    generalInfo: {
+      inspectionId: &quot;string&quot;,
+      inspectionDate: &quot;date&quot;,
+      inspector: {
+        name: &quot;string&quot;,
+        id: &quot;string&quot;,
+        certification: &quot;string&quot;
+      },
+      location: {
+        address: &quot;string&quot;,
+        coordinates: &quot;object&quot;,
+        zone: &quot;string&quot;
+      },
+      inspectionType: &quot;string&quot;, // routine, complaint-based, follow-up, etc.
+      weather: &quot;string&quot;
+    },
+    
+    // Subject being inspected
+    inspectedEntity: {
+      name: &quot;string&quot;,
+      type: &quot;string&quot;, // business, facility, equipment, etc.
+      license: &quot;string&quot;,
+      contact: {
+        person: &quot;string&quot;,
+        phone: &quot;string&quot;,
+        email: &quot;string&quot;
+      }
+    },
+    
+    // Inspection items/checklist
+    inspectionItems: [
+      {
+        category: &quot;string&quot;,
+        itemId: &quot;string&quot;,
+        description: &quot;string&quot;,
+        requirement: &quot;string&quot;,
+        status: &quot;string&quot;, // compliant, non-compliant, not-applicable, pending
+        observations: &quot;string&quot;,
+        photos: [&quot;string&quot;], // photo references
+        correctionRequired: &quot;boolean&quot;,
+        deadline: &quot;date&quot;
+      }
+    ],
+    
+    // Overall assessment
+    summary: {
+      totalItems: &quot;number&quot;,
+      compliantItems: &quot;number&quot;,
+      nonCompliantItems: &quot;number&quot;,
+      overallStatus: &quot;string&quot;,
+      riskLevel: &quot;string&quot;, // low, medium, high
+      followUpRequired: &quot;boolean&quot;,
+      followUpDate: &quot;date&quot;
+    },
+    
+    // Actions and recommendations
+    actions: [
+      {
+        type: &quot;string&quot;, // correction, warning, fine, closure
+        description: &quot;string&quot;,
+        deadline: &quot;date&quot;,
+        responsible: &quot;string&quot;,
+        status: &quot;string&quot;
+      }
+    ],
+    
+    // Signatures and approvals
+    signatures: {
+      inspector: {
+        name: &quot;string&quot;,
+        signature: &quot;string&quot;,
+        date: &quot;date&quot;
+      },
+      inspected: {
+        name: &quot;string&quot;,
+        position: &quot;string&quot;,
+        signature: &quot;string&quot;,
+        date: &quot;date&quot;
+      }
+    }
+  }
+}
+</code></pre>
+<p>Esta estructura de datos puede ser útil pero resulta «genérica» para el caso. Se le vuelve a escribir, indicando cuáles son los campos de la planilla de excel de trabajo:</p>
+<blockquote>
+<p>«Good job. In every DAILY WORK FORM we have:
+Title: DAILY WORK FORM.
+Employee name.
+Date of the day.
+Place of work (city or address).
+And we have a list of inspection checked, every with:
+Group number.
+Operator name.
+Service code.
+Machine number.
+Exact hour of control.
+Status.
+Quantities.
+Address of sector.
+Observations (if necessary).»</p>
+</blockquote>
+<p>Su respuesta certera:</p>
+<blockquote>
+<p>«Perfect! Let me update the data structure to reflect the specific requirements for your DAILY INSPECTION FORM for what appears to be a transportation/bus service inspection system.»</p>
+</blockquote>
+<pre><code>javascript
+
+{
+  dailyWorkForm: {
+    // Form header information
+    formHeader: {
+      title: &quot;DAILY WORK FORM&quot;,
+      employeeName: &quot;string&quot;,
+      date: &quot;YYYY-MM-DD&quot;, // Date of the day
+      placeOfWork: &quot;string&quot; // City or address
+    },
+    
+    // List of inspections
+    serviceChecks: [
+      {
+        groupNumber: &quot;string&quot;, // Group identifier
+        operatorName: &quot;string&quot;,
+        serviceCode: &quot;string&quot;, // Service identifier
+        machineNumber: &quot;string&quot;, // Macine number
+        exactHourOfControl: &quot;HH:MM:SS&quot;, // Time format
+        status: {
+          minutes: &quot;number&quot;, // Positive for late, negative for early
+          status: &quot;string&quot; // &quot;on-time&quot;, &quot;ahead&quot;, &quot;late&quot;
+        },
+        quantities: &quot;number&quot;,
+        addressOfSector: &quot;string&quot;,
+        observations: &quot;string&quot; // Optional field
+      }
+    ]
+  }
+}
+</code></pre>
+<p>Además de responder con exactamente la estructura de datos de la planilla de cálculo y mostrar un ejemplo con datos (ficticios), puede ampliar la respuesta con las especificaciones de qué datos maneja cada campo, lógicas o reglas de negocio, validación de datos de cada campo y restricciones, y una estructura adicional de estadísticas diarias basadas en la planilla original.
+<br>
+Con esto, estamos listos para avanzar al siguiente paso.</p>
+<h2>PARTE II</h2>
+<h3>CREANDO CON IA</h3>
+
+  </div>
+</article>
+  </main>
+  <footer>
+    <p>&copy; 2025 AAI|IAA. All rights reserved.</p>
+</footer>
+</body>
+</html>
