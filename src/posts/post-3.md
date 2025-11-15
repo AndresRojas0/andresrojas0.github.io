@@ -23,9 +23,11 @@ Administrador ingresa a la aplicación backend y carga en base de datos en tabla
 
 ### ESTRUCTURA
 
-```Producto = id + (articulo) + (codigo) + descripcion + 0{categoria_id}n + (imagen_id) + proveedor_id
+```
+Producto = id + (articulo) + (codigo) + descripcion + 0{categoria_id}n + (imagen_id) + proveedor_id
 Categoria = id + nombre + unidadImagen = id + URL + textoProveedor = id + codigo + nombre + observaciones
 Cliente = id + nombre + domicilio + CUIT + clave_bancaria + alias_virtual
-  Orden_Pedido = id + cliente_id + 1{producto_id + cantidad}n
-  Remito = id + cliente_id + 1{producto_id + cantidad + precio_unitario}n + fecha_entrega + factura_tipo
-  Faltante_Pedido = id + pedido_id + 0{producto_id + cantidad}n```
+Orden_Pedido = id + cliente_id + 1{producto_id + cantidad}n
+Remito = id + cliente_id + 1{producto_id + cantidad + precio_unitario}n + fecha_entrega + factura_tipo
+Faltante_Pedido = id + pedido_id + 0{producto_id + cantidad}n
+```
