@@ -66,6 +66,10 @@
 }
 
 /* Mobile First Base Styles */
+* {
+    box-sizing: border-box;
+}
+
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
@@ -73,6 +77,8 @@ html {
     font-family: 'TX-02-Berkeley-Mono', sans-serif;
     font-size: var(--font-base);
     line-height: 1.5;
+    margin: 0;
+    padding: 0;
 }
 
 body, h1, p {
@@ -83,7 +89,9 @@ body, h1, p {
 body {
     background-color: var(--body-bg);
     color: var(--text-color);
-    padding-top: 70px; /* Space for fixed header */
+    padding-top: 70px;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /* Fixed Header with Shrink Animation */
