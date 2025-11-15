@@ -89,7 +89,7 @@ body, h1, p {
 body {
     background-color: var(--body-bg);
     color: var(--text-color);
-    padding-top: 70px;
+    padding-top: 100px;
     width: 100%;
     overflow-x: hidden;
 }
