@@ -52,7 +52,95 @@ Un PEDIDO tiene uno y solo un CLIENTE, pero contiene minimo un PRODUCTO.</p>
 <p>Necesito una estructura para REPORTE_PRODUCTOS que sea una lista de todos los productos de los pedidos reportados en REPORTE_PEDIDOS hasta la misma fecha límite de cierre, con la cantidad total de cada uno de dichos productos.</p>
 </blockquote>
 <p>La respuesta obtenida:</p>
-<pre><code>{&quot;fecha_corte&quot;: &quot;2025-07-23T11:00:00-03:00&quot;,&quot;pedidos&quot;: [{&quot;pedido_id&quot;: 101,&quot;cliente&quot;: {&quot;cliente_id&quot;: 1,&quot;nombre&quot;: &quot;Juan Pérez&quot;,&quot;domicilio&quot;: &quot;Calle Falsa 123&quot;,&quot;telefono&quot;: &quot;123456789&quot;,&quot;CUIL&quot;: &quot;20-12345678-9&quot;},&quot;productos&quot;: [{&quot;articulo_numero&quot;: 5001,&quot;producto_codigo&quot;: &quot;A-1001&quot;,&quot;descripcion&quot;: &quot;Caja de tornillos&quot;,&quot;unidad_medida&quot;: &quot;unidad&quot;,&quot;cantidad&quot;: 5,&quot;proveedor&quot;: {&quot;proveedor_id&quot;: 10,&quot;proveedor_nombre&quot;: &quot;Acme S.A.&quot;}},{&quot;articulo_numero&quot;: 5002,&quot;producto_codigo&quot;: &quot;A-1002&quot;,&quot;descripcion&quot;: &quot;Llave inglesa&quot;,&quot;unidad_medida&quot;: &quot;unidad&quot;,&quot;cantidad&quot;: 2,&quot;proveedor&quot;: {&quot;proveedor_id&quot;: 11,&quot;proveedor_nombre&quot;: &quot;Herramientas SRL&quot;}}]},{&quot;pedido_id&quot;: 102,&quot;cliente&quot;: {&quot;cliente_id&quot;: 2,&quot;nombre&quot;: &quot;María Gómez&quot;,&quot;domicilio&quot;: &quot;Av. Siempre Viva 742&quot;,&quot;telefono&quot;: &quot;987654321&quot;,&quot;CUIL&quot;: &quot;27-87654321-0&quot;},&quot;productos&quot;: [{&quot;articulo_numero&quot;: 5001,&quot;producto_codigo&quot;: &quot;A-1001&quot;,&quot;descripcion&quot;: &quot;Caja de tornillos&quot;,&quot;unidad_medida&quot;: &quot;unidad&quot;,&quot;cantidad&quot;: 10,&quot;proveedor&quot;: {&quot;proveedor_id&quot;: 10,&quot;proveedor_nombre&quot;: &quot;Acme S.A.&quot;}}]}]}{&quot;fecha_corte&quot;: &quot;2025-07-23T11:00:00-03:00&quot;,&quot;productos&quot;: [{&quot;articulo_numero&quot;: 5001,&quot;producto_codigo&quot;: &quot;A-1001&quot;,&quot;descripcion&quot;: &quot;Caja de tornillos&quot;,&quot;unidad_medida&quot;: &quot;unidad&quot;,&quot;cantidad_total&quot;: 15,&quot;proveedor&quot;: {&quot;proveedor_id&quot;: 10,&quot;proveedor_nombre&quot;: &quot;Acme S.A.&quot;}},{&quot;articulo_numero&quot;: 5002,&quot;producto_codigo&quot;: &quot;A-1002&quot;,&quot;descripcion&quot;: &quot;Llave inglesa&quot;,&quot;unidad_medida&quot;: &quot;unidad&quot;,&quot;cantidad_total&quot;: 2,&quot;proveedor&quot;: {&quot;proveedor_id&quot;: 11,&quot;proveedor_nombre&quot;: &quot;Herramientas SRL&quot;}}]}
+<pre><code>{
+  &quot;fecha_corte&quot;: &quot;2025-07-23T11:00:00-03:00&quot;,
+  &quot;pedidos&quot;: [
+    {
+      &quot;pedido_id&quot;: 101,
+      &quot;cliente&quot;: {
+        &quot;cliente_id&quot;: 1,
+        &quot;nombre&quot;: &quot;Juan Pérez&quot;,
+        &quot;domicilio&quot;: &quot;Calle Falsa 123&quot;,
+        &quot;telefono&quot;: &quot;123456789&quot;,
+        &quot;CUIL&quot;: &quot;20-12345678-9&quot;
+      },
+      &quot;productos&quot;: [
+        {
+          &quot;articulo_numero&quot;: 5001,
+          &quot;producto_codigo&quot;: &quot;A-1001&quot;,
+          &quot;descripcion&quot;: &quot;Caja de tornillos&quot;,
+          &quot;unidad_medida&quot;: &quot;unidad&quot;,
+          &quot;cantidad&quot;: 5,
+          &quot;proveedor&quot;: {
+            &quot;proveedor_id&quot;: 10,
+            &quot;proveedor_nombre&quot;: &quot;Acme S.A.&quot;
+          }
+        },
+        {
+          &quot;articulo_numero&quot;: 5002,
+          &quot;producto_codigo&quot;: &quot;A-1002&quot;,
+          &quot;descripcion&quot;: &quot;Llave inglesa&quot;,
+          &quot;unidad_medida&quot;: &quot;unidad&quot;,
+          &quot;cantidad&quot;: 2,
+          &quot;proveedor&quot;: {
+            &quot;proveedor_id&quot;: 11,
+            &quot;proveedor_nombre&quot;: &quot;Herramientas SRL&quot;
+          }
+        }
+      ]
+    },
+    {
+      &quot;pedido_id&quot;: 102,
+      &quot;cliente&quot;: {
+        &quot;cliente_id&quot;: 2,
+        &quot;nombre&quot;: &quot;María Gómez&quot;,
+        &quot;domicilio&quot;: &quot;Av. Siempre Viva 742&quot;,
+        &quot;telefono&quot;: &quot;987654321&quot;,
+        &quot;CUIL&quot;: &quot;27-87654321-0&quot;
+      },
+      &quot;productos&quot;: [
+        {
+          &quot;articulo_numero&quot;: 5001,
+          &quot;producto_codigo&quot;: &quot;A-1001&quot;,
+          &quot;descripcion&quot;: &quot;Caja de tornillos&quot;,
+          &quot;unidad_medida&quot;: &quot;unidad&quot;,
+          &quot;cantidad&quot;: 10,
+          &quot;proveedor&quot;: {
+            &quot;proveedor_id&quot;: 10,
+            &quot;proveedor_nombre&quot;: &quot;Acme S.A.&quot;
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  &quot;fecha_corte&quot;: &quot;2025-07-23T11:00:00-03:00&quot;,
+  &quot;productos&quot;: [
+    {
+      &quot;articulo_numero&quot;: 5001,
+      &quot;producto_codigo&quot;: &quot;A-1001&quot;,
+      &quot;descripcion&quot;: &quot;Caja de tornillos&quot;,
+      &quot;unidad_medida&quot;: &quot;unidad&quot;,
+      &quot;cantidad_total&quot;: 15,
+      &quot;proveedor&quot;: {
+        &quot;proveedor_id&quot;: 10,
+        &quot;proveedor_nombre&quot;: &quot;Acme S.A.&quot;
+      }
+    },
+    {
+      &quot;articulo_numero&quot;: 5002,
+      &quot;producto_codigo&quot;: &quot;A-1002&quot;,
+      &quot;descripcion&quot;: &quot;Llave inglesa&quot;,
+      &quot;unidad_medida&quot;: &quot;unidad&quot;,
+      &quot;cantidad_total&quot;: 2,
+      &quot;proveedor&quot;: {
+        &quot;proveedor_id&quot;: 11,
+        &quot;proveedor_nombre&quot;: &quot;Herramientas SRL&quot;
+      }
+    }
+  ]
+}
 </code></pre>
 <h3>CREANDO CON IA</h3>
 <p>Utilizando la herramienta V0 de Vercel para iniciar una conversación y adjuntar la estructura de datos anterior:</p>

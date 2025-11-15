@@ -30,7 +30,95 @@ Resumiendo, las instrucciones o prompts dados son:
 La respuesta obtenida: 
 
 ```
-{"fecha_corte": "2025-07-23T11:00:00-03:00","pedidos": [{"pedido_id": 101,"cliente": {"cliente_id": 1,"nombre": "Juan Pérez","domicilio": "Calle Falsa 123","telefono": "123456789","CUIL": "20-12345678-9"},"productos": [{"articulo_numero": 5001,"producto_codigo": "A-1001","descripcion": "Caja de tornillos","unidad_medida": "unidad","cantidad": 5,"proveedor": {"proveedor_id": 10,"proveedor_nombre": "Acme S.A."}},{"articulo_numero": 5002,"producto_codigo": "A-1002","descripcion": "Llave inglesa","unidad_medida": "unidad","cantidad": 2,"proveedor": {"proveedor_id": 11,"proveedor_nombre": "Herramientas SRL"}}]},{"pedido_id": 102,"cliente": {"cliente_id": 2,"nombre": "María Gómez","domicilio": "Av. Siempre Viva 742","telefono": "987654321","CUIL": "27-87654321-0"},"productos": [{"articulo_numero": 5001,"producto_codigo": "A-1001","descripcion": "Caja de tornillos","unidad_medida": "unidad","cantidad": 10,"proveedor": {"proveedor_id": 10,"proveedor_nombre": "Acme S.A."}}]}]}{"fecha_corte": "2025-07-23T11:00:00-03:00","productos": [{"articulo_numero": 5001,"producto_codigo": "A-1001","descripcion": "Caja de tornillos","unidad_medida": "unidad","cantidad_total": 15,"proveedor": {"proveedor_id": 10,"proveedor_nombre": "Acme S.A."}},{"articulo_numero": 5002,"producto_codigo": "A-1002","descripcion": "Llave inglesa","unidad_medida": "unidad","cantidad_total": 2,"proveedor": {"proveedor_id": 11,"proveedor_nombre": "Herramientas SRL"}}]}
+{
+  "fecha_corte": "2025-07-23T11:00:00-03:00",
+  "pedidos": [
+    {
+      "pedido_id": 101,
+      "cliente": {
+        "cliente_id": 1,
+        "nombre": "Juan Pérez",
+        "domicilio": "Calle Falsa 123",
+        "telefono": "123456789",
+        "CUIL": "20-12345678-9"
+      },
+      "productos": [
+        {
+          "articulo_numero": 5001,
+          "producto_codigo": "A-1001",
+          "descripcion": "Caja de tornillos",
+          "unidad_medida": "unidad",
+          "cantidad": 5,
+          "proveedor": {
+            "proveedor_id": 10,
+            "proveedor_nombre": "Acme S.A."
+          }
+        },
+        {
+          "articulo_numero": 5002,
+          "producto_codigo": "A-1002",
+          "descripcion": "Llave inglesa",
+          "unidad_medida": "unidad",
+          "cantidad": 2,
+          "proveedor": {
+            "proveedor_id": 11,
+            "proveedor_nombre": "Herramientas SRL"
+          }
+        }
+      ]
+    },
+    {
+      "pedido_id": 102,
+      "cliente": {
+        "cliente_id": 2,
+        "nombre": "María Gómez",
+        "domicilio": "Av. Siempre Viva 742",
+        "telefono": "987654321",
+        "CUIL": "27-87654321-0"
+      },
+      "productos": [
+        {
+          "articulo_numero": 5001,
+          "producto_codigo": "A-1001",
+          "descripcion": "Caja de tornillos",
+          "unidad_medida": "unidad",
+          "cantidad": 10,
+          "proveedor": {
+            "proveedor_id": 10,
+            "proveedor_nombre": "Acme S.A."
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "fecha_corte": "2025-07-23T11:00:00-03:00",
+  "productos": [
+    {
+      "articulo_numero": 5001,
+      "producto_codigo": "A-1001",
+      "descripcion": "Caja de tornillos",
+      "unidad_medida": "unidad",
+      "cantidad_total": 15,
+      "proveedor": {
+        "proveedor_id": 10,
+        "proveedor_nombre": "Acme S.A."
+      }
+    },
+    {
+      "articulo_numero": 5002,
+      "producto_codigo": "A-1002",
+      "descripcion": "Llave inglesa",
+      "unidad_medida": "unidad",
+      "cantidad_total": 2,
+      "proveedor": {
+        "proveedor_id": 11,
+        "proveedor_nombre": "Herramientas SRL"
+      }
+    }
+  ]
+}
 ```
 
 ### CREANDO CON IA
