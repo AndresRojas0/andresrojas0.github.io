@@ -5,6 +5,6 @@ slug: contact
 
 ---
 
-### CONTACTO
+### Contacto
 
-bla bla bla...
+Mis redes...

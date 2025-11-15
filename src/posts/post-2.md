@@ -3,7 +3,7 @@ title: PROYECTO GESTIÓN PEDIDOS
 layout: post.njk
 slug: post-2
 image: /images/post-2.svg
-
+tags: post
 ---
   
 ## INTRODUCCIÓN

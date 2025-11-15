@@ -3,9 +3,7 @@ layout: base.njk
 
 ---
 
-### Publicaciones de Andrés
-
-{% for post in collections.all %}
+{% for post in collections.post %}
   <article>
     <h2><a href="/posts/{{ post.data.slug }}/">{{ post.data.title }}</a></h2>
 

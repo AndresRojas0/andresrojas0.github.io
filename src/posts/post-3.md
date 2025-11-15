@@ -3,7 +3,7 @@ title: PROYECTO GESTIÓN PEDIDOS - VARIANTE
 layout: post.njk
 slug: post-3
 image: /images/post-2.svg
-
+tags: post
 ---
 
 ## PROYECTO GESTIÓN DE PEDIDOS

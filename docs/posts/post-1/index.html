@@ -16,9 +16,9 @@
   <header>
     <p>AAI | IAA</p>
     <nav>
-        <a href="/">Home</a>
-        <a href="/pages/about">About</a>
-        <a href="/pages/contact">Contact</a>
+        <a href="/">Inicio</a>
+        <a href="/pages/about">Acerca</a>
+        <a href="/pages/contact">Contacto</a>
     </nav>
 </header>
   <main>
@@ -32,15 +32,23 @@
 
   <div>
     <h1>INCURSIÓN EN EL USO DE IA</h1>
+<h2>TABLA DE CONTENIDOS</h2>
+<ol>
+<li><a href="#introduction">INTRODUCCIÓN</a></li>
+<li><a href="#part-1-1">USANDO IA PARA PROPONER MEJORAS</a></li>
+<li><a href="#part-1-2">ESTRUCTURA GENERAL DE DATOS</a></li>
+<li><a href="#part-2-1">CREANDO CON IA</a></li>
+</ol>
+<p><a name="introduction"></a></p>
 <h2>INTRODUCCIÓN</h2>
-<p>Con el surgimiento del <strong>modelo extenso de lenguaje</strong> o LLM (<em>Large Language Model</em>) en 2018, definido formalmente como un modelo de lenguaje de aprendizaje profundo que consta de una red neuronal* con muchos parámetros (normalmente miles de millones o más) entrenados en grandes cantidades de texto sin etiquetar mediante aprendizaje autosupervisado o aprendizaje semisupervisado, entendiéndose esto como un tipo de <strong>inteligencia artificial</strong> (IA) entrenado con grandes cantidades de datos para entender y generar lenguaje humano de manera natural, se marca un hito en la historia y el inicio de un exponencial crecimiento, masividad y versatilidad de aplicaciones con IA generativa capaces de realizar tareas como escribir texto en lenguaje humano, traducir texto, responder preguntas, mantener diálogos, resumir, analizar y además escribir instrucciones y código en lenguajes de programación.
+<p>Con el surgimiento del <strong>modelo extenso de lenguaje</strong> o LLM (<em>Large Language Model</em>) en 2018, definido formalmente como un modelo de lenguaje de aprendizaje profundo que consta de una red neuronal* con muchos parámetros (normalmente miles de millones o más) entrenados en grandes cantidades de texto sin etiquetar mediante aprendizaje autosupervisado o aprendizaje semisupervisado, entendiéndose esta definición como un tipo de <strong>inteligencia artificial</strong> (IA) entrenado con grandes cantidades de datos para entender y generar lenguaje humano de manera natural, se marca un hito en la historia y el inicio de un exponencial crecimiento, masividad y versatilidad de aplicaciones con IA generativa capaces de realizar tareas como escribir texto en lenguaje humano, traducir texto, responder preguntas, mantener diálogos, resumir, analizar y además escribir instrucciones y código en lenguajes de programación.
 <br>
 <em>(*) El concepto de red neuronal surge en 1943 al desarrollarse el primer modelo matemático de una neurona, posteriormente aparecen los conceptos de perceptrón, perceptrón multicapa, red neuronal prealimentada, red neuronal convolucional (Neocognitron), esta última mejorada en 1998 (backpropagation algorithm) y con posterior refinamiento e implementación en unidades de procesamiento gráfico en 2012.</em></p>
 <h2>PARTE I</h2>
+<p><a name="part-1-1"></a></p>
 <h3>USANDO IA PARA PROPONER MEJORAS</h3>
-<p>Pensemos el siguiente escenario: como empleado en una pyme tengo la tarea de recorrer un área y realizar una serie de verificaciones puntuales, para ello dispongo de una planilla de cálculo (en documento excel) que debo completar con mi trabajo diario, estructurado en un encabezado con filas y debajo un cuerpo con columnas, todas con sus campos claramente identificados:
-<br>
-Filas</p>
+<p>Pensemos el siguiente <a href="##" title="⚠ El escenario planteado está basado en una actividad laboral real. Los nombres de los campos han sido modificados deliberadamente. ⚠">escenario</a>: como empleado en una pyme tengo la tarea de recorrer un área y realizar una serie de verificaciones puntuales, para ello dispongo de una planilla de cálculo (en documento excel) que debo completar con mi trabajo diario, estructurado en un encabezado con filas y debajo un cuerpo con columnas, todas con sus campos claramente identificados:</p>
+<h3>Filas</h3>
 <ul>
 <li>Tipo de planilla:</li>
 <li>Fecha:</li>
@@ -48,7 +56,7 @@ Filas</p>
 <li>Lugar de trabajo:</li>
 <li>Totales:</li>
 </ul>
-<p>Columnas</p>
+<h3>Columnas</h3>
 <ul>
 <li>Grupo</li>
 <li>Operador</li>
@@ -64,7 +72,8 @@ Filas</p>
 <blockquote>
 <p>«Can you create a general data structure from this excel?»</p>
 </blockquote>
-<p>Cómo podríamos proponer una mejora a este procedimiento? Con un primer &quot;prompt&quot; (comando o instrucción) como el anterior y agregando el documento excel, todo dentro de una nueva conversación con herramienta IA (ChatGPT, Claude, Gemini, o la de preferencia) usando el navegador de una computadora o aplicación de teléfono móvil. Inmediatamente la IA analiza el documento, genera los scripts para poder &quot;leerlo&quot; y responde con un primer resultado.</p>
+<p>Cómo podríamos proponer una mejora a este procedimiento? Con un primer &quot;prompt&quot; (comando o instrucción) como el anterior y agregando el documento excel, todo dentro de una nueva conversación con herramienta conversacional IA (ChatGPT, Claude, Gemini, o la de preferencia) usando el navegador de una computadora o aplicación de teléfono móvil. Inmediatamente la IA analiza el documento, genera los scripts para poder &quot;leerlo&quot; y responde con un primer resultado.</p>
+<p><a name="part-1-2"></a></p>
 <h3>ESTRUCTURA GENERAL DE DATOS</h3>
 <p>En este caso, la IA tiene problemas al intentar analizar la planilla de cálculo...</p>
 <blockquote>
@@ -229,7 +238,7 @@ workbook.SheetNames.forEach((sheetName, index) =&gt; {
   }
 }
 </code></pre>
-<p>Esta estructura de datos puede ser útil pero resulta «genérica» para el caso. Se le vuelve a escribir, indicando cuáles son los campos de la planilla de excel de trabajo:</p>
+<p>Esta estructura de datos puede ser útil pero resulta «genérica» para el caso. Se le vuelve a escribir, indicando cuáles son los campos de la planilla excel de trabajo:</p>
 <blockquote>
 <p>«Good job. In every DAILY WORK FORM we have:
 Title: DAILY WORK FORM.
@@ -287,13 +296,80 @@ Observations (if necessary).»</p>
 <br>
 Con esto, estamos listos para avanzar al siguiente paso.</p>
 <h2>PARTE II</h2>
+<p><a name="part-2-1"></a></p>
 <h3>CREANDO CON IA</h3>
+<p>Buscando alguna herramienta de IA que genera <u>componentes de interfaz de usuario</u> a partir de descripciones en lenguaje natural, inicio un nuevo hilo de conversación pero esta vez con <strong>Vercel V0</strong>. Sin vueltas, se le pide que a partir de la estructura de datos creada anteriormente cree una aplicación web <em>mobile first</em> para registrar trabajo diario:</p>
+<blockquote>
+<p>Hey there. Can you make a web mobile first for register my daily work? The data structure I use is shown below.</p>
+</blockquote>
+<p>Inmediatamente inserto la estructura de datos creada anteriormente:</p>
+<pre><code>{
+  dailyWorkForm: {
+    // Form header information
+    formHeader: {
+      title: &quot;DAILY WORK FORM&quot;,
+      employeeName: &quot;string&quot;,
+      date: &quot;YYYY-MM-DD&quot;, // Date of the day
+      placeOfWork: &quot;string&quot; // City or address
+    },
+    
+    // List of inspections
+    serviceChecks: [
+      {
+        groupNumber: &quot;string&quot;, // Group identifier
+        operatorName: &quot;string&quot;,
+        serviceCode: &quot;string&quot;, // Service identifier
+        machineNumber: &quot;string&quot;, // Machine number
+        exactHourOfControl: &quot;HH:MM:SS&quot;, // Time format
+        status: {
+          minutes: &quot;number&quot;, // Positive for late, negative for early
+          status: &quot;string&quot; // &quot;on-time&quot;, &quot;ahead&quot;, &quot;late&quot;
+        },
+        quantities: &quot;number&quot;,
+        addressOfSector: &quot;string&quot;,
+        observations: &quot;string&quot; // Optional field
+      }
+    ]
+  }
+}
+</code></pre>
+<p>Y algunas condiciones:</p>
+<blockquote>
+<p>Status criteria: negative = late (yellow color), positive = early (from 2 onwards, red color), 0 = on-time (between 0 and 1min 59sec, green color).
+Add a checkbox of non-compliance in the Observations attribute, and call it &quot;Infracción&quot;. If the service have non-compliance, turn all the Service Check into red background. Under Service Inspections, add a counter for services checks recorded with non-compliance.</p>
+</blockquote>
+<p>Viendo los resultados positivos, se le pide que permita cargar o subir directamente la planilla de cálculo excel y autocomplete los campos uno por uno, con persistencia de datos y base de datos mediante:</p>
+<blockquote>
+<p>Please, add a function to upload an .xlsx document with the spreadsheet fields: Nombre, Día, Lugar, Sentido, Grupo, Operador, Código, Máquina, Hora, Status, Cantidades, Sector, Observación. Nombre, Día, Lugar, Sentido, are rows in the xlsx document. Grupo, Operador, Código, Máquina, Hora, Status, Cantidades, Sector, Observación, are columns in the xlsx document. Please admit lowercase and uppercase indistinctly.
+Fill automatically all the daily form in their respective attributes: Name, Date, Place of Work; and for every Service Inspection: Group Number, Service Code, Operator Name, Machine Number, Time, Status, Quantities, Address of Sector, Observations.</p>
+</blockquote>
+<blockquote>
+<p>Status Variance attribute have the format mm:ss. If the xlsx document uploaded have Status field in +mm, -mm, +mm:ss, -mm:ss, (+mm:ss), (-mm:ss), extract the exact values to fill the Status Variance.
+Examples: (+02:30) → 2 minutes 30 seconds early, (-01:45) → 1 minute 45 seconds late, +3:30  → 3 minutes 30 seconds early, -2:00 → 2 minutes 00 seconds late.</p>
+</blockquote>
+<blockquote>
+<p>Add a calendar to visualize saved forms in every day.
+In Recent Inspections Forms add a Delete functionality for a selectd form.
+In Recent Inspections Forms, in View Details, add Observations attribute, if it empty show &quot;None&quot;.
+If the xlsx document uploaded have Observación field with a word &quot;INFRACCIÓN&quot; or &quot;Infracción&quot; or &quot;infracción&quot;, check the non-compliance box in their respective services.</p>
+</blockquote>
+<p>Se puede agregar algunas estadísticas en un panel de control o <em>dashboard</em>:</p>
+<blockquote>
+<p>In Dashboard, in overview show me the top 10 of most used lineOrRouteNumber, and the top 20 of most used addressOfStop, in the current month.</p>
+</blockquote>
+<p>Este tipo de conversación se puede extender tanto como uno quiera y crea necesario, corrigiendo errores de interpretación, aprendiendo a escribir de forma objetiva para reducir errores, proponiendo e intercambiando ideas... Con algunas instrucciones como las vistas, <em>prompts</em> claros y concisos se logran resultados sorprendentes. No hay límites para poner creatividad con estas herramientas.</p>
+<ol>
+<li><a href="#introduction">INTRODUCCIÓN</a></li>
+<li><a href="#part-1-1">USANDO IA PARA PROPONER MEJORAS</a></li>
+<li><a href="#part-1-2">ESTRUCTURA GENERAL DE DATOS</a></li>
+<li><a href="#part-2-1">CREANDO CON IA</a></li>
+</ol>
 
   </div>
 </article>
   </main>
   <footer>
-    <p>⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮ &copy; 2025 AAI|IAA. All rights reserved. ⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮</p>
+    <p>⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮ Arise with IA|IA para Aprender &copy; 2025 ⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮</p>
 </footer>
 </body>
 <script>
