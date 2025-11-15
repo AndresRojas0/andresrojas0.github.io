@@ -1,5 +1,6 @@
 ---
 layout: base.njk
+
 ---
 
 ### Publicaciones de Andrés
