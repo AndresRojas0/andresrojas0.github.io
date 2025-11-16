@@ -29,7 +29,9 @@ Con el surgimiento del **modelo extenso de lenguaje** o LLM (*Large Language Mod
 
 ### USANDO IA PARA PROPONER MEJORAS 
 
-Pensemos el siguiente [escenario](## "⚠ El escenario planteado está basado en una actividad laboral real. Los nombres de los campos han sido modificados deliberadamente. ⚠"): como empleado en una pyme tengo la tarea de recorrer un área y realizar una serie de verificaciones puntuales, para ello dispongo de una planilla de cálculo (en documento excel) que debo completar con mi trabajo diario, estructurado en un encabezado con filas y debajo un cuerpo con columnas, todas con sus campos claramente identificados: 
+Pensemos el siguiente [escenario](## "⚠ El escenario planteado está basado en una actividad laboral real. Los nombres de los campos han sido modificados deliberadamente. ⚠")*: como empleado en una pyme tengo la tarea de recorrer un área y realizar una serie de verificaciones puntuales, para ello dispongo de una planilla de cálculo (en documento excel) que debo completar con mi trabajo diario, estructurado en un encabezado con filas y debajo un cuerpo con columnas, todas con sus campos claramente identificados: 
+
+*(\*)⚠ El escenario planteado está basado en una actividad laboral real. Los nombres de los campos han sido modificados deliberadamente. ⚠*
 
 ### Filas
 * Tipo de planilla:
@@ -61,7 +63,10 @@ Cómo podríamos proponer una mejora a este procedimiento? Con un primer "prompt
 
 ### ESTRUCTURA GENERAL DE DATOS 
 
-En este caso, la IA tiene problemas al intentar analizar la planilla de cálculo...
+Una **estructura de datos** es según la enciclopedia una forma particular de organizar información para que pueda ser utilizada de manera eficiente. Más precisamente, una estructura de datos es una <u>colección de valores, las relaciones entre ellos y las funciones y operaciones que se pueden aplicar a los datos</u>, es decir, es una estructura algebraica de datos. 
+En este caso la denominamos *general* pues partimos de una representación de una planilla de cálculo hacia una estructura de datos más específica.
+<br>
+Continuando con el desarrollo, la IA tiene problemas al intentar analizar la planilla de cálculo...
 
 > «I'll analyze the Excel file to understand its structure and create a general data structure representation for you.»
 
