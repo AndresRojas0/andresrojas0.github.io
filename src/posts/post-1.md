@@ -1,12 +1,12 @@
 ---
-title: INCURSIÓN EN EL USO DE IA
+title: INICIACIÓN - USANDO IA
 layout: post.njk
 slug: post-1
 image: /images/post-1.svg
 tags: post
 ---
 
-# INCURSIÓN EN EL USO DE IA
+# INICIACIÓN - USANDO IA
 
 <a name="introduction"></a>
 
@@ -233,7 +233,7 @@ Title: DAILY WORK FORM.
 Employee name. 
 Date of the day. 
 Place of work (city or address). 
-And we have a list of inspection checked, every with:
+And we have a list of service checks, each entry containing the following fields:
 Group number.
 Operator name.
 Service code.
@@ -333,14 +333,14 @@ Inmediatamente inserto la estructura de datos creada anteriormente:
 Y algunas condiciones:
 
 > Status criteria: negative = late (yellow color), positive = early (from 2 onwards, red color), 0 = on-time (between 0 and 1min 59sec, green color).
-Add a checkbox of non-compliance in the Observations attribute, and call it "Infracción". If the service have non-compliance, turn all the Service Check into red background. Under Service Inspections, add a counter for services checks recorded with non-compliance.
+Add a checkbox of non-compliance in the Observations attribute, and call it "Infracción". If the service has non-compliance, turn all the Service Check into red background. Under Service Inspections, add a counter for services checks recorded with non-compliance.
 
 Viendo los resultados positivos, se le pide que permita cargar o subir directamente la planilla de cálculo excel y autocomplete los campos uno por uno, con persistencia de datos y base de datos mediante:
 
-> Please, add a function to upload an .xlsx document with the spreadsheet fields: Nombre, Día, Lugar, Sentido, Grupo, Operador, Código, Máquina, Hora, Status, Cantidades, Sector, Observación. Nombre, Día, Lugar, Sentido, are rows in the xlsx document. Grupo, Operador, Código, Máquina, Hora, Status, Cantidades, Sector, Observación, are columns in the xlsx document. Please admit lowercase and uppercase indistinctly. 
+> Please, add a function to upload an .xlsx document with the spreadsheet fields: Nombre, Día, Lugar, Sentido, Grupo, Operador, Código, Máquina, Hora, Status, Cantidades, Sector, Observación. Nombre, Día, Lugar, Sentido, are rows in the xlsx document. Grupo, Operador, Código, Máquina, Hora, Status, Cantidades, Sector, Observación, are columns in the xlsx document. Please accept lowercase and uppercase field names indistinctly (field matching case-insensitive).
 Fill automatically all the daily form in their respective attributes: Name, Date, Place of Work; and for every Service Inspection: Group Number, Service Code, Operator Name, Machine Number, Time, Status, Quantities, Address of Sector, Observations.
 
-> Status Variance attribute have the format mm:ss. If the xlsx document uploaded have Status field in +mm, -mm, +mm:ss, -mm:ss, (+mm:ss), (-mm:ss), extract the exact values to fill the Status Variance. 
+> Status Variance attribute has the format mm:ss. If the xlsx document uploaded has Status field in +mm, -mm, +mm:ss, -mm:ss, (+mm:ss), (-mm:ss), extract the exact values to fill the Status Variance. 
 Examples: (+02:30) → 2 minutes 30 seconds early, (-01:45) → 1 minute 45 seconds late, +3:30  → 3 minutes 30 seconds early, -2:00 → 2 minutes 00 seconds late.
 
 > Add a calendar to visualize saved forms in every day.
