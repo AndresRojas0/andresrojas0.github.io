@@ -1,14 +1,16 @@
 ---
-title: PROYECTO GESTIÓN PEDIDOS
+title: APLICACIÓN - CARGANDO PEDIDOS I
 layout: post.njk
 slug: post-2
 image: /images/post-2.svg
 tags: post
 ---
-  
-## INTRODUCCIÓN
+
+# APLICACIÓN - CARGANDO PEDIDOS I
 
 > ⚠☢☣ ␀ EN CONSTRUCCIÓN ␀ ☣☢⚠
+
+## INTRODUCCIÓN
 
 ### ESTRUCTURA DE DATOS
 

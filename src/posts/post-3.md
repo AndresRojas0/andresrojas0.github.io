@@ -1,12 +1,17 @@
 ---
-title: PROYECTO GESTIÓN PEDIDOS - VARIANTE
+title: APLICACIÓN - CARGANDO PEDIDOS II
 layout: post.njk
 slug: post-3
 image: /images/post-2.svg
 tags: post
 ---
 
-## PROYECTO GESTIÓN DE PEDIDOS
+# APLICACIÓN - CARGANDO PEDIDOS II
+
+> ⚠☢☣ ␀ EN CONSTRUCCIÓN ␀ ☣☢⚠
+
+## INTRODUCCIÓN
+
 ### UTILIZANDO FLASK + MYSQL
 
 ### ACERCA 

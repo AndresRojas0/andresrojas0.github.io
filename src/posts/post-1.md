@@ -10,7 +10,7 @@ tags: post
 
 <a name="introduction"></a>
 
-## TABLA DE CONTENIDOS
+## INDICE
 1. [INTRODUCCIÓN](#introduction)
 2. [USANDO IA PARA PROPONER MEJORAS](#part-1-1)
 3. [ESTRUCTURA GENERAL DE DATOS](#part-1-2)
