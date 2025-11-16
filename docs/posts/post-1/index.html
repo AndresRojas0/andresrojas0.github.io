@@ -32,6 +32,7 @@
 
   <div>
     <h1>INCURSIÓN EN EL USO DE IA</h1>
+<p><a name="introduction"></a></p>
 <h2>TABLA DE CONTENIDOS</h2>
 <ol>
 <li><a href="#introduction">INTRODUCCIÓN</a></li>
@@ -39,13 +40,12 @@
 <li><a href="#part-1-2">ESTRUCTURA GENERAL DE DATOS</a></li>
 <li><a href="#part-2-1">CREANDO CON IA</a></li>
 </ol>
-<p><a name="introduction"></a></p>
 <h2>INTRODUCCIÓN</h2>
 <p>Con el surgimiento del <strong>modelo extenso de lenguaje</strong> o LLM (<em>Large Language Model</em>) en 2018, definido formalmente como un modelo de lenguaje de aprendizaje profundo que consta de una red neuronal* con muchos parámetros (normalmente miles de millones o más) entrenados en grandes cantidades de texto sin etiquetar mediante aprendizaje autosupervisado o aprendizaje semisupervisado, entendiéndose esta definición como un tipo de <strong>inteligencia artificial</strong> (IA) entrenado con grandes cantidades de datos para entender y generar lenguaje humano de manera natural, se marca un hito en la historia y el inicio de un exponencial crecimiento, masividad y versatilidad de aplicaciones con IA generativa capaces de realizar tareas como escribir texto en lenguaje humano, traducir texto, responder preguntas, mantener diálogos, resumir, analizar y además escribir instrucciones y código en lenguajes de programación.
-<br>
-<em>(*) El concepto de red neuronal surge en 1943 al desarrollarse el primer modelo matemático de una neurona, posteriormente aparecen los conceptos de perceptrón, perceptrón multicapa, red neuronal prealimentada, red neuronal convolucional (Neocognitron), esta última mejorada en 1998 (backpropagation algorithm) y con posterior refinamiento e implementación en unidades de procesamiento gráfico en 2012.</em></p>
-<h2>PARTE I</h2>
+<br></p>
+<p><em>(*) El concepto de red neuronal surge en 1943 al desarrollarse el primer modelo matemático de una neurona, posteriormente aparecen los conceptos de perceptrón, perceptrón multicapa, red neuronal prealimentada, red neuronal convolucional (Neocognitron), esta última mejorada en 1998 (backpropagation algorithm) y con posterior refinamiento e implementación en unidades de procesamiento gráfico en 2012.</em></p>
 <p><a name="part-1-1"></a></p>
+<h2>PARTE I</h2>
 <h3>USANDO IA PARA PROPONER MEJORAS</h3>
 <p>Pensemos el siguiente <a href="##" title="⚠ El escenario planteado está basado en una actividad laboral real. Los nombres de los campos han sido modificados deliberadamente. ⚠">escenario</a>: como empleado en una pyme tengo la tarea de recorrer un área y realizar una serie de verificaciones puntuales, para ello dispongo de una planilla de cálculo (en documento excel) que debo completar con mi trabajo diario, estructurado en un encabezado con filas y debajo un cuerpo con columnas, todas con sus campos claramente identificados:</p>
 <h3>Filas</h3>
@@ -74,6 +74,7 @@
 </blockquote>
 <p>Cómo podríamos proponer una mejora a este procedimiento? Con un primer &quot;prompt&quot; (comando o instrucción) como el anterior y agregando el documento excel, todo dentro de una nueva conversación con herramienta conversacional IA (ChatGPT, Claude, Gemini, o la de preferencia) usando el navegador de una computadora o aplicación de teléfono móvil. Inmediatamente la IA analiza el documento, genera los scripts para poder &quot;leerlo&quot; y responde con un primer resultado.</p>
 <p><a name="part-1-2"></a></p>
+<h2>PARTE I (CONT)</h2>
 <h3>ESTRUCTURA GENERAL DE DATOS</h3>
 <p>En este caso, la IA tiene problemas al intentar analizar la planilla de cálculo...</p>
 <blockquote>
@@ -295,8 +296,8 @@ Observations (if necessary).»</p>
 <p>Además de responder con exactamente la estructura de datos de la planilla de cálculo y mostrar un ejemplo con datos (ficticios), puede ampliar la respuesta con las especificaciones de qué datos maneja cada campo, lógicas o reglas de negocio, validación de datos de cada campo y restricciones, y una estructura adicional de estadísticas diarias basadas en la planilla original.
 <br>
 Con esto, estamos listos para avanzar al siguiente paso.</p>
-<h2>PARTE II</h2>
 <p><a name="part-2-1"></a></p>
+<h2>PARTE II</h2>
 <h3>CREANDO CON IA</h3>
 <p>Buscando alguna herramienta de IA que genera <u>componentes de interfaz de usuario</u> a partir de descripciones en lenguaje natural, inicio un nuevo hilo de conversación pero esta vez con <strong>Vercel V0</strong>. Sin vueltas, se le pide que a partir de la estructura de datos creada anteriormente cree una aplicación web <em>mobile first</em> para registrar trabajo diario:</p>
 <blockquote>

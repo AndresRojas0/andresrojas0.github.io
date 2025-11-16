@@ -8,23 +8,24 @@ tags: post
 
 # INCURSIÓN EN EL USO DE IA
 
+<a name="introduction"></a>
+
 ## TABLA DE CONTENIDOS
 1. [INTRODUCCIÓN](#introduction)
 2. [USANDO IA PARA PROPONER MEJORAS](#part-1-1)
 3. [ESTRUCTURA GENERAL DE DATOS](#part-1-2)
 4. [CREANDO CON IA](#part-2-1)
 
-<a name="introduction"></a>
-
 ## INTRODUCCIÓN 
 
 Con el surgimiento del **modelo extenso de lenguaje** o LLM (*Large Language Model*) en 2018, definido formalmente como un modelo de lenguaje de aprendizaje profundo que consta de una red neuronal* con muchos parámetros (normalmente miles de millones o más) entrenados en grandes cantidades de texto sin etiquetar mediante aprendizaje autosupervisado o aprendizaje semisupervisado, entendiéndose esta definición como un tipo de **inteligencia artificial** (IA) entrenado con grandes cantidades de datos para entender y generar lenguaje humano de manera natural, se marca un hito en la historia y el inicio de un exponencial crecimiento, masividad y versatilidad de aplicaciones con IA generativa capaces de realizar tareas como escribir texto en lenguaje humano, traducir texto, responder preguntas, mantener diálogos, resumir, analizar y además escribir instrucciones y código en lenguajes de programación.
 <br>
+
 *(\*) El concepto de red neuronal surge en 1943 al desarrollarse el primer modelo matemático de una neurona, posteriormente aparecen los conceptos de perceptrón, perceptrón multicapa, red neuronal prealimentada, red neuronal convolucional (Neocognitron), esta última mejorada en 1998 (backpropagation algorithm) y con posterior refinamiento e implementación en unidades de procesamiento gráfico en 2012.*
 
-## PARTE I
-
 <a name="part-1-1"></a>
+
+## PARTE I
 
 ### USANDO IA PARA PROPONER MEJORAS 
 
@@ -55,6 +56,8 @@ Al finalizar la jornada, <u>cada planilla completada es enviada por correo elect
 Cómo podríamos proponer una mejora a este procedimiento? Con un primer "prompt" (comando o instrucción) como el anterior y agregando el documento excel, todo dentro de una nueva conversación con herramienta conversacional IA (ChatGPT, Claude, Gemini, o la de preferencia) usando el navegador de una computadora o aplicación de teléfono móvil. Inmediatamente la IA analiza el documento, genera los scripts para poder "leerlo" y responde con un primer resultado. 
 
 <a name="part-1-2"></a>
+
+## PARTE I (CONT)
 
 ### ESTRUCTURA GENERAL DE DATOS 
 
@@ -283,9 +286,9 @@ Además de responder con exactamente la estructura de datos de la planilla de c�
 <br>
 Con esto, estamos listos para avanzar al siguiente paso.
 
-## PARTE II
-
 <a name="part-2-1"></a>
+
+## PARTE II
 
 ### CREANDO CON IA 
 
