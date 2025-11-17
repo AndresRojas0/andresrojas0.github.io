@@ -4,6 +4,7 @@ layout: post.njk
 slug: post-1
 image: /images/post-1.svg
 tags: post
+date: 2025-07-11
 ---
 
 # INICIACIÓN - USANDO IA
@@ -59,7 +60,7 @@ Cómo podríamos proponer una mejora a este procedimiento? Con un primer "prompt
 
 <a name="part-1-2"></a>
 
-## PARTE I (CONT)
+## PARTE I (Cont.)
 
 ### ESTRUCTURA GENERAL DE DATOS 
 

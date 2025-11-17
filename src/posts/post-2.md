@@ -4,6 +4,7 @@ layout: post.njk
 slug: post-2
 image: /images/post-2.svg
 tags: post
+date: 2025-07-11
 ---
 
 # APLICACIÓN - CARGANDO PEDIDOS I
