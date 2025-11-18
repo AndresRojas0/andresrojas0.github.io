@@ -4,7 +4,7 @@ layout: post.njk
 slug: post-1
 image: /images/post-1.svg
 tags: post
-date: 2025-07-11
+date: 2025-07-19 23:43:00
 ---
 
 # INICIACIÓN - USANDO IA

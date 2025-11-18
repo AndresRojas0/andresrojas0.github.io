@@ -309,8 +309,46 @@ article h2 a:hover {
     text-decoration: underline;
 }
 
+/* Post item layout - horizontal with image on right */
+.post-item {
+    display: flex;
+    gap: var(--space-lg);
+    align-items: flex-start;
+}
+
+.post-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.post-thumbnail {
+    flex-shrink: 0;
+    width: 120px;
+}
+
+.post-thumbnail a {
+    display: block;
+}
+
+.post-thumbnail img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.post-thumbnail img:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
 @media (min-width: 768px) {
     .post-date {
         font-size: 0.9em;
+    }
+    
+    .post-thumbnail {
+        width: 180px;
     }
 }

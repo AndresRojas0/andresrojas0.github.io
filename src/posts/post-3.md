@@ -1,10 +1,10 @@
 ---
-title: APLICACIÓN - CARGANDO PEDIDOS II
+title: APLICACIÓN - CARGA PEDIDOS II
 layout: post.njk
 slug: post-3
 image: /images/post-2.svg
 tags: post
-date: 2025-07-11
+date: 2025-09-01 23:00:00
 ---
 
 # APLICACIÓN - CARGANDO PEDIDOS II
