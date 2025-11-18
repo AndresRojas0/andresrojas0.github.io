@@ -52,6 +52,8 @@ Pensemos el siguiente [escenario](## "⚠ El escenario planteado está basado en
 * Sector
 * Observaciones
 
+El campo Tipo de Planilla se completa con un nombre fijo "Planilla de Trabajo Diario". Fecha, Nombre de empleado y Lugar de Trabajo son campos triviales. Totales es el resultado de sumar los registros desde columna Cantidades. En la columna Grupo se coloca un código alfanumérico. En columna Operador, el nombre del operador. En Máquina el número identificador de máquina. En Hora la hora exacta de verificación. En Estado un estado en minutos y segundos, positivo o negativo o cero. En Cantidad un número entero mayor o igual a cero. En Sector una ubicación en palabras. Observaciones opcionalmente se completa con un breve texto de observaciones realizadas.
+
 Al finalizar la jornada, <u>cada planilla completada es enviada por correo electrónico</u> a un encargado o superior, para ser descargadas una por una en una computadora y luego revisadas, nuevamente una por una...
 
 >«Can you create a general data structure from this excel?»
@@ -288,7 +290,7 @@ javascript
 }
 ```
 
-Además de responder con exactamente la estructura de datos de la planilla de cálculo y mostrar un ejemplo con datos (ficticios), puede ampliar la respuesta con las especificaciones de qué datos maneja cada campo, lógicas o reglas de negocio, validación de datos de cada campo y restricciones, y una estructura adicional de estadísticas diarias basadas en la planilla original.
+Además de obtener como resultado la estructura de datos de la planilla de cálculo y mostrar un ejemplo con datos (ficticios), se puede pedir ampliar la respuesta con las especificaciones de qué datos maneja cada campo, validación de datos de cada campo y restricciones, lógicas o reglas de negocio, y una estructura adicional de estadísticas diarias basadas en la planilla original.
 <br>
 Con esto, estamos listos para avanzar al siguiente paso.
 
@@ -298,7 +300,7 @@ Con esto, estamos listos para avanzar al siguiente paso.
 
 ### CREANDO CON IA 
 
-Buscando alguna herramienta de IA que genera <u>componentes de interfaz de usuario</u> a partir de descripciones en lenguaje natural, inicio un nuevo hilo de conversación pero esta vez con **Vercel V0**. Sin vueltas, se le pide que a partir de la estructura de datos creada anteriormente cree una aplicación web *mobile first* para registrar trabajo diario:
+Buscando alguna herramienta de IA que genera <u>componentes de interfaz de usuario</u> a partir de descripciones en lenguaje natural, se inicia un nuevo hilo de conversación pero esta vez con **Vercel V0**. Sin vueltas, se le pide que a partir de la estructura de datos creada anteriormente cree una aplicación web *mobile first* para registrar trabajo diario:
 
 > Hey there. Can you make a web mobile first for register my daily work? The data structure I use is shown below.
 

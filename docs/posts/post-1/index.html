@@ -73,6 +73,7 @@
 <li>Sector</li>
 <li>Observaciones</li>
 </ul>
+<p>El campo Tipo de Planilla se completa con un nombre fijo &quot;Planilla de Trabajo Diario&quot;. Fecha, Nombre de empleado y Lugar de Trabajo son campos triviales. Totales es el resultado de sumar los registros desde columna Cantidades. En la columna Grupo se coloca un código alfanumérico. En columna Operador, el nombre del operador. En Máquina el número identificador de máquina. En Hora la hora exacta de verificación. En Estado un estado en minutos y segundos, positivo o negativo o cero. En Cantidad un número entero mayor o igual a cero. En Sector una ubicación en palabras. Observaciones opcionalmente se completa con un breve texto de observaciones realizadas.</p>
 <p>Al finalizar la jornada, <u>cada planilla completada es enviada por correo electrónico</u> a un encargado o superior, para ser descargadas una por una en una computadora y luego revisadas, nuevamente una por una...</p>
 <blockquote>
 <p>«Can you create a general data structure from this excel?»</p>
@@ -301,13 +302,13 @@ Observations (if necessary).»</p>
   }
 }
 </code></pre>
-<p>Además de responder con exactamente la estructura de datos de la planilla de cálculo y mostrar un ejemplo con datos (ficticios), puede ampliar la respuesta con las especificaciones de qué datos maneja cada campo, lógicas o reglas de negocio, validación de datos de cada campo y restricciones, y una estructura adicional de estadísticas diarias basadas en la planilla original.
+<p>Además de obtener como resultado la estructura de datos de la planilla de cálculo y mostrar un ejemplo con datos (ficticios), se puede pedir ampliar la respuesta con las especificaciones de qué datos maneja cada campo, validación de datos de cada campo y restricciones, lógicas o reglas de negocio, y una estructura adicional de estadísticas diarias basadas en la planilla original.
 <br>
 Con esto, estamos listos para avanzar al siguiente paso.</p>
 <p><a name="part-2-1"></a></p>
 <h2>PARTE II</h2>
 <h3>CREANDO CON IA</h3>
-<p>Buscando alguna herramienta de IA que genera <u>componentes de interfaz de usuario</u> a partir de descripciones en lenguaje natural, inicio un nuevo hilo de conversación pero esta vez con <strong>Vercel V0</strong>. Sin vueltas, se le pide que a partir de la estructura de datos creada anteriormente cree una aplicación web <em>mobile first</em> para registrar trabajo diario:</p>
+<p>Buscando alguna herramienta de IA que genera <u>componentes de interfaz de usuario</u> a partir de descripciones en lenguaje natural, se inicia un nuevo hilo de conversación pero esta vez con <strong>Vercel V0</strong>. Sin vueltas, se le pide que a partir de la estructura de datos creada anteriormente cree una aplicación web <em>mobile first</em> para registrar trabajo diario:</p>
 <blockquote>
 <p>Hey there. Can you make a web mobile first for register my daily work? The data structure I use is shown below.</p>
 </blockquote>
@@ -382,6 +383,7 @@ If the xlsx document uploaded have Observación field with a word &quot;INFRACCI
 </footer>
 </body>
 <script>
+  // Scroll header shrink effect
   window.addEventListener('scroll', function() {
     const header = document.querySelector('header');
     if (window.scrollY > 50) {
@@ -389,6 +391,32 @@ If the xlsx document uploaded have Observación field with a word &quot;INFRACCI
     } else {
       header.classList.remove('shrink');
     }
+  });
+
+  // Format dates in Spanish
+  document.addEventListener('DOMContentLoaded', function() {
+    const timeElements = document.querySelectorAll('time.post-date');
+    
+    const meses = [
+      'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+      'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'
+    ];
+    
+    timeElements.forEach(function(timeEl) {
+      const dateStr = timeEl.textContent.trim();
+      
+      // Try to parse the date (supports formats like 2025-07-11 or YYYY-MM-DD)
+      const date = new Date(dateStr);
+      
+      if (!isNaN(date.getTime())) {
+        const day = date.getDate();
+        const month = meses[date.getMonth()];
+        const year = date.getFullYear();
+        
+        timeEl.textContent = day + ' de ' + month + ' de ' + year;
+        timeEl.setAttribute('datetime', dateStr);
+      }
+    });
   });
 </script>
 </html>
