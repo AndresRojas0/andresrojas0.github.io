@@ -2,7 +2,7 @@
 title: APLICACIÓN - CARGA PEDIDOS II
 layout: post.njk
 slug: post-3
-image: /images/post-2.svg
+image: /images/post-3.svg
 tags: post
 date: 2025-09-01 23:00:00
 ---
