@@ -169,3 +169,7 @@ Se le pide que muestre reportes:
 Conserva las funcionalidades y botones actuales para generar reportes parciales. 
 Todo pedido podrá ser modificado hasta que se cierre el reporte (ya sea cierre automático de miércoles 10:59AM o al generar reporte parcial desde el botón). 
 Todo pedido incluido en un reporte generado, no deberá volver a incluirse en el reporte siguiente. 
+
+1. [INTRODUCCIÓN](#introduction)
+2. [ESTRUCTURA DE DATOS](#part-1-1)
+3. [CREANDO CON IA](#part-2-1)
