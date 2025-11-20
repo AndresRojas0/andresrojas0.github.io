@@ -9,13 +9,28 @@ date: 2025-07-23 23:07:00
 
 # APLICACIÓN - CARGANDO PEDIDOS I
 
-> ⚠☢☣ ␀ EN CONSTRUCCIÓN ␀ ☣☢⚠
+<a name="introduction"></a>
+
+## INDICE
+1. [INTRODUCCIÓN](#introduction)
+2. [ESTRUCTURA DE DATOS](#part-1-1)
+3. [CREANDO CON IA](#part-2-1)
 
 ## INTRODUCCIÓN
 
+### NARRATIVA DEL CASO
+
+Un vendedor lleva una cartera de clientes de rubros ferretería, general y otros. Diariamente recibe pedidos de clientes los cuales consisten en: número de cliente, datos del cliente, detalle listando productos (título y descripción) con sus cantidades. 
+Semanalmente los días miércoles el vendedor cierra los pedidos y ya no pueden modificarse, al mismo tiempo inicia otra semana de nuevos pedidos (de miércoles a miércoles). El origen de los productos es el stock y otros son pedidos a proveedores. Para cerrar el ciclo pedido-entrega-cobro se genera un remito con los productos que van a ser entregados, sus precios al cliente y la fecha probable de entrega del remito-pedido. Si los productos del remito-pedido abarcan exactamente los del pedido se marca con estado cerrado-completo, si los productos del remito-pedido abarcan cada uno de los productos pero no alcanzan en sus cantidades se marca con estado cerrado-limitado y si los productos del remito-pedido no cubren todos los productos del pedido se marca con estado cerrado-incompleto. En cada caso se deberá regitrar en pedidos-faltantes la diferencia entre el remito y su pedido relacionado (remito-pedido). 
+El vendedor es responsable de crear, leer, modificar y eliminar las categorías codificadas de productos, las imágenes codificadas de productos, los proveedores codificados de productos, y los productos codificados los cuales deberán admitir subida masiva desde planilla de cálculo excel. 
+
+<a name="part-1-1"></a>
+
+## PARTE I
+
 ### ESTRUCTURA DE DATOS
 
-Resumiendo, las instrucciones o prompts dados son:  
+Se inicia una conversación con **ChatGPT**. La instrucción dada es: 
 
 > Necesito una estructura de datos JSON a partir de esta información:
 > Tabla CLIENTE = cliente_id + nombre + domicilio + teléfono + CUIL
@@ -124,9 +139,13 @@ La respuesta obtenida:
 }
 ```
 
+<a name="part-2-1"></a>
+
+## PARTE II
+
 ### CREANDO CON IA
 
-Utilizando la herramienta V0 de Vercel para iniciar una conversación y adjuntar la estructura de datos anterior:
+Se inicia una conversación con **V0**. Las instrucciones o *prompts* enviados son: 
 
 > Hola! Puedes hacer una aplicación web mobile first para: crear y modificar listas de productos desde archivo excel o manualmente, crear y actualizar lista de clientes, registrar y modificar pedidos de clientes, y generar reportes semanales usando como referencia la estructura de datos adjunta. Los reportes deberán ser almacenados y podrán consultarse en listados ordenados por fecha desde el más reciente hacia el menos reciente, ordenando también los pedidos.
 
@@ -137,6 +156,16 @@ Utilizando la herramienta V0 de Vercel para iniciar una conversación y adjuntar
 > Todos los productos en cuya descripción contenga la palabra "CABLE" o "cable" su atributo "unidad_medida" debe ser igual a "metros".
 
 > Otros campos que se encuentren en el documento excel no serán tenidos en cuenta para llenar la lista de productos.
->
 
- 
+Adjuntar la estructura obtenida en ChatGPT. También se le pide una base de datos para almacenar toda la información, y una barra de navegación simple y responsiva. 
+
+Se le pide que muestre reportes: 
+
+> Necesito un Reporte Semanal de Productos que contenga la totalidad de los productos pedidos con sus número de artículo y su descripción, la cantidad total de cada uno de ellos, ordenados por número artículo, separados por su proveedor con nombre de cada proveedor. Pedidos debe tener un atributo "fecha_pedido". Necesito un Reporte Semanal de Pedidos con los pedidos ordenados por su fecha, el nombre cliente y la lista de productos y cantidades en cada pedido. 
+
+> Dentro de Reportes de Pedidos, necesito que se pueda leer el pedido completo de cada cliente, con todos sus productos. En Pedidos, al modificar o eliminar un Pedido, debe impactar y generar automaticamente los nuevos Reportes (General, de Productos y de Pedidos), modificando los valores de los pedidos o eliminandolos segun sea el caso.Crear el reporte en formato excel para descargar desde la flecha de descarga dentro de cada uno de los Reportes, usando la flecha del extremo superior derecho de los mismos.
+
+> Todos los días miércoles a las 10:59AM necesito generar automáticamente el reporte general, el reporte de produtos por proveedor y el reporte de pedidos, en base a todos los pedidos generados desde las 11:00AM del miércoles anterior. 
+Conserva las funcionalidades y botones actuales para generar reportes parciales. 
+Todo pedido podrá ser modificado hasta que se cierre el reporte (ya sea cierre automático de miércoles 10:59AM o al generar reporte parcial desde el botón). 
+Todo pedido incluido en un reporte generado, no deberá volver a incluirse en el reporte siguiente. 
