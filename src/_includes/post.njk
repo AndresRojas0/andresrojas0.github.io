@@ -3,17 +3,15 @@ layout: base.njk
 ---
 
 <article>
+  {% if image %}
+    <img src="{{ image }}" alt="{{ title }}">
+  {% endif %}
+
   <h1>{{ title }}</h1>
   
   {% if date %}
-    <time class="post-date">{{ date }}</time>
-  {% endif %}
-   
-  {% if image %}
-    <img src="{{ image }}" alt="{{ title }}" width="600">
+    <time class="post-date" datetime="{{ date }}">{{ date }}</time>
   {% endif %}
 
-  <div>
-    {{ content | safe }}
-  </div>
+  {{ content | safe }}
 </article>

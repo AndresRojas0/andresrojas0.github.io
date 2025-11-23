@@ -1,27 +1,23 @@
 ---
 layout: base.njk
-
+title: AAI | IAA
 ---
 
-Usando IA como pasatiempo y aprendiendo...
+Hola, mi nombre es Andrés y soy un entusiasta de la inteligencia artificial. En este espacio comparto mi experiencia usando IA como pasatiempo y herramienta de aprendizaje, explorando sus aplicaciones prácticas en el desarrollo de software, análisis de datos y automatización de procesos.
+
+## Escritura
+
+<div class="writing-section">
 
 {% for post in collections.post %}
-  <article class="post-item">
-    <div class="post-content">
-    <h2><a href="/posts/{{ post.data.slug }}/">{{ post.data.title }}</a></h2>
+<span class="year-marker">{% if post.data.date %}({{ post.data.date | date: '%Y' }}){% endif %}</span>
 
-    {% if post.data.date %}
-    <time class="post-date">{{ post.data.date }}</time>
-    {% endif %}
-    </div>
+[{{ post.data.title }}](/posts/{{ post.data.slug }}/)
 
-    {% if post.data.image %}
-    <div class="post-thumbnail">
-    <a href="/posts/{{ post.data.slug }}/">
-      <img src="{{ post.data.image }}" alt="{{ post.data.title }}">
-    </a>
-    </div>
-    {% endif %}
-
-  </article>
 {% endfor %}
+
+</div>
+
+## Contacto
+
+* GitHub: [@andresrojas0](https://github.com/andresrojas0)
