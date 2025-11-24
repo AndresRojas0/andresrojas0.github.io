@@ -1,175 +1,369 @@
 ---
-title: APLICACIÓN - CARGA PEDIDOS I
+title: Iniciación - Usando IA
 layout: post.njk
 slug: post-2
-image: /images/post-2.svg
+image: /images/blog-post.svg
 tags: post
-date: 2025-07-23 23:07:00
+date: 2025-07-19 23:43:00
 ---
 
-# APLICACIÓN - CARGANDO PEDIDOS I
+# INICIACIÓN - USANDO IA
 
 <a name="introduction"></a>
 
 ## INDICE
 1. [INTRODUCCIÓN](#introduction)
-2. [ESTRUCTURA DE DATOS](#part-1-1)
-3. [CREANDO CON IA](#part-2-1)
+2. [USANDO IA PARA PROPONER MEJORAS](#part-1-1)
+3. [ESTRUCTURA GENERAL DE DATOS](#part-1-2)
+4. [CREANDO CON IA](#part-2-1)
 
-## INTRODUCCIÓN
+## INTRODUCCIÓN 
 
-### NARRATIVA DEL CASO
+Con el surgimiento del **modelo extenso de lenguaje** o LLM (*Large Language Model*) en 2018, definido formalmente como un modelo de lenguaje de aprendizaje profundo que consta de una red neuronal* con muchos parámetros (normalmente miles de millones o más) entrenados en grandes cantidades de texto sin etiquetar mediante aprendizaje autosupervisado o aprendizaje semisupervisado, entendiéndose esta definición como un tipo de **inteligencia artificial** (IA) entrenado con grandes cantidades de datos para entender y generar lenguaje humano de manera natural, se marca un hito en la historia y el inicio de un exponencial crecimiento, masividad y versatilidad de aplicaciones con IA generativa capaces de realizar tareas como escribir texto en lenguaje humano, traducir texto, responder preguntas, mantener diálogos, resumir, analizar y además escribir instrucciones y código en lenguajes de programación.
+<br>
 
-Un vendedor lleva una cartera de clientes de rubros ferretería, general y otros. Diariamente recibe pedidos de clientes los cuales consisten en: número de cliente, datos del cliente, detalle listando productos (título y descripción) con sus cantidades. 
-Semanalmente los días miércoles el vendedor cierra los pedidos y ya no pueden modificarse, al mismo tiempo inicia otra semana de nuevos pedidos (de miércoles a miércoles). El origen de los productos es el stock y otros son pedidos a proveedores. Para cerrar el ciclo pedido-entrega-cobro se genera un remito con los productos que van a ser entregados, sus precios al cliente y la fecha probable de entrega del remito-pedido. Si los productos del remito-pedido abarcan exactamente los del pedido se marca con estado cerrado-completo, si los productos del remito-pedido abarcan cada uno de los productos pero no alcanzan en sus cantidades se marca con estado cerrado-limitado y si los productos del remito-pedido no cubren todos los productos del pedido se marca con estado cerrado-incompleto. En cada caso se deberá regitrar en pedidos-faltantes la diferencia entre el remito y su pedido relacionado (remito-pedido). 
-El vendedor es responsable de crear, leer, modificar y eliminar las categorías codificadas de productos, las imágenes codificadas de productos, los proveedores codificados de productos, y los productos codificados los cuales deberán admitir subida masiva desde planilla de cálculo excel. 
+*(\*) El concepto de red neuronal surge en 1943 al desarrollarse el primer modelo matemático de una neurona, posteriormente aparecen los conceptos de perceptrón, perceptrón multicapa, red neuronal prealimentada, red neuronal convolucional (Neocognitron), esta última mejorada en 1998 (backpropagation algorithm) y con posterior refinamiento e implementación en unidades de procesamiento gráfico en 2012.*
 
 <a name="part-1-1"></a>
 
 ## PARTE I
 
-### ESTRUCTURA DE DATOS
+### USANDO IA PARA PROPONER MEJORAS 
 
-Se inicia una conversación con **ChatGPT**. La instrucción dada es: 
+Pensemos el siguiente [escenario](## "⚠ El escenario planteado está basado en una actividad laboral real. Los nombres de los campos han sido modificados deliberadamente. ⚠")*: como empleado en una pyme tengo la tarea de recorrer un área y realizar una serie de verificaciones puntuales, para ello dispongo de una planilla de cálculo (en documento excel) que debo completar con mi trabajo diario, estructurado en un encabezado con filas y debajo un cuerpo con columnas, todas con sus campos claramente identificados: 
 
-> Necesito una estructura de datos JSON a partir de esta información:
-> Tabla CLIENTE = cliente_id + nombre + domicilio + teléfono + CUIL
-> Tabla PRODUCTO = articulo_numero + producto_codigo + descripción + unidad_medida + proveedor_id
-> Tabla PROVEEDOR = proveedor_id + proveedor_nombre
-> Tabla PEDIDO = pedido_id + articulo_numero + producto_codigo + cantidad + cliente_id
-> Una regla de negocio es que los productos se identifican por articulo_numero y producto_codigo, los cuales provienen de otro sistema y son cargados manualmente.
-> Un CLIENTE puede realizar uno o mas pedidos durante la misma semana.
-> Un PEDIDO tiene uno y solo un CLIENTE, pero contiene minimo un PRODUCTO.
+*(\*)⚠ El escenario planteado está basado en una actividad laboral real. Los nombres de los campos han sido modificados deliberadamente. ⚠*
 
-> Necesito una estructura para REPORTE_PEDIDOS que sea una lista de todos los pedidos hasta una fecha límite de cierre, por ejemplo todos los miércoles a las 11hs AM UTC-3.
+### Filas
+* Tipo de planilla:
+* Fecha:
+* Nombre empleado:
+* Lugar de trabajo:
+* Totales:
 
-> Necesito una estructura para REPORTE_PRODUCTOS que sea una lista de todos los productos de los pedidos reportados en REPORTE_PEDIDOS hasta la misma fecha límite de cierre, con la cantidad total de cada uno de dichos productos.
+### Columnas
+* Grupo
+* Operador
+* Código
+* Máquina
+* Hora
+* Estado
+* Cantidad/Cantidades
+* Sector
+* Observaciones
 
-La respuesta obtenida: 
+El campo Tipo de Planilla se completa con un nombre fijo "Planilla de Trabajo Diario". Fecha, Nombre de empleado y Lugar de Trabajo son campos triviales. Totales es el resultado de sumar los registros desde columna Cantidades. En la columna Grupo se coloca un código alfanumérico. En columna Operador, el nombre del operador. En Máquina el número identificador de máquina. En Hora la hora exacta de verificación. En Estado un estado en minutos y segundos, positivo o negativo o cero. En Cantidad un número entero mayor o igual a cero. En Sector una ubicación en palabras. Observaciones opcionalmente se completa con un breve texto de observaciones realizadas.
+
+Al finalizar la jornada, <u>cada planilla completada es enviada por correo electrónico</u> a un encargado o superior, para ser descargadas una por una en una computadora y luego revisadas, nuevamente una por una...
+
+>«Can you create a general data structure from this excel?»
+
+Cómo podríamos proponer una mejora a este procedimiento? Con un primer "prompt" (comando o instrucción) como el anterior y agregando el documento excel, todo dentro de una nueva conversación con herramienta conversacional IA (ChatGPT, Claude, Gemini, o la de preferencia) usando el navegador de una computadora o aplicación de teléfono móvil. Inmediatamente la IA analiza el documento, genera los scripts para poder "leerlo" y responde con un primer resultado. 
+
+<a name="part-1-2"></a>
+
+## PARTE I (Cont.)
+
+### ESTRUCTURA GENERAL DE DATOS 
+
+Una **estructura de datos** es según la enciclopedia una forma particular de organizar información para que pueda ser utilizada de manera eficiente. Más precisamente, una estructura de datos es una <u>colección de valores, las relaciones entre ellos y las funciones y operaciones que se pueden aplicar a los datos</u>, es decir, es una estructura algebraica de datos. 
+En este caso la denominamos *general* pues partimos de una representación de una planilla de cálculo hacia una estructura de datos más específica.
+<br>
+Continuando con el desarrollo, la IA tiene problemas al intentar analizar la planilla de cálculo...
+
+> «I'll analyze the Excel file to understand its structure and create a general data structure representation for you.»
 
 ```
-{
-  "fecha_corte": "2025-07-23T11:00:00-03:00",
-  "pedidos": [
-    {
-      "pedido_id": 101,
-      "cliente": {
-        "cliente_id": 1,
-        "nombre": "Juan Pérez",
-        "domicilio": "Calle Falsa 123",
-        "telefono": "123456789",
-        "CUIL": "20-12345678-9"
-      },
-      "productos": [
-        {
-          "articulo_numero": 5001,
-          "producto_codigo": "A-1001",
-          "descripcion": "Caja de tornillos",
-          "unidad_medida": "unidad",
-          "cantidad": 5,
-          "proveedor": {
-            "proveedor_id": 10,
-            "proveedor_nombre": "Acme S.A."
-          }
-        },
-        {
-          "articulo_numero": 5002,
-          "producto_codigo": "A-1002",
-          "descripcion": "Llave inglesa",
-          "unidad_medida": "unidad",
-          "cantidad": 2,
-          "proveedor": {
-            "proveedor_id": 11,
-            "proveedor_nombre": "Herramientas SRL"
-          }
+javascript
+
+// Read and analyze the Excel file
+import * as XLSX from 'xlsx';
+
+const response = await window.fs.readFile('PLANILLA.xlsx');
+const workbook = XLSX.read(response, {
+    cellStyles: true,
+    cellFormulas: true,
+    cellDates: true,
+    cellNF: true,
+    sheetStubs: true
+});
+
+// Explore workbook structure
+console.log("Workbook metadata:");
+console.log(workbook.Workbook);
+
+console.log("\nSheet names:");
+console.log(workbook.SheetNames);
+
+// Analyze each sheet
+workbook.SheetNames.forEach((sheetName, index) => {
+    console.log(`\n=== Sheet ${index + 1}: ${sheetName} ===`);
+    const worksheet = workbook.Sheets[sheetName];
+    
+    // Get sheet metadata (properties starting with '!')
+    const metadata = {};
+    Object.keys(worksheet).forEach(key => {
+        if (key.startsWith('!')) {
+            metadata[key] = worksheet[key];
         }
-      ]
-    },
-    {
-      "pedido_id": 102,
-      "cliente": {
-        "cliente_id": 2,
-        "nombre": "María Gómez",
-        "domicilio": "Av. Siempre Viva 742",
-        "telefono": "987654321",
-        "CUIL": "27-87654321-0"
-      },
-      "productos": [
-        {
-          "articulo_numero": 5001,
-          "producto_codigo": "A-1001",
-          "descripcion": "Caja de tornillos",
-          "unidad_medida": "unidad",
-          "cantidad": 10,
-          "proveedor": {
-            "proveedor_id": 10,
-            "proveedor_nombre": "Acme S.A."
-          }
-        }
-      ]
+    });
+    console.log("Sheet metadata:", metadata);
+    
+    // Convert to JSON to see structure
+    const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, defval: null });
+    console.log(`Dimensions: ${jsonData.length} rows`);
+    
+    if (jsonData.length > 0) {
+        console.log("First few rows:");
+        jsonData.slice(0, Math.min(10, jsonData.length)).forEach((row, i) => {
+            console.log(`Row ${i}:`, row);
+        });
     }
-  ]
-}
+});
+```
+
+Mensajes de error mediante, la siguiente respuesta fue: 
+
+> «I've created a general data structure template for inspection checklists based on the filename you provided. The structure covers the typical components found in daily work forms:»
+> * Document metadata and identification
+> * General information about the inspection (date, inspector, location)
+> * Subject details (what's being inspected)
+> * Inspection items with status tracking
+> * Summary and assessment results
+> * Required actions and follow-up
+> * Signatures for validation
+
+
+> «This structure is flexible and can accommodate various types of inspections (safety, health, quality, compliance, etc.). The data types and validation rules ensure consistency and proper integration with other systems.»
+
+```
+javascript
+
 {
-  "fecha_corte": "2025-07-23T11:00:00-03:00",
-  "productos": [
-    {
-      "articulo_numero": 5001,
-      "producto_codigo": "A-1001",
-      "descripcion": "Caja de tornillos",
-      "unidad_medida": "unidad",
-      "cantidad_total": 15,
-      "proveedor": {
-        "proveedor_id": 10,
-        "proveedor_nombre": "Acme S.A."
+  // Document metadata
+  inspectionForm: {
+    documentInfo: {
+      title: "Planilla de Trabajo",
+      date: "2025-07-10",
+      version: "string",
+      formId: "string"
+    },
+    
+    // General information section
+    generalInfo: {
+      inspectionId: "string",
+      inspectionDate: "date",
+      inspector: {
+        name: "string",
+        id: "string",
+        certification: "string"
+      },
+      location: {
+        address: "string",
+        coordinates: "object",
+        zone: "string"
+      },
+      inspectionType: "string", // routine, complaint-based, follow-up, etc.
+      weather: "string"
+    },
+    
+    // Subject being inspected
+    inspectedEntity: {
+      name: "string",
+      type: "string", // business, facility, equipment, etc.
+      license: "string",
+      contact: {
+        person: "string",
+        phone: "string",
+        email: "string"
       }
     },
-    {
-      "articulo_numero": 5002,
-      "producto_codigo": "A-1002",
-      "descripcion": "Llave inglesa",
-      "unidad_medida": "unidad",
-      "cantidad_total": 2,
-      "proveedor": {
-        "proveedor_id": 11,
-        "proveedor_nombre": "Herramientas SRL"
-      }
-    }
-  ]
+    
+    // Inspection items/checklist
+    inspectionItems: [
+      {
+        category: "string",
+        itemId: "string",
+        description: "string",
+        requirement: "string",
+        status: "string", // compliant, non-compliant, not-applicable, pending
+        observations: "string",
+        photos: ["string"], // photo references
+        correctionRequired: "boolean",
+        deadline: "date"
+      }
+    ],
+    
+    // Overall assessment
+    summary: {
+      totalItems: "number",
+      compliantItems: "number",
+      nonCompliantItems: "number",
+      overallStatus: "string",
+      riskLevel: "string", // low, medium, high
+      followUpRequired: "boolean",
+      followUpDate: "date"
+    },
+    
+    // Actions and recommendations
+    actions: [
+      {
+        type: "string", // correction, warning, fine, closure
+        description: "string",
+        deadline: "date",
+        responsible: "string",
+        status: "string"
+      }
+    ],
+    
+    // Signatures and approvals
+    signatures: {
+      inspector: {
+        name: "string",
+        signature: "string",
+        date: "date"
+      },
+      inspected: {
+        name: "string",
+        position: "string",
+        signature: "string",
+        date: "date"
+      }
+    }
+  }
 }
 ```
+
+Esta estructura de datos puede ser útil pero resulta «genérica» para el caso. Se le vuelve a escribir, indicando cuáles son los campos de la planilla excel de trabajo:
+
+> «Good job. In every DAILY WORK FORM we have: 
+Title: DAILY WORK FORM. 
+Employee name. 
+Date of the day. 
+Place of work (city or address). 
+And we have a list of service checks, each entry containing the following fields:
+Group number.
+Operator name.
+Service code.
+Machine number.
+Exact hour of control.
+Status.
+Quantities.
+Address of sector.
+Observations (if necessary).»
+
+Su respuesta certera:
+
+> «Perfect! Let me update the data structure to reflect the specific requirements for your DAILY WORK FORM for what appears to be a work inspection system.»
+
+```
+javascript
+
+{
+  dailyWorkForm: {
+    // Form header information
+    formHeader: {
+      title: "DAILY WORK FORM",
+      employeeName: "string",
+      date: "YYYY-MM-DD", // Date of the day
+      placeOfWork: "string" // City or address
+    },
+    
+    // List of inspections
+    serviceChecks: [
+      {
+        groupNumber: "string", // Group identifier
+        operatorName: "string",
+        serviceCode: "string", // Service identifier
+        machineNumber: "string", // Macine number
+        exactHourOfControl: "HH:MM:SS", // Time format
+        status: {
+          minutes: "number", // Positive for late, negative for early
+          status: "string" // "on-time", "ahead", "late"
+        },
+        quantities: "number",
+        addressOfSector: "string",
+        observations: "string" // Optional field
+      }
+    ]
+  }
+}
+```
+
+Además de obtener como resultado la estructura de datos de la planilla de cálculo y mostrar un ejemplo con datos (ficticios), se puede pedir ampliar la respuesta con las especificaciones de qué datos maneja cada campo, validación de datos de cada campo y restricciones, lógicas o reglas de negocio, y una estructura adicional de estadísticas diarias basadas en la planilla original.
+<br>
+Con esto, estamos listos para avanzar al siguiente paso.
 
 <a name="part-2-1"></a>
 
 ## PARTE II
 
-### CREANDO CON IA
+### CREANDO CON IA 
 
-Se inicia una conversación con **V0**. Las instrucciones o *prompts* enviados son: 
+Buscando alguna herramienta de IA que genera <u>componentes de interfaz de usuario</u> a partir de descripciones en lenguaje natural, se inicia un nuevo hilo de conversación pero esta vez con **Vercel V0**. Sin vueltas, se le pide que a partir de la estructura de datos creada anteriormente cree una aplicación web *mobile first* para registrar trabajo diario:
 
-> Hola! Puedes hacer una aplicación web mobile first para: crear y modificar listas de productos desde archivo excel o manualmente, crear y actualizar lista de clientes, registrar y modificar pedidos de clientes, y generar reportes semanales usando como referencia la estructura de datos adjunta. Los reportes deberán ser almacenados y podrán consultarse en listados ordenados por fecha desde el más reciente hacia el menos reciente, ordenando también los pedidos.
+> Hey there. Can you make a web mobile first for register my daily work? The data structure I use is shown below.
 
-> Además, al subir un archivo excel para crear o modificar la lista de productos, que sepa interpretar: un campo "Nº Artículo" o "Art." es equivalente a "Artículo" y se corresponde con el atributo "articulo_numero", un campo "Desc" o "Descripcion" o "Descripciom" es equivalente a "Descripción" y se corresponde con el atributo "descripcion", un campo "Cod" o "Codigo" es equivalente a "Código" y se corresponde con el atributo "producto_codigo".
+Inmediatamente inserto la estructura de datos creada anteriormente:
 
-> Si en el documento excel no se encuentra un campo, por ejemplo Codigo Producto, completar el atributo "producto_codigo" con espacio en blanco.
+```
+{
+  dailyWorkForm: {
+    // Form header information
+    formHeader: {
+      title: "DAILY WORK FORM",
+      employeeName: "string",
+      date: "YYYY-MM-DD", // Date of the day
+      placeOfWork: "string" // City or address
+    },
+    
+    // List of inspections
+    serviceChecks: [
+      {
+        groupNumber: "string", // Group identifier
+        operatorName: "string",
+        serviceCode: "string", // Service identifier
+        machineNumber: "string", // Machine number
+        exactHourOfControl: "HH:MM:SS", // Time format
+        status: {
+          minutes: "number", // Positive for late, negative for early
+          status: "string" // "on-time", "ahead", "late"
+        },
+        quantities: "number",
+        addressOfSector: "string",
+        observations: "string" // Optional field
+      }
+    ]
+  }
+}
+```
 
-> Todos los productos en cuya descripción contenga la palabra "CABLE" o "cable" su atributo "unidad_medida" debe ser igual a "metros".
+Y algunas condiciones:
 
-> Otros campos que se encuentren en el documento excel no serán tenidos en cuenta para llenar la lista de productos.
+> Status criteria: negative = late (yellow color), positive = early (from 2 onwards, red color), 0 = on-time (between 0 and 1min 59sec, green color).
+Add a checkbox of non-compliance in the Observations attribute, and call it "Infracción". If the service has non-compliance, turn all the Service Check into red background. Under Service Inspections, add a counter for services checks recorded with non-compliance.
 
-Adjuntar la estructura obtenida en ChatGPT. También se le pide una base de datos para almacenar toda la información, y una barra de navegación simple y responsiva. 
+Viendo los resultados positivos, se le pide que permita cargar o subir directamente la planilla de cálculo excel y autocomplete los campos uno por uno, con persistencia de datos y base de datos mediante:
 
-Se le pide que muestre reportes: 
+> Please, add a function to upload an .xlsx document with the spreadsheet fields: Nombre, Día, Lugar, Sentido, Grupo, Operador, Código, Máquina, Hora, Status, Cantidades, Sector, Observación. Nombre, Día, Lugar, Sentido, are rows in the xlsx document. Grupo, Operador, Código, Máquina, Hora, Status, Cantidades, Sector, Observación, are columns in the xlsx document. Please accept lowercase and uppercase field names indistinctly (field matching case-insensitive).
+Fill automatically all the daily form in their respective attributes: Name, Date, Place of Work; and for every Service Inspection: Group Number, Service Code, Operator Name, Machine Number, Time, Status, Quantities, Address of Sector, Observations.
 
-> Necesito un Reporte Semanal de Productos que contenga la totalidad de los productos pedidos con sus número de artículo y su descripción, la cantidad total de cada uno de ellos, ordenados por número artículo, separados por su proveedor con nombre de cada proveedor. Pedidos debe tener un atributo "fecha_pedido". Necesito un Reporte Semanal de Pedidos con los pedidos ordenados por su fecha, el nombre cliente y la lista de productos y cantidades en cada pedido. 
+> Status Variance attribute has the format mm:ss. If the xlsx document uploaded has Status field in +mm, -mm, +mm:ss, -mm:ss, (+mm:ss), (-mm:ss), extract the exact values to fill the Status Variance. 
+Examples: (+02:30) → 2 minutes 30 seconds early, (-01:45) → 1 minute 45 seconds late, +3:30  → 3 minutes 30 seconds early, -2:00 → 2 minutes 00 seconds late.
 
-> Dentro de Reportes de Pedidos, necesito que se pueda leer el pedido completo de cada cliente, con todos sus productos. En Pedidos, al modificar o eliminar un Pedido, debe impactar y generar automaticamente los nuevos Reportes (General, de Productos y de Pedidos), modificando los valores de los pedidos o eliminandolos segun sea el caso.Crear el reporte en formato excel para descargar desde la flecha de descarga dentro de cada uno de los Reportes, usando la flecha del extremo superior derecho de los mismos.
+> Add a calendar to visualize saved forms in every day.
+In Recent Inspections Forms add a Delete functionality for a selectd form.
+In Recent Inspections Forms, in View Details, add Observations attribute, if it empty show "None". 
+If the xlsx document uploaded have Observación field with a word "INFRACCIÓN" or "Infracción" or "infracción", check the non-compliance box in their respective services.
 
-> Todos los días miércoles a las 10:59AM necesito generar automáticamente el reporte general, el reporte de produtos por proveedor y el reporte de pedidos, en base a todos los pedidos generados desde las 11:00AM del miércoles anterior. 
-Conserva las funcionalidades y botones actuales para generar reportes parciales. 
-Todo pedido podrá ser modificado hasta que se cierre el reporte (ya sea cierre automático de miércoles 10:59AM o al generar reporte parcial desde el botón). 
-Todo pedido incluido en un reporte generado, no deberá volver a incluirse en el reporte siguiente. 
+Se puede agregar algunas estadísticas en un panel de control o *dashboard*:
+
+> In Dashboard, in overview show me the top 10 of most used lineOrRouteNumber, and the top 20 of most used addressOfStop, in the current month.
+
+Este tipo de conversación se puede extender tanto como uno quiera y crea necesario, corrigiendo errores de interpretación, aprendiendo a escribir de forma objetiva para reducir errores, proponiendo e intercambiando ideas... Con algunas instrucciones como las vistas, *prompts* claros y concisos se logran resultados sorprendentes. No hay límites para poner creatividad con estas herramientas.
+
 
 1. [INTRODUCCIÓN](#introduction)
-2. [ESTRUCTURA DE DATOS](#part-1-1)
-3. [CREANDO CON IA](#part-2-1)
+2. [USANDO IA PARA PROPONER MEJORAS](#part-1-1)
+3. [ESTRUCTURA GENERAL DE DATOS](#part-1-2)
+4. [CREANDO CON IA](#part-2-1)

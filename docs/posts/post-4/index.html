@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="AAI|IAA Arise with AI|IA para aprender">
+    <meta name="description" content="This AAI|IAA page shares the experience of a AI user.">
+    <meta name="robots" content="index, follow" />
+    <title>Aplicación - Carga Pedidos v2</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+</head>
+<body>
+  <header>
+    <h1>AAI | IAA</h1>
+    <nav>
+        <a href="/">Inicio</a>
+        <a href="/pages/about">Acerca</a>
+        <a href="/pages/contact">Contacto</a>
+    </nav>
+</header>
+
+  <main>
+    
+<div class="article-with-sidebar">
+  
+  <aside class="table-of-contents">
+    
+    <div class="table-of-contents-header">
+      <h2>Índice</h2>
+      <span class="table-of-contents-toggle">▾</span>
+    </div>
+    
+    
+    <div class="table-of-contents-content">
+      <nav aria-label="Índice del artículo">
+        
+      </nav>
+    </div>
+  </aside>
+
+  
+  <article>
+    
+      <img src="/images/construction.svg" alt="Aplicación - Carga Pedidos v2">
+    
+
+    <h1>Aplicación - Carga Pedidos v2</h1>
+    
+    
+      <time class="post-date" datetime="Mon Sep 01 2025 20:00:00 GMT-0300 (hora estándar de Argentina)">Mon Sep 01 2025 20:00:00 GMT-0300 (hora estándar de Argentina)</time>
+    
+
+    <h1>APLICACIÓN - CARGANDO PEDIDOS II</h1>
+<blockquote>
+<p>⚠☢☣ ␀ EN CONSTRUCCIÓN ␀ ☣☢⚠</p>
+</blockquote>
+<h2>INTRODUCCIÓN</h2>
+<h3>UTILIZANDO FLASK + MYSQL</h3>
+<h3>ACERCA</h3>
+<p>Desarrollo de plataforma de pedidos con catálogo de productos, imágenes representativas, detalle de productos y filtros por categorías de productos. Parte del desarrollo (frontend) se encuentra en otro repositorio <a href="https://github.com/lucho-39/punto-ferretero-front">https://github.com/lucho-39/punto-ferretero-front</a> y se puede acceder a su despliegue a través del enlace <a href="https://punto-ferretero-front.vercel.app/">https://punto-ferretero-front.vercel.app/</a></p>
+<h3>CONTENIDO</h3>
+<p>Implementación de Python como lenguaje de desarrollo backend a través del framework Flask. Implementación de base de datos relacionales con MySQL. Implementación de arquitectura API-REST</p>
+<h3>DESARROLLO</h3>
+<p>A través del manejo de bases de datos relacionales con MySQL se aborda el modelado de los datos. Luego, introduciendo Python como lenguaje de programación, se desarrolla la lógica de negocio requerida y a través de Flask se revisa el patrón Model Template View (MTV) y se implementa el desarrollo de una interfaz de programación de aplicación con la arquitectura de transferencia de estado representacional (API-REST por sus siglas en inglés).</p>
+<h3>REGLAS</h3>
+<p>Administrador ingresa a la aplicación backend y carga en base de datos en tabla Productos los productos desde una hoja de cálculos excel con los campos: Proveedor (código proveedor), Artículo (opcional), Código (opcional), Descripción, Categoría (cero, una o varias palabras &quot;tags&quot; separadas por comas, es opcional), Imagen (URL de imagen representativa o nulo, es opcional).  Administrador puede volver a cargar en tabla Productos desde otra hoja de cálculos excel (respetando los campos) sin que se generen duplicados en la tabla y para ello el sistema backend deberá avisar cuál o cuáles productos ya existen en dicha tabla, permitiendo al Administrador confirmar si sobreescribe el contenido modificando los productos existentes, o sólo carga los productos que aún no existen en la tabla, o ambas cosas. Un Producto puede tener cero, una o muchas categorías. Mostrar la o las categorías en la vista Productos.  La aplicación backend genera los API endpoints necesarios para el frontend para lo siguiente: Un Cliente ingresa a la aplicación frontend y realiza una selección de productos y cantidades, filtrando por categorías de productos. Una vez seleccionados los productos y sus cantidades se dirige al subsitio carrito de compras, elimina productos o modifica sus cantidades y confirma la Orden de Pedido. Una Orden de Pedido confirmada dispara un mensaje por whatsapp al vendedor con los datos de la Orden de Pedido. El vendedor realiza un Remito para un cliente con los productos, sus cantidades y precio por unidad. El Remito para un cliente puede diferir de la Orden de Pedido. Si en el Remito hay productos con cantidad igual a cero, se genera un reporte faltante de pedido para el vendedor con los productos que no van a ser entregados. Si en el Remito hay productos con cantidad menor a la de Orden de Pedido, se genera un reporte faltante de pedido para el vendedor con los productos cuya cantidad no alcanza la de Orden de Pedido. Si en el Remito están todos los productos y sus cantidades iguales a Orden de Pedido, el reporte faltante de pedido no se genera, no hay faltantes.  Administrador debe poder realizar CRUD en Productos, Categorias, Imagenes, Proveedores, Clientes, Orden_Pedido, Remito.  Faltante_Pedido debe adecuarse automáticamente a las modificaciones realizadas en la relación Orden_Pedido y Remito.</p>
+<h3>ESTRUCTURA</h3>
+<pre><code>Producto = id + (articulo) + (codigo) + descripcion + 0{categoria_id}n + (imagen_id) + proveedor_id
+Categoria = id + nombre + unidadImagen = id + URL + textoProveedor = id + codigo + nombre + observaciones
+Cliente = id + nombre + domicilio + CUIT + clave_bancaria + alias_virtual
+Orden_Pedido = id + cliente_id + 1{producto_id + cantidad}n
+Remito = id + cliente_id + 1{producto_id + cantidad + precio_unitario}n + fecha_entrega + factura_tipo
+Faltante_Pedido = id + pedido_id + 0{producto_id + cantidad}n
+</code></pre>
+
+  </article>
+</div>
+  </main>
+  <hr class="fleuron" />
+
+<footer>
+    <p>Arise with IA | IA para Aprender &copy; 2025</p>
+</footer>
+
+
+  
+  <script>
+    // Scroll header shrink effect
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.classList.add('shrink');
+      } else {
+        header.classList.remove('shrink');
+      }
+    });
+
+    // Format dates in Spanish
+    document.addEventListener('DOMContentLoaded', function() {
+      const timeElements = document.querySelectorAll('time.post-date');
+      
+      const meses = [
+        'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+        'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'
+      ];
+      
+      timeElements.forEach(function(timeEl) {
+        const dateStr = timeEl.textContent.trim();
+        
+        // Try to parse the date (supports formats like 2025-07-11 or YYYY-MM-DD)
+        const date = new Date(dateStr);
+        
+        if (!isNaN(date.getTime())) {
+          const day = date.getDate();
+          const month = meses[date.getMonth()];
+          const year = date.getFullYear();
+          
+          timeEl.textContent = day + ' de ' + month + ' de ' + year;
+          timeEl.setAttribute('datetime', dateStr);
+        }
+      });
+    });
+  </script>
+
+  
+  <script src="/js/sidebar.js"></script>
+</body>
+</html>
