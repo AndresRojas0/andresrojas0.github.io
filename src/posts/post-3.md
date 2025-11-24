@@ -11,14 +11,13 @@ date: 2025-07-23 23:07:00
 
 <a name="introduction"></a>
 
-## INDICE
 1. [INTRODUCCIÓN](#introduction)
 2. [ESTRUCTURA DE DATOS](#part-1-1)
 3. [CREANDO CON IA](#part-2-1)
 
-## INTRODUCCIÓN
+## Introducción
 
-### NARRATIVA DEL CASO
+### Narrativa del caso
 
 Un vendedor lleva una cartera de clientes de rubros ferretería, general y otros. Diariamente recibe pedidos de clientes los cuales consisten en: número de cliente, datos del cliente, detalle listando productos (título y descripción) con sus cantidades. 
 Semanalmente los días miércoles el vendedor cierra los pedidos y ya no pueden modificarse, al mismo tiempo inicia otra semana de nuevos pedidos (de miércoles a miércoles). El origen de los productos es el stock y otros son pedidos a proveedores. Para cerrar el ciclo pedido-entrega-cobro se genera un remito con los productos que van a ser entregados, sus precios al cliente y la fecha probable de entrega del remito-pedido. Si los productos del remito-pedido abarcan exactamente los del pedido se marca con estado cerrado-completo, si los productos del remito-pedido abarcan cada uno de los productos pero no alcanzan en sus cantidades se marca con estado cerrado-limitado y si los productos del remito-pedido no cubren todos los productos del pedido se marca con estado cerrado-incompleto. En cada caso se deberá regitrar en pedidos-faltantes la diferencia entre el remito y su pedido relacionado (remito-pedido). 
@@ -26,9 +25,9 @@ El vendedor es responsable de crear, leer, modificar y eliminar las categorías 
 
 <a name="part-1-1"></a>
 
-## PARTE I
+## Parte I
 
-### ESTRUCTURA DE DATOS
+### Estructura de datos
 
 Se inicia una conversación con **ChatGPT**. La instrucción dada es: 
 
@@ -141,9 +140,9 @@ La respuesta obtenida:
 
 <a name="part-2-1"></a>
 
-## PARTE II
+## Parte II
 
-### CREANDO CON IA
+### Creando con IA
 
 Se inicia una conversación con **V0**. Las instrucciones o *prompts* enviados son: 
 

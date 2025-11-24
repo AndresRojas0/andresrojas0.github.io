@@ -11,23 +11,23 @@ date: 2025-09-01 23:00:00
 
 > ⚠☢☣ ␀ EN CONSTRUCCIÓN ␀ ☣☢⚠
 
-## INTRODUCCIÓN
+## Introducción
 
-### UTILIZANDO FLASK + MYSQL
+### Utilizando Flask + MySQL
 
-### ACERCA 
+### Acerca
 Desarrollo de plataforma de pedidos con catálogo de productos, imágenes representativas, detalle de productos y filtros por categorías de productos. Parte del desarrollo (frontend) se encuentra en otro repositorio [https://github.com/lucho-39/punto-ferretero-front](https://github.com/lucho-39/punto-ferretero-front) y se puede acceder a su despliegue a través del enlace [https://punto-ferretero-front.vercel.app/](https://punto-ferretero-front.vercel.app/)  
 
-### CONTENIDO
+### Contenido
 Implementación de Python como lenguaje de desarrollo backend a través del framework Flask. Implementación de base de datos relacionales con MySQL. Implementación de arquitectura API-REST 
 
-### DESARROLLO
+### Desarrollo
 A través del manejo de bases de datos relacionales con MySQL se aborda el modelado de los datos. Luego, introduciendo Python como lenguaje de programación, se desarrolla la lógica de negocio requerida y a través de Flask se revisa el patrón Model Template View (MTV) y se implementa el desarrollo de una interfaz de programación de aplicación con la arquitectura de transferencia de estado representacional (API-REST por sus siglas en inglés). 
 
-### REGLAS 
+### Reglas
 Administrador ingresa a la aplicación backend y carga en base de datos en tabla Productos los productos desde una hoja de cálculos excel con los campos: Proveedor (código proveedor), Artículo (opcional), Código (opcional), Descripción, Categoría (cero, una o varias palabras "tags" separadas por comas, es opcional), Imagen (URL de imagen representativa o nulo, es opcional).  Administrador puede volver a cargar en tabla Productos desde otra hoja de cálculos excel (respetando los campos) sin que se generen duplicados en la tabla y para ello el sistema backend deberá avisar cuál o cuáles productos ya existen en dicha tabla, permitiendo al Administrador confirmar si sobreescribe el contenido modificando los productos existentes, o sólo carga los productos que aún no existen en la tabla, o ambas cosas. Un Producto puede tener cero, una o muchas categorías. Mostrar la o las categorías en la vista Productos.  La aplicación backend genera los API endpoints necesarios para el frontend para lo siguiente: Un Cliente ingresa a la aplicación frontend y realiza una selección de productos y cantidades, filtrando por categorías de productos. Una vez seleccionados los productos y sus cantidades se dirige al subsitio carrito de compras, elimina productos o modifica sus cantidades y confirma la Orden de Pedido. Una Orden de Pedido confirmada dispara un mensaje por whatsapp al vendedor con los datos de la Orden de Pedido. El vendedor realiza un Remito para un cliente con los productos, sus cantidades y precio por unidad. El Remito para un cliente puede diferir de la Orden de Pedido. Si en el Remito hay productos con cantidad igual a cero, se genera un reporte faltante de pedido para el vendedor con los productos que no van a ser entregados. Si en el Remito hay productos con cantidad menor a la de Orden de Pedido, se genera un reporte faltante de pedido para el vendedor con los productos cuya cantidad no alcanza la de Orden de Pedido. Si en el Remito están todos los productos y sus cantidades iguales a Orden de Pedido, el reporte faltante de pedido no se genera, no hay faltantes.  Administrador debe poder realizar CRUD en Productos, Categorias, Imagenes, Proveedores, Clientes, Orden_Pedido, Remito.  Faltante_Pedido debe adecuarse automáticamente a las modificaciones realizadas en la relación Orden_Pedido y Remito.  
 
-### ESTRUCTURA
+### Estructura
 
 ```
 Producto = id + (articulo) + (codigo) + descripcion + 0{categoria_id}n + (imagen_id) + proveedor_id

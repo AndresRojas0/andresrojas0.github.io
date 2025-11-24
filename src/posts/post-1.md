@@ -8,7 +8,7 @@ description: Una exploración profunda de las herramientas de IA generativa y su
 image: /images/generative-ai-2.svg
 ---
 
-## Introducción
+## [Introducción](## "⚠ Este artículo fue escrito por IA en base al contenido del sitio. ⚠")*
 
 La inteligencia artificial generativa ha revolucionado la forma en que trabajamos con tecnología. En este artículo exploraremos sus fundamentos, aplicaciones prácticas y el futuro de esta tecnología transformadora.
 
@@ -226,6 +226,8 @@ Para quienes deseen profundizar en este campo, recomiendo:
 La IA generativa está aquí para quedarse, y aquellos que aprendan a trabajar efectivamente con ella estarán mejor posicionados para prosperar en el futuro digital.
 
 ---
+
+*(\*)⚠ Este artículo fue escrito por IA en base al contenido del sitio. ⚠*
 
 **Recursos adicionales**:
 

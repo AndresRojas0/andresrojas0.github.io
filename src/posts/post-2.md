@@ -11,13 +11,12 @@ date: 2025-07-19 23:43:00
 
 <a name="introduction"></a>
 
-## INDICE
 1. [INTRODUCCIÓN](#introduction)
 2. [USANDO IA PARA PROPONER MEJORAS](#part-1-1)
 3. [ESTRUCTURA GENERAL DE DATOS](#part-1-2)
 4. [CREANDO CON IA](#part-2-1)
 
-## INTRODUCCIÓN 
+## Introducción
 
 Con el surgimiento del **modelo extenso de lenguaje** o LLM (*Large Language Model*) en 2018, definido formalmente como un modelo de lenguaje de aprendizaje profundo que consta de una red neuronal* con muchos parámetros (normalmente miles de millones o más) entrenados en grandes cantidades de texto sin etiquetar mediante aprendizaje autosupervisado o aprendizaje semisupervisado, entendiéndose esta definición como un tipo de **inteligencia artificial** (IA) entrenado con grandes cantidades de datos para entender y generar lenguaje humano de manera natural, se marca un hito en la historia y el inicio de un exponencial crecimiento, masividad y versatilidad de aplicaciones con IA generativa capaces de realizar tareas como escribir texto en lenguaje humano, traducir texto, responder preguntas, mantener diálogos, resumir, analizar y además escribir instrucciones y código en lenguajes de programación.
 <br>
@@ -26,9 +25,9 @@ Con el surgimiento del **modelo extenso de lenguaje** o LLM (*Large Language Mod
 
 <a name="part-1-1"></a>
 
-## PARTE I
+## Parte I
 
-### USANDO IA PARA PROPONER MEJORAS 
+### Usando IA para proponer mejoras
 
 Pensemos el siguiente [escenario](## "⚠ El escenario planteado está basado en una actividad laboral real. Los nombres de los campos han sido modificados deliberadamente. ⚠")*: como empleado en una pyme tengo la tarea de recorrer un área y realizar una serie de verificaciones puntuales, para ello dispongo de una planilla de cálculo (en documento excel) que debo completar con mi trabajo diario, estructurado en un encabezado con filas y debajo un cuerpo con columnas, todas con sus campos claramente identificados: 
 
@@ -62,9 +61,9 @@ Cómo podríamos proponer una mejora a este procedimiento? Con un primer "prompt
 
 <a name="part-1-2"></a>
 
-## PARTE I (Cont.)
+## Parte I (Cont.)
 
-### ESTRUCTURA GENERAL DE DATOS 
+### Estructura general de datos
 
 Una **estructura de datos** es según la enciclopedia una forma particular de organizar información para que pueda ser utilizada de manera eficiente. Más precisamente, una estructura de datos es una <u>colección de valores, las relaciones entre ellos y las funciones y operaciones que se pueden aplicar a los datos</u>, es decir, es una estructura algebraica de datos. 
 En este caso la denominamos *general* pues partimos de una representación de una planilla de cálculo hacia una estructura de datos más específica.
@@ -296,9 +295,9 @@ Con esto, estamos listos para avanzar al siguiente paso.
 
 <a name="part-2-1"></a>
 
-## PARTE II
+## Parte II
 
-### CREANDO CON IA 
+### Creando con IA
 
 Buscando alguna herramienta de IA que genera <u>componentes de interfaz de usuario</u> a partir de descripciones en lenguaje natural, se inicia un nuevo hilo de conversación pero esta vez con **Vercel V0**. Sin vueltas, se le pide que a partir de la estructura de datos creada anteriormente cree una aplicación web *mobile first* para registrar trabajo diario:
 
