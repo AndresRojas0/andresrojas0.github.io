@@ -1,6 +1,7 @@
 /* ============================================
    Keleshev-Inspired Minimalist Design
    Tipografía editorial, layout centrado, ornamentos
+   + SIDEBAR HÍBRIDO (Flotante Desktop + Plegable Mobile)
    ============================================ */
 
 /* Separadores decorativos con ornamentos tipográficos */
@@ -363,55 +364,6 @@ footer a {
 .circled-numbers ol li:nth-child(9)::before { content: '❾'; position: absolute; left: 0.75em; font-family: monospace; }
 .circled-numbers ol li:nth-child(10)::before { content: '❿'; position: absolute; left: 0.75em; font-family: monospace; }
 
-/* Responsive: Mobile */
-@media (max-width: 768px) {
-    body {
-        font-size: 17px;
-        padding: 0 15px;
-        width: 100%;
-    }
-    
-    header {
-        margin: 3rem 0;
-    }
-    
-    h1 {
-        font-size: 1.75em;
-    }
-    
-    h2 {
-        font-size: 1.35em;
-    }
-    
-    .post-item {
-        flex-direction: column;
-        gap: 1em;
-    }
-    
-    .post-thumbnail {
-        width: 100%;
-        max-width: 200px;
-        margin: 0 auto;
-    }
-    
-    blockquote {
-        padding: 1em;
-    }
-    
-    pre {
-        padding-left: 0.8em;
-        font-size: 0.85em;
-    }
-}
-
-/* Responsive: Tablet */
-@media (min-width: 769px) and (max-width: 1024px) {
-    body {
-        width: 90%;
-        max-width: 700px;
-    }
-}
-
 /* Mejoras de legibilidad */
 ::selection {
     background: rgba(4, 85, 145, 0.2);
@@ -461,4 +413,334 @@ main {
     content: "";
     display: table;
     clear: both;
+}
+
+
+/* ============================================
+   SIDEBAR HÍBRIDO
+   Mobile: Índice plegable superior
+   Desktop: Sidebar flotante lateral
+   ============================================ */
+
+/* Contenedor principal */
+.article-with-sidebar {
+    position: relative;
+}
+
+/* ============================================
+   MOBILE: Índice Plegable Superior (<1200px)
+   ============================================ */
+
+.table-of-contents {
+    display: block;
+    margin: 0 0 2em 0;
+    border: 2.5px solid black;
+    background: white;
+}
+
+/* Header del índice (clickeable para expandir/colapsar) */
+.table-of-contents-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 1.2em;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.table-of-contents-header:hover {
+    background: rgba(4, 85, 145, 0.05);
+}
+
+.table-of-contents-header h2 {
+    margin: 0;
+    font-size: 0.95em;
+    font-weight: 100;
+    font-style: normal;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Icono de toggle (▾ / ▸) */
+.table-of-contents-toggle {
+    font-size: 1.2em;
+    color: #666;
+    transition: transform 0.3s ease;
+    font-style: normal;
+}
+
+/* Cuando está colapsado */
+.table-of-contents.collapsed .table-of-contents-toggle {
+    transform: rotate(-90deg);
+}
+
+/* Contenido del índice */
+.table-of-contents-content {
+    max-height: 500px;
+    overflow-y: auto;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 1.2em 1.2em 1.2em;
+}
+
+/* Cuando está colapsado */
+.table-of-contents.collapsed .table-of-contents-content {
+    max-height: 0;
+    padding: 0 1.2em;
+    overflow: hidden;
+}
+
+/* Navegación del índice */
+.table-of-contents nav {
+    display: block;
+}
+
+.table-of-contents ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.table-of-contents li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Enlaces del índice - Mobile */
+.table-of-contents a {
+    display: block;
+    padding: 0.5em 0;
+    font-size: 0.9em;
+    line-height: 1.4;
+    color: #666;
+    text-decoration: none;
+    border-bottom: none;
+    transition: color 0.2s ease;
+}
+
+.table-of-contents a:visited {
+    color: #666;
+    border-bottom: none;
+}
+
+.table-of-contents a:hover {
+    color: #333;
+    border-bottom: none;
+}
+
+/* Enlace activo */
+.table-of-contents a.active {
+    color: #045591;
+    font-weight: normal;
+}
+
+/* Jerarquía h2 y h3 - Mobile */
+.table-of-contents ol ol {
+    padding-left: 1.5em;
+    margin-top: 0.25em;
+}
+
+.table-of-contents ol ol a {
+    font-size: 0.85em;
+    color: #888;
+}
+
+/* Evitar símbolo de enlace externo */
+.table-of-contents a:after {
+    content: '' !important;
+}
+
+/* Scrollbar para el contenido del índice */
+.table-of-contents-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.table-of-contents-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.table-of-contents-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+}
+
+
+/* ============================================
+   DESKTOP: Sidebar Flotante (≥1200px)
+   ============================================ */
+
+@media (min-width: 1200px) {
+    /* Ocultar header clickeable en desktop */
+    .table-of-contents-header {
+        display: none;
+    }
+    
+    /* Transformar en sidebar flotante */
+    .table-of-contents {
+        display: block;
+        position: fixed;
+        left: calc((100vw - 700px) / 2 - 250px);
+        top: 150px;
+        width: 220px;
+        max-height: calc(100vh - 200px);
+        margin: 0;
+        border: none;
+        background: transparent;
+    }
+    
+    /* Contenido siempre visible en desktop */
+    .table-of-contents-content {
+        max-height: none;
+        padding: 0;
+        padding-right: 20px;
+        overflow-y: auto;
+    }
+    
+    .table-of-contents.collapsed .table-of-contents-content {
+        max-height: none;
+        padding-right: 20px;
+        overflow-y: auto;
+    }
+    
+    /* Título del índice en desktop */
+    .table-of-contents-content::before {
+        content: 'Índice';
+        display: block;
+        font-size: 0.85em;
+        font-weight: 100;
+        font-style: normal;
+        margin: 0 0 1em 0;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    
+    /* Lista con borde lateral en desktop */
+    .table-of-contents ol {
+        border-left: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Enlaces con borde izquierdo en desktop */
+    .table-of-contents a {
+        padding: 0.4em 0 0.4em 1em;
+        font-size: 0.85em;
+        border-left: 2px solid transparent;
+        margin-left: -1px;
+    }
+    
+    .table-of-contents a:hover {
+        color: #333;
+        border-left-color: #333;
+    }
+    
+    .table-of-contents a.active {
+        color: #045591;
+        border-left-color: #045591;
+    }
+    
+    /* Jerarquía en desktop */
+    .table-of-contents ol ol {
+        border-left: none;
+        padding-left: 1em;
+    }
+    
+    .table-of-contents ol ol a {
+        font-size: 0.8em;
+        padding: 0.3em 0 0.3em 1em;
+        border-left: none;
+        color: #666;
+    }
+    
+    /* Scrollbar minimalista en desktop */
+    .table-of-contents-content::-webkit-scrollbar {
+        width: 3px;
+    }
+    
+    .table-of-contents-content::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    
+    .table-of-contents-content::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+    }
+}
+
+/* Pantallas muy grandes */
+@media (min-width: 1400px) {
+    .table-of-contents {
+        left: calc((100vw - 700px) / 2 - 280px);
+        width: 250px;
+    }
+}
+
+
+/* ============================================
+   RESPONSIVE: Mobile y Tablet
+   ============================================ */
+
+/* Responsive: Mobile */
+@media (max-width: 768px) {
+    body {
+        font-size: 17px;
+        padding: 0 15px;
+        width: 100%;
+    }
+    
+    header {
+        margin: 3rem 0;
+    }
+    
+    h1 {
+        font-size: 1.75em;
+    }
+    
+    h2 {
+        font-size: 1.35em;
+    }
+    
+    .post-item {
+        flex-direction: column;
+        gap: 1em;
+    }
+    
+    .post-thumbnail {
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
+    }
+    
+    blockquote {
+        padding: 1em;
+    }
+    
+    pre {
+        padding-left: 0.8em;
+        font-size: 0.85em;
+    }
+    
+    /* Índice más compacto en mobile */
+    .table-of-contents {
+        margin: 0 -15px 2em -15px;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .table-of-contents-header {
+        padding: 0.8em 1em;
+    }
+    
+    .table-of-contents-content {
+        padding: 0 1em 1em 1em;
+    }
+}
+
+/* Responsive: Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    body {
+        width: 90%;
+        max-width: 700px;
+    }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,18 +24,36 @@
 
   <main>
     
-<article>
+<div class="article-with-sidebar">
   
-    <img src="/images/post-3.svg" alt="APLICACIÓN - CARGA PEDIDOS II">
-  
+  <aside class="table-of-contents">
+    
+    <div class="table-of-contents-header">
+      <h2>Índice</h2>
+      <span class="table-of-contents-toggle">▾</span>
+    </div>
+    
+    
+    <div class="table-of-contents-content">
+      <nav aria-label="Índice del artículo">
+        
+      </nav>
+    </div>
+  </aside>
 
-  <h1>APLICACIÓN - CARGA PEDIDOS II</h1>
   
-  
-    <time class="post-date" datetime="Mon Sep 01 2025 20:00:00 GMT-0300 (hora estándar de Argentina)">Mon Sep 01 2025 20:00:00 GMT-0300 (hora estándar de Argentina)</time>
-  
+  <article>
+    
+      <img src="/images/post-3.svg" alt="APLICACIÓN - CARGA PEDIDOS II">
+    
 
-  <h1>APLICACIÓN - CARGANDO PEDIDOS II</h1>
+    <h1>APLICACIÓN - CARGA PEDIDOS II</h1>
+    
+    
+      <time class="post-date" datetime="Mon Sep 01 2025 20:00:00 GMT-0300 (hora estándar de Argentina)">Mon Sep 01 2025 20:00:00 GMT-0300 (hora estándar de Argentina)</time>
+    
+
+    <h1>APLICACIÓN - CARGANDO PEDIDOS II</h1>
 <blockquote>
 <p>⚠☢☣ ␀ EN CONSTRUCCIÓN ␀ ☣☢⚠</p>
 </blockquote>
@@ -58,7 +76,8 @@ Remito = id + cliente_id + 1{producto_id + cantidad + precio_unitario}n + fecha_
 Faltante_Pedido = id + pedido_id + 0{producto_id + cantidad}n
 </code></pre>
 
-</article>
+  </article>
+</div>
 
   </main>
   <hr class="fleuron" />
@@ -67,42 +86,47 @@ Faltante_Pedido = id + pedido_id + 0{producto_id + cantidad}n
     <p>Arise with IA | IA para Aprender &copy; 2025</p>
 </footer>
 
-</body>
-<script>
-  // Scroll header shrink effect
-  window.addEventListener('scroll', function() {
-    const header = document.querySelector('header');
-    if (window.scrollY > 50) {
-      header.classList.add('shrink');
-    } else {
-      header.classList.remove('shrink');
-    }
-  });
 
-  // Format dates in Spanish
-  document.addEventListener('DOMContentLoaded', function() {
-    const timeElements = document.querySelectorAll('time.post-date');
-    
-    const meses = [
-      'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
-      'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'
-    ];
-    
-    timeElements.forEach(function(timeEl) {
-      const dateStr = timeEl.textContent.trim();
-      
-      // Try to parse the date (supports formats like 2025-07-11 or YYYY-MM-DD)
-      const date = new Date(dateStr);
-      
-      if (!isNaN(date.getTime())) {
-        const day = date.getDate();
-        const month = meses[date.getMonth()];
-        const year = date.getFullYear();
-        
-        timeEl.textContent = day + ' de ' + month + ' de ' + year;
-        timeEl.setAttribute('datetime', dateStr);
+  
+  <script>
+    // Scroll header shrink effect
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.classList.add('shrink');
+      } else {
+        header.classList.remove('shrink');
       }
     });
-  });
-</script>
+
+    // Format dates in Spanish
+    document.addEventListener('DOMContentLoaded', function() {
+      const timeElements = document.querySelectorAll('time.post-date');
+      
+      const meses = [
+        'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+        'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'
+      ];
+      
+      timeElements.forEach(function(timeEl) {
+        const dateStr = timeEl.textContent.trim();
+        
+        // Try to parse the date (supports formats like 2025-07-11 or YYYY-MM-DD)
+        const date = new Date(dateStr);
+        
+        if (!isNaN(date.getTime())) {
+          const day = date.getDate();
+          const month = meses[date.getMonth()];
+          const year = date.getFullYear();
+          
+          timeEl.textContent = day + ' de ' + month + ' de ' + year;
+          timeEl.setAttribute('datetime', dateStr);
+        }
+      });
+    });
+  </script>
+
+  
+  <script src="/js/sidebar.js"></script>
+</body>
 </html>

@@ -2,16 +2,35 @@
 layout: base.njk
 ---
 
-<article>
-  {% if image %}
-    <img src="{{ image }}" alt="{{ title }}">
-  {% endif %}
+<div class="article-with-sidebar">
+  {# Índice híbrido: plegable en mobile, flotante en desktop #}
+  <aside class="table-of-contents">
+    {# Header clickeable (solo visible en mobile) #}
+    <div class="table-of-contents-header">
+      <h2>Índice</h2>
+      <span class="table-of-contents-toggle">▾</span>
+    </div>
+    
+    {# Contenido del índice (generado por JavaScript) #}
+    <div class="table-of-contents-content">
+      <nav aria-label="Índice del artículo">
+        {# El contenido se genera automáticamente #}
+      </nav>
+    </div>
+  </aside>
 
-  <h1>{{ title }}</h1>
-  
-  {% if date %}
-    <time class="post-date" datetime="{{ date }}">{{ date }}</time>
-  {% endif %}
+  {# Contenido principal del artículo #}
+  <article>
+    {% if image %}
+      <img src="{{ image }}" alt="{{ title }}">
+    {% endif %}
 
-  {{ content | safe }}
-</article>
+    <h1>{{ title }}</h1>
+    
+    {% if date %}
+      <time class="post-date" datetime="{{ date }}">{{ date }}</time>
+    {% endif %}
+
+    {{ content | safe }}
+  </article>
+</div>

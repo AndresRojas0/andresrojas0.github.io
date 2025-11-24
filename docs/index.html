@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,42 +45,47 @@
     <p>Arise with IA | IA para Aprender &copy; 2025</p>
 </footer>
 
-</body>
-<script>
-  // Scroll header shrink effect
-  window.addEventListener('scroll', function() {
-    const header = document.querySelector('header');
-    if (window.scrollY > 50) {
-      header.classList.add('shrink');
-    } else {
-      header.classList.remove('shrink');
-    }
-  });
 
-  // Format dates in Spanish
-  document.addEventListener('DOMContentLoaded', function() {
-    const timeElements = document.querySelectorAll('time.post-date');
-    
-    const meses = [
-      'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
-      'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'
-    ];
-    
-    timeElements.forEach(function(timeEl) {
-      const dateStr = timeEl.textContent.trim();
-      
-      // Try to parse the date (supports formats like 2025-07-11 or YYYY-MM-DD)
-      const date = new Date(dateStr);
-      
-      if (!isNaN(date.getTime())) {
-        const day = date.getDate();
-        const month = meses[date.getMonth()];
-        const year = date.getFullYear();
-        
-        timeEl.textContent = day + ' de ' + month + ' de ' + year;
-        timeEl.setAttribute('datetime', dateStr);
+  
+  <script>
+    // Scroll header shrink effect
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.classList.add('shrink');
+      } else {
+        header.classList.remove('shrink');
       }
     });
-  });
-</script>
+
+    // Format dates in Spanish
+    document.addEventListener('DOMContentLoaded', function() {
+      const timeElements = document.querySelectorAll('time.post-date');
+      
+      const meses = [
+        'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+        'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'
+      ];
+      
+      timeElements.forEach(function(timeEl) {
+        const dateStr = timeEl.textContent.trim();
+        
+        // Try to parse the date (supports formats like 2025-07-11 or YYYY-MM-DD)
+        const date = new Date(dateStr);
+        
+        if (!isNaN(date.getTime())) {
+          const day = date.getDate();
+          const month = meses[date.getMonth()];
+          const year = date.getFullYear();
+          
+          timeEl.textContent = day + ' de ' + month + ' de ' + year;
+          timeEl.setAttribute('datetime', dateStr);
+        }
+      });
+    });
+  </script>
+
+  
+  <script src="/js/sidebar.js"></script>
+</body>
 </html>
