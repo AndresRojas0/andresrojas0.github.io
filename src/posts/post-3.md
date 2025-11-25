@@ -148,6 +148,8 @@ Se inicia una conversación con **V0**. Las instrucciones o *prompts* enviados s
 
 > Hola! Puedes hacer una aplicación web mobile first para: crear y modificar listas de productos desde archivo excel o manualmente, crear y actualizar lista de clientes, registrar y modificar pedidos de clientes, y generar reportes semanales usando como referencia la estructura de datos adjunta. Los reportes deberán ser almacenados y podrán consultarse en listados ordenados por fecha desde el más reciente hacia el menos reciente, ordenando también los pedidos.
 
+![Inicio de la aplicación](/images/sistema-gestion-pedidos-inicio.svg "Una vista del inicio de la aplicación")
+
 > Además, al subir un archivo excel para crear o modificar la lista de productos, que sepa interpretar: un campo "Nº Artículo" o "Art." es equivalente a "Artículo" y se corresponde con el atributo "articulo_numero", un campo "Desc" o "Descripcion" o "Descripciom" es equivalente a "Descripción" y se corresponde con el atributo "descripcion", un campo "Cod" o "Codigo" es equivalente a "Código" y se corresponde con el atributo "producto_codigo".
 
 > Si en el documento excel no se encuentra un campo, por ejemplo Codigo Producto, completar el atributo "producto_codigo" con espacio en blanco.
@@ -155,6 +157,8 @@ Se inicia una conversación con **V0**. Las instrucciones o *prompts* enviados s
 > Todos los productos en cuya descripción contenga la palabra "CABLE" o "cable" su atributo "unidad_medida" debe ser igual a "metros".
 
 > Otros campos que se encuentren en el documento excel no serán tenidos en cuenta para llenar la lista de productos.
+
+![Importar Productos](/images/sistema-gestion-pedidos-importarproductos.svg "Sección Importar Productos desde planilla de cálculos")
 
 Adjuntar la estructura obtenida en ChatGPT. También se le pide una base de datos para almacenar toda la información, y una barra de navegación simple y responsiva. 
 
