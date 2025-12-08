@@ -57,7 +57,9 @@ Al finalizar la jornada, <u>cada planilla completada es enviada por correo elect
 
 >«Can you create a general data structure from this excel?»
 
-Cómo podríamos proponer una mejora a este procedimiento? Con un primer "prompt" (comando o instrucción) como el anterior y agregando el documento excel, todo dentro de una nueva conversación con herramienta conversacional IA (ChatGPT, Claude, Gemini, o la de preferencia) usando el navegador de una computadora o aplicación de teléfono móvil. Inmediatamente la IA analiza el documento, genera los scripts para poder "leerlo" y responde con un primer resultado. 
+¿Cómo podríamos proponer una mejora a este procedimiento? Podemos acercarnos a una solución creando una aplicación web que nos permita registrar o cargar las planillas de trabajo diario y procesarlas convenientemente. 
+
+Con un primer "prompt" (comando o instrucción) como el anterior y agregando el documento excel, todo dentro de una nueva conversación con herramienta conversacional IA (ChatGPT, Claude, Gemini, o la de preferencia) usando el navegador de una computadora o aplicación de teléfono móvil. Inmediatamente la IA analiza el documento, genera los scripts para poder "leerlo" y responde con un primer resultado. 
 
 <a name="part-1-2"></a>
 
@@ -299,7 +301,7 @@ Con esto, estamos listos para avanzar al siguiente paso.
 
 ### Creando con IA
 
-Buscando alguna herramienta de IA que genera <u>componentes de interfaz de usuario</u> a partir de descripciones en lenguaje natural, se inicia un nuevo hilo de conversación pero esta vez con **Vercel V0**. Sin vueltas, se le pide que a partir de la estructura de datos creada anteriormente cree una aplicación web *mobile first* para registrar trabajo diario:
+Buscando alguna herramienta de IA que genera <u>componentes de interfaz de usuario</u> a partir de descripciones en lenguaje natural, se inicia un nuevo hilo de conversación pero esta vez con **Vercel V0**. Sin vueltas, se le pide que a partir de la <u>estructura de datos</u> creada anteriormente cree una aplicación web *mobile first* para registrar trabajo diario:
 
 > Hey there. Can you make a web mobile first for register my daily work? The data structure I use is shown below.
 
