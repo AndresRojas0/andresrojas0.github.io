@@ -1,7 +1,6 @@
 /* ============================================
    Keleshev-Inspired Minimalist Design
-   Tipografía editorial, layout centrado, ornamentos
-   + SIDEBAR HÍBRIDO (Flotante Desktop + Plegable Mobile)
+   + Chirpy-Style TOC (Popup Mobile + Panel Desktop)
    ============================================ */
 
 /* Separadores decorativos con ornamentos tipográficos */
@@ -342,28 +341,6 @@ footer a {
     color: #045591;
 }
 
-/* Listas con números circulados (opcional) */
-.circled-numbers ol {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.circled-numbers ol li {
-    position: relative;
-    padding-left: 2em;
-}
-
-.circled-numbers ol li:nth-child(1)::before { content: '❶'; position: absolute; left: 0.75em; font-family: monospace; }
-.circled-numbers ol li:nth-child(2)::before { content: '❷'; position: absolute; left: 0.75em; font-family: monospace; }
-.circled-numbers ol li:nth-child(3)::before { content: '❸'; position: absolute; left: 0.75em; font-family: monospace; }
-.circled-numbers ol li:nth-child(4)::before { content: '❹'; position: absolute; left: 0.75em; font-family: monospace; }
-.circled-numbers ol li:nth-child(5)::before { content: '❺'; position: absolute; left: 0.75em; font-family: monospace; }
-.circled-numbers ol li:nth-child(6)::before { content: '❻'; position: absolute; left: 0.75em; font-family: monospace; }
-.circled-numbers ol li:nth-child(7)::before { content: '❼'; position: absolute; left: 0.75em; font-family: monospace; }
-.circled-numbers ol li:nth-child(8)::before { content: '❽'; position: absolute; left: 0.75em; font-family: monospace; }
-.circled-numbers ol li:nth-child(9)::before { content: '❾'; position: absolute; left: 0.75em; font-family: monospace; }
-.circled-numbers ol li:nth-child(10)::before { content: '❿'; position: absolute; left: 0.75em; font-family: monospace; }
-
 /* Mejoras de legibilidad */
 ::selection {
     background: rgba(4, 85, 145, 0.2);
@@ -378,48 +355,11 @@ main {
     margin: 2em 0;
 }
 
-/* Estilos para página About */
-.about-intro {
-    text-align: center;
-    margin: 3em 0;
-}
-
-.about-intro img {
-    width: 120px;
-    height: 120px;
-    border-radius: 100px;
-    filter: grayscale(10%);
-    margin: 0 auto 1em;
-}
-
-/* Sección de escritura con años flotantes */
-.writing-section {
-    text-align: left;
-}
-
-.year-marker {
-    float: right;
-    font-style: italic;
-    color: #666;
-}
-
-.writing-section a {
-    display: block;
-    margin: 0.5em 0;
-}
-
-/* Limpiar floats */
-.writing-section::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
 
 /* ============================================
-   SIDEBAR HÍBRIDO
-   Mobile: Índice plegable superior
-   Desktop: Sidebar flotante lateral
+   TOC ESTILO CHIRPY
+   Mobile: Popup Modal
+   Desktop: Panel Lateral Sticky
    ============================================ */
 
 /* Contenedor principal */
@@ -428,185 +368,292 @@ main {
 }
 
 /* ============================================
-   MOBILE: Índice Plegable Superior (<1200px)
+   MOBILE: Botón Flotante + Popup
    ============================================ */
 
-.table-of-contents {
-    display: block;
-    margin: 0 0 2em 0;
-    border: 2.5px solid black;
-    background: white;
-}
-
-/* Header del índice (clickeable para expandir/colapsar) */
-.table-of-contents-header {
+/* Botón flotante que aparece al hacer scroll */
+#toc-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 1em 1.2em;
-    cursor: pointer;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
+    justify-content: space-between;
+    height: 3rem;
+    margin: 0 -25px 1em -25px;
+    padding: 0 1rem;
+    background: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: top 0.2s ease-in-out;
 }
 
-.table-of-contents-header:hover {
-    background: rgba(4, 85, 145, 0.05);
+#toc-bar.invisible {
+    top: -3rem;
 }
 
-.table-of-contents-header h2 {
-    margin: 0;
-    font-size: 0.95em;
-    font-weight: 100;
-    font-style: normal;
-    color: #333;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-/* Icono de toggle (▾ / ▸) */
-.table-of-contents-toggle {
-    font-size: 1.2em;
-    color: #666;
-    transition: transform 0.3s ease;
-    font-style: normal;
-}
-
-/* Cuando está colapsado */
-.table-of-contents.collapsed .table-of-contents-toggle {
-    transform: rotate(-90deg);
-}
-
-/* Contenido del índice */
-.table-of-contents-content {
-    max-height: 500px;
-    overflow-y: auto;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-    padding: 0 1.2em 1.2em 1.2em;
-}
-
-/* Cuando está colapsado */
-.table-of-contents.collapsed .table-of-contents-content {
-    max-height: 0;
-    padding: 0 1.2em;
-    overflow: hidden;
-}
-
-/* Navegación del índice */
-.table-of-contents nav {
-    display: block;
-}
-
-.table-of-contents ol {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.table-of-contents li {
-    margin: 0;
-    padding: 0;
-}
-
-/* Enlaces del índice - Mobile */
-.table-of-contents a {
-    display: block;
-    padding: 0.5em 0;
+#toc-bar .label {
     font-size: 0.9em;
-    line-height: 1.4;
+    color: #333;
+    font-weight: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+}
+
+/* Botón estático en la página */
+#toc-solo-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.5em 1em;
+    margin-bottom: 2em;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.5em;
+    background: white;
     color: #666;
-    text-decoration: none;
-    border-bottom: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#toc-solo-trigger:hover {
+    border-color: #045591;
+    color: #045591;
+}
+
+#toc-solo-trigger .label {
+    font-size: 1em;
+}
+
+/* Botones trigger genéricos */
+.toc-trigger {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 0.5em;
+    font-size: 1em;
     transition: color 0.2s ease;
 }
 
-.table-of-contents a:visited {
+.toc-trigger:hover {
+    color: #045591;
+}
+
+/* Popup Modal (dialog) */
+#toc-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.5em;
+    background: white;
+    color: #333;
+    min-width: 20rem;
+    max-width: 90vw;
+    max-height: 80vh;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* Animaciones del popup */
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes slide-out {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+}
+
+#toc-popup[open] {
+    animation: slide-in 0.3s ease-out;
+}
+
+#toc-popup[closing] {
+    animation: slide-out 0.3s ease-out;
+}
+
+/* Backdrop del popup */
+#toc-popup::backdrop {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+
+/* Header del popup */
+#toc-popup .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em 1.5em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+#toc-popup .header .label {
+    font-size: 1em;
+    font-weight: normal;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+}
+
+#toc-popup-close {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 0.5em;
+    font-size: 1.2em;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+#toc-popup-close:hover {
+    color: #000;
+}
+
+/* Contenido del popup */
+#toc-popup-content {
+    padding: 1.5em;
+    overflow-y: auto;
+    max-height: calc(80vh - 4rem);
+}
+
+/* Gradiente inferior para indicar scroll */
+#toc-popup::after {
+    content: '';
+    position: sticky;
+    bottom: 0;
+    display: block;
+    height: 2rem;
+    background: linear-gradient(transparent, white 70%);
+    pointer-events: none;
+}
+
+/* Listas del TOC */
+#toc-popup-content ol,
+#toc-popup-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#toc-popup-content li {
+    margin: 0.25em 0;
+}
+
+#toc-popup-content a {
+    display: block;
+    padding: 0.5em 0;
+    color: #666;
+    text-decoration: none;
+    border-bottom: none;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+}
+
+#toc-popup-content a:visited {
     color: #666;
     border-bottom: none;
 }
 
-.table-of-contents a:hover {
+#toc-popup-content a:hover {
     color: #333;
     border-bottom: none;
 }
 
+#toc-popup-content a:after {
+    content: '' !important;
+}
+
 /* Enlace activo */
-.table-of-contents a.active {
+#toc-popup-content a.active {
     color: #045591;
     font-weight: normal;
 }
 
-/* Jerarquía h2 y h3 - Mobile */
-.table-of-contents ol ol {
+/* Jerarquía de encabezados */
+#toc-popup-content ol ol {
     padding-left: 1.5em;
     margin-top: 0.25em;
 }
 
-.table-of-contents ol ol a {
-    font-size: 0.85em;
+#toc-popup-content ol ol a {
+    font-size: 0.95em;
     color: #888;
 }
 
-/* Evitar símbolo de enlace externo */
-.table-of-contents a:after {
-    content: '' !important;
-}
-
-/* Scrollbar para el contenido del índice */
-.table-of-contents-content::-webkit-scrollbar {
+/* Scrollbar del popup */
+#toc-popup-content::-webkit-scrollbar {
     width: 4px;
 }
 
-.table-of-contents-content::-webkit-scrollbar-track {
+#toc-popup-content::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.05);
 }
 
-.table-of-contents-content::-webkit-scrollbar-thumb {
+#toc-popup-content::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.2);
     border-radius: 2px;
 }
 
+/* Lock scroll del body cuando popup está abierto */
+body.overflow-hidden,
+html.overflow-hidden {
+    overflow: hidden !important;
+}
+
 
 /* ============================================
-   DESKTOP: Sidebar Flotante (≥1200px)
+   DESKTOP: Panel Lateral Sticky (≥1200px)
    ============================================ */
 
 @media (min-width: 1200px) {
-    /* Ocultar header clickeable en desktop */
-    .table-of-contents-header {
-        display: none;
+    /* Ocultar elementos mobile */
+    #toc-bar,
+    #toc-solo-trigger,
+    #toc-popup {
+        display: none !important;
     }
     
-    /* Transformar en sidebar flotante */
-    .table-of-contents {
+    /* Mostrar panel lateral */
+    #toc-wrapper {
         display: block;
         position: fixed;
-        left: calc((100vw - 700px) / 2 - 250px);
+        right: calc((100vw - 700px) / 2 - 250px);
         top: 150px;
         width: 220px;
         max-height: calc(100vh - 200px);
-        margin: 0;
-        border: none;
-        background: transparent;
-    }
-    
-    /* Contenido siempre visible en desktop */
-    .table-of-contents-content {
-        max-height: none;
-        padding: 0;
-        padding-right: 20px;
         overflow-y: auto;
-    }
-    
-    .table-of-contents.collapsed .table-of-contents-content {
-        max-height: none;
         padding-right: 20px;
-        overflow-y: auto;
     }
     
-    /* Título del índice en desktop */
-    .table-of-contents-content::before {
-        content: 'Índice';
-        display: block;
+    #toc-wrapper h2 {
         font-size: 0.85em;
         font-weight: 100;
         font-style: normal;
@@ -614,55 +661,81 @@ main {
         color: #666;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        font-family: Georgia, 'Times New Roman', Times, serif;
     }
     
-    /* Lista con borde lateral en desktop */
-    .table-of-contents ol {
+    /* Lista del TOC */
+    #toc-wrapper ol,
+    #toc-wrapper ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
         border-left: 1px solid rgba(0, 0, 0, 0.1);
     }
     
-    /* Enlaces con borde izquierdo en desktop */
-    .table-of-contents a {
+    #toc-wrapper li {
+        margin: 0;
+    }
+    
+    /* Enlaces del TOC */
+    #toc-wrapper a {
+        display: block;
         padding: 0.4em 0 0.4em 1em;
         font-size: 0.85em;
+        color: #666;
+        text-decoration: none;
+        border-bottom: none;
         border-left: 2px solid transparent;
         margin-left: -1px;
+        line-height: 1.4;
+        transition: all 0.2s ease;
     }
     
-    .table-of-contents a:hover {
+    #toc-wrapper a:visited {
+        color: #666;
+        border-bottom: none;
+    }
+    
+    #toc-wrapper a:hover {
         color: #333;
         border-left-color: #333;
+        border-bottom: none;
     }
     
-    .table-of-contents a.active {
+    #toc-wrapper a:after {
+        content: '' !important;
+    }
+    
+    /* Enlace activo */
+    #toc-wrapper a.active {
         color: #045591;
         border-left-color: #045591;
     }
     
-    /* Jerarquía en desktop */
-    .table-of-contents ol ol {
+    /* Jerarquía de encabezados */
+    #toc-wrapper ol ol,
+    #toc-wrapper ul ul {
         border-left: none;
         padding-left: 1em;
+        margin-top: 0.25em;
     }
     
-    .table-of-contents ol ol a {
+    #toc-wrapper ol ol a,
+    #toc-wrapper ul ul a {
         font-size: 0.8em;
         padding: 0.3em 0 0.3em 1em;
         border-left: none;
-        color: #666;
     }
     
-    /* Scrollbar minimalista en desktop */
-    .table-of-contents-content::-webkit-scrollbar {
+    /* Scrollbar minimalista */
+    #toc-wrapper::-webkit-scrollbar {
         width: 3px;
     }
     
-    .table-of-contents-content::-webkit-scrollbar-track {
+    #toc-wrapper::-webkit-scrollbar-track {
         background: transparent;
     }
     
-    .table-of-contents-content::-webkit-scrollbar-thumb {
+    #toc-wrapper::-webkit-scrollbar-thumb {
         background: rgba(0, 0, 0, 0.2);
         border-radius: 3px;
     }
@@ -670,8 +743,8 @@ main {
 
 /* Pantallas muy grandes */
 @media (min-width: 1400px) {
-    .table-of-contents {
-        left: calc((100vw - 700px) / 2 - 280px);
+    #toc-wrapper {
+        right: calc((100vw - 700px) / 2 - 280px);
         width: 250px;
     }
 }
@@ -721,19 +794,15 @@ main {
         font-size: 0.85em;
     }
     
-    /* Índice más compacto en mobile */
-    .table-of-contents {
-        margin: 0 -15px 2em -15px;
-        border-left: none;
-        border-right: none;
+    /* Ajustes del TOC bar en mobile */
+    #toc-bar {
+        margin: 0 -15px 1em -15px;
     }
     
-    .table-of-contents-header {
-        padding: 0.8em 1em;
-    }
-    
-    .table-of-contents-content {
-        padding: 0 1em 1em 1em;
+    /* Popup más pequeño en mobile */
+    #toc-popup {
+        min-width: auto;
+        width: 90vw;
     }
 }
 

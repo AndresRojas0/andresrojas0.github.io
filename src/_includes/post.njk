@@ -3,23 +3,52 @@ layout: base.njk
 ---
 
 <div class="article-with-sidebar">
-  {# Índice híbrido: plegable en mobile, flotante en desktop #}
-  <aside class="table-of-contents">
-    {# Header clickeable (solo visible en mobile) #}
-    <div class="table-of-contents-header">
-      <h2>Índice</h2>
-      <span class="table-of-contents-toggle">▾</span>
+  {# ============================================
+     MOBILE: Botones y Popup Modal
+     ============================================ #}
+  
+  {# Botón flotante que aparece al hacer scroll #}
+  <div id="toc-bar" class="invisible">
+    <span class="label">{{ title }}</span>
+    <button type="button" class="toc-trigger">
+      ☰
+    </button>
+  </div>
+
+  {# Botón estático en la página #}
+  <button id="toc-solo-trigger" type="button" class="toc-trigger">
+    <span class="label">Índice</span>
+    <span>→</span>
+  </button>
+
+  {# Popup modal (dialog) #}
+  <dialog id="toc-popup">
+    <div class="header">
+      <div class="label">{{ title }}</div>
+      <button id="toc-popup-close" type="button">
+        ✕
+      </button>
     </div>
-    
-    {# Contenido del índice (generado por JavaScript) #}
-    <div class="table-of-contents-content">
-      <nav aria-label="Índice del artículo">
-        {# El contenido se genera automáticamente #}
-      </nav>
+    <div id="toc-popup-content">
+      {# El contenido se genera automáticamente por JavaScript #}
     </div>
+  </dialog>
+
+  {# ============================================
+     DESKTOP: Panel Lateral Sticky
+     ============================================ #}
+  
+  <aside id="toc-wrapper">
+    <h2>Índice</h2>
+    <nav>
+      {# El contenido se genera automáticamente por JavaScript #}
+    </nav>
   </aside>
 
-  {# Contenido principal del artículo #}
+  {# ============================================
+     CONTENIDO PRINCIPAL DEL ARTÍCULO
+     ============================================ #}
+  
   <article>
     {% if image %}
       <img src="{{ image }}" alt="{{ title }}">
