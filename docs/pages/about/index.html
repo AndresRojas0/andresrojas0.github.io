@@ -49,21 +49,32 @@
 
 
   
+  
   <script>
-    // Scroll header shrink effect
+  (function() {
+    'use strict';
+    
+    // ============================================
+    // 1. Scroll Header Shrink Effect (OPTIMIZADO)
+    // ============================================
+    const header = document.querySelector('header');
+    let ticking = false;
+    
     window.addEventListener('scroll', function() {
-      const header = document.querySelector('header');
-      if (window.scrollY > 50) {
-        header.classList.add('shrink');
-      } else {
-        header.classList.remove('shrink');
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          header.classList.toggle('shrink', window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
       }
     });
-
-    // Format dates in Spanish
-    document.addEventListener('DOMContentLoaded', function() {
+    
+    // ============================================
+    // 2. Format Dates in Spanish
+    // ============================================
+    function formatDates() {
       const timeElements = document.querySelectorAll('time.post-date');
-      
       const meses = [
         'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
         'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'
@@ -71,8 +82,6 @@
       
       timeElements.forEach(function(timeEl) {
         const dateStr = timeEl.textContent.trim();
-        
-        // Try to parse the date (supports formats like 2025-07-11 or YYYY-MM-DD)
         const date = new Date(dateStr);
         
         if (!isNaN(date.getTime())) {
@@ -84,234 +93,228 @@
           timeEl.setAttribute('datetime', dateStr);
         }
       });
-    });
-  </script>
-
-  
-  <script src="/js/sidebar.js"></script>
-
-<script>
-(function() {
-    'use strict';
+    }
     
+    // ============================================
+    // 3. Table of Contents (TOC) - OPTIMIZADO
+    // ============================================
     function initTableOfContents() {
-        // Buscar artículo
-        const article = document.querySelector('article');
-        if (!article) return;
-        
-        // Buscar encabezados (h2, h3, h4)
-        const headings = article.querySelectorAll('h2, h3, h4');
-        if (headings.length === 0) {
-            // Ocultar elementos del TOC si no hay encabezados
-            const tocBar = document.getElementById('toc-bar');
-            const soloTrigger = document.getElementById('toc-solo-trigger');
-            const tocWrapper = document.getElementById('toc-wrapper');
-            if (tocBar) tocBar.style.display = 'none';
-            if (soloTrigger) soloTrigger.style.display = 'none';
-            if (tocWrapper) tocWrapper.style.display = 'none';
-            return;
+      // Buscar artículo
+      const article = document.querySelector('article');
+      if (!article) return;
+      
+      // Buscar encabezados (h2, h3, h4)
+      const headings = article.querySelectorAll('h2, h3, h4');
+      if (headings.length === 0) {
+        // Ocultar elementos del TOC si no hay encabezados
+        const tocElements = document.querySelectorAll('#toc-bar, #toc-solo-trigger, #toc-wrapper');
+        tocElements.forEach(el => el && (el.style.display = 'none'));
+        return;
+      }
+      
+      // Generar HTML del índice
+      let html = '<ol>';
+      headings.forEach(function(heading, index) {
+        // Generar ID si no existe
+        if (!heading.id) {
+          const text = heading.textContent.trim();
+          const slug = text
+            .toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/[^a-z0-9\s]+/g, '')
+            .replace(/\s+/g, '-')
+            .replace(/^-+|-+$/g, '');
+          heading.id = slug || 'seccion-' + (index + 1);
         }
         
-        // Generar HTML del índice
-        let html = '<ol>';
-        headings.forEach(function(heading, index) {
-            // Generar ID si no existe
-            if (!heading.id) {
-                const text = heading.textContent.trim();
-                const slug = text
-                    .toLowerCase()
-                    .normalize('NFD')
-                    .replace(/[\u0300-\u036f]/g, '')
-                    .replace(/[^a-z0-9\s]+/g, '')
-                    .replace(/\s+/g, '-')
-                    .replace(/^-+|-+$/g, '');
-                heading.id = slug || 'seccion-' + (index + 1);
-            }
-            
-            // Indentación según nivel
-            const level = parseInt(heading.tagName[1]);
-            let style = '';
-            if (level === 3) style = ' style="padding-left: 1.5em"';
-            if (level === 4) style = ' style="padding-left: 3em"';
-            
-            html += '<li' + style + '><a href="#' + heading.id + '">' + 
-                    heading.textContent.trim() + '</a></li>';
-        });
-        html += '</ol>';
+        // Indentación según nivel
+        const level = parseInt(heading.tagName[1]);
+        const style = level === 3 ? ' style="padding-left: 1.5em"' : 
+                     level === 4 ? ' style="padding-left: 3em"' : '';
         
-        // Insertar en popup (mobile)
-        const popupContent = document.getElementById('toc-popup-content');
-        if (popupContent) {
-            popupContent.innerHTML = html;
+        html += '<li' + style + '><a href="#' + heading.id + '">' + 
+                heading.textContent.trim() + '</a></li>';
+      });
+      html += '</ol>';
+      
+      // Insertar en popup (mobile)
+      const popupContent = document.getElementById('toc-popup-content');
+      if (popupContent) popupContent.innerHTML = html;
+      
+      // Insertar en sidebar (desktop)
+      const tocWrapper = document.getElementById('toc-wrapper');
+      if (tocWrapper) {
+        let nav = tocWrapper.querySelector('nav');
+        if (!nav) {
+          nav = document.createElement('nav');
+          tocWrapper.appendChild(nav);
         }
-        
-        // Insertar en sidebar (desktop)
-        const tocWrapper = document.getElementById('toc-wrapper');
-        if (tocWrapper) {
-            let nav = tocWrapper.querySelector('nav');
-            if (!nav) {
-                nav = document.createElement('nav');
-                tocWrapper.appendChild(nav);
-            }
-            nav.innerHTML = html;
-        }
-        
-        // Configurar popup modal
-        const popup = document.getElementById('toc-popup');
-        const triggers = document.querySelectorAll('.toc-trigger');
-        const btnClose = document.getElementById('toc-popup-close');
-        
-        if (popup && triggers.length > 0) {
-            // Abrir popup
-            triggers.forEach(function(trigger) {
-                trigger.addEventListener('click', function() {
-                    document.documentElement.classList.add('overflow-hidden');
-                    document.body.classList.add('overflow-hidden');
-                    popup.showModal();
-                });
-            });
-            
-            // Cerrar popup
-            if (btnClose) {
-                btnClose.addEventListener('click', function() {
-                    closePopup();
-                });
-            }
-            
-            // Click en backdrop
-            popup.addEventListener('click', function(e) {
-                const rect = e.target.getBoundingClientRect();
-                if (
-                    e.clientX < rect.left ||
-                    e.clientX > rect.right ||
-                    e.clientY < rect.top ||
-                    e.clientY > rect.bottom
-                ) {
-                    closePopup();
-                }
-            });
-            
-            // ESC key
-            popup.addEventListener('cancel', function(e) {
-                e.preventDefault();
-                closePopup();
-            });
-        }
-        
+        nav.innerHTML = html;
+      }
+      
+      // Configurar popup modal
+      const popup = document.getElementById('toc-popup');
+      const triggers = document.querySelectorAll('.toc-trigger');
+      const btnClose = document.getElementById('toc-popup-close');
+      
+      if (popup && triggers.length > 0) {
+        // Función para cerrar popup con animación
         function closePopup() {
-            popup.setAttribute('closing', '');
-            popup.addEventListener('animationend', function() {
-                popup.removeAttribute('closing');
-                popup.close();
-                document.documentElement.classList.remove('overflow-hidden');
-                document.body.classList.remove('overflow-hidden');
-            }, { once: true });
+          popup.setAttribute('closing', '');
+          popup.addEventListener('animationend', function handleAnimationEnd() {
+            popup.removeAttribute('closing');
+            popup.close();
+            document.documentElement.classList.remove('overflow-hidden');
+            document.body.classList.remove('overflow-hidden');
+            popup.removeEventListener('animationend', handleAnimationEnd);
+          });
         }
         
-        // Botón flotante con IntersectionObserver
-        const tocBar = document.getElementById('toc-bar');
-        const soloTrigger = document.getElementById('toc-solo-trigger');
-        
-        if (tocBar && soloTrigger) {
-            const observer = new IntersectionObserver(
-                function(entries) {
-                    entries.forEach(function(entry) {
-                        tocBar.classList.toggle('invisible', entry.isIntersecting);
-                    });
-                },
-                { rootMargin: '-48px 0px 0px 0px' }
-            );
-            observer.observe(soloTrigger);
-        }
-        
-        // Smooth scroll y scroll spy
-        const tocLinks = document.querySelectorAll('#toc-popup-content a, #toc-wrapper a');
-        const linkMap = new Map();
-        
-        // Crear mapa de IDs a enlaces
-        tocLinks.forEach(function(link) {
-            const href = link.getAttribute('href');
-            if (href && href.startsWith('#')) {
-                const id = href.substring(1);
-                if (!linkMap.has(id)) {
-                    linkMap.set(id, []);
-                }
-                linkMap.get(id).push(link);
-                
-                // Smooth scroll
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.getElementById(id);
-                    if (target) {
-                        const offset = 100;
-                        const targetPosition = target.getBoundingClientRect().top + 
-                                             window.pageYOffset - offset;
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                        history.pushState(null, null, '#' + id);
-                        if (popup && popup.open) {
-                            closePopup();
-                        }
-                    }
-                });
-            }
+        // Abrir popup (OPTIMIZADO)
+        triggers.forEach(function(trigger) {
+          trigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            document.documentElement.classList.add('overflow-hidden');
+            document.body.classList.add('overflow-hidden');
+            popup.showModal();
+          });
         });
         
-        // Scroll spy con IntersectionObserver
-        const observerOptions = {
-            rootMargin: '-100px 0px -66%',
-            threshold: 0
-        };
+        // Cerrar popup (FIX)
+        if (btnClose) {
+          btnClose.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            closePopup();
+          });
+        }
         
-        const scrollObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    const id = entry.target.id;
-                    
-                    // Remover clase active de todos
-                    tocLinks.forEach(function(link) {
-                        link.classList.remove('active');
-                    });
-                    
-                    // Agregar clase active a los enlaces correspondientes
-                    const activeLinks = linkMap.get(id);
-                    if (activeLinks) {
-                        activeLinks.forEach(function(link) {
-                            link.classList.add('active');
-                        });
-                    }
-                }
-            });
-        }, observerOptions);
+        // Click en backdrop (SIMPLIFICADO)
+        popup.addEventListener('click', function(e) {
+          if (e.target === popup) {
+            closePopup();
+          }
+        });
         
-        // Observar todos los encabezados
-        headings.forEach(function(heading) {
-            if (heading.id) {
-                scrollObserver.observe(heading);
-            }
+        // ESC key
+        popup.addEventListener('cancel', function(e) {
+          e.preventDefault();
+          closePopup();
         });
         
         // Manejar resize (cerrar popup en desktop)
         window.addEventListener('resize', function() {
-            if (window.innerWidth >= 1200 && popup && popup.open) {
-                popup.close();
-                document.documentElement.classList.remove('overflow-hidden');
-                document.body.classList.remove('overflow-hidden');
-            }
+          if (window.innerWidth >= 1200 && popup.open) {
+            popup.close();
+            document.documentElement.classList.remove('overflow-hidden');
+            document.body.classList.remove('overflow-hidden');
+          }
         });
+      }
+      
+      // Botón flotante con IntersectionObserver
+      const tocBar = document.getElementById('toc-bar');
+      const soloTrigger = document.getElementById('toc-solo-trigger');
+      
+      if (tocBar && soloTrigger) {
+        const observer = new IntersectionObserver(
+          function(entries) {
+            entries.forEach(function(entry) {
+              tocBar.classList.toggle('invisible', entry.isIntersecting);
+            });
+          },
+          { rootMargin: '-48px 0px 0px 0px' }
+        );
+        observer.observe(soloTrigger);
+      }
+      
+      // Smooth scroll y scroll spy
+      const tocLinks = document.querySelectorAll('#toc-popup-content a, #toc-wrapper a');
+      const linkMap = new Map();
+      
+      // Crear mapa de IDs a enlaces
+      tocLinks.forEach(function(link) {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const id = href.substring(1);
+          if (!linkMap.has(id)) {
+            linkMap.set(id, []);
+          }
+          linkMap.get(id).push(link);
+          
+          // Smooth scroll
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.getElementById(id);
+            if (target) {
+              const offset = 100;
+              const targetPosition = target.getBoundingClientRect().top + 
+                                   window.pageYOffset - offset;
+              window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+              });
+              history.pushState(null, null, '#' + id);
+              if (popup && popup.open) {
+                closePopup();
+              }
+            }
+          });
+        }
+      });
+      
+      // Scroll spy con IntersectionObserver
+      const scrollObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            
+            // Remover clase active de todos
+            tocLinks.forEach(function(link) {
+              link.classList.remove('active');
+            });
+            
+            // Agregar clase active a los enlaces correspondientes
+            const activeLinks = linkMap.get(id);
+            if (activeLinks) {
+              activeLinks.forEach(function(link) {
+                link.classList.add('active');
+              });
+            }
+          }
+        });
+      }, {
+        rootMargin: '-100px 0px -66%',
+        threshold: 0
+      });
+      
+      // Observar todos los encabezados
+      headings.forEach(function(heading) {
+        if (heading.id) {
+          scrollObserver.observe(heading);
+        }
+      });
+    }
+    
+    // ============================================
+    // Inicialización
+    // ============================================
+    function init() {
+      formatDates();
+      initTableOfContents();
     }
     
     // Ejecutar cuando el DOM esté listo
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initTableOfContents);
+      document.addEventListener('DOMContentLoaded', init);
     } else {
-        initTableOfContents();
+      init();
     }
     
-})();
-</script>
+  })();
+  </script>
 
 </body>
 </html>
