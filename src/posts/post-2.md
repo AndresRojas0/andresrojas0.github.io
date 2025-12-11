@@ -9,21 +9,12 @@ date: 2025-07-19 23:43:00
 
 # INICIACIÓN - USANDO IA
 
-<a name="introduction"></a>
-
-1. [INTRODUCCIÓN](#introduction)
-2. [USANDO IA PARA PROPONER MEJORAS](#part-1-1)
-3. [ESTRUCTURA GENERAL DE DATOS](#part-1-2)
-4. [CREANDO CON IA](#part-2-1)
-
 ## Introducción
 
 Con el surgimiento del **modelo extenso de lenguaje** o LLM (*Large Language Model*) en 2018, definido formalmente como un modelo de lenguaje de aprendizaje profundo que consta de una red neuronal* con muchos parámetros (normalmente miles de millones o más) entrenados en grandes cantidades de texto sin etiquetar mediante aprendizaje autosupervisado o aprendizaje semisupervisado, entendiéndose esta definición como un tipo de **inteligencia artificial** (IA) entrenado con grandes cantidades de datos para entender y generar lenguaje humano de manera natural, se marca un hito en la historia y el inicio de un exponencial crecimiento, masividad y versatilidad de aplicaciones con IA generativa capaces de realizar tareas como escribir texto en lenguaje humano, traducir texto, responder preguntas, mantener diálogos, resumir, analizar y además escribir instrucciones y código en lenguajes de programación.
 <br>
 
 *(\*) El concepto de red neuronal surge en 1943 al desarrollarse el primer modelo matemático de una neurona, posteriormente aparecen los conceptos de perceptrón, perceptrón multicapa, red neuronal prealimentada, red neuronal convolucional (Neocognitron), esta última mejorada en 1998 (backpropagation algorithm) y con posterior refinamiento e implementación en unidades de procesamiento gráfico en 2012.*
-
-<a name="part-1-1"></a>
 
 ## Parte I
 
@@ -32,6 +23,8 @@ Con el surgimiento del **modelo extenso de lenguaje** o LLM (*Large Language Mod
 Pensemos el siguiente [escenario](## "⚠ El escenario planteado está basado en una actividad laboral real. Los nombres de los campos han sido modificados deliberadamente. ⚠")*: como empleado en una pyme tengo la tarea de recorrer un área y realizar una serie de verificaciones puntuales, para ello dispongo de una planilla de cálculo (en documento excel) que debo completar con mi trabajo diario, estructurado en un encabezado con filas y debajo un cuerpo con columnas, todas con sus campos claramente identificados: 
 
 *(\*)⚠ El escenario planteado está basado en una actividad laboral real. Los nombres de los campos han sido modificados deliberadamente. ⚠*
+
+### Estructura de la planilla de trabajo
 
 ### Filas
 * Tipo de planilla:
@@ -55,21 +48,21 @@ El campo Tipo de Planilla se completa con un nombre fijo "Planilla de Trabajo Di
 
 Al finalizar la jornada, <u>cada planilla completada es enviada por correo electrónico</u> a un encargado o superior, para ser descargadas una por una en una computadora y luego revisadas, nuevamente una por una...
 
->«Can you create a general data structure from this excel?»
-
 ¿Cómo podríamos proponer una mejora a este procedimiento? Podemos acercarnos a una solución creando una aplicación web que nos permita registrar o cargar las planillas de trabajo diario y procesarlas convenientemente. 
 
-Con un primer "prompt" (comando o instrucción) como el anterior y agregando el documento excel, todo dentro de una nueva conversación con herramienta conversacional IA (ChatGPT, Claude, Gemini, o la de preferencia) usando el navegador de una computadora o aplicación de teléfono móvil. Inmediatamente la IA analiza el documento, genera los scripts para poder "leerlo" y responde con un primer resultado. 
+## Parte II
 
-<a name="part-1-2"></a>
+### Obteniendo una estructura de datos
 
-## Parte I (Cont.)
+>«Can you create a general data structure from this excel?»
+
+Procedemos con un primer "prompt" (comando o instrucción) como el anterior, agregando el documento excel, todo dentro de una nueva conversación con herramienta conversacional IA (ChatGPT, Claude, Gemini, o la de preferencia) usando el navegador de una computadora o aplicación de teléfono móvil. La IA analiza el documento, genera los scripts para poder "leerlo" y responde con un primer resultado. 
 
 ### Estructura general de datos
 
 Una **estructura de datos** es según la enciclopedia una forma particular de organizar información para que pueda ser utilizada de manera eficiente. Más precisamente, una estructura de datos es una <u>colección de valores, las relaciones entre ellos y las funciones y operaciones que se pueden aplicar a los datos</u>, es decir, es una estructura algebraica de datos. 
-En este caso la denominamos *general* pues partimos de una representación de una planilla de cálculo hacia una estructura de datos más específica.
-<br>
+En este caso la denominamos *general* pues partimos de una representación de una planilla de cálculo en general hacia una estructura de datos más específica.
+
 Continuando con el desarrollo, la IA tiene problemas al intentar analizar la planilla de cálculo...
 
 > «I'll analyze the Excel file to understand its structure and create a general data structure representation for you.»
@@ -292,14 +285,12 @@ javascript
 ```
 
 Además de obtener como resultado la estructura de datos de la planilla de cálculo y mostrar un ejemplo con datos (ficticios), se puede pedir ampliar la respuesta con las especificaciones de qué datos maneja cada campo, validación de datos de cada campo y restricciones, lógicas o reglas de negocio, y una estructura adicional de estadísticas diarias basadas en la planilla original.
-<br>
+
 Con esto, estamos listos para avanzar al siguiente paso.
 
-<a name="part-2-1"></a>
+## Parte III
 
-## Parte II
-
-### Creando con IA
+### Creando una aplicación web
 
 Buscando alguna herramienta de IA que genera <u>componentes de interfaz de usuario</u> a partir de descripciones en lenguaje natural, se inicia un nuevo hilo de conversación pero esta vez con **Vercel V0**. Sin vueltas, se le pide que a partir de la <u>estructura de datos</u> creada anteriormente cree una aplicación web *mobile first* para registrar trabajo diario:
 
@@ -361,10 +352,4 @@ Se puede agregar algunas estadísticas en un panel de control o *dashboard*:
 
 > In Dashboard, in overview show me the top 10 of most used lineOrRouteNumber, and the top 20 of most used addressOfStop, in the current month.
 
-Este tipo de conversación se puede extender tanto como uno quiera y crea necesario, corrigiendo errores de interpretación, aprendiendo a escribir de forma objetiva para reducir errores, proponiendo e intercambiando ideas... Con algunas instrucciones como las vistas, *prompts* claros y concisos se logran resultados sorprendentes. No hay límites para poner creatividad con estas herramientas.
-
-
-1. [INTRODUCCIÓN](#introduction)
-2. [USANDO IA PARA PROPONER MEJORAS](#part-1-1)
-3. [ESTRUCTURA GENERAL DE DATOS](#part-1-2)
-4. [CREANDO CON IA](#part-2-1)
+Esta conversación se puede extender tanto como uno quiera y crea necesario, corrigiendo errores de interpretación, aprendiendo a escribir de forma objetiva para reducir errores, proponiendo e intercambiando ideas... Con algunas instrucciones como las vistas, *prompts* claros y concisos se logran resultados sorprendentes. No hay límites para poner creatividad con estas herramientas.
