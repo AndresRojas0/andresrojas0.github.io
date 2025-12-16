@@ -9,15 +9,230 @@ date: 2025-07-23 23:07:00
 
 ## Introducción
 
+### Contexto y problemática
+
+Analizando las necesidades de una pyme dedicada a la venta de insumos de ferretería y, a partir de entrevistas realizadas a su vendedor, se detecta un problema en el registro y seguimiento del ciclo pedido–entrega–cobro.
+Actualmente, los clientes realizan pedidos de productos al vendedor mediante contacto telefónico o durante visitas presenciales. El vendedor registra estos pedidos en una planilla, la cual puede sufrir modificaciones hasta un día y hora determinados de la semana. Una vez alcanzado ese momento, la planilla se considera cerrada.
+
+La planilla cerrada se utiliza como base para generar los pedidos formales a los clientes y los remitos correspondientes, en los que se detalla el saldo a pagar. Además, el vendedor lleva registros separados de:
+
+* los pedidos entregados,
+
+* las diferencias entre lo pedido y lo efectivamente entregado según remito,
+
+* y los pagos parciales o totales realizados por cada cliente.
+
+Este manejo descentralizado de la información genera inconsistencias, duplicación de datos y dificultades en el control del proceso comercial.
+
+## Objetivo
+
+### Objetivo general
+
+Utilizando inteligencia artificial generativa y lenguaje natural, se propone desarrollar una aplicación que, a partir de una narrativa del negocio, los requerimientos funcionales y los modelos representacionales de las entidades involucradas, permita generar una solución informática destinada a centralizar, estructurar y facilitar la gestión de la información necesaria para el vendedor.
+
+### Alcance del sistema
+
+El sistema propuesto está diseñado inicialmente para ser utilizado por un único vendedor, quien será responsable de la gestión integral de clientes, productos, pedidos, remitos y cobros.
+Este alcance no limita futuras ampliaciones del sistema, tales como la incorporación de nuevos roles o funcionalidades adicionales, pero define el contexto actual del análisis.
+
+## Dominio del negocio
+
 ### Narrativa del caso
 
-Un vendedor lleva una cartera de clientes de rubros ferretería, general y otros. Diariamente recibe pedidos de clientes los cuales consisten en: número de cliente, datos del cliente, detalle listando productos (título y descripción) con sus cantidades. 
-Semanalmente los días miércoles el vendedor cierra los pedidos y ya no pueden modificarse, al mismo tiempo inicia otra semana de nuevos pedidos (de miércoles a miércoles). El origen de los productos es el stock y otros son pedidos a proveedores. Para cerrar el ciclo pedido-entrega-cobro se genera un remito con los productos que van a ser entregados, sus precios al cliente y la fecha probable de entrega del remito-pedido. Si los productos del remito-pedido abarcan exactamente los del pedido se marca con estado cerrado-completo, si los productos del remito-pedido abarcan cada uno de los productos pero no alcanzan en sus cantidades se marca con estado cerrado-limitado y si los productos del remito-pedido no cubren todos los productos del pedido se marca con estado cerrado-incompleto. En cada caso se deberá regitrar en pedidos-faltantes la diferencia entre el remito y su pedido relacionado (remito-pedido). 
-El vendedor es responsable de crear, leer, modificar y eliminar las categorías codificadas de productos, las imágenes codificadas de productos, los proveedores codificados de productos, y los productos codificados los cuales deberán admitir subida masiva desde planilla de cálculo excel. 
+Un vendedor administra una cartera de clientes pertenecientes a distintos rubros, tales como ferretería, comercio general y otros. Diariamente recibe pedidos de clientes mediante contacto telefónico o visitas presenciales. Cada pedido incluye el número de cliente, los datos identificatorios correspondientes y un detalle de productos solicitados, indicando título, descripción y cantidades requeridas.
 
-## Parte I
+Los pedidos se registran en un período semanal que se extiende de miércoles a miércoles. Durante dicho período, los pedidos pueden ser creados y modificados libremente. Al finalizar la semana, el vendedor realiza el cierre del período de pedidos, a partir del cual los pedidos registrados pasan a un estado cerrado y no admiten modificaciones.
 
-### Estructura de datos
+Los productos solicitados pueden provenir del stock disponible o requerir la gestión de compras a proveedores. A partir de los pedidos cerrados, el vendedor genera los remitos correspondientes, los cuales constituyen el documento que respalda la entrega de los productos al cliente. Cada remito detalla los productos a entregar, las cantidades efectivamente entregadas, los precios acordados y una fecha estimada de entrega.
+
+## Estados y reglas de negocio
+
+### Estados del proceso comercial
+
+Con el objetivo de formalizar el funcionamiento del sistema, se definen explícitamente los estados que pueden adoptar los pedidos y los remitos dentro del ciclo pedido–entrega–cobro.
+
+#### Estados del pedido
+
+Pedido abierto: corresponde a un pedido registrado dentro del período semanal vigente. Puede ser creado, modificado o eliminado.
+
+Pedido cerrado: corresponde a un pedido perteneciente a un período semanal ya finalizado. No admite modificaciones y puede ser utilizado para la generación de remitos.
+
+#### Estados del remito
+
+Remito cerrado completo: el remito incluye todos los productos solicitados en el pedido, con las cantidades exactas requeridas.
+
+Remito cerrado limitado: el remito incluye todos los productos solicitados, pero con cantidades inferiores a las indicadas en el pedido.
+
+Remito cerrado incompleto: el remito no incluye todos los productos solicitados en el pedido original.
+
+### Registro de pedidos faltantes
+
+Cuando las cantidades entregadas en un remito no coinciden con las solicitadas en el pedido asociado, el sistema debe generar automáticamente un registro de pedidos faltantes. Dicho registro refleja la diferencia entre el pedido original y el remito emitido, permitiendo llevar un control preciso de los productos pendientes de entrega.
+
+Este registro se aplica tanto en los casos de remitos cerrados limitados como de remitos cerrados incompletos, y forma parte de la trazabilidad del proceso comercial.
+
+### Reglas operativas del negocio
+
+Para garantizar un comportamiento consistente del sistema, se establecen las siguientes reglas operativas:
+
+Los pedidos solo pueden ser modificados mientras se encuentren en estado abierto.
+
+El cierre del período semanal bloquea automáticamente todos los pedidos asociados.
+
+Un remito solo puede generarse a partir de un pedido cerrado.
+
+El estado del remito se determina automáticamente a partir de la comparación entre las cantidades pedidas y las cantidades entregadas.
+
+Toda diferencia detectada entre pedido y remito debe registrarse como pedido faltante.
+
+Los pagos pueden registrarse de forma parcial o total y se asocian a remitos entregados.
+
+## Conceptos clave
+
+### Unificación de vocabulario
+
+A fin de evitar ambigüedades y facilitar la comprensión del sistema, se establece el uso de un vocabulario unificado a lo largo de todo el documento:
+
+Pedido: solicitud de productos realizada por un cliente.
+
+Remito: documento que respalda la entrega de productos asociados a un pedido.
+
+Período semanal: intervalo de tiempo comprendido entre dos cierres consecutivos (miércoles a miércoles).
+
+Pedido faltante: diferencia entre lo solicitado en el pedido y lo entregado según el remito.
+
+El uso consistente de estos términos resulta clave para el análisis, diseño e implementación del sistema.
+
+## Modelo conceptual del sistema
+
+### Entidades principales
+
+CLIENTE =
+* cliente_id (PK)
+* nombre
+* domicilio
+* teléfono
+* CUIL
+
+PROVEEDOR =
+* proveedor_id (PK)
+* proveedor_nombre
+
+PRODUCTO =
+* articulo_numero (PK parcial)
+* producto_codigo (PK parcial)
+* descripción
+* unidad_medida
+* proveedor_id (FK → PROVEEDOR)
+* 📌 Regla: articulo_numero + producto_codigo identifican unívocamente al producto.
+
+PEDIDO =
+* pedido_id (PK)
+* cliente_id (FK → CLIENTE)
+* fecha_pedido
+* periodo_id (FK → PERIODO)
+* 📌 Conceptualmente, PEDIDO no debe contener productos directamente, sino a través de un detalle.
+
+DETALLE_PEDIDO (entidad implícita, pero necesaria)
+* pedido_id (FK → PEDIDO)
+* articulo_numero (FK → PRODUCTO)
+* producto_codigo (FK → PRODUCTO)
+* cantidad
+* 📌 PK compuesta: (pedido_id, articulo_numero, producto_codigo)
+
+REMITO =
+* remito_id (PK)
+* pedido_id (FK → PEDIDO)
+* fecha_emision
+* fecha_entrega_estimada
+* estado_remito (completo | limitado | incompleto)
+
+DETALLE_REMITO =
+* remito_id (FK → REMITO)
+* articulo_numero (FK → PRODUCTO)
+* producto_codigo (FK → PRODUCTO)
+* cantidad_entregada
+* precio_unitario
+
+PAGO =
+* pago_id (PK)
+* remito_id (FK → REMITO)
+* fecha_pago
+* monto
+* tipo_pago (parcial | total)
+
+PERIODO =
+* periodo_id (PK)
+* fecha_inicio
+* fecha_fin
+* estado_periodo (abierto | cerrado)
+* 📌 Regla clave: Un pedido pertenece a un solo período.
+
+REPORTE =
+* reporte_id (PK)
+* periodo_id (FK → PERIODO)
+* tipo_reporte (general | pedidos | productos | productos_por_proveedor)
+* fecha_generacion
+* generado_automaticamente (boolean)
+* 📌 Un período puede generar múltiples reportes.
+
+### Relaciones entre entidades
+
+CLIENTE — PEDIDO
+* Un CLIENTE puede realizar uno o muchos PEDIDOS
+* Un PEDIDO pertenece a un solo CLIENTE
+* Cardinalidad:
+CLIENTE (1) —— (N) PEDIDO
+
+PEDIDO — DETALLE_PEDIDO — PRODUCTO
+* Un PEDIDO contiene uno o muchos PRODUCTOS
+* Un PRODUCTO puede estar en muchos PEDIDOS
+* Cardinalidad:
+PEDIDO (1) —— (N) DETALLE_PEDIDO —— (1) PRODUCTO
+
+PROVEEDOR — PRODUCTO
+* Un PROVEEDOR provee uno o muchos PRODUCTOS
+* Un PRODUCTO pertenece a un solo PROVEEDOR
+* Cardinalidad:
+PROVEEDOR (1) —— (N) PRODUCTO
+
+PEDIDO — REMITO
+* Un PEDIDO puede generar uno o varios REMITOS
+* Un REMITO pertenece a un solo PEDIDO
+* Cardinalidad:
+PEDIDO (1) —— (N) REMITO
+
+REMITO — DETALLE_REMITO — PRODUCTO
+* Un REMITO incluye uno o muchos PRODUCTOS
+* Un PRODUCTO puede figurar en muchos REMITOS
+* Cardinalidad:
+REMITO (1) —— (N) DETALLE_REMITO —— (1) PRODUCTO
+
+REMITO — PAGO
+* Un REMITO puede tener uno o muchos PAGOS
+* Un PAGO corresponde a un solo REMITO
+* Cardinalidad:
+REMITO (1) —— (N) PAGO
+
+PERIODO — PEDIDO
+* Un PERIODO contiene uno o muchos PEDIDOS
+* Un PEDIDO pertenece a un solo PERIODO
+* Cardinalidad:
+PERIODO (1) —— (N) PEDIDO
+
+PERIODO — REPORTE
+* Un PERIODO puede generar uno o muchos REPORTES
+* Un REPORTE corresponde a un solo PERIODO
+* Cardinalidad:
+PERIODO (1) —— (N) REPORTE
+
+## Estructura de datos
+
+### Consideraciones generales
+
+En primera instancia se considera esencial el registro y control de los pedidos, dejando para una segunda etapa la inclusión de los remitos.
+
+### Uso de ChatGPT
 
 Se inicia una conversación con **ChatGPT**. La instrucción dada es: 
 
@@ -128,11 +343,11 @@ La respuesta obtenida:
 }
 ```
 
-## Parte II
+## Uso de inteligencia artificial generativa
 
-### Creando con IA
+### Uso de V0
 
-Se inicia una conversación con **V0**. Las instrucciones o *prompts* enviados son: 
+Generación de interfaz y aplicación base. Se inicia una conversación con **V0**. Las instrucciones o *prompts* enviados son: 
 
 > Hola! Puedes hacer una aplicación web mobile first para: crear y modificar listas de productos desde archivo excel o manualmente, crear y actualizar lista de clientes, registrar y modificar pedidos de clientes, y generar reportes semanales usando como referencia la estructura de datos adjunta. Los reportes deberán ser almacenados y podrán consultarse en listados ordenados por fecha desde el más reciente hacia el menos reciente, ordenando también los pedidos.
 
@@ -160,3 +375,15 @@ Se le pide que muestre reportes:
 Conserva las funcionalidades y botones actuales para generar reportes parciales. 
 Todo pedido podrá ser modificado hasta que se cierre el reporte (ya sea cierre automático de miércoles 10:59AM o al generar reporte parcial desde el botón). 
 Todo pedido incluido en un reporte generado, no deberá volver a incluirse en el reporte siguiente. 
+
+## Resultados obtenidos
+
+### Funciones básicas
+
+![Sección Productos](/images/sistema-gestion-pedidos-productos.svg "Sección Productos")
+
+![Agregar Productos](/images/sistema-gestion-pedidos-agregarproducto.svg "Sección Agregar Productos")
+
+![Sección Pedidos](/images/sistema-gestion-pedidos-pedidos.svg "Sección Pedidos")
+
+![Nuevo Pedido](/images/sistema-gestion-pedidos-nuevopedido.svg "Sección Nuevo Pedido")
