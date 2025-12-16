@@ -232,7 +232,7 @@ PERIODO (1) —— (N) REPORTE
 
 En primera instancia se considera esencial el registro y control de los pedidos, dejando para una segunda etapa la inclusión de los remitos.
 
-### Uso de ChatGPT
+### Estructura de datos operativa
 
 Se inicia una conversación con **ChatGPT**. La instrucción dada es: 
 

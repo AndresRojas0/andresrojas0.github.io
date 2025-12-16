@@ -1,11 +1,11 @@
 ---
 title: Inserción - Inteligencia Artificial Generativa
-date: 2025-01-23
 layout: post.njk
 slug: post-1
+image: /images/generative-ai-2.svg
 tags: post
 description: Una exploración profunda de las herramientas de IA generativa y sus aplicaciones prácticas en el desarrollo de software.
-image: /images/generative-ai-2.svg
+date: 2025-01-23
 ---
 
 ## [Introducción](## "⚠ Este artículo fue escrito por IA en base al contenido del sitio. ⚠")*
