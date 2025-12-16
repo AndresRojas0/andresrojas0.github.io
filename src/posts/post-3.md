@@ -7,14 +7,6 @@ tags: post
 date: 2025-07-23 23:07:00
 ---
 
-# APLICACIÓN - CARGANDO PEDIDOS I
-
-<a name="introduction"></a>
-
-1. [INTRODUCCIÓN](#introduction)
-2. [ESTRUCTURA DE DATOS](#part-1-1)
-3. [CREANDO CON IA](#part-2-1)
-
 ## Introducción
 
 ### Narrativa del caso
@@ -22,8 +14,6 @@ date: 2025-07-23 23:07:00
 Un vendedor lleva una cartera de clientes de rubros ferretería, general y otros. Diariamente recibe pedidos de clientes los cuales consisten en: número de cliente, datos del cliente, detalle listando productos (título y descripción) con sus cantidades. 
 Semanalmente los días miércoles el vendedor cierra los pedidos y ya no pueden modificarse, al mismo tiempo inicia otra semana de nuevos pedidos (de miércoles a miércoles). El origen de los productos es el stock y otros son pedidos a proveedores. Para cerrar el ciclo pedido-entrega-cobro se genera un remito con los productos que van a ser entregados, sus precios al cliente y la fecha probable de entrega del remito-pedido. Si los productos del remito-pedido abarcan exactamente los del pedido se marca con estado cerrado-completo, si los productos del remito-pedido abarcan cada uno de los productos pero no alcanzan en sus cantidades se marca con estado cerrado-limitado y si los productos del remito-pedido no cubren todos los productos del pedido se marca con estado cerrado-incompleto. En cada caso se deberá regitrar en pedidos-faltantes la diferencia entre el remito y su pedido relacionado (remito-pedido). 
 El vendedor es responsable de crear, leer, modificar y eliminar las categorías codificadas de productos, las imágenes codificadas de productos, los proveedores codificados de productos, y los productos codificados los cuales deberán admitir subida masiva desde planilla de cálculo excel. 
-
-<a name="part-1-1"></a>
 
 ## Parte I
 
@@ -138,8 +128,6 @@ La respuesta obtenida:
 }
 ```
 
-<a name="part-2-1"></a>
-
 ## Parte II
 
 ### Creando con IA
@@ -172,7 +160,3 @@ Se le pide que muestre reportes:
 Conserva las funcionalidades y botones actuales para generar reportes parciales. 
 Todo pedido podrá ser modificado hasta que se cierre el reporte (ya sea cierre automático de miércoles 10:59AM o al generar reporte parcial desde el botón). 
 Todo pedido incluido en un reporte generado, no deberá volver a incluirse en el reporte siguiente. 
-
-1. [INTRODUCCIÓN](#introduction)
-2. [ESTRUCTURA DE DATOS](#part-1-1)
-3. [CREANDO CON IA](#part-2-1)
