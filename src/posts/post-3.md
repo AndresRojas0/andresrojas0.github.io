@@ -380,10 +380,26 @@ Todo pedido incluido en un reporte generado, no deberá volver a incluirse en el
 
 ### Funciones básicas
 
+Sección Productos: muestra todos los productos cargados tanto desde planilla de cálculo como aquellos subidos individualmente.
+
 ![Sección Productos](/images/sistema-gestion-pedidos-productos.svg "Sección Productos")
+
+Sección Agregar Producto: es la que permite agregar un producto individualmente y sus atributos como Número de Artículo, Código del Producto, Descripción, Unidad de Medida, Proveedor.
 
 ![Agregar Productos](/images/sistema-gestion-pedidos-agregarproducto.svg "Sección Agregar Productos")
 
+Sección Pedidos: muestra todos los pedidos cargados.
+
 ![Sección Pedidos](/images/sistema-gestion-pedidos-pedidos.svg "Sección Pedidos")
 
+Sección Nuevo Pedido: es la que permite cargar un nuevo pedido con los atributos Código de Cliente, Fecha de Pedido, y una sección Agregar Productos para buscar y agregar los mismos.
+
 ![Nuevo Pedido](/images/sistema-gestion-pedidos-nuevopedido.svg "Sección Nuevo Pedido")
+
+## Trabajo futuro
+
+### Posibles extensiones
+* Multiusuario
+* Gestión de stock
+* Integración contable
+* Análisis predictivo
