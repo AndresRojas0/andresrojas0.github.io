@@ -1,5 +1,5 @@
 ---
-title: Aplicación - Carga Pedidos v1
+title: Incursión - Creación de aplicación para carga de pedidos
 layout: post.njk
 slug: post-3
 image: /images/order.svg

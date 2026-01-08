@@ -1,5 +1,5 @@
 ---
-title: Iniciación - Usando IA
+title: Iniciación - Pensando y prototipando una planilla de trabajo como aplicación
 layout: post.njk
 slug: post-2
 image: /images/blog-post.svg

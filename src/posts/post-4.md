@@ -1,5 +1,5 @@
 ---
-title: Aplicación - Carga Pedidos v2
+title: Incursión - Creación de aplicación Flask para carga de pedidos
 layout: post.njk
 slug: post-4
 image: /images/construction.svg
