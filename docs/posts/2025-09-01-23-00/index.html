@@ -6,7 +6,7 @@
     <meta name="title" content="AAI|IAA Arise with AI|IA para aprender">
     <meta name="description" content="This AAI|IAA page shares the experience of a AI user.">
     <meta name="robots" content="index, follow" />
-    <title>Incursión - Creación de aplicación Flask para carga de pedidos</title>
+    <title>Análisis y Desarrollo de una Aplicación de Gestión con Flask y MySQL</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -29,7 +29,7 @@
   
   
   <div id="toc-bar" class="invisible">
-    <span class="label">Incursión - Creación de aplicación Flask para carga de pedidos</span>
+    <span class="label">Análisis y Desarrollo de una Aplicación de Gestión con Flask y MySQL</span>
     <button type="button" class="toc-trigger">
       ☰
     </button>
@@ -44,7 +44,7 @@
   
   <dialog id="toc-popup">
     <div class="header">
-      <div class="label">Incursión - Creación de aplicación Flask para carga de pedidos</div>
+      <div class="label">Análisis y Desarrollo de una Aplicación de Gestión con Flask y MySQL</div>
       <button id="toc-popup-close" type="button">
         ✕
       </button>
@@ -67,38 +67,743 @@
   
   <article>
     
-      <img src="/images/construction.svg" alt="Incursión - Creación de aplicación Flask para carga de pedidos">
+      <img src="/images/2825793_20553_notext.svg" alt="Análisis y Desarrollo de una Aplicación de Gestión con Flask y MySQL">
     
 
-    <h1>Incursión - Creación de aplicación Flask para carga de pedidos</h1>
+    <h1>Análisis y Desarrollo de una Aplicación de Gestión con Flask y MySQL</h1>
     
     
       <time class="post-date" datetime="Mon Sep 01 2025 20:00:00 GMT-0300 (hora estándar de Argentina)">Mon Sep 01 2025 20:00:00 GMT-0300 (hora estándar de Argentina)</time>
     
 
-    <blockquote>
-<p>⚠☢☣ ␀ EN CONSTRUCCIÓN ␀ ☣☢⚠</p>
-</blockquote>
-<h2>Introducción</h2>
-<h3>Contexto y conocimientos previos</h3>
-<p>En el contexto de aprendizaje fullstack, he desarrollado una aplicación utilizando framework Flask y bases de datos MySQL</p>
-<h3>Utilizando Flask + MySQL</h3>
-<h3>Acerca</h3>
-<p>Desarrollo de plataforma de pedidos con catálogo de productos, imágenes representativas, detalle de productos y filtros por categorías de productos. Parte del desarrollo (frontend) se encuentra en otro repositorio <a href="https://github.com/lucho-39/punto-ferretero-front">https://github.com/lucho-39/punto-ferretero-front</a> y se puede acceder a su despliegue a través del enlace <a href="https://punto-ferretero-front.vercel.app/">https://punto-ferretero-front.vercel.app/</a></p>
-<h3>Contenido</h3>
-<p>Implementación de Python como lenguaje de desarrollo backend a través del framework Flask. Implementación de base de datos relacionales con MySQL. Implementación de arquitectura API-REST</p>
-<h3>Desarrollo</h3>
-<p>A través del manejo de bases de datos relacionales con MySQL se aborda el modelado de los datos. Luego, introduciendo Python como lenguaje de programación, se desarrolla la lógica de negocio requerida y a través de Flask se revisa el patrón Model Template View (MTV) y se implementa el desarrollo de una interfaz de programación de aplicación con la arquitectura de transferencia de estado representacional (API-REST por sus siglas en inglés).</p>
-<h3>Reglas</h3>
-<p>Administrador ingresa a la aplicación backend y carga en base de datos en tabla Productos los productos desde una hoja de cálculos excel con los campos: Proveedor (código proveedor), Artículo (opcional), Código (opcional), Descripción, Categoría (cero, una o varias palabras &quot;tags&quot; separadas por comas, es opcional), Imagen (URL de imagen representativa o nulo, es opcional).  Administrador puede volver a cargar en tabla Productos desde otra hoja de cálculos excel (respetando los campos) sin que se generen duplicados en la tabla y para ello el sistema backend deberá avisar cuál o cuáles productos ya existen en dicha tabla, permitiendo al Administrador confirmar si sobreescribe el contenido modificando los productos existentes, o sólo carga los productos que aún no existen en la tabla, o ambas cosas. Un Producto puede tener cero, una o muchas categorías. Mostrar la o las categorías en la vista Productos.  La aplicación backend genera los API endpoints necesarios para el frontend para lo siguiente: Un Cliente ingresa a la aplicación frontend y realiza una selección de productos y cantidades, filtrando por categorías de productos. Una vez seleccionados los productos y sus cantidades se dirige al subsitio carrito de compras, elimina productos o modifica sus cantidades y confirma la Orden de Pedido. Una Orden de Pedido confirmada dispara un mensaje por whatsapp al vendedor con los datos de la Orden de Pedido. El vendedor realiza un Remito para un cliente con los productos, sus cantidades y precio por unidad. El Remito para un cliente puede diferir de la Orden de Pedido. Si en el Remito hay productos con cantidad igual a cero, se genera un reporte faltante de pedido para el vendedor con los productos que no van a ser entregados. Si en el Remito hay productos con cantidad menor a la de Orden de Pedido, se genera un reporte faltante de pedido para el vendedor con los productos cuya cantidad no alcanza la de Orden de Pedido. Si en el Remito están todos los productos y sus cantidades iguales a Orden de Pedido, el reporte faltante de pedido no se genera, no hay faltantes.  Administrador debe poder realizar CRUD en Productos, Categorias, Imagenes, Proveedores, Clientes, Orden_Pedido, Remito.  Faltante_Pedido debe adecuarse automáticamente a las modificaciones realizadas en la relación Orden_Pedido y Remito.</p>
-<h3>Estructura</h3>
-<pre><code>Producto = id + (articulo) + (codigo) + descripcion + 0{categoria_id}n + (imagen_id) + proveedor_id
-Categoria = id + nombre + unidadImagen = id + URL + textoProveedor = id + codigo + nombre + observaciones
-Cliente = id + nombre + domicilio + CUIT + clave_bancaria + alias_virtual
-Orden_Pedido = id + cliente_id + 1{producto_id + cantidad}n
-Remito = id + cliente_id + 1{producto_id + cantidad + precio_unitario}n + fecha_entrega + factura_tipo
-Faltante_Pedido = id + pedido_id + 0{producto_id + cantidad}n
+    <h2>1. Introducción</h2>
+<p>El objetivo de este documento es presentar un análisis técnico del desarrollo de una aplicación web para la gestión de un catálogo de productos, utilizando Python con el framework Flask para el backend y una base de datos MySQL. A diferencia de un tutorial convencional, este artículo se centra en el proceso de derivar requerimientos funcionales a partir de un problema de negocio, definir reglas operativas, y traducir todo ello en una arquitectura de software coherente y funcional.</p>
+<p>El análisis se basa en la estructura y lógica de proyectos de referencia como <strong><a href="https://github.com/ChTole/CAC-PythonFS-Back/">CAC-PythonFS-Back</a></strong> y <strong><a href="https://github.com/ChTole/CAC-PythonFS-Front/">CAC-PythonFS-Front</a></strong>, aplicados a un caso de estudio concreto: un sistema de gestión para una ferretería. Se detallarán el modelo de datos, las historias de usuario que definen el alcance y los casos de uso que describen la interacción del sistema.</p>
+<h2>2. Análisis del Problema y Reglas de Negocio</h2>
+<p>El punto de partida es un problema de negocio común: una ferretería necesita un sistema centralizado para administrar su catálogo de productos, proveedores y categorías. Actualmente, este proceso puede ser manual, propenso a errores y difícil de escalar. La solución propuesta debe automatizar y estructurar esta gestión.</p>
+<p>De este problema se derivan las siguientes <strong>reglas de negocio</strong> que el software debe implementar:</p>
+<ol>
+<li>
+<p><strong>Integridad de Datos:</strong> El sistema debe asegurar que cada producto esté asociado a una categoría y un proveedor válidos. Si una de estas entidades es eliminada, el producto debe permanecer en el sistema pero con una referencia nula (<code>ON DELETE SET NULL</code>), evitando la pérdida de datos del producto.</p>
+</li>
+<li>
+<p><strong>Gestión de Catálogo Centralizada:</strong> Todas las operaciones de creación, lectura, actualización y eliminación (CRUD) de productos, categorías y proveedores deben realizarse a través de una interfaz de administración o una API segura.</p>
+</li>
+<li>
+<p><strong>Importación Masiva de Datos:</strong> Para facilitar la carga inicial y las actualizaciones masivas, el sistema debe permitir la importación de productos desde un archivo Excel (<code>.xlsx</code>).</p>
+</li>
+<li>
+<p><strong>Flexibilidad en la Importación:</strong> El proceso de importación debe ser capaz de interpretar diferentes nombres de columnas en el archivo Excel (p. ej., &quot;Art.&quot;, &quot;Artículo&quot;, &quot;art&quot; deben ser mapeados al campo <code>art</code> del producto).</p>
+</li>
+<li>
+<p><strong>Creación Automática de Entidades:</strong> Si durante la importación se encuentra un producto con una categoría o un proveedor que no existen en la base de datos, el sistema debe crearlos automáticamente para no interrumpir el proceso.</p>
+</li>
+<li>
+<p><strong>Prevención de Duplicados:</strong> Durante la importación, el sistema debe verificar si un producto ya existe en la base de datos (comparando por código de artículo o código de proveedor) para prevenir la duplicación de registros.</p>
+</li>
+</ol>
+<h2>3. Modelo Conceptual del Sistema</h2>
+<p>Antes de implementar la solución técnica, es necesario definir el modelo conceptual que representa los elementos del dominio del negocio y sus interrelaciones.</p>
+<h3>3.1 Entidades Principales</h3>
+<p>El sistema de gestión de productos para una ferretería identifica las siguientes entidades principales:</p>
+<p><strong>Producto (<code>product</code>)</strong></p>
+<p>Representa un artículo disponible en el catálogo de la ferretería. Cada producto tiene un identificador único, un código de artículo, un código de proveedor, un título descriptivo y una descripción detallada. El producto es la entidad central del sistema, ya que agrupa información de múltiples dominios: la clasificación (categoría), el origen (proveedor) y la presentación visual (imagen).</p>
+<p>Atributos:</p>
+<ul>
+<li><code>id</code>: Identificador único (clave primaria).</li>
+<li><code>art</code>: Código de artículo interno de la ferretería.</li>
+<li><code>cod</code>: Código del producto según el proveedor.</li>
+<li><code>tit</code>: Título o nombre corto del producto.</li>
+<li><code>desc</code>: Descripción detallada del producto.</li>
+<li><code>cat_id</code>: Referencia a la categoría del producto (clave foránea).</li>
+<li><code>prov_id</code>: Referencia al proveedor del producto (clave foránea).</li>
+<li><code>img_id</code>: Referencia a la imagen del producto (clave foránea).</li>
+</ul>
+<p><strong>Categoría (<code>category</code>)</strong></p>
+<p>Representa una clasificación lógica bajo la cual se agrupan los productos. Las categorías facilitan la navegación y la búsqueda en el catálogo. Ejemplos incluyen &quot;Herramientas&quot;, &quot;Materiales de Construcción&quot;, &quot;Pintura&quot;, etc.</p>
+<p>Atributos:</p>
+<ul>
+<li><code>id</code>: Identificador único (clave primaria).</li>
+<li><code>name</code>: Nombre de la categoría.</li>
+<li><code>unit</code>: Unidad de medida estándar para los productos de esta categoría (p. ej., &quot;metros&quot;, &quot;kilogramos&quot;, &quot;unidades&quot;).</li>
+</ul>
+<p><strong>Proveedor (<code>prov</code>)</strong></p>
+<p>Representa una empresa o entidad que suministra productos a la ferretería. Cada proveedor tiene un código identificador único y un nombre. El proveedor es fundamental para la gestión de compras y para rastrear el origen de los productos.</p>
+<p>Atributos:</p>
+<ul>
+<li><code>id</code>: Identificador único (clave primaria).</li>
+<li><code>cod</code>: Código del proveedor (puede ser un código interno o externo).</li>
+<li><code>name</code>: Nombre del proveedor.</li>
+</ul>
+<p><strong>Imagen (<code>image</code>)</strong></p>
+<p>Representa la referencia a una imagen visual del producto. Aunque es una entidad separada, su propósito es almacenar la URL de la imagen y un texto alternativo para accesibilidad.</p>
+<p>Atributos:</p>
+<ul>
+<li><code>id</code>: Identificador único (clave primaria).</li>
+<li><code>url_img</code>: URL de la imagen del producto.</li>
+<li><code>txt_alt</code>: Texto alternativo para la imagen (usado en lectores de pantalla y cuando la imagen no carga).</li>
+</ul>
+<h3>3.2 Relaciones entre Entidades</h3>
+<p>Las relaciones definen cómo las entidades se conectan entre sí. En este sistema, todas las relaciones son de tipo N:1 (muchos a uno), donde N representa la tabla <code>product</code> y 1 representa las otras tablas.</p>
+<p><strong>Relación: Producto - Categoría</strong></p>
+<ul>
+<li><strong>Cardinalidad:</strong> N:1 (muchos productos pueden pertenecer a una categoría, pero cada producto pertenece a una única categoría).</li>
+<li><strong>Descripción:</strong> Un producto debe estar clasificado en exactamente una categoría. Una categoría puede contener cero o muchos productos.</li>
+<li><strong>Implementación:</strong> La tabla <code>product</code> contiene la columna <code>cat_id</code> como clave foránea que referencia a <code>category.id</code>.</li>
+<li><strong>Regla de Integridad:</strong> Si una categoría es eliminada, los productos asociados mantienen su referencia como nula (<code>ON DELETE SET NULL</code>), preservando el registro del producto.</li>
+</ul>
+<p><strong>Relación: Producto - Proveedor</strong></p>
+<ul>
+<li><strong>Cardinalidad:</strong> N:1 (muchos productos pueden provenir de un proveedor, pero cada producto tiene un único proveedor).</li>
+<li><strong>Descripción:</strong> Un producto debe estar asociado a exactamente un proveedor. Un proveedor puede suministrar cero o muchos productos.</li>
+<li><strong>Implementación:</strong> La tabla <code>product</code> contiene la columna <code>prov_id</code> como clave foránea que referencia a <code>prov.id</code>.</li>
+<li><strong>Regla de Integridad:</strong> Si un proveedor es eliminado, los productos asociados mantienen su referencia como nula (<code>ON DELETE SET NULL</code>).</li>
+</ul>
+<p><strong>Relación: Producto - Imagen</strong></p>
+<ul>
+<li><strong>Cardinalidad:</strong> N:1 (muchos productos pueden compartir la misma imagen, pero cada producto tiene una única imagen asociada).</li>
+<li><strong>Descripción:</strong> Un producto puede tener una imagen asociada. Una imagen puede ser utilizada por cero o muchos productos (aunque en la práctica, cada producto suele tener su propia imagen).</li>
+<li><strong>Implementación:</strong> La tabla <code>product</code> contiene la columna <code>img_id</code> como clave foránea que referencia a <code>image.id</code>.</li>
+<li><strong>Regla de Integridad:</strong> Si una imagen es eliminada, los productos asociados mantienen su referencia como nula (<code>ON DELETE SET NULL</code>).</li>
+</ul>
+<h3>3.3 Diagrama Conceptual</h3>
+<p>La siguiente representación textual muestra las entidades y sus relaciones:</p>
+<pre><code>┌──────────────┐         ┌──────────────┐
+│  CATEGORY    │         │     PROV     │
+├──────────────┤         ├──────────────┤
+│ id (PK)      │         │ id (PK)      │
+│ name         │         │ cod          │
+│ unit         │         │ name         │
+└──────────────┘         └──────────────┘
+        ▲                        ▲
+        │ (1)                    │ (1)
+        │                        │
+        │ cat_id            prov_id
+        │                        │
+        │ (N)                    │ (N)
+        │                        │
+┌───────┴────────────────────────┴────────┐
+│          PRODUCT                        │
+├─────────────────────────────────────────┤
+│ id (PK)                                 │
+│ art                                     │
+│ cod                                     │
+│ tit                                     │
+│ desc                                    │
+│ cat_id (FK → CATEGORY)                  │
+│ prov_id (FK → PROV)                     │
+│ img_id (FK → IMAGE)                     │
+└─────────────────────────────────────────┘
+        ▲
+        │ (1)
+        │
+        │ img_id
+        │
+        │ (N)
+        │
+┌───────┴──────────┐
+│     IMAGE        │
+├──────────────────┤
+│ id (PK)          │
+│ url_img          │
+│ txt_alt          │
+└──────────────────┘
 </code></pre>
+<h2>4. Proceso de Diseño de la Base de Datos</h2>
+<p>El diseño de la base de datos es un proceso metódico que traduce los requerimientos del negocio en una estructura técnica robusta y eficiente. Este proceso sigue una serie de fases bien definidas que garantizan que la base de datos resultante sea coherente, escalable y capaz de soportar las operaciones del sistema.</p>
+<h3>4.1 Fase 1: Análisis de Requerimientos</h3>
+<p>La primera fase consiste en recopilar y analizar los requerimientos funcionales y no funcionales del sistema. En este caso, los requerimientos clave son:</p>
+<ul>
+<li><strong>Funcionales:</strong> Gestionar un catálogo de productos, permitir la importación masiva desde Excel, prevenir duplicados, crear automáticamente categorías y proveedores.</li>
+<li><strong>No Funcionales:</strong> El sistema debe ser escalable, permitir búsquedas rápidas, mantener la integridad de datos incluso cuando se eliminan entidades relacionadas.</li>
+</ul>
+<p>A partir de estos requerimientos, se identifican las preguntas clave que la base de datos debe responder:</p>
+<ol>
+<li>¿Cuáles son los atributos esenciales de un producto?</li>
+<li>¿Cómo se relacionan los productos con categorías, proveedores e imágenes?</li>
+<li>¿Qué información se necesita para prevenir duplicados?</li>
+<li>¿Cómo se debe comportar el sistema cuando se elimina una categoría o proveedor?</li>
+</ol>
+<h3>4.2 Fase 2: Modelado Conceptual</h3>
+<p>En esta fase, se crea un modelo conceptual que representa el dominio del negocio de forma abstracta, sin considerar detalles técnicos. El modelo identifica las entidades principales, sus atributos y las relaciones entre ellas.</p>
+<p><strong>Identificación de Entidades:</strong></p>
+<p>Del análisis de requerimientos emergen cuatro entidades principales:</p>
+<ol>
+<li><strong>Producto:</strong> La entidad central que representa los artículos del catálogo.</li>
+<li><strong>Categoría:</strong> Agrupa los productos en clasificaciones lógicas.</li>
+<li><strong>Proveedor:</strong> Identifica el origen de los productos.</li>
+<li><strong>Imagen:</strong> Proporciona referencias visuales para los productos.</li>
+</ol>
+<p><strong>Identificación de Atributos:</strong></p>
+<p>Para cada entidad, se definen los atributos que son necesarios para cumplir con los requerimientos:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Entidad</th>
+<th style="text-align:left">Atributos</th>
+<th style="text-align:left">Justificación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Producto</strong></td>
+<td style="text-align:left"><code>id</code>, <code>art</code>, <code>cod</code>, <code>tit</code>, <code>desc</code>, <code>cat_id</code>, <code>prov_id</code>, <code>img_id</code></td>
+<td style="text-align:left">El <code>art</code> es el código interno único. El <code>cod</code> es el código del proveedor. Los IDs foráneos conectan con otras entidades.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Categoría</strong></td>
+<td style="text-align:left"><code>id</code>, <code>name</code>, <code>unit</code></td>
+<td style="text-align:left">El <code>name</code> identifica la categoría. El <code>unit</code> especifica la unidad de medida estándar.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Proveedor</strong></td>
+<td style="text-align:left"><code>id</code>, <code>cod</code>, <code>name</code></td>
+<td style="text-align:left">El <code>cod</code> es el identificador único del proveedor. El <code>name</code> es su razón social.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Imagen</strong></td>
+<td style="text-align:left"><code>id</code>, <code>url_img</code>, <code>txt_alt</code></td>
+<td style="text-align:left">La <code>url_img</code> es la referencia al archivo. El <code>txt_alt</code> mejora la accesibilidad.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Identificación de Relaciones:</strong></p>
+<p>Se definen las relaciones entre entidades:</p>
+<ul>
+<li>Producto N:1 Categoría (muchos productos en una categoría)</li>
+<li>Producto N:1 Proveedor (muchos productos de un proveedor)</li>
+<li>Producto N:1 Imagen (muchos productos pueden compartir una imagen)</li>
+</ul>
+<h3>4.3 Fase 3: Normalización</h3>
+<p>La normalización es un proceso que elimina redundancias y anomalías en el diseño de la base de datos. Se aplican reglas de normalización progresivas hasta alcanzar la tercera forma normal (3NF).</p>
+<p><strong>Primera Forma Normal (1NF):</strong></p>
+<p>La 1NF requiere que todos los atributos contengan valores atómicos (indivisibles) y que no haya grupos repetitivos. En nuestro modelo, cada atributo es atómico. Por ejemplo, en lugar de almacenar múltiples códigos de proveedor en un solo campo, cada producto tiene un único <code>prov_id</code>.</p>
+<p><strong>Segunda Forma Normal (2NF):</strong></p>
+<p>La 2NF requiere que la tabla esté en 1NF y que todos los atributos no clave dependan completamente de la clave primaria. En nuestro modelo, cada tabla tiene una clave primaria simple (<code>id</code>), y todos los atributos dependen de ella. Por ejemplo, en la tabla <code>product</code>, el atributo <code>tit</code> (título) depende del <code>id</code> del producto, no de ningún otro atributo.</p>
+<p><strong>Tercera Forma Normal (3NF):</strong></p>
+<p>La 3NF requiere que la tabla esté en 2NF y que no haya dependencias transitivas entre atributos no clave. En nuestro modelo, esto se logra separando las entidades. Por ejemplo, en lugar de almacenar el nombre de la categoría directamente en la tabla <code>product</code>, se almacena solo el <code>cat_id</code>, y el nombre se recupera de la tabla <code>category</code>. Esto evita que el nombre de la categoría dependa transitivamente del <code>id</code> del producto.</p>
+<p><strong>Ejemplo de Normalización:</strong></p>
+<p>Consideremos una tabla desnormalizada hipotética:</p>
+<pre><code class="language-sql">-- Tabla desnormalizada (ANTES)
+CREATE TABLE product_desnormalizado (
+    id INT PRIMARY KEY,
+    art VARCHAR(50),
+    cod VARCHAR(50),
+    tit VARCHAR(150),
+    desc TEXT,
+    categoria_name VARCHAR(100),        -- Redundancia: nombre de categoría repetido
+    categoria_unit VARCHAR(50),          -- Redundancia: unidad de medida repetida
+    proveedor_cod VARCHAR(50),           -- Redundancia: código de proveedor repetido
+    proveedor_name VARCHAR(100)          -- Redundancia: nombre de proveedor repetido
+);
+</code></pre>
+<p>Esta tabla tiene problemas:</p>
+<ol>
+<li><strong>Anomalía de Inserción:</strong> No se puede insertar una categoría sin un producto.</li>
+<li><strong>Anomalía de Actualización:</strong> Si el nombre de una categoría cambia, hay que actualizar múltiples filas.</li>
+<li><strong>Anomalía de Eliminación:</strong> Si se elimina el único producto de una categoría, se pierde la información de la categoría.</li>
+</ol>
+<p>Al normalizar a 3NF, se crean tablas separadas:</p>
+<pre><code class="language-sql">-- Tablas normalizadas (DESPUÉS)
+CREATE TABLE category (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    unit VARCHAR(50)
+);
+
+CREATE TABLE prov (
+    id INT PRIMARY KEY,
+    cod VARCHAR(50),
+    name VARCHAR(100)
+);
+
+CREATE TABLE product (
+    id INT PRIMARY KEY,
+    art VARCHAR(50),
+    cod VARCHAR(50),
+    tit VARCHAR(150),
+    desc TEXT,
+    cat_id INT REFERENCES category(id),
+    prov_id INT REFERENCES prov(id)
+);
+</code></pre>
+<p>Ahora:</p>
+<ol>
+<li><strong>Inserción:</strong> Se puede insertar una categoría sin productos.</li>
+<li><strong>Actualización:</strong> Cambiar el nombre de una categoría requiere una única actualización.</li>
+<li><strong>Eliminación:</strong> Eliminar un producto no afecta la información de la categoría.</li>
+</ol>
+<h3>4.4 Fase 4: Diseño Físico</h3>
+<p>En esta fase, el modelo lógico normalizado se traduce a un esquema físico específico para MySQL, considerando tipos de datos, restricciones, índices y optimizaciones.</p>
+<p><strong>Selección de Tipos de Datos:</strong></p>
+<p>Para cada atributo, se selecciona el tipo de dato más apropiado:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Atributo</th>
+<th style="text-align:left">Tipo de Dato</th>
+<th style="text-align:left">Justificación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>id</code></td>
+<td style="text-align:left"><code>INT AUTO_INCREMENT</code></td>
+<td style="text-align:left">Identificador único autoincrementable.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>art</code>, <code>cod</code></td>
+<td style="text-align:left"><code>VARCHAR(50)</code></td>
+<td style="text-align:left">Códigos alfanuméricos de longitud variable.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>tit</code></td>
+<td style="text-align:left"><code>VARCHAR(150)</code></td>
+<td style="text-align:left">Título corto con longitud limitada.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>desc</code></td>
+<td style="text-align:left"><code>TEXT</code></td>
+<td style="text-align:left">Descripción larga que puede exceder 255 caracteres.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>name</code></td>
+<td style="text-align:left"><code>VARCHAR(100)</code></td>
+<td style="text-align:left">Nombre de categoría o proveedor.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>unit</code></td>
+<td style="text-align:left"><code>VARCHAR(50)</code></td>
+<td style="text-align:left">Unidad de medida.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>url_img</code></td>
+<td style="text-align:left"><code>VARCHAR(255)</code></td>
+<td style="text-align:left">URL de la imagen.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>txt_alt</code></td>
+<td style="text-align:left"><code>VARCHAR(255)</code></td>
+<td style="text-align:left">Texto alternativo.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Definición de Restricciones:</strong></p>
+<p>Se definen restricciones para garantizar la integridad de los datos:</p>
+<ul>
+<li><strong>PRIMARY KEY:</strong> Cada tabla tiene una clave primaria (<code>id</code>) que identifica unívocamente cada registro.</li>
+<li><strong>UNIQUE:</strong> Los campos <code>art</code> (en <code>product</code>), <code>name</code> (en <code>category</code>) y <code>cod</code> (en <code>prov</code>) son únicos para prevenir duplicados.</li>
+<li><strong>NOT NULL:</strong> Los campos obligatorios se marcan como <code>NOT NULL</code>.</li>
+<li><strong>FOREIGN KEY:</strong> Las referencias entre tablas se definen con claves foráneas (<code>cat_id</code>, <code>prov_id</code>, <code>img_id</code>).</li>
+<li><strong>ON DELETE SET NULL:</strong> Si una entidad padre es eliminada, las referencias en las entidades hijas se establecen como <code>NULL</code>, preservando los registros.</li>
+</ul>
+<p><strong>Creación de Índices:</strong></p>
+<p>Se crean índices para optimizar las búsquedas:</p>
+<ul>
+<li><strong>INDEX idx_art:</strong> Acelera las búsquedas por código de artículo.</li>
+<li><strong>INDEX idx_cod:</strong> Acelera las búsquedas por código de proveedor.</li>
+<li><strong>INDEX idx_cat_id:</strong> Acelera las búsquedas de productos por categoría.</li>
+<li><strong>INDEX idx_prov_id:</strong> Acelera las búsquedas de productos por proveedor.</li>
+</ul>
+<h3>4.5 Fase 5: Validación y Optimización</h3>
+<p>En esta fase final, se valida el diseño contra los requerimientos y se realizan optimizaciones.</p>
+<p><strong>Validación:</strong></p>
+<ol>
+<li>¿Puede el sistema gestionar la importación masiva de productos? Sí, la estructura permite la creación automática de categorías y proveedores.</li>
+<li>¿Se pueden prevenir duplicados? Sí, los índices únicos en <code>art</code> y <code>cod</code> lo aseguran.</li>
+<li>¿Se preserva la integridad de datos cuando se eliminan entidades? Sí, las restricciones <code>ON DELETE SET NULL</code> lo garantizan.</li>
+<li>¿Es escalable el diseño? Sí, se pueden agregar nuevas entidades sin afectar la estructura existente.</li>
+</ol>
+<p><strong>Optimizaciones:</strong></p>
+<ul>
+<li><strong>Índices Compuestos:</strong> Si las búsquedas frecuentes combinan múltiples campos (p. ej., <code>cat_id</code> y <code>prov_id</code>), se puede crear un índice compuesto.</li>
+<li><strong>Particionamiento:</strong> Si la tabla <code>product</code> crece significativamente, se puede particionar por rango de <code>id</code> o por <code>cat_id</code>.</li>
+<li><strong>Desnormalización Selectiva:</strong> En casos donde las búsquedas son muy frecuentes y el rendimiento es crítico, se puede desnormalizar selectivamente (p. ej., almacenar el nombre de la categoría en <code>product</code> para evitar JOINs).</li>
+</ul>
+<h2>5. Estructura de Datos</h2>
+<p>La estructura de datos define cómo se organizan y almacenan los datos en el sistema, considerando tanto la persistencia en la base de datos como la representación en memoria y en las comunicaciones entre cliente y servidor.</p>
+<h3>4.1 Consideraciones Generales</h3>
+<p>Al diseñar la estructura de datos, se consideran los siguientes principios:</p>
+<ol>
+<li>
+<p><strong>Normalización:</strong> La base de datos sigue la tercera forma normal (3NF) para minimizar la redundancia de datos y garantizar la integridad referencial. Cada tabla representa una entidad distinta, y las relaciones se establecen mediante claves foráneas.</p>
+</li>
+<li>
+<p><strong>Escalabilidad:</strong> La estructura permite que el sistema crezca sin requerir cambios fundamentales. Por ejemplo, si en el futuro se necesita rastrear múltiples imágenes por producto, la relación puede adaptarse sin afectar la estructura existente.</p>
+</li>
+<li>
+<p><strong>Consistencia:</strong> Las claves foráneas con restricciones <code>ON DELETE SET NULL</code> aseguran que la eliminación de una entidad padre no elimine automáticamente los registros dependientes, preservando la integridad de los datos históricos.</p>
+</li>
+<li>
+<p><strong>Flexibilidad en la Importación:</strong> La estructura permite la creación automática de categorías y proveedores durante la importación de productos, sin requerir validación previa de estas entidades.</p>
+</li>
+<li>
+<p><strong>Prevención de Duplicados:</strong> Los campos <code>art</code> (código de artículo) y <code>cod</code> (código de proveedor) pueden ser únicos o tener índices para facilitar búsquedas rápidas y prevenir duplicados.</p>
+</li>
+</ol>
+<h3>4.2 Proceso de Derivación de la Estructura de Datos</h3>
+<p>La estructura de datos operativa se deriva del análisis del dominio del negocio mediante el siguiente proceso:</p>
+<p><strong>Paso 1: Identificación de Entidades</strong></p>
+<p>A partir del análisis de requerimientos, se identifican las entidades principales del dominio: Producto, Categoría, Proveedor e Imagen.</p>
+<p><strong>Paso 2: Definición de Atributos</strong></p>
+<p>Para cada entidad, se definen los atributos necesarios para satisfacer los casos de uso. Por ejemplo, el Producto requiere <code>art</code> y <code>cod</code> para permitir búsquedas y prevención de duplicados.</p>
+<p><strong>Paso 3: Establecimiento de Relaciones</strong></p>
+<p>Se definen las relaciones entre entidades basándose en las reglas de negocio. La relación N:1 entre Producto y Categoría refleja que cada producto tiene una única clasificación.</p>
+<p><strong>Paso 4: Normalización</strong></p>
+<p>La estructura se normaliza para eliminar redundancias. Por ejemplo, en lugar de almacenar el nombre de la categoría en cada registro de producto, se almacena solo el <code>cat_id</code>, y la categoría se recupera mediante una consulta JOIN.</p>
+<p><strong>Paso 5: Implementación en MySQL</strong></p>
+<p>La estructura conceptual se traduce a SQL, creando tablas con tipos de datos apropiados, claves primarias y foráneas.</p>
+<h3>4.3 Estructura de Datos Operativa</h3>
+<p>La estructura de datos operativa se representa en múltiples niveles: la base de datos relacional, los objetos en memoria (Python) y el formato de intercambio (JSON).</p>
+<h4>4.3.1 Esquema SQL (Base de Datos)</h4>
+<pre><code class="language-sql">CREATE TABLE category (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL UNIQUE,
+    unit VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE prov (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cod VARCHAR(50) NOT NULL UNIQUE,
+    name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE image (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    url_img VARCHAR(255) NOT NULL,
+    txt_alt VARCHAR(255)
+);
+
+CREATE TABLE product (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    art VARCHAR(50) NOT NULL UNIQUE,
+    cod VARCHAR(50) NOT NULL,
+    tit VARCHAR(150) NOT NULL,
+    desc TEXT NOT NULL,
+    cat_id INT,
+    prov_id INT,
+    img_id INT,
+    FOREIGN KEY (cat_id) REFERENCES category(id) ON DELETE SET NULL,
+    FOREIGN KEY (prov_id) REFERENCES prov(id) ON DELETE SET NULL,
+    FOREIGN KEY (img_id) REFERENCES image(id) ON DELETE SET NULL,
+    INDEX idx_art (art),
+    INDEX idx_cod (cod)
+);
+</code></pre>
+<h4>4.3.2 Representación en Objetos Python</h4>
+<p>En el backend, los datos se representan como instancias de clases que heredan de la clase <code>Tabla</code>. Cada clase mapea una tabla de la base de datos:</p>
+<pre><code class="language-python">class Categoria(Tabla):
+    tabla = 'category'
+    conexion = conexion
+    campos = ('id', 'name', 'unit')
+    
+    def __init__(self, *args, de_bbdd=False):
+        super().crear(args, de_bbdd)
+
+class Proveedor(Tabla):
+    tabla = 'prov'
+    conexion = conexion
+    campos = ('id', 'cod', 'name')
+    
+    def __init__(self, *args, de_bbdd=False):
+        super().crear(args, de_bbdd)
+
+class Imagen(Tabla):
+    tabla = 'image'
+    conexion = conexion
+    campos = ('id', 'url_img', 'txt_alt')
+    
+    def __init__(self, *args, de_bbdd=False):
+        super().crear(args, de_bbdd)
+
+class Producto(Tabla):
+    tabla = 'product'
+    conexion = conexion
+    campos = ('id', 'art', 'cod', 'tit', 'desc', 'cat_id', 'prov_id', 'img_id')
+    
+    def __init__(self, *args, de_bbdd=False):
+        super().crear(args, de_bbdd)
+</code></pre>
+<h4>4.3.3 Representación en JSON (API REST)</h4>
+<p>Cuando los datos se transmiten entre el backend y el frontend a través de la API REST, se serializan en formato JSON. A continuación se muestran ejemplos de estructuras JSON para cada entidad:</p>
+<p><strong>Ejemplo de Categoría en JSON:</strong></p>
+<pre><code class="language-json">{
+  &quot;id&quot;: 1,
+  &quot;name&quot;: &quot;Herramientas&quot;,
+  &quot;unit&quot;: &quot;unidades&quot;
+}
+</code></pre>
+<p><strong>Ejemplo de Proveedor en JSON:</strong></p>
+<pre><code class="language-json">{
+  &quot;id&quot;: 5,
+  &quot;cod&quot;: &quot;PROV-001&quot;,
+  &quot;name&quot;: &quot;Distribuidora Industrial S.A.&quot;
+}
+</code></pre>
+<p><strong>Ejemplo de Imagen en JSON:</strong></p>
+<pre><code class="language-json">{
+  &quot;id&quot;: 12,
+  &quot;url_img&quot;: &quot;https://cdn.ejemplo.com/productos/martillo-001.jpg&quot;,
+  &quot;txt_alt&quot;: &quot;Martillo de goma con mango de madera&quot;
+}
+</code></pre>
+<p><strong>Ejemplo de Producto en JSON (sin relaciones expandidas):</strong></p>
+<pre><code class="language-json">{
+  &quot;id&quot;: 42,
+  &quot;art&quot;: &quot;ART-0042&quot;,
+  &quot;cod&quot;: &quot;PROV-001-MAR&quot;,
+  &quot;tit&quot;: &quot;Martillo de Goma 500g&quot;,
+  &quot;desc&quot;: &quot;Martillo con cabeza de goma y mango de madera, ideal para trabajos que requieren no marcar la superficie.&quot;,
+  &quot;cat_id&quot;: 1,
+  &quot;prov_id&quot;: 5,
+  &quot;img_id&quot;: 12
+}
+</code></pre>
+<p><strong>Ejemplo de Producto en JSON (con relaciones expandidas):</strong></p>
+<p>En algunos casos, es útil expandir las relaciones para evitar múltiples peticiones al cliente. Esta estructura es más completa pero también más pesada:</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: 42,
+  &quot;art&quot;: &quot;ART-0042&quot;,
+  &quot;cod&quot;: &quot;PROV-001-MAR&quot;,
+  &quot;tit&quot;: &quot;Martillo de Goma 500g&quot;,
+  &quot;desc&quot;: &quot;Martillo con cabeza de goma y mango de madera, ideal para trabajos que requieren no marcar la superficie.&quot;,
+  &quot;categoria&quot;: {
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;Herramientas&quot;,
+    &quot;unit&quot;: &quot;unidades&quot;
+  },
+  &quot;proveedor&quot;: {
+    &quot;id&quot;: 5,
+    &quot;cod&quot;: &quot;PROV-001&quot;,
+    &quot;name&quot;: &quot;Distribuidora Industrial S.A.&quot;
+  },
+  &quot;imagen&quot;: {
+    &quot;id&quot;: 12,
+    &quot;url_img&quot;: &quot;https://cdn.ejemplo.com/productos/martillo-001.jpg&quot;,
+    &quot;txt_alt&quot;: &quot;Martillo de goma con mango de madera&quot;
+  }
+}
+</code></pre>
+<p><strong>Ejemplo de Respuesta de Lista de Productos:</strong></p>
+<p>Cuando la API devuelve una lista de productos, típicamente usa la estructura sin relaciones expandidas para mantener el tamaño de la respuesta manejable:</p>
+<pre><code class="language-json">[
+  {
+    &quot;id&quot;: 42,
+    &quot;art&quot;: &quot;ART-0042&quot;,
+    &quot;cod&quot;: &quot;PROV-001-MAR&quot;,
+    &quot;tit&quot;: &quot;Martillo de Goma 500g&quot;,
+    &quot;desc&quot;: &quot;Martillo con cabeza de goma...&quot;,
+    &quot;cat_id&quot;: 1,
+    &quot;prov_id&quot;: 5,
+    &quot;img_id&quot;: 12
+  },
+  {
+    &quot;id&quot;: 43,
+    &quot;art&quot;: &quot;ART-0043&quot;,
+    &quot;cod&quot;: &quot;PROV-001-DES&quot;,
+    &quot;tit&quot;: &quot;Destornillador Phillips #2&quot;,
+    &quot;desc&quot;: &quot;Destornillador de precisión con mango ergonómico...&quot;,
+    &quot;cat_id&quot;: 1,
+    &quot;prov_id&quot;: 5,
+    &quot;img_id&quot;: 13
+  }
+]
+</code></pre>
+<p><strong>Ejemplo de Estructura de Importación desde Excel:</strong></p>
+<p>Cuando se importan productos desde un archivo Excel, el sistema procesa los datos y genera una estructura interna (en Python) que se valida antes de insertarse en la base de datos:</p>
+<pre><code class="language-python"># Estructura interna durante la importación
+import_data = [
+    {
+        &quot;art&quot;: &quot;ART-0042&quot;,
+        &quot;cod&quot;: &quot;PROV-001-MAR&quot;,
+        &quot;tit&quot;: &quot;Martillo de Goma 500g&quot;,
+        &quot;desc&quot;: &quot;Martillo con cabeza de goma y mango de madera&quot;,
+        &quot;categoria&quot;: &quot;Herramientas&quot;,
+        &quot;proveedor_cod&quot;: &quot;PROV-001&quot;,
+        &quot;proveedor_name&quot;: &quot;Distribuidora Industrial S.A.&quot;,
+        &quot;imagen_url&quot;: &quot;https://cdn.ejemplo.com/productos/martillo-001.jpg&quot;,
+        &quot;imagen_alt&quot;: &quot;Martillo de goma con mango de madera&quot;,
+        &quot;estado&quot;: &quot;procesado&quot;,  # o &quot;duplicado&quot;, &quot;error&quot;
+        &quot;mensaje&quot;: &quot;Producto importado exitosamente&quot;
+    }
+]
+</code></pre>
+<p><strong>Ejemplo de Respuesta de Resultado de Importación:</strong></p>
+<p>Al finalizar la importación, el sistema devuelve un resumen en JSON:</p>
+<pre><code class="language-json">{
+  &quot;exitoso&quot;: true,
+  &quot;resumen&quot;: {
+    &quot;total_filas&quot;: 150,
+    &quot;importados&quot;: 145,
+    &quot;duplicados&quot;: 4,
+    &quot;errores&quot;: 1
+  },
+  &quot;detalles&quot;: [
+    {
+      &quot;fila&quot;: 2,
+      &quot;estado&quot;: &quot;importado&quot;,
+      &quot;producto_id&quot;: 42,
+      &quot;mensaje&quot;: &quot;Producto creado exitosamente&quot;
+    },
+    {
+      &quot;fila&quot;: 15,
+      &quot;estado&quot;: &quot;duplicado&quot;,
+      &quot;mensaje&quot;: &quot;Producto con art='ART-0015' ya existe&quot;
+    },
+    {
+      &quot;fila&quot;: 87,
+      &quot;estado&quot;: &quot;error&quot;,
+      &quot;mensaje&quot;: &quot;Campo obligatorio 'desc' faltante&quot;
+    }
+  ]
+}
+</code></pre>
+<h2>5. Diseño de la Solución: Modelo de Datos y Arquitectura</h2>
+<p>Con las reglas de negocio definidas, se procede al diseño técnico de la solución.</p>
+<h3>Modelo de Datos Relacional</h3>
+<p>Se opta por una base de datos relacional (MySQL) para garantizar la integridad y estructura de los datos. El esquema se compone de cuatro tablas principales:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Tabla</th>
+<th style="text-align:left">Campos Principales</th>
+<th style="text-align:left">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong><code>product</code></strong></td>
+<td style="text-align:left"><code>id</code>, <code>art</code>, <code>cod</code>, <code>tit</code>, <code>desc</code>, <code>cat_id</code> (FK), <code>prov_id</code> (FK), <code>img_id</code> (FK)</td>
+<td style="text-align:left">Entidad central que almacena la información de cada producto.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>category</code></strong></td>
+<td style="text-align:left"><code>id</code>, <code>name</code>, <code>unit</code></td>
+<td style="text-align:left">Agrupa los productos en clasificaciones lógicas.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>prov</code></strong></td>
+<td style="text-align:left"><code>id</code>, <code>cod</code>, <code>name</code></td>
+<td style="text-align:left">Almacena la información de los proveedores.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>image</code></strong></td>
+<td style="text-align:left"><code>id</code>, <code>url_img</code>, <code>txt_alt</code></td>
+<td style="text-align:left">Contiene las referencias a las imágenes de los productos.</td>
+</tr>
+</tbody>
+</table>
+<p>Las claves foráneas (<code>FK</code>) en la tabla <code>product</code> establecen relaciones N:1 con las otras tablas, asegurando que cada producto tenga una categoría, un proveedor y una imagen asociados.</p>
+<h3>Arquitectura del Backend (Flask)</h3>
+<p>El backend se estructura de forma modular para separar responsabilidades, facilitando el mantenimiento y la escalabilidad:</p>
+<pre><code class="language-plaintext">/punto-ferretero-back
+|-- app.py              # Punto de entrada de la aplicación Flask.
+|-- componentes/
+|   |-- vistas_api.py   # Define los endpoints de la API REST (GET, POST, PUT, DELETE).
+|   `-- vistas_web.py   # Define las rutas para la interfaz web de administración.
+|-- base_db/
+|   |-- conexion_db.py  # Gestiona la conexión con la base de datos MySQL.
+|   `-- tabla_db.py     # Clase base con métodos CRUD genéricos.
+|-- modelos.py          # Define las clases (Producto, Categoria, etc.) que mapean las tablas de la BD.
+`-- requirements.txt    # Lista de dependencias de Python.
+</code></pre>
+<p>Un componente clave de esta arquitectura es la clase <code>Tabla</code> en <code>tabla_db.py</code>. Esta clase abstracta implementa métodos genéricos para las operaciones CRUD, que luego son heredados por las clases de modelo específicas (<code>Producto</code>, <code>Categoria</code>, etc.). Esto reduce significativamente la duplicación de código.</p>
+<h2>6. Historias de Usuario Esenciales</h2>
+<p>Las historias de usuario traducen los requerimientos en funcionalidades desde la perspectiva del usuario final.</p>
+<h3>HU-Admin-01: Gestión de Catálogo</h3>
+<ul>
+<li>
+<p><strong>Como:</strong> Administrador del sistema,</p>
+</li>
+<li>
+<p><strong>Quiero:</strong> poder crear, ver, modificar y eliminar productos, categorías y proveedores a través de una interfaz web,</p>
+</li>
+<li>
+<p><strong>Para:</strong> mantener el catálogo de productos actualizado y organizado.</p>
+<p><strong>Criterios de Aceptación:</strong></p>
+<ol>
+<li>Debe existir una sección en la interfaz web para cada entidad (Productos, Categorías, Proveedores).</li>
+<li>Cada sección debe mostrar una lista de los registros existentes.</li>
+<li>Debe haber formularios para crear nuevos registros y para modificar los existentes.</li>
+<li>Debe existir una opción para eliminar cada registro, con una confirmación previa.</li>
+</ol>
+</li>
+</ul>
+<h3>HU-Admin-02: Importación Masiva de Productos</h3>
+<ul>
+<li>
+<p><strong>Como:</strong> Administrador del sistema,</p>
+</li>
+<li>
+<p><strong>Quiero:</strong> poder subir un archivo Excel para cargar o actualizar múltiples productos de una sola vez,</p>
+</li>
+<li>
+<p><strong>Para:</strong> ahorrar tiempo y reducir errores en comparación con la carga manual.</p>
+<p><strong>Criterios de Aceptación:</strong></p>
+<ol>
+<li>La interfaz debe tener una opción para seleccionar y subir un archivo <code>.xlsx</code> o <code>.xls</code>.</li>
+<li>El sistema debe procesar el archivo y añadir solo los productos que no existan previamente.</li>
+<li>Si un producto en el archivo tiene una categoría o proveedor nuevo, estos deben ser creados automáticamente.</li>
+<li>Al finalizar, el sistema debe mostrar un resumen indicando cuántos productos se importaron, cuántos eran duplicados y si ocurrieron errores.</li>
+</ol>
+</li>
+</ul>
+<h2>7. Caso de Uso Detallado: Importar Productos desde Excel</h2>
+<p>Este caso de uso es crítico para la operatividad del sistema y demuestra la implementación de varias reglas de negocio.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Caso de Uso</strong></td>
+<td style="text-align:left">Importar Productos desde Excel</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Actor Principal</strong></td>
+<td style="text-align:left">Administrador</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Descripción</strong></td>
+<td style="text-align:left">Permite al Administrador realizar una carga masiva de productos en el sistema a partir de un archivo Excel.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Precondiciones</strong></td>
+<td style="text-align:left">1. El Administrador ha iniciado sesión en el sistema. <br> 2. El Administrador tiene un archivo en formato <code>.xlsx</code> o <code>.xls</code> que contiene los datos de los productos.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Postcondiciones</strong></td>
+<td style="text-align:left">1. Los nuevos productos (no duplicados) del archivo han sido añadidos a la tabla <code>product</code>. <br> 2. Las nuevas categorías y proveedores han sido añadidos a sus respectivas tablas. <br> 3. El sistema presenta al Administrador un informe del resultado de la importación.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Flujo Principal de Eventos:</strong></p>
+<ol>
+<li>El Administrador navega a la página &quot;Subir Productos&quot;.</li>
+<li>El sistema presenta un formulario de carga de archivos.</li>
+<li>El Administrador selecciona el archivo Excel y hace clic en &quot;Subir&quot;.</li>
+<li>El sistema recibe el archivo y valida que la extensión sea permitida (<code>.xlsx</code> o <code>.xls</code>).</li>
+<li>El sistema abre el archivo y lee la cabecera para mapear las columnas (p. ej., &quot;Desc&quot; a <code>descripcion</code>).</li>
+<li>El sistema itera sobre cada fila del archivo a partir de la segunda:
+a. Extrae los datos del producto de la fila.
+b. <strong>Regla de Negocio (Prevención de Duplicados):</strong> Verifica si ya existe un producto con el mismo <code>art</code> o <code>cod</code>. Si existe, marca la fila como duplicada y continúa con la siguiente.
+c. <strong>Regla de Negocio (Creación Automática):</strong> Busca el proveedor por su código. Si no lo encuentra, crea un nuevo registro en la tabla <code>prov</code>.
+d. <strong>Regla de Negocio (Creación Automática):</strong> Busca la categoría por su nombre. Si no la encuentra, crea un nuevo registro en la tabla <code>category</code>.
+e. Crea el nuevo registro de producto en la tabla <code>product</code> con los datos de la fila y los IDs de las entidades relacionadas.</li>
+<li>El sistema finaliza la iteración y prepara un resumen.</li>
+<li>El sistema redirige al Administrador a una página de resultados, mostrando el número de productos importados, la lista de duplicados omitidos y los errores encontrados.</li>
+</ol>
+<p><strong>Flujos Alternativos:</strong></p>
+<ul>
+<li><strong>4a. Extensión de archivo inválida:</strong> Si el archivo no tiene una extensión permitida, el sistema rechaza la carga y muestra un mensaje de error.</li>
+<li><strong>6a. Fila con datos obligatorios faltantes:</strong> Si una fila no contiene un campo obligatorio (p. ej., <code>desc</code>), el sistema ignora la fila, registra un error y continúa con la siguiente.</li>
+</ul>
+<h2>8. Conclusión</h2>
+<p>La construcción de esta aplicación demuestra un proceso de desarrollo metódico donde las decisiones de arquitectura y tecnología están directamente impulsadas por los requerimientos del negocio. La elección de Flask y MySQL proporciona una base robusta y escalable, mientras que la separación clara entre el backend y el frontend a través de una API REST asegura un sistema modular y fácil de mantener.</p>
+<p>El análisis detallado de las reglas de negocio y su traducción a casos de uso e historias de usuario es fundamental para garantizar que el producto final no solo sea técnicamente sólido, sino que también resuelva eficazmente el problema para el cual fue concebido. Los próximos pasos lógicos incluirían la implementación de un sistema de autenticación de usuarios más granular y la expansión de la API para soportar funcionalidades adicionales como la gestión de inventario.</p>
 
   </article>
 </div>
