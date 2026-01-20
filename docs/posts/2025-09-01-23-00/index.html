@@ -422,7 +422,7 @@ CREATE TABLE product (
 </ul>
 <h2>5. Estructura de Datos</h2>
 <p>La estructura de datos define cómo se organizan y almacenan los datos en el sistema, considerando tanto la persistencia en la base de datos como la representación en memoria y en las comunicaciones entre cliente y servidor.</p>
-<h3>4.1 Consideraciones Generales</h3>
+<h3>5.1 Consideraciones Generales</h3>
 <p>Al diseñar la estructura de datos, se consideran los siguientes principios:</p>
 <ol>
 <li>
@@ -441,7 +441,7 @@ CREATE TABLE product (
 <p><strong>Prevención de Duplicados:</strong> Los campos <code>art</code> (código de artículo) y <code>cod</code> (código de proveedor) pueden ser únicos o tener índices para facilitar búsquedas rápidas y prevenir duplicados.</p>
 </li>
 </ol>
-<h3>4.2 Proceso de Derivación de la Estructura de Datos</h3>
+<h3>5.2 Proceso de Derivación de la Estructura de Datos</h3>
 <p>La estructura de datos operativa se deriva del análisis del dominio del negocio mediante el siguiente proceso:</p>
 <p><strong>Paso 1: Identificación de Entidades</strong></p>
 <p>A partir del análisis de requerimientos, se identifican las entidades principales del dominio: Producto, Categoría, Proveedor e Imagen.</p>
@@ -453,9 +453,9 @@ CREATE TABLE product (
 <p>La estructura se normaliza para eliminar redundancias. Por ejemplo, en lugar de almacenar el nombre de la categoría en cada registro de producto, se almacena solo el <code>cat_id</code>, y la categoría se recupera mediante una consulta JOIN.</p>
 <p><strong>Paso 5: Implementación en MySQL</strong></p>
 <p>La estructura conceptual se traduce a SQL, creando tablas con tipos de datos apropiados, claves primarias y foráneas.</p>
-<h3>4.3 Estructura de Datos Operativa</h3>
+<h3>5.3 Estructura de Datos Operativa</h3>
 <p>La estructura de datos operativa se representa en múltiples niveles: la base de datos relacional, los objetos en memoria (Python) y el formato de intercambio (JSON).</p>
-<h4>4.3.1 Esquema SQL (Base de Datos)</h4>
+<h4>5.3.1 Esquema SQL (Base de Datos)</h4>
 <pre><code class="language-sql">CREATE TABLE category (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL UNIQUE,
@@ -490,7 +490,7 @@ CREATE TABLE product (
     INDEX idx_cod (cod)
 );
 </code></pre>
-<h4>4.3.2 Representación en Objetos Python</h4>
+<h4>5.3.2 Representación en Objetos Python</h4>
 <p>En el backend, los datos se representan como instancias de clases que heredan de la clase <code>Tabla</code>. Cada clase mapea una tabla de la base de datos:</p>
 <pre><code class="language-python">class Categoria(Tabla):
     tabla = 'category'
@@ -524,7 +524,7 @@ class Producto(Tabla):
     def __init__(self, *args, de_bbdd=False):
         super().crear(args, de_bbdd)
 </code></pre>
-<h4>4.3.3 Representación en JSON (API REST)</h4>
+<h4>5.3.3 Representación en JSON (API REST)</h4>
 <p>Cuando los datos se transmiten entre el backend y el frontend a través de la API REST, se serializan en formato JSON. A continuación se muestran ejemplos de estructuras JSON para cada entidad:</p>
 <p><strong>Ejemplo de Categoría en JSON:</strong></p>
 <pre><code class="language-json">{
@@ -658,9 +658,9 @@ import_data = [
   ]
 }
 </code></pre>
-<h2>5. Diseño de la Solución: Modelo de Datos y Arquitectura</h2>
+<h2>6. Diseño de la Solución: Modelo de Datos y Arquitectura</h2>
 <p>Con las reglas de negocio definidas, se procede al diseño técnico de la solución.</p>
-<h3>Modelo de Datos Relacional</h3>
+<h3>6.1 Modelo de Datos Relacional</h3>
 <p>Se opta por una base de datos relacional (MySQL) para garantizar la integridad y estructura de los datos. El esquema se compone de cuatro tablas principales:</p>
 <table>
 <thead>
@@ -694,7 +694,7 @@ import_data = [
 </tbody>
 </table>
 <p>Las claves foráneas (<code>FK</code>) en la tabla <code>product</code> establecen relaciones N:1 con las otras tablas, asegurando que cada producto tenga una categoría, un proveedor y una imagen asociados.</p>
-<h3>Arquitectura del Backend (Flask)</h3>
+<h3>6.2 Arquitectura del Backend (Flask)</h3>
 <p>El backend se estructura de forma modular para separar responsabilidades, facilitando el mantenimiento y la escalabilidad:</p>
 <pre><code class="language-plaintext">/punto-ferretero-back
 |-- app.py              # Punto de entrada de la aplicación Flask.
@@ -708,9 +708,9 @@ import_data = [
 `-- requirements.txt    # Lista de dependencias de Python.
 </code></pre>
 <p>Un componente clave de esta arquitectura es la clase <code>Tabla</code> en <code>tabla_db.py</code>. Esta clase abstracta implementa métodos genéricos para las operaciones CRUD, que luego son heredados por las clases de modelo específicas (<code>Producto</code>, <code>Categoria</code>, etc.). Esto reduce significativamente la duplicación de código.</p>
-<h2>6. Historias de Usuario Esenciales</h2>
+<h2>7. Historias de Usuario Esenciales</h2>
 <p>Las historias de usuario traducen los requerimientos en funcionalidades desde la perspectiva del usuario final.</p>
-<h3>HU-Admin-01: Gestión de Catálogo</h3>
+<h3>7.1 HU-Admin-01: Gestión de Catálogo</h3>
 <ul>
 <li>
 <p><strong>Como:</strong> Administrador del sistema,</p>
@@ -729,7 +729,7 @@ import_data = [
 </ol>
 </li>
 </ul>
-<h3>HU-Admin-02: Importación Masiva de Productos</h3>
+<h3>7.2 HU-Admin-02: Importación Masiva de Productos</h3>
 <ul>
 <li>
 <p><strong>Como:</strong> Administrador del sistema,</p>
@@ -748,7 +748,7 @@ import_data = [
 </ol>
 </li>
 </ul>
-<h2>7. Caso de Uso Detallado: Importar Productos desde Excel</h2>
+<h2>8. Caso de Uso Detallado: Importar Productos desde Excel</h2>
 <p>Este caso de uso es crítico para la operatividad del sistema y demuestra la implementación de varias reglas de negocio.</p>
 <table>
 <thead>
@@ -801,7 +801,7 @@ e. Crea el nuevo registro de producto en la tabla <code>product</code> con los d
 <li><strong>4a. Extensión de archivo inválida:</strong> Si el archivo no tiene una extensión permitida, el sistema rechaza la carga y muestra un mensaje de error.</li>
 <li><strong>6a. Fila con datos obligatorios faltantes:</strong> Si una fila no contiene un campo obligatorio (p. ej., <code>desc</code>), el sistema ignora la fila, registra un error y continúa con la siguiente.</li>
 </ul>
-<h2>8. Conclusión</h2>
+<h2>9. Conclusión</h2>
 <p>La construcción de esta aplicación demuestra un proceso de desarrollo metódico donde las decisiones de arquitectura y tecnología están directamente impulsadas por los requerimientos del negocio. La elección de Flask y MySQL proporciona una base robusta y escalable, mientras que la separación clara entre el backend y el frontend a través de una API REST asegura un sistema modular y fácil de mantener.</p>
 <p>El análisis detallado de las reglas de negocio y su traducción a casos de uso e historias de usuario es fundamental para garantizar que el producto final no solo sea técnicamente sólido, sino que también resuelva eficazmente el problema para el cual fue concebido. Los próximos pasos lógicos incluirían la implementación de un sistema de autenticación de usuarios más granular y la expansión de la API para soportar funcionalidades adicionales como la gestión de inventario.</p>
 
