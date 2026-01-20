@@ -6,7 +6,7 @@
     <meta name="title" content="AAI|IAA Arise with AI|IA para aprender">
     <meta name="description" content="This AAI|IAA page shares the experience of a AI user.">
     <meta name="robots" content="index, follow" />
-    <title>RICECO - Definiendo Rol, Instrucción, Contexto, Ejemplos, Restricciones y Salida en los prompts</title>
+    <title>Desarrollo de una Aplicación de E-commerce: Un Enfoque Estructurado con IA y el Protocolo RICECO</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -29,7 +29,7 @@
   
   
   <div id="toc-bar" class="invisible">
-    <span class="label">RICECO - Definiendo Rol, Instrucción, Contexto, Ejemplos, Restricciones y Salida en los prompts</span>
+    <span class="label">Desarrollo de una Aplicación de E-commerce: Un Enfoque Estructurado con IA y el Protocolo RICECO</span>
     <button type="button" class="toc-trigger">
       ☰
     </button>
@@ -44,7 +44,7 @@
   
   <dialog id="toc-popup">
     <div class="header">
-      <div class="label">RICECO - Definiendo Rol, Instrucción, Contexto, Ejemplos, Restricciones y Salida en los prompts</div>
+      <div class="label">Desarrollo de una Aplicación de E-commerce: Un Enfoque Estructurado con IA y el Protocolo RICECO</div>
       <button id="toc-popup-close" type="button">
         ✕
       </button>
@@ -67,24 +67,203 @@
   
   <article>
     
-      <img src="/images/construction.svg" alt="RICECO - Definiendo Rol, Instrucción, Contexto, Ejemplos, Restricciones y Salida en los prompts">
+      <img src="/images/13237881_5186432.svg" alt="Desarrollo de una Aplicación de E-commerce: Un Enfoque Estructurado con IA y el Protocolo RICECO">
     
 
-    <h1>RICECO - Definiendo Rol, Instrucción, Contexto, Ejemplos, Restricciones y Salida en los prompts</h1>
+    <h1>Desarrollo de una Aplicación de E-commerce: Un Enfoque Estructurado con IA y el Protocolo RICECO</h1>
     
     
       <time class="post-date" datetime="Fri Nov 28 2025 20:00:00 GMT-0300 (hora estándar de Argentina)">Fri Nov 28 2025 20:00:00 GMT-0300 (hora estándar de Argentina)</time>
     
 
-    <blockquote>
-<p>⚠☢☣ ␀ EN CONSTRUCCIÓN ␀ ☣☢⚠</p>
-</blockquote>
+    <p><strong>Autor:</strong> Andres Rojas</p>
+<p><strong>Fecha:</strong> 28 de noviembre de 2025</p>
 <h2>Introducción</h2>
-<h3>Acerca</h3>
-<h3>Contenido</h3>
-<h3>Desarrollo</h3>
-<h3>Reglas</h3>
-<h3>Estructura</h3>
+<p>El desarrollo de aplicaciones web robustas y escalables requiere un enfoque metódico que abarque desde la conceptualización inicial hasta la implementación técnica y las futuras iteraciones. Este artículo detalla el proceso de desarrollo para una aplicación de comercio electrónico con un diseño <em>mobile-first</em>, diseñada para gestionar un catálogo de productos jerárquico y facilitar las operaciones de clientes, vendedores y administradores. Se pone un énfasis particular en cómo la colaboración con una inteligencia artificial, guiada por un protocolo de comunicación estructurado como RICECO, puede optimizar y clarificar el ciclo de vida del desarrollo de software.</p>
+<p>El objetivo es presentar una guía que no solo documente la arquitectura y las tecnologías de un proyecto específico, sino que también sirva como un modelo para la colaboración efectiva entre desarrolladores humanos y sistemas de IA en tareas de desarrollo complejas.</p>
+<h2>1. Conceptualización del Proyecto</h2>
+<p>La base de cualquier aplicación exitosa es una comprensión clara de sus objetivos de negocio y los roles de los usuarios que interactuarán con ella. Este proyecto se centra en una plataforma de e-commerce con tres roles de usuario distintos, cada uno con responsabilidades y permisos específicos.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Rol de Usuario</th>
+<th style="text-align:left">Responsabilidades Principales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Cliente</strong></td>
+<td style="text-align:left">Navegar por el catálogo de productos, filtrar, seleccionar artículos, gestionar un carrito de compras y enviar órdenes de compra.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Vendedor</strong></td>
+<td style="text-align:left">Recibir y registrar las órdenes de compra de los clientes, y generar las notas de entrega correspondientes para el despacho de productos.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Administrador</strong></td>
+<td style="text-align:left">Gestionar de forma integral todas las entidades de datos del sistema, incluyendo productos, categorías, proveedores y usuarios, con plenos poderes de creación, lectura, actualización y eliminación (CRUD).</td>
+</tr>
+</tbody>
+</table>
+<p>El propósito fundamental de la aplicación es digitalizar y optimizar el flujo de pedidos, desde la selección del producto por parte del cliente hasta la gestión logística por parte del vendedor, todo bajo la supervisión y gestión de datos del administrador.</p>
+<h2>2. Modelo Conceptual y Estructura de Datos</h2>
+<p>Para soportar las funcionalidades descritas, se define un modelo de datos relacional que organiza la información de manera lógica y eficiente. El siguiente diagrama de Entidad-Relación (ER) ilustra las principales entidades del sistema y cómo se conectan entre sí.</p>
+<p><img src="https://private-us-east-1.manuscdn.com/sessionFile/C9wrFT7NmfOuRXYQbfT3aH/sandbox/7QJ5dvsABLHeZ6dsAvKbsz-images_1768827975866_na1fn_L2hvbWUvdWJ1bnR1L2RpYWdyYW1hX2VudGlkYWRlcw.png?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvQzl3ckZUN05tZk91UlhZUWJmVDNhSC9zYW5kYm94LzdRSjVkdnNBQkxIZVo2ZHNBdktic3otaW1hZ2VzXzE3Njg4Mjc5NzU4NjZfbmExZm5fTDJodmJXVXZkV0oxYm5SMUwyUnBZV2R5WVcxaFgyVnVkR2xrWVdSbGN3LnBuZyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&amp;Key-Pair-Id=K2HSFNDJXOU9YS&amp;Signature=RKZ41vpRKT09Mr6tq8qWJQ-wk1vtbuZqj54Sle56RlRoz9l9y7zMOSGDiFMgM~VK~Ovd8Y-A9ONZrkhtHsxBY1Vk~Q0bAp~S4ZoZr-mRLHpV4eHlhzRF2Ao1t125y7kH6cQMxwsgNHQNKEc9jCR-e4D~YfBANEjzskobp7sX4QKD8~ALfiebHxE2uxnLEDoXqugse60z~84Z1~gcnSm5zFZbVZIzZKErGSFBB6GzyaJB1MJad8mAJXPuxZKJNY88P6NBLQBqSKg7JdlN3Cgokrhd3TJAEYUJjZieAu9ME5TT6TOp-rp8-jz9vM4pPNDxr3oxRRapAGZYag7zGgo-4g__" alt="Diagrama de Entidades y Relaciones"></p>
+<p>El núcleo del modelo de datos es la estructura jerárquica del catálogo de productos, que sigue una organización de cuatro niveles para permitir una clasificación granular y flexible de los artículos:</p>
+<p><strong>Colección → Categoría → Subcolección → Subcategoría → Producto</strong></p>
+<p>Esta estructura permite a los clientes navegar de lo general a lo específico, mejorando la experiencia de usuario y la capacidad de descubrimiento de productos. A continuación, se presenta una tabla que resume las entidades clave.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Entidad</th>
+<th style="text-align:left">Propósito en el Sistema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>COLLECTION</code></td>
+<td style="text-align:left">Agrupa categorías relacionadas (ej. &quot;Ropa de Verano&quot;).</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>CATEGORY</code></td>
+<td style="text-align:left">Clasificación principal de productos (ej. &quot;Camisetas&quot;).</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SUBCOLLECTION</code></td>
+<td style="text-align:left">Agrupación intermedia dentro de una categoría (ej. &quot;Camisetas de Algodón&quot;).</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SUBCATEGORY</code></td>
+<td style="text-align:left">Clasificación más específica (ej. &quot;Manga Corta&quot;).</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>PRODUCT</code></td>
+<td style="text-align:left">El artículo individual disponible para la venta.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SUPPLIER</code></td>
+<td style="text-align:left">El proveedor que suministra uno o más productos.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>CUSTOMER</code></td>
+<td style="text-align:left">El cliente que realiza las órdenes de compra.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>PURCHASE_ORDER</code></td>
+<td style="text-align:left">La orden de compra generada por un cliente.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>DELIVERY_NOTE</code></td>
+<td style="text-align:left">La nota de entrega generada por un vendedor para despachar productos.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>MISSING_ITEM</code></td>
+<td style="text-align:left">Registro de los productos de una orden que no se incluyeron en la entrega.</td>
+</tr>
+</tbody>
+</table>
+<p>Para ilustrar la estructura de datos a nivel de objeto, el siguiente ejemplo muestra una representación en formato JSON de una entidad <code>PRODUCT</code>.</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: 101,
+  &quot;slug&quot;: &quot;samsung-galaxy-s24&quot;,
+  &quot;supplier_id&quot;: 25,
+  &quot;article&quot;: &quot;SG-S24&quot;,
+  &quot;code&quot;: &quot;789123456&quot;,
+  &quot;name&quot;: &quot;Samsung Galaxy S24&quot;,
+  &quot;description&quot;: &quot;El último smartphone de Samsung con IA integrada.&quot;,
+  &quot;price&quot;: 1299.99,
+  &quot;subcategory_slug&quot;: &quot;smartphones-android&quot;,
+  &quot;image_id&quot;: 450
+}
+</code></pre>
+<h2>3. Historias de Usuario y Casos de Uso</h2>
+<p>Las <strong>historias de usuario</strong> son una herramienta fundamental en el desarrollo ágil para capturar los requisitos desde la perspectiva del usuario final. Definen quién es el usuario, qué necesita hacer y por qué. A partir de estas historias, se derivan los <strong>casos de uso</strong>, que describen en detalle la interacción paso a paso entre el usuario y el sistema para lograr un objetivo específico.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Rol</th>
+<th style="text-align:left">Historia de Usuario Clave</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Cliente</strong></td>
+<td style="text-align:left">Como cliente, quiero poder filtrar productos por categoría para encontrar rápidamente lo que busco.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Vendedor</strong></td>
+<td style="text-align:left">Como vendedor, quiero que el sistema me muestre los artículos faltantes al crear una nota de entrega para gestionar el inventario.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Administrador</strong></td>
+<td style="text-align:left">Como administrador, quiero poder cargar productos masivamente desde un archivo XLSX para agilizar la gestión del catálogo.</td>
+</tr>
+</tbody>
+</table>
+<p>Estos relatos se traducen en flujos de trabajo concretos. Por ejemplo, el caso de uso &quot;Realizar un Pedido&quot; implica que el cliente navegue, seleccione productos, los añada a un carrito y finalmente confirme la orden, lo que desencadena una notificación al vendedor. Este proceso define una secuencia clara de interacciones que deben ser implementadas en la interfaz de usuario y la lógica de negocio.</p>
+<h2>4. El Proceso de Desarrollo Asistido por IA</h2>
+<p>La colaboración con sistemas de inteligencia artificial puede acelerar significativamente el desarrollo, pero requiere una comunicación precisa. El protocolo <strong>RICECO</strong> es un marco estructurado para formular instrucciones a una IA, asegurando que los resultados sean predecibles, completos y alineados con los requisitos del proyecto.</p>
+<h3>El Protocolo RICECO</h3>
+<p>RICECO es un acrónimo que desglosa una solicitud en seis componentes clave:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Componente</th>
+<th style="text-align:left">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>R</strong>ole (Rol)</td>
+<td style="text-align:left">Define la personalidad o el perfil profesional que la IA debe adoptar (ej. &quot;Actúa como un desarrollador backend senior&quot;).</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>I</strong>nstruction (Instrucción)</td>
+<td style="text-align:left">La tarea específica y directa que debe realizarse (ej. &quot;Desarrolla una aplicación web para gestionar entidades con operaciones CRUD&quot;).</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>C</strong>ontext (Contexto)</td>
+<td style="text-align:left">Proporciona el trasfondo, el propósito y la información necesaria para entender la tarea en profundidad.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>E</strong>xamples (Ejemplos)</td>
+<td style="text-align:left">Ilustraciones concretas que guían a la IA sobre el resultado esperado (ej. flujos de trabajo de ejemplo).</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>C</strong>onstraints (Restricciones)</td>
+<td style="text-align:left">Limitaciones técnicas, de estilo o de otro tipo que deben respetarse (ej. &quot;Usa el ORM Drizzle y sigue la estructura de Next-Faster&quot;).</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>O</strong>utput Format (Formato de Salida)</td>
+<td style="text-align:left">Define la estructura que debe tener la respuesta de la IA (ej. &quot;Proporciona un plan de desarrollo seguido de una solicitud de confirmación&quot;).</td>
+</tr>
+</tbody>
+</table>
+<p>Al utilizar este protocolo, el desarrollador puede guiar a la IA para generar artefactos de alta calidad, como planes de desarrollo, esquemas de base de datos, componentes de código y documentación. La IA, actuando como un par programador, puede proponer soluciones, identificar dependencias y escribir código boilerplate, liberando al desarrollador para que se concentre en la lógica de negocio más compleja y la arquitectura general.</p>
+<h2>5. Arquitectura y Tecnologías</h2>
+<p>La selección de la pila tecnológica es una decisión crítica que impacta la escalabilidad, el mantenimiento y la experiencia del desarrollador. Para este proyecto, se ha optado por un conjunto de tecnologías modernas y eficientes:</p>
+<ul>
+<li><strong>Frontend:</strong> <strong>React</strong> con <strong>TypeScript</strong> para construir una interfaz de usuario interactiva, segura en tipos y mantenible. El diseño se aborda con un enfoque <em>mobile-first</em> para garantizar una experiencia óptima en dispositivos móviles.</li>
+<li><strong>ORM:</strong> <strong>Drizzle ORM</strong>, un mapeador relacional de objetos para TypeScript que ofrece un rendimiento excelente y una sintaxis cercana a SQL, facilitando la interacción con la base de datos de una manera segura y eficiente.</li>
+<li><strong>Base de Datos:</strong> Aunque no se especifica un motor concreto, Drizzle es compatible con bases de datos relacionales populares como <strong>PostgreSQL</strong> o <strong>MySQL</strong>, que son opciones robustas y probadas para aplicaciones de e-commerce.</li>
+</ul>
+<p>Esta arquitectura promueve una separación clara de responsabilidades entre el frontend y el backend, permitiendo un desarrollo y despliegue independientes.</p>
+<h2>6. Iteraciones Futuras y Mejoras</h2>
+<p>Un proyecto de software nunca está completamente &quot;terminado&quot;. Siempre hay oportunidades para mejorar y añadir nuevas funcionalidades. Algunas posibles iteraciones para esta aplicación incluyen:</p>
+<ul>
+<li><strong>Sistema de Autenticación de Usuarios:</strong> Implementar un sistema de inicio de sesión para que los clientes puedan ver su historial de pedidos y guardar su información.</li>
+<li><strong>Pasarelas de Pago:</strong> Integrar servicios de pago como Stripe o PayPal para permitir transacciones en línea directas.</li>
+<li><strong>Módulo de Inventario:</strong> Desarrollar un sistema de gestión de stock que se actualice automáticamente con cada compra y entrega.</li>
+<li><strong>Notificaciones en Tiempo Real:</strong> Implementar notificaciones push o por correo electrónico para clientes y vendedores sobre el estado de los pedidos.</li>
+<li><strong>Análisis y Reportes:</strong> Crear un panel de control para que los administradores y vendedores puedan visualizar métricas de ventas, productos más populares y otros KPIs.</li>
+</ul>
+<h2>Conclusión</h2>
+<p>El desarrollo de esta aplicación de e-commerce demuestra cómo un enfoque estructurado, que combina principios sólidos de ingeniería de software con la colaboración de una inteligencia artificial, puede llevar a resultados exitosos. El uso del protocolo RICECO para guiar a la IA, junto con un modelo de datos bien definido y una pila tecnológica moderna, establece una base sólida para construir una aplicación funcional, escalable y fácil de mantener. Las futuras iteraciones permitirán enriquecer la plataforma, añadiendo valor tanto para los usuarios como para el negocio.</p>
+<hr>
+<h3>Referencias</h3>
+<ul>
+<li>[1] Next-Faster by Ethan Niser. <em>GitHub</em>. <a href="https://github.com/ethanniser/NextFaster">https://github.com/ethanniser/NextFaster</a></li>
+</ul>
 
   </article>
 </div>
