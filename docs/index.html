@@ -115,7 +115,7 @@
       }
       
       // Generar HTML del índice
-      let html = '<ol>';
+      let html = '<ul>';
       headings.forEach(function(heading, index) {
         // Generar ID si no existe
         if (!heading.id) {
@@ -138,7 +138,7 @@
         html += '<li' + style + '><a href="#' + heading.id + '">' + 
                 heading.textContent.trim() + '</a></li>';
       });
-      html += '</ol>';
+      html += '</ul>';
       
       // Insertar en popup (mobile)
       const popupContent = document.getElementById('toc-popup-content');
