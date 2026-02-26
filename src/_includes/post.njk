@@ -60,6 +60,10 @@ layout: base.njk
       <time class="post-date" datetime="{{ date }}">{{ date }}</time>
     {% endif %}
 
+    {% if author %}
+    <p class="post-date">Autor: {{ author }}</p>
+    {% endif %}
+
     {{ content | safe }}
   </article>
 </div>
