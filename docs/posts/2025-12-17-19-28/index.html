@@ -6,7 +6,7 @@
     <meta name="title" content="AAI|IAA Arise with AI|IA para aprender">
     <meta name="description" content="This AAI|IAA page shares the experience of a AI user.">
     <meta name="robots" content="index, follow" />
-    <title>AAI | IAA</title>
+    <title>Visualización: Usando datos publicados en un sitio web y creando una solución interactiva rápida.</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -23,28 +23,158 @@
 </header>
 
   <main>
-    <p>Hola, mi nombre es Andrés y soy un entusiasta de la inteligencia artificial. En este espacio comparto mi experiencia usando IA como pasatiempo y herramienta de aprendizaje, explorando sus aplicaciones prácticas en el desarrollo de software, análisis de datos y automatización de procesos.</p>
-<h2>Posts</h2>
-<div class="writing-section">
-<p><span class="date"><i class="icon-clock"></i><time datetime="%F">ene 22, 2025</time></span><br/>
-<a href="/posts/2025-01-23-00-00">Inserción - Inteligencia Artificial Generativa</a></p>
-<p><span class="date"><i class="icon-clock"></i><time datetime="%F">jul 19, 2025</time></span><br/>
-<a href="/posts/2025-07-19-23-43">Iniciación - Pensando y prototipando una aplicación a partir de una planilla de trabajo</a></p>
-<p><span class="date"><i class="icon-clock"></i><time datetime="%F">jul 23, 2025</time></span><br/>
-<a href="/posts/2025-07-23-23-07">Incursión - Creación e implementación de una aplicación web full-stack para carga de pedidos</a></p>
-<p><span class="date"><i class="icon-clock"></i><time datetime="%F">sept 01, 2025</time></span><br/>
-<a href="/posts/2025-09-01-23-00">Análisis: Diseño e Implementación de una Aplicación de Gestión con Flask y MySQL</a></p>
-<p><span class="date"><i class="icon-clock"></i><time datetime="%F">nov 28, 2025</time></span><br/>
-<a href="/posts/2025-11-28-23-00">Desarrollo: Aplicación de E-commerce, Enfoque Estructurado con IA y el Protocolo RICECO</a></p>
-<p><span class="date"><i class="icon-clock"></i><time datetime="%F">dic 14, 2025</time></span><br/>
-<a href="/posts/2025-12-14-23-00">Desarrollo: Aplicación profesional de soporte técnico. Un resumen con IA.</a></p>
-<p><span class="date"><i class="icon-clock"></i><time datetime="%F">dic 17, 2025</time></span><br/>
-<a href="/posts/2025-12-17-19-28">Visualización: Usando datos publicados en un sitio web y creando una solución interactiva rápida.</a></p>
-</div>
-<h2>Contacto</h2>
+    
+<div class="article-with-sidebar">
+  
+  
+  
+  <div id="toc-bar" class="invisible">
+    <span class="label">Visualización: Usando datos publicados en un sitio web y creando una solución interactiva rápida.</span>
+    <button type="button" class="toc-trigger">
+      ☰
+    </button>
+  </div>
+
+  
+  <button id="toc-solo-trigger" type="button" class="toc-trigger">
+    <span class="label">Índice</span>
+    <span>→</span>
+  </button>
+
+  
+  <dialog id="toc-popup">
+    <div class="header">
+      <div class="label">Visualización: Usando datos publicados en un sitio web y creando una solución interactiva rápida.</div>
+      <button id="toc-popup-close" type="button">
+        ✕
+      </button>
+    </div>
+    <div id="toc-popup-content">
+      
+    </div>
+  </dialog>
+
+  
+  
+  <aside id="toc-wrapper">
+    <h2>Índice</h2>
+    <nav>
+      
+    </nav>
+  </aside>
+
+  
+  
+  <article>
+    
+      <img src="/images/bar-chart-statistics.svg" alt="Visualización: Usando datos publicados en un sitio web y creando una solución interactiva rápida.">
+    
+
+    <h1>Visualización: Usando datos publicados en un sitio web y creando una solución interactiva rápida.</h1>
+    
+    
+      <time class="post-date" datetime="Wed Dec 17 2025 16:28:00 GMT-0300 (hora estándar de Argentina)">Wed Dec 17 2025 16:28:00 GMT-0300 (hora estándar de Argentina)</time>
+    
+
+    
+      <p class="post-date">Autor: Andres Rojas</p>
+    
+
+    <hr>
+<h2>Introducción</h2>
+<p>La visualización de datos nos permite facilitar el entendimiento (razones o motivos), la comprensión (toma de conciencia) y la comunicación de información a partir de grandes volúmenes de datos.</p>
+<p>En este escenario y con asistencia de Manus AI vamos a buscar una solución rápida para visualizar datos publicados específicos de una temática, pero aplicable a cualquier área de interés.</p>
+<h2>La fuente</h2>
 <ul>
-<li>GitHub: <a href="https://github.com/andresrojas0">@andresrojas0</a></li>
+<li><strong>URL</strong>: https://www.michalpaszkiewicz.co.uk/blog/busdistributions/index.html</li>
+<li><strong>Publicado</strong>: 29 mayo 2019</li>
 </ul>
+<h3>Descripción</h3>
+<p>Michal Paszkiewicz en su blog analiza las distancias entre las paradas de autobús en Londres, UK. Para ello utiliza un conjunto de datos (data set) compuesto por:</p>
+<ul>
+<li>name: <em>nombre de la ruta</em></li>
+<li>subName: <em>subnombre de la ruta indicando el sentido</em></li>
+<li>min: <em>la mínima distancia entre paradas de esa ruta</em></li>
+<li>max: <em>la máxima distancia entre paradas de esa ruta</em></li>
+<li>average: <em>la distancia media aritmética o promedio entre paradas de esa ruta</em></li>
+<li>lowerQuartile: <em>el primer cuartil o cuartil inferior</em></li>
+<li>median: <em>la mediana o valor intermedio que separa la mitad de los valores mayores y la mitad de los valores menores</em></li>
+<li>upperQuartile: <em>el tercer cuartil o cuartil superior</em></li>
+</ul>
+<p>Se observa en el código fuente la estructura original del conjunto de datos:</p>
+<pre><code>var busRouteDistances = [
+{&quot;name&quot;:&quot;1&quot;,&quot;subName&quot;:&quot;outbound&quot;,&quot;min&quot;:128.3630356416241,&quot;max&quot;:544.0310124458418,&quot;average&quot;:296.7920337675406,&quot;lowerQuartile&quot;:202.53701583019912,&quot;median&quot;:290.3851435541115,&quot;upperQuartile&quot;:346.1114940274597},
+{&quot;name&quot;:&quot;2&quot;,&quot;subName&quot;:&quot;inbound&quot;,&quot;min&quot;:92.59789611388209,&quot;max&quot;:441.5940646519598,&quot;average&quot;:283.3582985450656,&quot;lowerQuartile&quot;:225.304279809577,&quot;median&quot;:271.55096149855683,&quot;upperQuartile&quot;:333.69976244826194},
+...
+{&quot;name&quot;:&quot;N551&quot;,&quot;subName&quot;:&quot;outbound&quot;,&quot;min&quot;:55.10711864642902,&quot;max&quot;:531.2493771499051,&quot;average&quot;:276.76557077873747,&quot;lowerQuartile&quot;:198.593971806357,&quot;median&quot;:265.62133558953013,&quot;upperQuartile&quot;:350.3148003165983}
+]
+</code></pre>
+<h2>Prompt</h2>
+<blockquote>
+<p>Analizar el contenido. Crear un documento derivado de visualización interactiva en base a los datos de las rutas de autobús, con selector de una o más rutas y comparador de sus datos: distancia entre paradas más corta (shortest), más larga (largest), promedio (averages), medians (mediana), low consistency, high consistency. Crea la estructura de ejemplo para crear esos datos para cargar nuevas rutas. Agrega la posibilidad de seleccionar líneas del documento original a partir de los datos de var=busRouteDistances</p>
+</blockquote>
+<h2>Resultado</h2>
+<p>En un primer resultado la inteligencia nos devuelve una aplicación interactiva con la función analizador de distancia de paradas de autobuses y con un selector de rutas, permitiendo multi selección de las mismas y gráficos comparativos.</p>
+<p>Parte de la estructura de datos generada:</p>
+<pre><code>// busRoutes.json
+
+[
+  {
+    &quot;id&quot;: &quot;63_inbound&quot;,
+    &quot;name&quot;: &quot;63&quot;,
+    &quot;description&quot;: &quot;inbound route&quot;,
+    &quot;metrics&quot;: {
+      &quot;averageDistance&quot;: 41.78914005773273,
+      &quot;medianDistance&quot;: 41.78914005773273,
+      &quot;consistency&quot;: &quot;very-high&quot;,
+      &quot;shortestStop&quot;: 41.78914005773273,
+      &quot;longestStop&quot;: 41.78914005773273,
+      &quot;lowerQuartile&quot;: 41.78914005773273,
+      &quot;upperQuartile&quot;: 41.78914005773273
+    },
+    &quot;stops&quot;: []
+  },
+  {
+    &quot;id&quot;: &quot;244_outbound&quot;,
+    &quot;name&quot;: &quot;244&quot;,
+    &quot;description&quot;: &quot;outbound route&quot;,
+    &quot;metrics&quot;: {
+      &quot;averageDistance&quot;: 83.14057179764234,
+      &quot;medianDistance&quot;: 83.14057179764234,
+      &quot;consistency&quot;: &quot;very-high&quot;,
+      &quot;shortestStop&quot;: 83.14057179764234,
+      &quot;longestStop&quot;: 83.14057179764234,
+      &quot;lowerQuartile&quot;: 83.14057179764234,
+      &quot;upperQuartile&quot;: 83.14057179764234
+    },
+    &quot;stops&quot;: []
+  },
+...
+  {
+    &quot;id&quot;: &quot;X26_outbound&quot;,
+    &quot;name&quot;: &quot;X26&quot;,
+    &quot;description&quot;: &quot;outbound route&quot;,
+    &quot;metrics&quot;: {
+      &quot;averageDistance&quot;: 2370.906504009908,
+      &quot;medianDistance&quot;: 2025.1636771923888,
+      &quot;consistency&quot;: &quot;low&quot;,
+      &quot;shortestStop&quot;: 335.90393731325537,
+      &quot;longestStop&quot;: 7529.591138336195,
+      &quot;lowerQuartile&quot;: 1554.117052916961,
+      &quot;upperQuartile&quot;: 2709.9102896321087
+    },
+    &quot;stops&quot;: []
+  }
+]
+</code></pre>
+<p>El resultado puede verse aquí:</p>
+<ul>
+<li><strong>URL</strong>: <a href="http://busstop-distance-analyzer.manus.space/">busstop-distance-analyzer</a></li>
+</ul>
+<hr>
+
+  </article>
+</div>
 
   </main>
   <hr class="fleuron" />
