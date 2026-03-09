@@ -9,7 +9,7 @@ Hola, mi nombre es Andrés y soy un entusiasta de la inteligencia artificial. En
 
 <div class="writing-section">
 
-{% for post in collections.post %}
+{% for post in collections.post reversed %}
 <span class="date"><i class="icon-clock"></i><time datetime="{{post.date|date:'%F'}}">{{post.date|date:"%b %d, %Y"}}</time></span><br/>
 [{{ post.data.title }}](/posts/{{ post.inputPath | replace: './src/posts/', '' | replace: '.md', '' }})
 
