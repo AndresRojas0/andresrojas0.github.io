@@ -54,10 +54,10 @@ layout: base.njk
       <img src="{{ image }}" alt="{{ title }}">
     {% endif %}
 
-    {# Visualización de Tags #}
-    {% if tags and tags.length > 0 %}
-      <div class="post-tags">
-        {{ tags | join(' · ') | upper }}
+    {# Visualización de Categories #}
+    {% if categories and categories.length > 0 %}
+      <div class="post-categories">
+        {{ categories | join(' · ') | upper }}
       </div>
     {% endif %}
 
