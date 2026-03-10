@@ -349,27 +349,20 @@ article h2 a:hover {
 }
 
 /* Estilos para los tags del post */
-.post-tags {
-  font-family: Manrope, system-ui, sans-serif;
-  font-size: 0.875rem; /* 14px */
-  color: #888; /* Gris tenue */
+.post-categories {
+  font-size: 0.875rem;
+  color: #888;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   margin-bottom: 1rem;
   font-weight: 500;
   line-height: 1.5;
+  font-family: Manrope, system-ui, sans-serif;
 }
 
-/* Opcional: si quieres añadir más espaciado */
-article .post-tags {
-  margin-top: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-
-/* Para tema oscuro (si lo tienes) */
 @media (prefers-color-scheme: dark) {
-  .post-tags {
-    color: #999; /* Gris más claro para tema oscuro */
+  .post-categories {
+    color: #999;
   }
 }
 
