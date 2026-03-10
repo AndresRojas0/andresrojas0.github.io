@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap");
 
 @font-face {
   font-family: "PP Editorial New";
@@ -345,6 +346,31 @@ article h2 a:hover {
 
 .post-thumbnail img:hover {
     opacity: 0.8;
+}
+
+/* Estilos para los tags del post */
+.post-tags {
+  font-family: Manrope, system-ui, sans-serif;
+  font-size: 0.875rem; /* 14px */
+  color: #888; /* Gris tenue */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Opcional: si quieres añadir más espaciado */
+article .post-tags {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Para tema oscuro (si lo tienes) */
+@media (prefers-color-scheme: dark) {
+  .post-tags {
+    color: #999; /* Gris más claro para tema oscuro */
+  }
 }
 
 /* Footer minimalista */

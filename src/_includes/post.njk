@@ -54,6 +54,13 @@ layout: base.njk
       <img src="{{ image }}" alt="{{ title }}">
     {% endif %}
 
+    {# Visualización de Tags #}
+    {% if tags and tags.length > 0 %}
+      <div class="post-tags">
+        {{ tags | join(' · ') | upper }}
+      </div>
+    {% endif %}
+
     <h1>{{ title }}</h1>
     
     {% if date %}
@@ -67,3 +74,4 @@ layout: base.njk
     {{ content | safe }}
   </article>
 </div>
+
