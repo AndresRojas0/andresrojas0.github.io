@@ -843,12 +843,25 @@ html.overflow-hidden {
         min-width: auto;
         width: 90vw;
     }
+
+    /* Ocultar elemento */
+    #toc-solo-trigger,
+    #toc-wrapper {
+        display: none !important;
+    }
+
 }
 
 /* Responsive: Tablet */
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1199px) {
     body {
         width: 90%;
         max-width: 700px;
+    }
+
+    /* Ocultar elemento */
+    #toc-solo-trigger,
+    #toc-wrapper {
+        display: none !important;
     }
 }
