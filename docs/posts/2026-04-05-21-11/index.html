@@ -6,7 +6,7 @@
     <meta name="title" content="AAI|IAA Arise with AI|IA para aprender">
     <meta name="description" content="This AAI|IAA page shares the experience of a AI user.">
     <meta name="robots" content="index, follow" />
-    <title>Desarrollo: Vibecodeando ideas para aplicación estilo vintage &#39;90</title>
+    <title>Desarrollo: Oneshot para web estilo vintage &#39;90</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -29,7 +29,7 @@
   
   
   <div id="toc-bar" class="invisible">
-    <span class="label">Desarrollo: Vibecodeando ideas para aplicación estilo vintage &#39;90</span>
+    <span class="label">Desarrollo: Oneshot para web estilo vintage &#39;90</span>
     <button type="button" class="toc-trigger">
       ☰
     </button>
@@ -44,7 +44,7 @@
   
   <dialog id="toc-popup">
     <div class="header">
-      <div class="label">Desarrollo: Vibecodeando ideas para aplicación estilo vintage &#39;90</div>
+      <div class="label">Desarrollo: Oneshot para web estilo vintage &#39;90</div>
       <button id="toc-popup-close" type="button">
         ✕
       </button>
@@ -67,17 +67,17 @@
   
   <article>
     
-      <img src="/images/13237881_5186432.svg" alt="Desarrollo: Vibecodeando ideas para aplicación estilo vintage &#39;90">
+      <img src="/images/13237881_5186432.svg" alt="Desarrollo: Oneshot para web estilo vintage &#39;90">
     
 
     
     
       <div class="post-categories">
-        APP · WEBAPP · FULLSTACK
+        APP · SPA · WEBAPP
       </div>
     
 
-    <h1>Desarrollo: Vibecodeando ideas para aplicación estilo vintage &#39;90</h1>
+    <h1>Desarrollo: Oneshot para web estilo vintage &#39;90</h1>
     
     
       <time class="post-date" datetime="Sun Apr 05 2026 18:11:00 GMT-0300 (hora estándar de Argentina)">Sun Apr 05 2026 18:11:00 GMT-0300 (hora estándar de Argentina)</time>
@@ -94,10 +94,3310 @@
 <li><strong>Papel</strong>: Un viejo catálogo de productos de un retailer con más de 100 páginas a color.</li>
 <li><strong>Publicado</strong>: 28 junio 1996</li>
 </ul>
-<h2>Prompts</h2>
-<h3>Reescribir código</h3>
-<blockquote></blockquote>
-<h3>Código ...</h3>
+<h3>Prompts</h3>
+<blockquote>
+<p>Can you create a UI based on this Wickes catalog for use in ecommerce applications? HTML only (no frameworks)</p>
+</blockquote>
+<h3>Código</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;title&gt;Wickes — The Experts in Home Improvement&lt;/title&gt;
+&lt;meta name=&quot;description&quot; content=&quot;Wickes — Unbeatable prices on 1000s of DIY products. Building materials, tools, timber, kitchens, bathrooms and more.&quot;&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&amp;family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+/* ============================================================
+   WICKES VINTAGE 90s ECOMMERCE UI — SHARED STYLESHEET
+   Inspired by the original Wickes DIY catalogue
+   All prices include VAT
+   ============================================================ */
+
+/* ── Google Fonts (loaded via @import in HTML &lt;style&gt;) ────── */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&amp;family=Roboto+Condensed:wght@400;700&amp;display=swap');
+
+/* ── Reset &amp; Base ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 14px; scroll-behavior: smooth; }
+
+body {
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+  background: #f0ede8;
+  color: #1a1a1a;
+  line-height: 1.45;
+  min-height: 100vh;
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { max-width: 100%; display: block; }
+ul, ol { list-style: none; }
+button { cursor: pointer; font-family: inherit; }
+input, select, textarea { font-family: inherit; }
+
+/* ── CSS Custom Properties ────────────────────────────────── */
+:root {
+  --blue:        #003087;
+  --blue-dark:   #001d5e;
+  --blue-mid:    #004aad;
+  --yellow:      #ffd700;
+  --yellow-dark: #e6b800;
+  --orange:      #e85d04;
+  --orange-dark: #c44b00;
+  --red:         #cc0000;
+  --green:       #006633;
+  --green-dark:  #004d26;
+  --white:       #ffffff;
+  --off-white:   #fafaf7;
+  --cream:       #f5f0e8;
+  --grey-light:  #f2f2f2;
+  --grey:        #cccccc;
+  --grey-dark:   #888888;
+  --text:        #1a1a1a;
+  --shadow:      3px 3px 0 rgba(0,0,0,0.25);
+  --shadow-sm:   2px 2px 0 rgba(0,0,0,0.2);
+}
+
+/* ── Typography ───────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Oswald', 'Arial Black', Impact, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+}
+
+/* ── Layout Utilities ─────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header {
+  background: var(--blue);
+  border-bottom: 4px solid var(--yellow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+}
+
+/* Promo ticker */
+.promo-ticker {
+  background: var(--yellow);
+  color: var(--blue-dark);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 5px 0;
+  overflow: hidden;
+  border-bottom: 2px solid var(--orange);
+}
+
+.promo-ticker__inner {
+  display: inline-block;
+  white-space: nowrap;
+  animation: ticker 30s linear infinite;
+}
+
+@keyframes ticker {
+  0%   { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
+}
+
+.promo-ticker__sep { margin: 0 2rem; color: var(--orange); }
+
+/* Header main row */
+.header-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.logo-box {
+  background: var(--white);
+  border: 3px solid var(--yellow);
+  padding: 4px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+
+.logo-w {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--blue);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.logo-w span { color: var(--red); }
+
+.logo-brand {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--yellow);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.logo-tagline {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 0.6rem;
+  color: var(--yellow);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+}
+
+/* Search bar */
+.header-search {
+  flex: 1;
+  display: flex;
+  max-width: 520px;
+}
+
+.header-search input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 3px solid var(--yellow);
+  border-right: none;
+  font-size: 0.9rem;
+  background: var(--white);
+  outline: none;
+}
+
+.header-search input:focus { border-color: var(--yellow); background: #fffef0; }
+
+.header-search button {
+  background: var(--yellow);
+  border: 3px solid var(--yellow);
+  padding: 0 16px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--blue-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background 0.1s;
+}
+
+.header-search button:hover { background: var(--yellow-dark); }
+
+/* Header actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.btn-header-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: transparent;
+  border: 2px solid var(--yellow);
+  color: var(--yellow);
+  padding: 6px 12px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  transition: background 0.1s, color 0.1s;
+  text-decoration: none;
+}
+
+.btn-header-action:hover {
+  background: var(--yellow);
+  color: var(--blue-dark);
+  text-decoration: none;
+}
+
+.btn-header-action svg { width: 18px; height: 18px; }
+
+.cart-badge {
+  position: absolute;
+  top: -6px; right: -6px;
+  background: var(--red);
+  color: var(--white);
+  font-size: 0.65rem;
+  font-weight: 700;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid var(--blue);
+}
+
+/* Navigation bar */
+.nav-bar {
+  background: var(--orange);
+  border-top: 2px solid var(--orange-dark);
+}
+
+.nav-bar__inner {
+  display: flex;
+  align-items: stretch;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.nav-bar__inner::-webkit-scrollbar { display: none; }
+
+.nav-all-btn {
+  background: var(--blue-dark);
+  color: var(--yellow);
+  border: none;
+  padding: 0 16px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  border-right: 2px solid var(--orange-dark);
+  cursor: pointer;
+}
+
+.nav-bar a {
+  display: flex;
+  align-items: center;
+  padding: 10px 14px;
+  color: var(--white);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  border-right: 1px solid rgba(255,255,255,0.2);
+  transition: background 0.1s;
+  text-decoration: none;
+}
+
+.nav-bar a:hover { background: var(--orange-dark); text-decoration: none; }
+.nav-bar a.active { background: var(--blue); color: var(--yellow); }
+
+/* Mobile menu toggle */
+.mobile-menu-btn {
+  display: none;
+  background: transparent;
+  border: 2px solid var(--yellow);
+  color: var(--yellow);
+  padding: 6px 10px;
+  margin-left: auto;
+}
+
+/* ============================================================
+   HERO BANNER
+   ============================================================ */
+.hero {
+  background: var(--blue);
+  color: var(--white);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0;
+  min-height: 320px;
+}
+
+.hero__content {
+  padding: 36px 32px 36px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--yellow);
+}
+
+.hero__eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 24px; height: 3px;
+  background: var(--orange);
+}
+
+.hero__title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--white);
+  line-height: 1;
+}
+
+.hero__title em {
+  color: var(--yellow);
+  font-style: normal;
+  display: block;
+}
+
+.hero__body {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.85);
+  max-width: 420px;
+  line-height: 1.5;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.hero__aside {
+  background: var(--blue-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 28px;
+  border-left: 4px solid var(--yellow);
+}
+
+.hammer-box {
+  background: var(--blue);
+  border: 3px solid var(--yellow);
+  padding: 16px 20px;
+  text-align: center;
+  max-width: 200px;
+  box-shadow: var(--shadow);
+  transform: rotate(-1.5deg);
+}
+
+.hammer-box__title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.75rem;
+  color: var(--yellow);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hammer-box__word {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--orange);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.hammer-box__sub {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 0.8rem;
+  color: var(--yellow);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hammer-box__exclaim {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.6rem;
+  color: var(--yellow);
+  line-height: 1;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 9px 18px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.1s;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn:hover { text-decoration: none; }
+
+.btn-primary {
+  background: var(--yellow);
+  color: var(--blue-dark);
+  border-color: var(--orange);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  background: var(--yellow-dark);
+  box-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+  transform: translate(1px, 1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--yellow);
+  border-color: var(--yellow);
+}
+
+.btn-secondary:hover {
+  background: var(--yellow);
+  color: var(--blue-dark);
+}
+
+.btn-blue {
+  background: var(--blue);
+  color: var(--yellow);
+  border-color: var(--blue-dark);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-blue:hover {
+  background: var(--blue-dark);
+  box-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+  transform: translate(1px, 1px);
+}
+
+.btn-orange {
+  background: var(--orange);
+  color: var(--white);
+  border-color: var(--orange-dark);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-orange:hover {
+  background: var(--orange-dark);
+  box-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+  transform: translate(1px, 1px);
+}
+
+.btn-sm { padding: 6px 12px; font-size: 0.78rem; }
+.btn-lg { padding: 12px 24px; font-size: 1rem; }
+.btn-full { width: 100%; }
+
+.btn-add-cart {
+  background: var(--orange);
+  color: var(--white);
+  border: 2px solid var(--orange-dark);
+  box-shadow: var(--shadow-sm);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: all 0.1s;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-add-cart:hover {
+  background: var(--orange-dark);
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+}
+
+/* ============================================================
+   BADGES &amp; LABELS
+   ============================================================ */
+.badge-new {
+  display: inline-block;
+  background: var(--red);
+  color: var(--yellow);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  padding: 2px 7px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: 1px solid var(--yellow);
+  vertical-align: middle;
+}
+
+.badge-sale {
+  display: inline-block;
+  background: var(--orange);
+  color: var(--white);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  padding: 2px 7px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  vertical-align: middle;
+}
+
+.badge-featured {
+  display: inline-block;
+  background: var(--blue);
+  color: var(--yellow);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  vertical-align: middle;
+}
+
+.price-tag {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--blue-dark);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  padding: 4px 10px;
+  border: 2px solid var(--orange);
+  box-shadow: 2px 2px 0 var(--orange-dark);
+  transform: rotate(-1deg);
+  line-height: 1.1;
+}
+
+.price-tag__label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  opacity: 0.75;
+}
+
+.price-tag__amount {
+  font-size: 1.4rem;
+  display: block;
+  line-height: 1;
+}
+
+.price-tag__unit {
+  font-size: 0.65rem;
+  opacity: 0.75;
+}
+
+.price-tag-lg .price-tag__amount { font-size: 2rem; }
+
+.price-was {
+  font-size: 0.8rem;
+  color: var(--grey-dark);
+  text-decoration: line-through;
+}
+
+.price-save {
+  color: var(--red);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+/* ============================================================
+   SECTION HEADERS
+   ============================================================ */
+.section-hdr {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.section-hdr__bar {
+  background: var(--blue);
+  color: var(--yellow);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 8px 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 3px solid var(--yellow);
+  flex: 1;
+}
+
+.section-hdr__bar--orange {
+  background: var(--orange);
+  color: var(--white);
+  border-bottom-color: var(--orange-dark);
+}
+
+.section-hdr__bar--green {
+  background: var(--green);
+  color: var(--white);
+  border-bottom-color: var(--green-dark);
+}
+
+.section-hdr__link {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.8rem;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  border-bottom: 2px solid var(--blue);
+  padding-bottom: 1px;
+}
+
+.section-hdr__link:hover { color: var(--orange); border-color: var(--orange); }
+
+/* Full-width orange/blue divider */
+.divider-bar {
+  background: var(--orange);
+  color: var(--white);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 8px 16px;
+  border-top: 3px solid var(--orange-dark);
+  border-bottom: 3px solid var(--orange-dark);
+}
+
+/* ============================================================
+   PRODUCT CARD
+   ============================================================ */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.product-card {
+  background: var(--white);
+  border: 2px solid var(--grey);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: box-shadow 0.12s, transform 0.12s;
+}
+
+.product-card:hover {
+  box-shadow: 5px 5px 0 rgba(0,0,0,0.18);
+  transform: translate(-1px, -1px);
+}
+
+.product-card__badges {
+  position: absolute;
+  top: 6px; left: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  z-index: 2;
+}
+
+.product-card__img-wrap {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--grey-light);
+  border-bottom: 1px solid var(--grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-card__img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s;
+}
+
+.product-card:hover .product-card__img-wrap img { transform: scale(1.04); }
+
+.product-card__img-placeholder {
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--grey-dark);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.product-card__img-placeholder svg { width: 40px; height: 40px; opacity: 0.4; }
+
+.product-card__body {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.product-card__sku {
+  font-size: 0.65rem;
+  color: var(--grey-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.product-card__name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--blue-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.product-card__desc {
+  font-size: 0.75rem;
+  color: #555;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.product-card__price-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.product-card__price {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--blue-dark);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 3px 8px;
+  border: 2px solid var(--orange);
+  box-shadow: 2px 2px 0 var(--orange-dark);
+  transform: rotate(-1deg);
+  line-height: 1.2;
+}
+
+.product-card__price-label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+  display: block;
+}
+
+.product-card__footer {
+  padding: 0 10px 10px;
+}
+
+.product-card__stock {
+  font-size: 0.7rem;
+  color: var(--green);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.product-card__stock--low { color: var(--orange); }
+.product-card__stock--out { color: var(--red); }
+
+/* ============================================================
+   CATEGORY GRID
+   ============================================================ */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 8px;
+}
+
+.category-card {
+  background: var(--blue);
+  color: var(--yellow);
+  border: 2px solid var(--blue-dark);
+  padding: 14px 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background 0.1s, transform 0.1s;
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.category-card:hover {
+  background: var(--blue-dark);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+  text-decoration: none;
+}
+
+.category-card__icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.category-card__name {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+}
+
+/* ============================================================
+   PROMO STRIP
+   ============================================================ */
+.promo-strip {
+  background: var(--yellow);
+  color: var(--blue-dark);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 10px 0;
+  border-top: 3px solid var(--orange);
+  border-bottom: 3px solid var(--orange);
+}
+
+.promo-strip__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  font-size: 0.82rem;
+}
+
+.promo-strip__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.promo-strip__item svg { width: 16px; height: 16px; color: var(--orange); }
+
+/* ============================================================
+   PRICE GUARANTEE BANNER
+   ============================================================ */
+.guarantee-banner {
+  background: var(--blue);
+  color: var(--white);
+  padding: 24px 0;
+  border-top: 4px solid var(--yellow);
+  border-bottom: 4px solid var(--yellow);
+}
+
+.guarantee-banner__inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: center;
+}
+
+.guarantee-banner__text h2 {
+  color: var(--yellow);
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+}
+
+.guarantee-banner__text p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.85);
+  max-width: 540px;
+  line-height: 1.5;
+}
+
+.guarantee-banner__percent {
+  text-align: center;
+  background: var(--yellow);
+  color: var(--blue-dark);
+  padding: 16px 24px;
+  border: 3px solid var(--orange);
+  box-shadow: var(--shadow);
+  transform: rotate(-2deg);
+}
+
+.guarantee-banner__percent .num {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.guarantee-banner__percent .label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================================
+   CATALOG TABLE (price lists)
+   ============================================================ */
+.catalog-table-wrap {
+  overflow-x: auto;
+  border: 2px solid var(--grey);
+  box-shadow: var(--shadow-sm);
+}
+
+.catalog-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+  background: var(--white);
+}
+
+.catalog-table thead th {
+  background: var(--blue);
+  color: var(--yellow);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 7px 10px;
+  text-align: left;
+  font-size: 0.72rem;
+  white-space: nowrap;
+  border-right: 1px solid rgba(255,255,255,0.15);
+}
+
+.catalog-table thead th:last-child { border-right: none; }
+
+.catalog-table tbody td {
+  padding: 6px 10px;
+  border-bottom: 1px solid #e5e5e5;
+  border-right: 1px solid #e5e5e5;
+  vertical-align: middle;
+}
+
+.catalog-table tbody td:last-child { border-right: none; }
+
+.catalog-table tbody tr:nth-child(even) td { background: var(--grey-light); }
+.catalog-table tbody tr:hover td { background: #fff8e1; }
+
+.catalog-table .price-cell {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  color: var(--blue-dark);
+  white-space: nowrap;
+}
+
+.catalog-table .sku-cell {
+  font-size: 0.7rem;
+  color: var(--grey-dark);
+  font-family: monospace;
+}
+
+/* ============================================================
+   SIDEBAR FILTERS
+   ============================================================ */
+.shop-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.sidebar {
+  background: var(--white);
+  border: 2px solid var(--grey);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 120px;
+}
+
+.sidebar__section {
+  border-bottom: 1px solid var(--grey);
+}
+
+.sidebar__section:last-child { border-bottom: none; }
+
+.sidebar__title {
+  background: var(--blue);
+  color: var(--yellow);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 8px 12px;
+  border-bottom: 2px solid var(--yellow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.sidebar__title svg { width: 14px; height: 14px; transition: transform 0.2s; }
+.sidebar__title.open svg { transform: rotate(180deg); }
+
+.sidebar__body { padding: 10px 12px; }
+
+.filter-list { display: flex; flex-direction: column; gap: 6px; }
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 3px 0;
+}
+
+.filter-item input[type=&quot;checkbox&quot;] {
+  width: 14px; height: 14px;
+  accent-color: var(--blue);
+  cursor: pointer;
+}
+
+.filter-item:hover { color: var(--blue); }
+
+.filter-item__count {
+  margin-left: auto;
+  font-size: 0.7rem;
+  color: var(--grey-dark);
+  background: var(--grey-light);
+  padding: 1px 5px;
+  border-radius: 0;
+}
+
+.price-range {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.price-range__inputs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.price-range__inputs input {
+  flex: 1;
+  border: 2px solid var(--grey);
+  padding: 5px 8px;
+  font-size: 0.8rem;
+  width: 0;
+  outline: none;
+}
+
+.price-range__inputs input:focus { border-color: var(--blue); }
+.price-range__sep { font-size: 0.8rem; color: var(--grey-dark); }
+
+/* ============================================================
+   BREADCRUMB
+   ============================================================ */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--grey-dark);
+  padding: 10px 0;
+}
+
+.breadcrumb a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover { text-decoration: underline; color: var(--orange); }
+
+.breadcrumb__sep { color: var(--grey); }
+
+.breadcrumb__current {
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* ============================================================
+   PRODUCT DETAIL PAGE
+   ============================================================ */
+.product-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.product-detail__gallery {
+  border: 2px solid var(--grey);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.product-detail__main-img {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--grey-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--grey);
+}
+
+.product-detail__main-img img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+}
+
+.product-detail__thumbs {
+  display: flex;
+  gap: 6px;
+  padding: 8px;
+}
+
+.product-detail__thumb {
+  width: 60px; height: 60px;
+  border: 2px solid var(--grey);
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.product-detail__thumb.active { border-color: var(--blue); }
+
+.product-detail__thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+.product-detail__info { display: flex; flex-direction: column; gap: 14px; }
+
+.product-detail__sku {
+  font-size: 0.75rem;
+  color: var(--grey-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: monospace;
+}
+
+.product-detail__name {
+  font-size: 1.6rem;
+  color: var(--blue-dark);
+  line-height: 1.1;
+}
+
+.product-detail__price-box {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.product-detail__price {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--blue-dark);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  padding: 6px 14px;
+  border: 3px solid var(--orange);
+  box-shadow: 3px 3px 0 var(--orange-dark);
+  transform: rotate(-1deg);
+  line-height: 1.1;
+}
+
+.product-detail__price-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+  display: block;
+}
+
+.product-detail__vat {
+  font-size: 0.72rem;
+  color: var(--grey-dark);
+  margin-top: 4px;
+}
+
+.product-detail__stock-bar {
+  padding: 8px 12px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-left: 4px solid;
+}
+
+.product-detail__stock-bar--in {
+  background: #e8f5e9;
+  color: var(--green);
+  border-color: var(--green);
+}
+
+.product-detail__stock-bar--low {
+  background: #fff3e0;
+  color: var(--orange);
+  border-color: var(--orange);
+}
+
+.product-detail__stock-bar--out {
+  background: #ffebee;
+  color: var(--red);
+  border-color: var(--red);
+}
+
+.qty-selector {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 2px solid var(--grey);
+  width: fit-content;
+}
+
+.qty-selector button {
+  background: var(--grey-light);
+  border: none;
+  width: 36px; height: 36px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--blue-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.1s;
+}
+
+.qty-selector button:hover { background: var(--grey); }
+
+.qty-selector input {
+  width: 52px;
+  text-align: center;
+  border: none;
+  border-left: 2px solid var(--grey);
+  border-right: 2px solid var(--grey);
+  height: 36px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  outline: none;
+}
+
+.product-detail__specs {
+  background: var(--white);
+  border: 2px solid var(--grey);
+}
+
+.product-detail__specs-title {
+  background: var(--blue);
+  color: var(--yellow);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 7px 12px;
+  border-bottom: 2px solid var(--yellow);
+}
+
+.specs-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+
+.specs-table td {
+  padding: 6px 12px;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+}
+
+.specs-table td:first-child {
+  font-weight: 700;
+  color: var(--blue-dark);
+  width: 40%;
+  background: var(--grey-light);
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+}
+
+/* ============================================================
+   CART PAGE
+   ============================================================ */
+.cart-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 20px;
+  align-items: start;
+}
+
+.cart-table {
+  background: var(--white);
+  border: 2px solid var(--grey);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.cart-table__header {
+  background: var(--blue);
+  color: var(--yellow);
+  display: grid;
+  grid-template-columns: 80px 1fr 120px 120px 80px 40px;
+  gap: 0;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--yellow);
+}
+
+.cart-table__header &gt; div {
+  padding: 8px 10px;
+  border-right: 1px solid rgba(255,255,255,0.15);
+}
+
+.cart-table__header &gt; div:last-child { border-right: none; }
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 80px 1fr 120px 120px 80px 40px;
+  gap: 0;
+  border-bottom: 1px solid var(--grey);
+  align-items: center;
+}
+
+.cart-item:last-child { border-bottom: none; }
+.cart-item:nth-child(even) { background: var(--grey-light); }
+
+.cart-item &gt; div {
+  padding: 10px;
+  border-right: 1px solid #eee;
+}
+
+.cart-item &gt; div:last-child { border-right: none; }
+
+.cart-item__img {
+  width: 60px; height: 60px;
+  object-fit: cover;
+  border: 1px solid var(--grey);
+}
+
+.cart-item__name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--blue-dark);
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.cart-item__sku { font-size: 0.7rem; color: var(--grey-dark); margin-top: 3px; }
+
+.cart-item__price {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  color: var(--blue-dark);
+}
+
+.cart-item__total {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  color: var(--orange);
+  font-size: 1rem;
+}
+
+.cart-item__remove {
+  background: transparent;
+  border: none;
+  color: var(--red);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-item__remove:hover { color: var(--orange-dark); }
+
+.cart-summary {
+  background: var(--white);
+  border: 2px solid var(--grey);
+  box-shadow: var(--shadow-sm);
+}
+
+.cart-summary__header {
+  background: var(--orange);
+  color: var(--white);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 10px 14px;
+  border-bottom: 2px solid var(--orange-dark);
+}
+
+.cart-summary__body { padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+
+.cart-summary__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-summary__row:last-of-type { border-bottom: none; }
+
+.cart-summary__row--total {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--blue-dark);
+  border-top: 2px solid var(--blue);
+  padding-top: 10px;
+  margin-top: 4px;
+}
+
+.cart-summary__total-amount {
+  font-size: 1.4rem;
+  color: var(--orange);
+}
+
+.cart-empty {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--grey-dark);
+}
+
+.cart-empty svg { width: 64px; height: 64px; opacity: 0.3; margin: 0 auto 16px; }
+.cart-empty h3 { font-size: 1.2rem; color: var(--blue-dark); margin-bottom: 8px; }
+.cart-empty p { font-size: 0.85rem; margin-bottom: 20px; }
+
+/* ============================================================
+   PAGINATION
+   ============================================================ */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 24px;
+}
+
+.pagination a, .pagination button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px; height: 34px;
+  border: 2px solid var(--grey);
+  background: var(--white);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--blue-dark);
+  cursor: pointer;
+  transition: all 0.1s;
+  text-decoration: none;
+}
+
+.pagination a:hover, .pagination button:hover {
+  background: var(--blue);
+  color: var(--yellow);
+  border-color: var(--blue);
+  text-decoration: none;
+}
+
+.pagination .active {
+  background: var(--blue);
+  color: var(--yellow);
+  border-color: var(--blue);
+}
+
+.pagination .disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ============================================================
+   NOTIFICATION / TOAST
+   ============================================================ */
+.toast-container {
+  position: fixed;
+  bottom: 20px; right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.toast {
+  background: var(--blue);
+  color: var(--yellow);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 12px 18px;
+  border: 2px solid var(--yellow);
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: slideIn 0.25s ease-out, fadeOut 0.4s 2.6s ease-in forwards;
+  pointer-events: auto;
+  max-width: 320px;
+}
+
+.toast--success { background: var(--green); border-color: var(--yellow); }
+.toast--error { background: var(--red); border-color: var(--yellow); }
+
+@keyframes slideIn {
+  from { transform: translateX(120%); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; transform: translateX(120%); }
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  background: var(--blue-dark);
+  color: rgba(255,255,255,0.85);
+  margin-top: 40px;
+  border-top: 4px solid var(--yellow);
+}
+
+.footer-promo {
+  background: var(--yellow);
+  color: var(--blue-dark);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 3px solid var(--orange);
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 28px;
+  padding: 28px 0;
+}
+
+.footer-brand__logo {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--yellow);
+  margin-bottom: 8px;
+}
+
+.footer-brand__logo span { color: var(--red); }
+
+.footer-brand p {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.7);
+  max-width: 240px;
+}
+
+.footer-col h4 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem;
+  color: var(--yellow);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--orange);
+}
+
+.footer-col ul { display: flex; flex-direction: column; gap: 5px; }
+
+.footer-col li a {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.7);
+  transition: color 0.1s;
+}
+
+.footer-col li a:hover { color: var(--yellow); text-decoration: none; }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ============================================================
+   SECTION SPACING
+   ============================================================ */
+.section { padding: 28px 0; }
+.section + .section { padding-top: 0; }
+
+/* ============================================================
+   FORM ELEMENTS
+   ============================================================ */
+.form-group { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
+
+.form-label {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--blue-dark);
+}
+
+.form-input {
+  border: 2px solid var(--grey);
+  padding: 8px 10px;
+  font-size: 0.85rem;
+  background: var(--white);
+  outline: none;
+  font-family: 'Roboto Condensed', sans-serif;
+  transition: border-color 0.1s;
+}
+
+.form-input:focus { border-color: var(--blue); box-shadow: 0 0 0 2px rgba(0,48,135,0.12); }
+
+.form-select {
+  border: 2px solid var(--grey);
+  padding: 8px 10px;
+  font-size: 0.85rem;
+  background: var(--white);
+  outline: none;
+  font-family: 'Roboto Condensed', sans-serif;
+  cursor: pointer;
+  appearance: none;
+  background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23003087' stroke-width='2' fill='none'/%3E%3C/svg%3E&quot;);
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 32px;
+}
+
+.form-select:focus { border-color: var(--blue); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  .shop-layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+  .product-detail { grid-template-columns: 1fr; }
+  .cart-layout { grid-template-columns: 1fr; }
+  .footer-main { grid-template-columns: 1fr 1fr; }
+  .guarantee-banner__inner { grid-template-columns: 1fr; }
+  .hero__inner { grid-template-columns: 1fr; }
+  .hero__aside { display: none; }
+  .cart-table__header { display: none; }
+  .cart-item { grid-template-columns: 60px 1fr; grid-template-rows: auto auto auto; }
+}
+
+@media (max-width: 600px) {
+  .header-main { flex-wrap: wrap; }
+  .header-search { order: 3; max-width: 100%; flex: 0 0 100%; }
+  .nav-bar a { font-size: 0.72rem; padding: 8px 10px; }
+  .product-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  .category-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+  .footer-main { grid-template-columns: 1fr; }
+  .promo-strip__inner { flex-direction: column; gap: 10px; }
+}
+
+/* ============================================================
+   UTILITY CLASSES
+   ============================================================ */
+.text-center { text-align: center; }
+.text-right  { text-align: right; }
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: 8px; }
+.mt-2 { margin-top: 16px; }
+.mt-3 { margin-top: 24px; }
+.mb-1 { margin-bottom: 8px; }
+.mb-2 { margin-bottom: 16px; }
+.mb-3 { margin-bottom: 24px; }
+.gap-1 { gap: 8px; }
+.gap-2 { gap: 16px; }
+.flex { display: flex; }
+.flex-wrap { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.w-full { width: 100%; }
+.hidden { display: none !important; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+/* ============================================================
+   CART TABLE HEADER (flex-based, used in cart.html)
+   ============================================================ */
+.cart-table-header {
+  display: flex;
+  align-items: center;
+  background: var(--blue);
+  color: var(--yellow);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 8px 12px;
+  border: 2px solid var(--blue-dark);
+  border-bottom: 2px solid var(--yellow);
+  gap: 0;
+}
+
+/* Override cart-item to flex layout for cart.html */
+.cart-item {
+  display: flex !important;
+  align-items: center;
+  gap: 0;
+  background: var(--white);
+  border: 2px solid var(--grey);
+  border-top: none;
+  padding: 10px 12px;
+  flex-wrap: nowrap;
+}
+
+.cart-item:nth-child(even) { background: var(--grey-light); }
+
+.cart-item__img {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  border: 1px solid var(--grey);
+  overflow: hidden;
+  margin-right: 12px;
+}
+
+.cart-item__info {
+  flex: 3;
+  min-width: 0;
+  padding-right: 12px;
+}
+
+.cart-item__price {
+  flex: 1;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  color: var(--blue-dark);
+  white-space: nowrap;
+}
+
+.cart-item__qty {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.cart-item__total {
+  flex: 1;
+  text-align: right;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  color: var(--orange);
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.cart-item__remove {
+  width: 32px;
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  color: var(--red);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  margin-left: 8px;
+}
+
+.cart-item__remove:hover { color: var(--orange-dark); }
+
+/* ============================================================
+   ORDER SUMMARY PANEL
+   ============================================================ */
+.order-summary {
+  background: var(--white);
+  border: 2px solid var(--grey);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 120px;
+}
+
+.order-summary__title {
+  background: var(--orange);
+  color: var(--white);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 10px 14px;
+  border-bottom: 2px solid var(--orange-dark);
+}
+
+.order-summary__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  padding: 8px 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.order-summary__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--blue-dark);
+  padding: 12px 14px;
+  border-top: 3px solid var(--blue);
+  border-bottom: 1px solid #eee;
+  background: #f0f4ff;
+}
+
+.order-summary__total span:last-child {
+  color: var(--orange);
+  font-size: 1.4rem;
+}
+
+/* Checkout button inside summary */
+.order-summary .btn-orange {
+  margin: 12px 14px;
+  width: calc(100% - 28px);
+}
+
+@media (max-width: 700px) {
+  .cart-table-header { display: none; }
+  .cart-item {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .cart-item__price,
+  .cart-item__qty,
+  .cart-item__total { flex: auto; }
+  .order-summary { position: static; }
+}
+
+/* ============================================================
+   SPA-SPECIFIC ADDITIONS
+   ============================================================ */
+.tab-btn {
+  background: var(--grey-light);
+  border: 2px solid var(--grey);
+  border-bottom: none;
+  padding: 9px 18px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--blue-dark);
+  cursor: pointer;
+  transition: background 0.1s;
+  margin-right: 3px;
+  position: relative;
+  bottom: -2px;
+}
+.tab-btn.active { background: var(--blue); color: var(--yellow); border-color: var(--blue); z-index: 1; }
+.tab-btn:hover:not(.active) { background: var(--grey); }
+
+.checkout-step {
+  display: flex; align-items: center; gap: 6px;
+  font-family: 'Oswald', sans-serif; font-size: 0.72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.45); padding: 0 4px;
+}
+.checkout-step--active { color: var(--yellow); }
+.checkout-step__num {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.72rem; font-weight: 700; flex-shrink: 0;
+}
+.checkout-step--active .checkout-step__num { background: var(--yellow); color: var(--blue-dark); }
+.checkout-step__line { width: 32px; height: 2px; background: rgba(255,255,255,0.2); flex-shrink: 0; }
+@media (max-width: 480px) {
+  .checkout-step span { display: none; }
+  .checkout-step__line { width: 16px; }
+}
+
+.nav-bar a.route-active { background: var(--blue); color: var(--yellow); }
+.sku-link { cursor: pointer; }
+[data-route-link] { cursor: pointer; }
+.app-fade { animation: appFadeIn 0.18s ease; }
+@keyframes appFadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;!-- ══════════════════════════════════════════════════════════
+     HEADER (shared across all routes)
+══════════════════════════════════════════════════════════ --&gt;
+&lt;header class=&quot;site-header&quot; role=&quot;banner&quot;&gt;
+
+  &lt;div class=&quot;promo-ticker&quot; aria-label=&quot;Promotional offers&quot;&gt;
+    &lt;div class=&quot;promo-ticker__inner&quot;&gt;
+      ★ YOU CAN'T BUY BETTER THAN WICKES!
+      &lt;span class=&quot;promo-ticker__sep&quot;&gt;|&lt;/span&gt;
+      WE WON'T BE BEATEN ON PRICE — WE'LL BEAT IT BY A FURTHER 20%!
+      &lt;span class=&quot;promo-ticker__sep&quot;&gt;|&lt;/span&gt;
+      FREE 7-DAY HOME DELIVERY ON SELECTED ITEMS
+      &lt;span class=&quot;promo-ticker__sep&quot;&gt;|&lt;/span&gt;
+      EXPERT STAFF HELP &amp;amp; ADVICE IN EVERY STORE
+      &lt;span class=&quot;promo-ticker__sep&quot;&gt;|&lt;/span&gt;
+      FAX OR PHONE ORDERS WELCOME
+      &lt;span class=&quot;promo-ticker__sep&quot;&gt;|&lt;/span&gt;
+      ALL PRICES INCLUDE VAT
+      &lt;span class=&quot;promo-ticker__sep&quot;&gt;|&lt;/span&gt;
+      ★ YOU CAN'T BUY BETTER THAN WICKES!
+      &lt;span class=&quot;promo-ticker__sep&quot;&gt;|&lt;/span&gt;
+      WE WON'T BE BEATEN ON PRICE — WE'LL BEAT IT BY A FURTHER 20%!
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;header-main&quot;&gt;
+
+      &lt;a href=&quot;#/&quot; class=&quot;header-logo&quot; aria-label=&quot;Wickes Home&quot; data-route-link&gt;
+        &lt;div class=&quot;logo-box&quot;&gt;
+          &lt;div class=&quot;logo-w&quot;&gt;&lt;span&gt;W&lt;/span&gt;ickes&lt;/div&gt;
+          &lt;div class=&quot;logo-tagline&quot;&gt;The Experts in Home Improvement&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/a&gt;
+
+      &lt;form class=&quot;header-search&quot; role=&quot;search&quot; id=&quot;search-form&quot;&gt;
+        &lt;input type=&quot;search&quot; name=&quot;q&quot; id=&quot;search-input&quot; placeholder=&quot;Search products, SKU codes...&quot; aria-label=&quot;Search products&quot;&gt;
+        &lt;button type=&quot;submit&quot; aria-label=&quot;Search&quot;&gt;
+          &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;circle cx=&quot;11&quot; cy=&quot;11&quot; r=&quot;8&quot;/&gt;&lt;path d=&quot;m21 21-4.35-4.35&quot;/&gt;&lt;/svg&gt;
+        &lt;/button&gt;
+      &lt;/form&gt;
+
+      &lt;div class=&quot;header-actions&quot;&gt;
+        &lt;a href=&quot;#&quot; class=&quot;btn-header-action&quot; aria-label=&quot;My Account&quot;&gt;
+          &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2&quot;/&gt;&lt;circle cx=&quot;12&quot; cy=&quot;7&quot; r=&quot;4&quot;/&gt;&lt;/svg&gt;
+          Account
+        &lt;/a&gt;
+        &lt;a href=&quot;#/cart&quot; class=&quot;btn-header-action&quot; aria-label=&quot;Shopping cart&quot; data-route-link&gt;
+          &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;circle cx=&quot;9&quot; cy=&quot;21&quot; r=&quot;1&quot;/&gt;&lt;circle cx=&quot;20&quot; cy=&quot;21&quot; r=&quot;1&quot;/&gt;&lt;path d=&quot;M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6&quot;/&gt;&lt;/svg&gt;
+          Cart
+          &lt;span class=&quot;cart-badge&quot; id=&quot;cart-badge&quot; aria-label=&quot;items in cart&quot;&gt;0&lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;nav class=&quot;nav-bar&quot; aria-label=&quot;Main navigation&quot; id=&quot;main-nav&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;div class=&quot;nav-bar__inner&quot;&gt;
+        &lt;button class=&quot;nav-all-btn&quot; aria-expanded=&quot;false&quot;&gt;
+          &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;line x1=&quot;3&quot; y1=&quot;6&quot; x2=&quot;21&quot; y2=&quot;6&quot;/&gt;&lt;line x1=&quot;3&quot; y1=&quot;12&quot; x2=&quot;21&quot; y2=&quot;12&quot;/&gt;&lt;line x1=&quot;3&quot; y1=&quot;18&quot; x2=&quot;21&quot; y2=&quot;18&quot;/&gt;&lt;/svg&gt;
+          All Departments
+        &lt;/button&gt;
+        &lt;a href=&quot;#/catalog?cat=new-products&quot; data-cat-link=&quot;new-products&quot; data-route-link&gt;New Products&lt;/a&gt;
+        &lt;a href=&quot;#/catalog?cat=conservatories&quot; data-cat-link=&quot;conservatories&quot; data-route-link&gt;Conservatories&lt;/a&gt;
+        &lt;a href=&quot;#/catalog?cat=garden&quot; data-cat-link=&quot;garden&quot; data-route-link&gt;Garden&lt;/a&gt;
+        &lt;a href=&quot;#/catalog?cat=building-materials&quot; data-cat-link=&quot;building-materials&quot; data-route-link&gt;Building Materials&lt;/a&gt;
+        &lt;a href=&quot;#/catalog?cat=tools&quot; data-cat-link=&quot;tools&quot; data-route-link&gt;Tools&lt;/a&gt;
+        &lt;a href=&quot;#/catalog?cat=timber&quot; data-cat-link=&quot;timber&quot; data-route-link&gt;Timber&lt;/a&gt;
+        &lt;a href=&quot;#/catalog?cat=doors-windows&quot; data-cat-link=&quot;doors-windows&quot; data-route-link&gt;Doors &amp;amp; Windows&lt;/a&gt;
+        &lt;a href=&quot;#/catalog?cat=kitchens&quot; data-cat-link=&quot;kitchens&quot; data-route-link&gt;Kitchens&lt;/a&gt;
+        &lt;a href=&quot;#/catalog?cat=bathrooms&quot; data-cat-link=&quot;bathrooms&quot; data-route-link&gt;Bathrooms&lt;/a&gt;
+        &lt;a href=&quot;#/catalog?cat=electrical&quot; data-cat-link=&quot;electrical&quot; data-route-link&gt;Electrical&lt;/a&gt;
+        &lt;a href=&quot;#/catalog?cat=heating&quot; data-cat-link=&quot;heating&quot; data-route-link&gt;Heating&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+
+&lt;/header&gt;
+
+&lt;!-- ══════════════════════════════════════════════════════════
+     APP ROOT — swapped per route by the router
+══════════════════════════════════════════════════════════ --&gt;
+&lt;main id=&quot;app&quot; class=&quot;app-fade&quot;&gt;&lt;/main&gt;
+
+&lt;!-- ══════════════════════════════════════════════════════════
+     FOOTER (shared across all routes)
+══════════════════════════════════════════════════════════ --&gt;
+&lt;footer class=&quot;site-footer&quot; role=&quot;contentinfo&quot;&gt;
+
+  &lt;div class=&quot;footer-promo&quot;&gt;★ You Can't Buy Better Than Wickes! ★&lt;/div&gt;
+
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;footer-main&quot;&gt;
+
+      &lt;div class=&quot;footer-brand&quot;&gt;
+        &lt;div class=&quot;footer-brand__logo&quot;&gt;&lt;span&gt;W&lt;/span&gt;ickes&lt;/div&gt;
+        &lt;p&gt;The Experts in Home Improvement. With almost 25 years of experience, Wickes can offer you unbeatable prices, expert service, help, tips and advice for 1000's of DIY projects.&lt;/p&gt;
+        &lt;p style=&quot;margin-top: 10px; font-size: 0.72rem; color: rgba(255,255,255,0.5);&quot;&gt;All prices include VAT. Subject to availability.&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;footer-col&quot;&gt;
+        &lt;h4&gt;Shop&lt;/h4&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#/catalog?cat=new-products&quot; data-route-link&gt;New Products&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#/catalog?cat=building-materials&quot; data-route-link&gt;Building Materials&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#/catalog?cat=tools&quot; data-route-link&gt;Tools&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#/catalog?cat=timber&quot; data-route-link&gt;Timber&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#/catalog?cat=doors-windows&quot; data-route-link&gt;Doors &amp;amp; Windows&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#/catalog?cat=kitchens&quot; data-route-link&gt;Kitchens&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#/catalog?cat=bathrooms&quot; data-route-link&gt;Bathrooms&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#/catalog?cat=electrical&quot; data-route-link&gt;Electrical&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;footer-col&quot;&gt;
+        &lt;h4&gt;Customer Service&lt;/h4&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;My Account&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#/cart&quot; data-route-link&gt;Shopping Cart&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Order History&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Track My Order&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Returns Policy&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Store Finder&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Contact Us&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;FAQs&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;footer-col&quot;&gt;
+        &lt;h4&gt;Delivery Info&lt;/h4&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Free 7-Day Delivery&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Click &amp;amp; Collect&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Delivery Areas&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Large Item Delivery&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;h4 style=&quot;margin-top: 16px;&quot;&gt;Good Idea Leaflets&lt;/h4&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Conservatories Guide&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Tiling Guide&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Flooring Guide&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+
+    &lt;div class=&quot;footer-bottom&quot;&gt;
+      &lt;span&gt;© Wickes Building Supplies Ltd. All rights reserved.&lt;/span&gt;
+      &lt;span&gt;All prices include VAT. E&amp;amp;OE.&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/footer&gt;
+
+&lt;div class=&quot;toast-container&quot; id=&quot;toast-container&quot; aria-live=&quot;polite&quot; aria-atomic=&quot;true&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+/* ════════════════════════════════════════════════════════════
+   WICKES SPA — single-file fused application
+   Routes (hash-based): #/  #/catalog  #/product  #/cart
+════════════════════════════════════════════════════════════ */
+
+/* ── Icon library (inline SVG, matches original placeholder icons) ── */
+const ICONS = {
+  flooring:   '&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;&gt;&lt;rect x=&quot;3&quot; y=&quot;3&quot; width=&quot;18&quot; height=&quot;18&quot; rx=&quot;1&quot;/&gt;&lt;path d=&quot;M3 9h18M9 21V9&quot;/&gt;&lt;/svg&gt;',
+  tiles:      '&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;&gt;&lt;rect x=&quot;3&quot; y=&quot;3&quot; width=&quot;7&quot; height=&quot;7&quot;/&gt;&lt;rect x=&quot;14&quot; y=&quot;3&quot; width=&quot;7&quot; height=&quot;7&quot;/&gt;&lt;rect x=&quot;3&quot; y=&quot;14&quot; width=&quot;7&quot; height=&quot;7&quot;/&gt;&lt;rect x=&quot;14&quot; y=&quot;14&quot; width=&quot;7&quot; height=&quot;7&quot;/&gt;&lt;/svg&gt;',
+  varnish:    '&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;&gt;&lt;path d=&quot;M12 2a10 10 0 1 0 10 10H12V2z&quot;/&gt;&lt;/svg&gt;',
+  aircon:     '&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;&gt;&lt;rect x=&quot;2&quot; y=&quot;6&quot; width=&quot;20&quot; height=&quot;12&quot; rx=&quot;2&quot;/&gt;&lt;path d=&quot;M12 12v4M8 12v2M16 12v2&quot;/&gt;&lt;/svg&gt;',
+  cablereel:  '&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;9&quot;/&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;3&quot;/&gt;&lt;path d=&quot;M12 3v3M12 18v3M3 12h3M18 12h3&quot;/&gt;&lt;/svg&gt;',
+  extlead:    '&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;&gt;&lt;rect x=&quot;2&quot; y=&quot;9&quot; width=&quot;20&quot; height=&quot;6&quot; rx=&quot;1&quot;/&gt;&lt;path d=&quot;M7 9V7M17 9V7&quot;/&gt;&lt;/svg&gt;',
+  fan:        '&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;9&quot;/&gt;&lt;path d=&quot;M12 8v4M12 16h.01&quot;/&gt;&lt;/svg&gt;',
+  ceiling:    '&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;2&quot;/&gt;&lt;path d=&quot;M12 2C12 2 14 6 14 10M12 22C12 22 10 18 10 14M2 12C2 12 6 10 10 10M22 12C22 12 18 14 14 14&quot;/&gt;&lt;/svg&gt;',
+  fire:       '&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;&gt;&lt;path d=&quot;M12 2c0 6-6 8-6 14a6 6 0 0 0 12 0c0-6-6-8-6-14z&quot;/&gt;&lt;/svg&gt;',
+  surround:   '&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;&gt;&lt;rect x=&quot;3&quot; y=&quot;3&quot; width=&quot;18&quot; height=&quot;18&quot; rx=&quot;1&quot;/&gt;&lt;rect x=&quot;7&quot; y=&quot;7&quot; width=&quot;10&quot; height=&quot;10&quot;/&gt;&lt;/svg&gt;',
+  moulding:   '&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;&gt;&lt;path d=&quot;M3 12h18M3 6h18M3 18h18&quot;/&gt;&lt;/svg&gt;',
+  rcd:        '&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;&gt;&lt;rect x=&quot;6&quot; y=&quot;2&quot; width=&quot;12&quot; height=&quot;20&quot; rx=&quot;2&quot;/&gt;&lt;path d=&quot;M12 18h.01&quot;/&gt;&lt;/svg&gt;'
+};
+const CART_SVG = '&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;circle cx=&quot;9&quot; cy=&quot;21&quot; r=&quot;1&quot;/&gt;&lt;circle cx=&quot;20&quot; cy=&quot;21&quot; r=&quot;1&quot;/&gt;&lt;path d=&quot;M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6&quot;/&gt;&lt;/svg&gt;';
+
+/* ── Product catalogue ───────────────────────────────────── */
+const PRODUCTS = [
+  { sku:'620-809', name:'Premier Laminate Flooring', iconLabel:'Flooring', icon:'flooring',
+    desc:'Hard wearing, ideal for hallways and offices. Easy to lay and clean. Available in Beech, Oak and Maple effect.',
+    price:19.99, unit:'/m²', cat:['new-products','building-materials'], badge:'NEW', stock:'In Stock' },
+  { sku:'230-122', name:'Capri Grey Wall Tiles', iconLabel:'Wall Tiles', icon:'tiles',
+    desc:'Ceramic wall tile 15cm × 15cm. Pack of 43, covers approx 1m². Also available in beige.',
+    price:6.99, cat:['new-products','building-materials'], badge:'NEW', stock:'In Stock' },
+  { sku:'230-203', name:'Genuine Marble Floor Tiles', iconLabel:'Floor Tiles', icon:'tiles',
+    desc:'30cm × 30cm. Pack of 5. Two colour variations. Ideal for conservatories.',
+    price:9.99, unit:'/pack', cat:['new-products','building-materials'], badge:'NEW', stock:'In Stock' },
+  { sku:'600-540', name:'Quick Drying Varnish 1lt Clear Gloss', iconLabel:'Varnish', icon:'varnish',
+    desc:'Also available in clear satin finish and 4 gloss colours. Wickes Woodcare.',
+    price:6.99, cat:['new-products','painting'], badge:'NEW', stock:'In Stock' },
+  { sku:'710-250', name:'Air Conditioning Unit', iconLabel:'Air Con', icon:'aircon',
+    desc:'Size 470mm × 350mm × 600mm. 9000BTU Output. Decor panel can be removed and replaced with appropriate wallcovering. CE Approved with oxygen depletion sensors.',
+    price:349.99, was:399.99, cat:['electrical'], stock:'In Stock',
+    longDesc:[
+      'The Wickes Air Conditioning Unit (710-250) is a powerful and efficient solution for keeping your home or office cool during warm weather. With a 9000BTU output, this unit is capable of cooling rooms up to approximately 25m².',
+      'The attractive decor panel can be removed and replaced with an appropriate wallcovering, allowing the unit to blend seamlessly into your room\u2019s d\u00e9cor. This makes it ideal for living rooms, bedrooms, and home offices where aesthetics matter.',
+      'Installation is straightforward and the unit comes with full fitting instructions. For more detailed installation guidance, pick up our Free Good Idea Leaflet No. 100 instore.'
+    ],
+    features:['Size 470mm \u00d7 350mm \u00d7 600mm','9000BTU Output','Decor Panel \u2014 Can be removed and replaced with appropriate wallcovering','CE Approved with oxygen depletion sensors'],
+    specs:[['Width','470mm'],['Depth','350mm'],['Height','600mm'],['BTU Output','9000 BTU'],['Colour','White'],['Decor Panel','Removable \u2014 replaceable with wallcovering'],['Certification','CE Approved'],['Oxygen Depletion Sensor','Yes']],
+    rating:4.1, reviewCount:24,
+    reviews:[
+      {name:'D. Thompson', stars:5, date:'March 1996', text:'Excellent unit, very easy to install. Keeps the living room cool on hot days. The decor panel is a great idea \u2014 blends right in with the wallpaper. Wickes prices can\u2019t be beaten.'},
+      {name:'P. Harrison', stars:4, date:'February 1996', text:'Good product for the price. Installation took about 2 hours but the instructions were clear. Would recommend picking up the Good Idea leaflet from the store for extra tips.'}
+    ] },
+  { sku:'710-234', name:'40m 13A External Cable Reel', iconLabel:'Cable Reel', icon:'cablereel',
+    desc:'Heavy duty 40m external cable reel. 13 amp rated for outdoor use.',
+    price:34.99, cat:['electrical'], stock:'In Stock' },
+  { sku:'710-095', name:'25m Extension Reel', iconLabel:'Cable Reel', icon:'cablereel',
+    desc:'25 metre extension reel. Ideal for garden and workshop use.',
+    price:12.99, cat:['electrical'], stock:'In Stock' },
+  { sku:'710-096', name:'4 Way Extension Lead inc 1m Cable', iconLabel:'Extension Lead', icon:'extlead',
+    desc:'4 way socket with cable and plug. 5 amp interior use.',
+    price:3.99, cat:['electrical'], stock:'In Stock' },
+  { sku:'700-150', name:'4&quot; Toilet Bathroom Extractor Fan', iconLabel:'Extractor Fan', icon:'fan',
+    desc:'4&quot; Toilet/Bathroom Extractor Fan. Adjustable run on timer available.',
+    price:14.99, cat:['electrical'], stock:'In Stock' },
+  { sku:'710-303', name:'42&quot; White Ceiling Fan \u2014 3 Speed', iconLabel:'Ceiling Fan', icon:'ceiling',
+    desc:'Generates wind chill factor. Reverse direction circulates warm air.',
+    price:24.99, cat:['electrical'], stock:'In Stock' },
+  { sku:'710-142', name:'42&quot; Brass Plated Ceiling Fan 3 Speed', iconLabel:'Ceiling Fan', icon:'ceiling',
+    desc:'Elegant brass-plated finish. 3 speed settings with reverse function for year-round comfort.',
+    price:34.99, cat:['electrical'], stock:'In Stock' },
+  { sku:'710-299', name:'RCD Adaptor', iconLabel:'RCD Adaptor', icon:'rcd',
+    desc:'Extends electrical safety when using power tools.',
+    price:12.99, cat:['electrical'], stock:'In Stock' },
+  { sku:'450-120', name:'16&quot; High Tech Inset Fire CE Approved', iconLabel:'Fire', icon:'fire',
+    desc:'Heat output up to 1.5kw. Running cost from as little as 5.32p/hr. User variable coke or coal flame type.',
+    price:189.99, cat:['heating'], stock:'In Stock \u2014 Take Away' },
+  { sku:'450-135', name:'2.8kW CE Approved Multiflue Plus Convectaflame', iconLabel:'Fire', icon:'fire',
+    desc:'Running cost from as little as 5.32p/hr. Radiant and convected heat \u2014 45% efficient. Compatible with prefabricated flues.',
+    price:339.99, cat:['heating'], stock:'In Stock' },
+  { sku:'surround-oak', name:'Traditional Light Oak Fire Surround', iconLabel:'Surround', icon:'surround',
+    desc:'Excluding fire and trim. Free 7-day home delivery. Instore to take away also available.',
+    price:299, priceFrom:true, cat:['heating'], badge:'7-Day Delivery', stock:'Available Instore' },
+  { sku:'huntly', name:'The Huntly Fire Surround', iconLabel:'Surround', icon:'surround',
+    desc:'Excluding fire and trim. Free 7-day home delivery on Manor House range.',
+    price:799, priceFrom:true, cat:['heating'], badge:'7-Day Delivery', stock:'Free 7-Day Delivery' },
+  { sku:'120-144', name:'Dado Rail Softwood Moulding', iconLabel:'Moulding', icon:'moulding',
+    desc:'19mm \u00d7 58mm \u00d7 2.4m Pk4. Decorative moulding ideal as horizontal divider on wall.',
+    price:8.99, cat:['building-materials'], stock:'In Stock' }
+];
+const PRODUCTS_BY_SKU = Object.fromEntries(PRODUCTS.map(p =&gt; [p.sku, p]));
+
+const CATEGORIES = [
+  { id:'new-products',      label:'New Products',          icon:'\u2728' },
+  { id:'conservatories',    label:'Conservatories',         icon:'\ud83c\udfe0' },
+  { id:'garden',            label:'Garden',                 icon:'\ud83c\udf3f' },
+  { id:'building-materials',label:'Building Materials',     icon:'\ud83e\uddf1' },
+  { id:'tools',             label:'Tools',                  icon:'\ud83d\udd27' },
+  { id:'timber',            label:'Timber',                 icon:'\ud83e\udeb5' },
+  { id:'doors-windows',     label:'Doors &amp; Windows',        icon:'\ud83d\udeaa' },
+  { id:'bedrooms',          label:'Bedrooms',                icon:'\ud83d\udecf' },
+  { id:'kitchens',          label:'Kitchens',               icon:'\ud83c\udf73' },
+  { id:'bathrooms',         label:'Bathrooms',              icon:'\ud83d\udec1' },
+  { id:'showers',           label:'Showers',                icon:'\ud83d\udebf' },
+  { id:'painting',          label:'Painting &amp; Decorating',  icon:'\ud83c\udfa8' },
+  { id:'electrical',        label:'Electrical &amp; Lighting',  icon:'\u26a1' },
+  { id:'heating',           label:'Heating &amp; Insulation',   icon:'\ud83d\udd25' }
+];
+const SIDEBAR_CATEGORIES = ['new-products','building-materials','tools','timber','doors-windows','kitchens','bathrooms','electrical','painting','heating'];
+
+/* ── Helpers ─────────────────────────────────────────────── */
+function fmt(n) { return '\u00a3' + Number(n).toFixed(2); }
+function catLabel(id) {
+  const c = CATEGORIES.find(c =&gt; c.id === id);
+  return c ? c.label : (id || '').replace(/-/g,' ').replace(/\b\w/g, l =&gt; l.toUpperCase());
+}
+function esc(s) { return String(s).replace(/[&amp;&lt;&gt;&quot;']/g, c =&gt; ({'&amp;':'&amp;amp;','&lt;':'&amp;lt;','&gt;':'&amp;gt;','&quot;':'&amp;quot;',&quot;'&quot;:'&amp;#39;'}[c])); }
+
+/* ── Toast notifications ─────────────────────────────────── */
+function showToast(message, type = '') {
+  const container = document.getElementById('toast-container');
+  const toast = document.createElement('div');
+  toast.className = 'toast' + (type ? ' toast--' + type : '');
+  toast.textContent = message;
+  toast.setAttribute('role', 'alert');
+  container.appendChild(toast);
+  setTimeout(() =&gt; toast.remove(), 3200);
+}
+
+/* ── Cart state (persisted to localStorage) ─────────────── */
+const CART_KEY = 'wickes_spa_cart';
+function loadCart() {
+  try { return JSON.parse(localStorage.getItem(CART_KEY)) || {}; }
+  catch (e) { return {}; }
+}
+function saveCart(cart) { localStorage.setItem(CART_KEY, JSON.stringify(cart)); }
+let CART = loadCart();
+
+function cartLines() {
+  return Object.entries(CART)
+    .filter(([sku, qty]) =&gt; qty &gt; 0 &amp;&amp; PRODUCTS_BY_SKU[sku])
+    .map(([sku, qty]) =&gt; {
+      const p = PRODUCTS_BY_SKU[sku];
+      return { sku, qty, product: p, lineTotal: p.price * qty };
+    });
+}
+function cartCount() { return cartLines().reduce((s, l) =&gt; s + l.qty, 0); }
+function cartSubtotal() { return cartLines().reduce((s, l) =&gt; s + l.lineTotal, 0); }
+
+function addToCart(sku, qty = 1) {
+  CART[sku] = (CART[sku] || 0) + qty;
+  saveCart(CART);
+  updateCartBadge();
+}
+function setCartQty(sku, qty) {
+  qty = Math.max(1, Math.min(99, qty || 1));
+  CART[sku] = qty;
+  saveCart(CART);
+  updateCartBadge();
+}
+function removeFromCart(sku) {
+  delete CART[sku];
+  saveCart(CART);
+  updateCartBadge();
+}
+function clearCartAll() {
+  CART = {};
+  saveCart(CART);
+  updateCartBadge();
+}
+function updateCartBadge() {
+  const badge = document.getElementById('cart-badge');
+  if (badge) {
+    const n = cartCount();
+    badge.textContent = n;
+    badge.setAttribute('aria-label', n + ' items in cart');
+  }
+}
+
+function handleAddToCart(sku, btn, qty = 1) {
+  const p = PRODUCTS_BY_SKU[sku];
+  if (!p) return;
+  addToCart(sku, qty);
+  showToast('\u2713 Added to cart: ' + p.name, 'success');
+  if (btn) {
+    const original = btn.innerHTML;
+    btn.innerHTML = '\u2713 Added!';
+    btn.style.background = 'var(--green)';
+    btn.disabled = true;
+    setTimeout(() =&gt; { btn.innerHTML = original; btn.style.background = ''; btn.disabled = false; }, 1800);
+  }
+  if (typeof CURRENT_RENDER_REFRESH === 'function') CURRENT_RENDER_REFRESH();
+}
+let CURRENT_RENDER_REFRESH = null;
+
+/* ── Product card / icon markup ──────────────────────────── */
+function iconPlaceholder(p, size) {
+  const svg = ICONS[p.icon] || ICONS.tiles;
+  return `&lt;div class=&quot;product-card__img-placeholder&quot;&gt;${svg}${esc(p.iconLabel || '')}&lt;/div&gt;`;
+}
+
+function productCardHTML(p) {
+  const priceLabel = p.priceFrom ? 'From' : 'Only';
+  const unit = p.unit ? `&lt;small style=&quot;font-size:0.6em&quot;&gt;${esc(p.unit)}&lt;/small&gt;` : '';
+  const badgeHTML = p.badge
+    ? `&lt;div class=&quot;product-card__badges&quot;&gt;&lt;span class=&quot;${p.badge === 'NEW' ? 'badge-new' : 'badge-sale'}&quot;&gt;${esc(p.badge)}&lt;/span&gt;&lt;/div&gt;`
+    : '';
+  return `
+  &lt;article class=&quot;product-card&quot; data-cat=&quot;${p.cat.join(' ')}&quot; data-price=&quot;${p.price}&quot; data-sku=&quot;${p.sku}&quot;&gt;
+    ${badgeHTML}
+    &lt;a href=&quot;#/product?sku=${encodeURIComponent(p.sku)}&quot; class=&quot;product-card__img-wrap&quot; tabindex=&quot;-1&quot; data-route-link&gt;
+      ${iconPlaceholder(p)}
+    &lt;/a&gt;
+    &lt;div class=&quot;product-card__body&quot;&gt;
+      &lt;div class=&quot;product-card__sku&quot;&gt;SKU: ${esc(p.sku)}&lt;/div&gt;
+      &lt;a href=&quot;#/product?sku=${encodeURIComponent(p.sku)}&quot; class=&quot;product-card__name&quot; data-route-link&gt;${esc(p.name)}&lt;/a&gt;
+      &lt;p class=&quot;product-card__desc&quot;&gt;${esc(p.desc)}&lt;/p&gt;
+      &lt;div class=&quot;product-card__price-row&quot;&gt;
+        &lt;div class=&quot;product-card__price&quot;&gt;&lt;span class=&quot;product-card__price-label&quot;&gt;${priceLabel}&lt;/span&gt;${fmt(p.price)}${unit}&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;product-card__footer&quot;&gt;
+      &lt;div class=&quot;product-card__stock&quot;&gt;${esc(p.stock)}&lt;/div&gt;
+      &lt;button class=&quot;btn-add-cart&quot; onclick=&quot;handleAddToCart('${p.sku}', this)&quot;&gt;
+        ${CART_SVG}
+        Add to Cart
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/article&gt;`;
+}
+
+/* ════════════════════════════════════════════════════════════
+   ROUTER
+════════════════════════════════════════════════════════════ */
+function parseHash() {
+  let hash = location.hash || '#/';
+  hash = hash.slice(1); // drop '#'
+  if (!hash.startsWith('/')) hash = '/' + hash;
+  const [path, qs] = hash.split('?');
+  return { path: path.replace(/\/+$/, '') || '/', params: new URLSearchParams(qs || '') };
+}
+
+function navigateHash(hash) {
+  if (location.hash === hash) { router(); } else { location.hash = hash; }
+}
+
+function router() {
+  const { path, params } = parseHash();
+  const app = document.getElementById('app');
+  app.classList.remove('app-fade');
+
+  updateCartBadge();
+  highlightNav(path, params);
+
+  if (path === '/catalog') {
+    renderCatalog(params);
+  } else if (path === '/product') {
+    renderProduct(params.get('sku'));
+  } else if (path === '/cart') {
+    renderCart();
+  } else {
+    renderHome();
+  }
+
+  window.scrollTo(0, 0);
+  requestAnimationFrame(() =&gt; app.classList.add('app-fade'));
+}
+
+function highlightNav(path, params) {
+  const cat = params.get('cat');
+  document.querySelectorAll('#main-nav [data-cat-link]').forEach(a =&gt; {
+    a.classList.toggle('route-active', path === '/catalog' &amp;&amp; a.dataset.catLink === cat);
+  });
+  const searchInput = document.getElementById('search-input');
+  if (searchInput) searchInput.value = path === '/catalog' ? (params.get('q') || '') : searchInput.value;
+}
+
+window.addEventListener('hashchange', router);
+
+document.addEventListener('click', (e) =&gt; {
+  const link = e.target.closest('[data-route-link]');
+  if (link) {
+    // allow default hash navigation, but make sure router runs even if hash unchanged
+    const href = link.getAttribute('href') || '';
+    if (href.startsWith('#')) {
+      setTimeout(router, 0);
+    }
+  }
+});
+
+document.getElementById('search-form').addEventListener('submit', (e) =&gt; {
+  e.preventDefault();
+  const q = document.getElementById('search-input').value.trim();
+  navigateHash('#/catalog' + (q ? '?q=' + encodeURIComponent(q) : ''));
+});
+
+/* ════════════════════════════════════════════════════════════
+   HOME VIEW
+════════════════════════════════════════════════════════════ */
+function renderHome() {
+  const app = document.getElementById('app');
+  const newProducts = PRODUCTS.filter(p =&gt; p.badge === 'NEW');
+  const electrical = PRODUCTS.filter(p =&gt; p.cat.includes('electrical')).slice(0, 4);
+  const heating = PRODUCTS.filter(p =&gt; p.cat.includes('heating'));
+
+  app.innerHTML = `
+  &lt;section class=&quot;hero&quot; aria-label=&quot;Hero banner&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;div class=&quot;hero__inner&quot;&gt;
+        &lt;div class=&quot;hero__content&quot;&gt;
+          &lt;span class=&quot;hero__eyebrow&quot;&gt;Exciting New Products at Your Local Wickes&lt;/span&gt;
+          &lt;h1 class=&quot;hero__title&quot;&gt;The Experts in &lt;em&gt;Home Improvement&lt;/em&gt;&lt;/h1&gt;
+          &lt;p class=&quot;hero__body&quot;&gt;
+            We are proud to be the fastest growing DIY retailer in the UK. With almost 25 years of
+            experience, Wickes can offer you unbeatable prices, expert service, help, tips and advice
+            for 1000's of DIY projects.
+          &lt;/p&gt;
+          &lt;div class=&quot;hero__actions&quot;&gt;
+            &lt;a href=&quot;#/catalog&quot; class=&quot;btn btn-primary btn-lg&quot; data-route-link&gt;Shop Now \u2192&lt;/a&gt;
+            &lt;a href=&quot;#/catalog?cat=new-products&quot; class=&quot;btn btn-secondary btn-lg&quot; data-route-link&gt;New Products&lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;hero__aside&quot;&gt;
+          &lt;div class=&quot;hammer-box&quot; aria-label=&quot;Wickes Hammer DIY Prices promotion&quot;&gt;
+            &lt;div class=&quot;hammer-box__title&quot;&gt;Wickes&lt;/div&gt;
+            &lt;div class=&quot;hammer-box__word&quot;&gt;Hammer&lt;/div&gt;
+            &lt;div class=&quot;hammer-box__sub&quot;&gt;1000's of&lt;/div&gt;
+            &lt;div class=&quot;hammer-box__exclaim&quot;&gt;DIY Prices!&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;div class=&quot;promo-strip&quot; role=&quot;complementary&quot; aria-label=&quot;Store promises&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;div class=&quot;promo-strip__inner&quot;&gt;
+        &lt;span class=&quot;promo-strip__item&quot;&gt;${ICONS.tiles.replace('viewBox=&quot;0 0 24 24&quot;','width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot;')}We Won't Be Beaten on Price&lt;/span&gt;
+        &lt;span class=&quot;promo-strip__item&quot;&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;rect x=&quot;1&quot; y=&quot;3&quot; width=&quot;15&quot; height=&quot;13&quot; rx=&quot;1&quot;/&gt;&lt;path d=&quot;M16 8h4a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-4&quot;/&gt;&lt;path d=&quot;M12 16v4&quot;/&gt;&lt;path d=&quot;M8 16v4&quot;/&gt;&lt;/svg&gt;Free 7-Day Home Delivery&lt;/span&gt;
+        &lt;span class=&quot;promo-strip__item&quot;&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot;/&gt;&lt;path d=&quot;M12 8v4l3 3&quot;/&gt;&lt;/svg&gt;Expert Staff Help &amp;amp; Advice&lt;/span&gt;
+        &lt;span class=&quot;promo-strip__item&quot;&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z&quot;/&gt;&lt;/svg&gt;Fax or Phone Orders&lt;/span&gt;
+        &lt;span class=&quot;promo-strip__item&quot;&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z&quot;/&gt;&lt;/svg&gt;All Prices Include VAT&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;section class=&quot;section&quot; aria-labelledby=&quot;dept-heading&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;div class=&quot;section-hdr&quot;&gt;
+        &lt;div class=&quot;section-hdr__bar&quot; id=&quot;dept-heading&quot;&gt;Shop by Department&lt;/div&gt;
+        &lt;a href=&quot;#/catalog&quot; class=&quot;section-hdr__link&quot; data-route-link&gt;View All \u2192&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;category-grid&quot;&gt;
+        ${CATEGORIES.map(c =&gt; `
+          &lt;a href=&quot;#/catalog?cat=${c.id}&quot; class=&quot;category-card&quot; data-route-link&gt;
+            &lt;span class=&quot;category-card__icon&quot;&gt;${c.icon}&lt;/span&gt;
+            &lt;span class=&quot;category-card__name&quot;&gt;${esc(c.label)}&lt;/span&gt;
+          &lt;/a&gt;`).join('')}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;section&quot; aria-labelledby=&quot;new-heading&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;div class=&quot;section-hdr&quot;&gt;
+        &lt;div class=&quot;section-hdr__bar section-hdr__bar--green&quot; id=&quot;new-heading&quot;&gt;
+          &lt;span class=&quot;badge-new&quot; style=&quot;margin-right:8px&quot;&gt;NEW&lt;/span&gt;
+          Exciting New Products at Your Local Wickes
+        &lt;/div&gt;
+        &lt;a href=&quot;#/catalog?cat=new-products&quot; class=&quot;section-hdr__link&quot; data-route-link&gt;See All New \u2192&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;product-grid&quot;&gt;${newProducts.map(productCardHTML).join('')}&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;div class=&quot;guarantee-banner&quot; role=&quot;complementary&quot; aria-label=&quot;Price guarantee&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;div class=&quot;guarantee-banner__inner&quot;&gt;
+        &lt;div class=&quot;guarantee-banner__text&quot;&gt;
+          &lt;h2&gt;We Won't Be Beaten on Price!&lt;/h2&gt;
+          &lt;p&gt;
+            Wickes has always been the place to go for the lowest prices \u2014 guaranteed. In the unlikely event
+            that you find the equivalent product in stock at any of our competitors at a lower price within
+            7 days of purchase, including special offers or sale prices, not only will we match that price but
+            &lt;strong&gt;we will beat it by a further 20% of the difference.&lt;/strong&gt;
+            &lt;br&gt;&lt;small&gt;* Subject to conditions instore.&lt;/small&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;guarantee-banner__percent&quot; aria-label=&quot;Beat competitor prices by 20%&quot;&gt;
+          &lt;div class=&quot;num&quot;&gt;20%&lt;/div&gt;
+          &lt;div class=&quot;label&quot;&gt;of the difference&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;section class=&quot;section&quot; aria-labelledby=&quot;elec-heading&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;div class=&quot;section-hdr&quot;&gt;
+        &lt;div class=&quot;section-hdr__bar section-hdr__bar--orange&quot; id=&quot;elec-heading&quot;&gt;Electrical &amp;amp; Ventilation \u2014 Featured Products&lt;/div&gt;
+        &lt;a href=&quot;#/catalog?cat=electrical&quot; class=&quot;section-hdr__link&quot; data-route-link&gt;View All Electrical \u2192&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;product-grid&quot;&gt;${electrical.map(productCardHTML).join('')}&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;section&quot; aria-labelledby=&quot;fires-heading&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;div class=&quot;section-hdr&quot;&gt;
+        &lt;div class=&quot;section-hdr__bar section-hdr__bar--orange&quot; id=&quot;fires-heading&quot;&gt;Fires &amp;amp; Fire Surrounds \u2014 A Beautiful Range&lt;/div&gt;
+        &lt;a href=&quot;#/catalog?cat=heating&quot; class=&quot;section-hdr__link&quot; data-route-link&gt;View All \u2192&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;product-grid&quot; style=&quot;grid-template-columns: repeat(auto-fill, minmax(220px, 1fr))&quot;&gt;${heating.map(productCardHTML).join('')}&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;section&quot; style=&quot;background: var(--blue); padding: 28px 0; margin-top: 16px;&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;div style=&quot;display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; color: white;&quot;&gt;
+        &lt;div&gt;
+          &lt;h3 style=&quot;color: var(--yellow); font-size: 0.9rem; margin-bottom: 8px; border-bottom: 2px solid var(--orange); padding-bottom: 6px;&quot;&gt;New Products &amp;amp; New Ideas&lt;/h3&gt;
+          &lt;p style=&quot;font-size: 0.8rem; line-height: 1.5; color: rgba(255,255,255,0.8);&quot;&gt;We are constantly introducing new innovative products and services into our stores designed to help you.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;h3 style=&quot;color: var(--yellow); font-size: 0.9rem; margin-bottom: 8px; border-bottom: 2px solid var(--orange); padding-bottom: 6px;&quot;&gt;Fax or Phone Orders&lt;/h3&gt;
+          &lt;p style=&quot;font-size: 0.8rem; line-height: 1.5; color: rgba(255,255,255,0.8);&quot;&gt;You can arrange for a home or site delivery when you shop at any of our stores. Or, if it is more convenient, simply order by phone or fax and we will deliver.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;h3 style=&quot;color: var(--yellow); font-size: 0.9rem; margin-bottom: 8px; border-bottom: 2px solid var(--orange); padding-bottom: 6px;&quot;&gt;Expert Staff, Help &amp;amp; Advice&lt;/h3&gt;
+          &lt;p style=&quot;font-size: 0.8rem; line-height: 1.5; color: rgba(255,255,255,0.8);&quot;&gt;Hints and tips from Wickes will help you with everything from decorating to constructing your own conservatory. Our Good Idea leaflets are designed to provide you with the know how you need.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;h3 style=&quot;color: var(--yellow); font-size: 0.9rem; margin-bottom: 8px; border-bottom: 2px solid var(--orange); padding-bottom: 6px;&quot;&gt;Over 120 Stores Nationwide&lt;/h3&gt;
+          &lt;p style=&quot;font-size: 0.8rem; line-height: 1.5; color: rgba(255,255,255,0.8);&quot;&gt;With over 120 stores nationwide, our buying power means that we &quot;buy better&quot; passing the savings on to you, through top quality Wickes branded products all at unbeatably low prices.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+  `;
+
+  document.querySelectorAll('.category-card').forEach(card =&gt; {
+    card.addEventListener('keydown', e =&gt; {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+    });
+  });
+
+  CURRENT_RENDER_REFRESH = null;
+}
+
+/* ════════════════════════════════════════════════════════════
+   CATALOG VIEW
+════════════════════════════════════════════════════════════ */
+function renderCatalog(params) {
+  const app = document.getElementById('app');
+  const cat = params.get('cat') || '';
+  const q = (params.get('q') || '').toLowerCase();
+
+  const counts = {};
+  SIDEBAR_CATEGORIES.forEach(id =&gt; { counts[id] = PRODUCTS.filter(p =&gt; p.cat.includes(id)).length; });
+
+  let title = 'All Products';
+  if (cat) title = catLabel(cat);
+  if (q) title = 'Search Results for &quot;' + q + '&quot;';
+
+  app.innerHTML = `
+  &lt;div style=&quot;background: var(--cream); border-bottom: 2px solid var(--grey);&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;nav class=&quot;breadcrumb&quot; aria-label=&quot;Breadcrumb&quot;&gt;
+        &lt;a href=&quot;#/&quot; data-route-link&gt;Home&lt;/a&gt;
+        &lt;span class=&quot;breadcrumb__sep&quot;&gt;\u203a&lt;/span&gt;
+        &lt;span class=&quot;breadcrumb__current&quot;&gt;${esc(title)}&lt;/span&gt;
+      &lt;/nav&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;container&quot; style=&quot;padding-top: 16px; padding-bottom: 32px;&quot;&gt;
+    &lt;div class=&quot;divider-bar&quot; style=&quot;margin-bottom: 16px;&quot;&gt;${esc(title)} \u2014 Wickes Hammer DIY Prices!&lt;/div&gt;
+
+    &lt;div class=&quot;shop-layout&quot;&gt;
+
+      &lt;aside class=&quot;sidebar&quot; aria-label=&quot;Product filters&quot;&gt;
+
+        &lt;div class=&quot;sidebar__section&quot;&gt;
+          &lt;div class=&quot;sidebar__title&quot;&gt;
+            Sort By
+            &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;polyline points=&quot;6 9 12 15 18 9&quot;/&gt;&lt;/svg&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;sidebar__body&quot;&gt;
+            &lt;select class=&quot;form-select w-full&quot; id=&quot;sort-select&quot; aria-label=&quot;Sort products&quot;&gt;
+              &lt;option value=&quot;featured&quot;&gt;Featured&lt;/option&gt;
+              &lt;option value=&quot;price-asc&quot;&gt;Price: Low to High&lt;/option&gt;
+              &lt;option value=&quot;price-desc&quot;&gt;Price: High to Low&lt;/option&gt;
+              &lt;option value=&quot;name-asc&quot;&gt;Name: A\u2013Z&lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;sidebar__section&quot;&gt;
+          &lt;div class=&quot;sidebar__title open&quot; id=&quot;dept-toggle&quot; role=&quot;button&quot; tabindex=&quot;0&quot; aria-expanded=&quot;true&quot;&gt;
+            Department
+            &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;polyline points=&quot;6 9 12 15 18 9&quot;/&gt;&lt;/svg&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;sidebar__body&quot; id=&quot;dept-body&quot;&gt;
+            &lt;ul class=&quot;filter-list&quot; role=&quot;list&quot;&gt;
+              ${SIDEBAR_CATEGORIES.map(id =&gt; `
+                &lt;li class=&quot;filter-item&quot;&gt;
+                  &lt;input type=&quot;checkbox&quot; id=&quot;f-${id}&quot; data-filter-cat=&quot;${id}&quot; ${id === cat ? 'checked' : ''}&gt;
+                  &lt;label for=&quot;f-${id}&quot;&gt;${esc(catLabel(id))}${id === 'new-products' ? ' &lt;span class=&quot;badge-new&quot; style=&quot;font-size:0.55rem; padding: 1px 4px;&quot;&gt;NEW&lt;/span&gt;' : ''}&lt;/label&gt;
+                  &lt;span class=&quot;filter-item__count&quot;&gt;${counts[id]}&lt;/span&gt;
+                &lt;/li&gt;`).join('')}
+            &lt;/ul&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;sidebar__section&quot;&gt;
+          &lt;div class=&quot;sidebar__title open&quot; id=&quot;price-toggle&quot; role=&quot;button&quot; tabindex=&quot;0&quot; aria-expanded=&quot;true&quot;&gt;
+            Price Range
+            &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;polyline points=&quot;6 9 12 15 18 9&quot;/&gt;&lt;/svg&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;sidebar__body&quot; id=&quot;price-body&quot;&gt;
+            &lt;div class=&quot;price-range&quot;&gt;
+              &lt;div class=&quot;price-range__inputs&quot;&gt;
+                &lt;input type=&quot;number&quot; class=&quot;form-input&quot; id=&quot;price-min&quot; placeholder=&quot;\u00a3 Min&quot; min=&quot;0&quot; aria-label=&quot;Minimum price&quot;&gt;
+                &lt;span class=&quot;price-range__sep&quot;&gt;\u2014&lt;/span&gt;
+                &lt;input type=&quot;number&quot; class=&quot;form-input&quot; id=&quot;price-max&quot; placeholder=&quot;\u00a3 Max&quot; min=&quot;0&quot; aria-label=&quot;Maximum price&quot;&gt;
+              &lt;/div&gt;
+              &lt;button class=&quot;btn btn-blue btn-sm btn-full&quot; id=&quot;apply-price-btn&quot;&gt;Apply&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div style=&quot;padding: 10px 12px; border-top: 1px solid var(--grey);&quot;&gt;
+          &lt;button class=&quot;btn btn-orange btn-sm btn-full&quot; id=&quot;clear-filters-btn&quot;&gt;Clear All Filters&lt;/button&gt;
+        &lt;/div&gt;
+
+      &lt;/aside&gt;
+
+      &lt;div&gt;
+        &lt;div style=&quot;display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;&quot;&gt;
+          &lt;div style=&quot;font-family: 'Oswald', sans-serif; font-size: 0.85rem; color: var(--grey-dark); text-transform: uppercase; letter-spacing: 0.04em;&quot;&gt;
+            Showing &lt;strong id=&quot;result-count&quot; style=&quot;color: var(--blue-dark);&quot;&gt;0&lt;/strong&gt; products
+          &lt;/div&gt;
+          &lt;div style=&quot;display: flex; align-items: center; gap: 8px;&quot;&gt;
+            &lt;span style=&quot;font-size: 0.78rem; color: var(--grey-dark);&quot;&gt;View:&lt;/span&gt;
+            &lt;button class=&quot;btn btn-sm btn-blue&quot; id=&quot;view-grid&quot; aria-label=&quot;Grid view&quot; aria-pressed=&quot;true&quot;&gt;
+              &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.5&quot;&gt;&lt;rect x=&quot;3&quot; y=&quot;3&quot; width=&quot;7&quot; height=&quot;7&quot;/&gt;&lt;rect x=&quot;14&quot; y=&quot;3&quot; width=&quot;7&quot; height=&quot;7&quot;/&gt;&lt;rect x=&quot;3&quot; y=&quot;14&quot; width=&quot;7&quot; height=&quot;7&quot;/&gt;&lt;rect x=&quot;14&quot; y=&quot;14&quot; width=&quot;7&quot; height=&quot;7&quot;/&gt;&lt;/svg&gt;
+            &lt;/button&gt;
+            &lt;button class=&quot;btn btn-sm&quot; id=&quot;view-list&quot; aria-label=&quot;List view&quot; aria-pressed=&quot;false&quot; style=&quot;background: var(--grey-light); color: var(--blue-dark); border-color: var(--grey);&quot;&gt;
+              &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.5&quot;&gt;&lt;line x1=&quot;8&quot; y1=&quot;6&quot; x2=&quot;21&quot; y2=&quot;6&quot;/&gt;&lt;line x1=&quot;8&quot; y1=&quot;12&quot; x2=&quot;21&quot; y2=&quot;12&quot;/&gt;&lt;line x1=&quot;8&quot; y1=&quot;18&quot; x2=&quot;21&quot; y2=&quot;18&quot;/&gt;&lt;line x1=&quot;3&quot; y1=&quot;6&quot; x2=&quot;3.01&quot; y2=&quot;6&quot;/&gt;&lt;line x1=&quot;3&quot; y1=&quot;12&quot; x2=&quot;3.01&quot; y2=&quot;12&quot;/&gt;&lt;line x1=&quot;3&quot; y1=&quot;18&quot; x2=&quot;3.01&quot; y2=&quot;18&quot;/&gt;&lt;/svg&gt;
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;product-grid&quot; id=&quot;product-grid&quot;&gt;&lt;/div&gt;
+
+        &lt;nav class=&quot;pagination&quot; aria-label=&quot;Product pages&quot;&gt;
+          &lt;a href=&quot;#&quot; class=&quot;disabled&quot; aria-disabled=&quot;true&quot; aria-label=&quot;Previous page&quot;&gt;\u2039&lt;/a&gt;
+          &lt;a href=&quot;#&quot; class=&quot;active&quot; aria-current=&quot;page&quot;&gt;1&lt;/a&gt;
+          &lt;a href=&quot;#&quot; aria-label=&quot;Next page&quot;&gt;\u203a&lt;/a&gt;
+        &lt;/nav&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+  `;
+
+  let state = {
+    cats: cat ? new Set([cat]) : new Set(),
+    q,
+    min: null, max: null,
+    sort: 'featured',
+    view: 'grid'
+  };
+
+  function matches(p) {
+    if (state.cats.size &gt; 0) {
+      let ok = false;
+      state.cats.forEach(c =&gt; { if (p.cat.includes(c)) ok = true; });
+      if (!ok) return false;
+    }
+    if (state.q) {
+      const hay = (p.name + ' ' + p.desc + ' ' + p.sku).toLowerCase();
+      if (!hay.includes(state.q)) return false;
+    }
+    if (state.min != null &amp;&amp; p.price &lt; state.min) return false;
+    if (state.max != null &amp;&amp; p.price &gt; state.max) return false;
+    return true;
+  }
+
+  function renderGrid() {
+    let list = PRODUCTS.filter(matches);
+    if (state.sort === 'price-asc') list = list.slice().sort((a, b) =&gt; a.price - b.price);
+    else if (state.sort === 'price-desc') list = list.slice().sort((a, b) =&gt; b.price - a.price);
+    else if (state.sort === 'name-asc') list = list.slice().sort((a, b) =&gt; a.name.localeCompare(b.name));
+
+    const grid = document.getElementById('product-grid');
+    grid.innerHTML = list.length
+      ? list.map(productCardHTML).join('')
+      : `&lt;div style=&quot;grid-column:1/-1;text-align:center;padding:48px 24px;background:var(--white);border:2px solid var(--grey);&quot;&gt;
+           &lt;p style=&quot;font-family:'Oswald',sans-serif;color:var(--blue-dark);font-size:1rem;&quot;&gt;No products match your filters.&lt;/p&gt;
+         &lt;/div&gt;`;
+    grid.style.gridTemplateColumns = state.view === 'list' ? '1fr' : '';
+    document.getElementById('result-count').textContent = list.length;
+  }
+
+  document.querySelectorAll('[data-filter-cat]').forEach(cb =&gt; {
+    cb.addEventListener('change', () =&gt; {
+      const id = cb.dataset.filterCat;
+      if (cb.checked) state.cats.add(id); else state.cats.delete(id);
+      renderGrid();
+    });
+  });
+
+  document.getElementById('sort-select').addEventListener('change', (e) =&gt; {
+    state.sort = e.target.value; renderGrid();
+  });
+
+  document.getElementById('apply-price-btn').addEventListener('click', () =&gt; {
+    const minV = parseFloat(document.getElementById('price-min').value);
+    const maxV = parseFloat(document.getElementById('price-max').value);
+    state.min = isNaN(minV) ? null : minV;
+    state.max = isNaN(maxV) ? null : maxV;
+    renderGrid();
+    showToast('Filtered: showing ' + PRODUCTS.filter(matches).length + ' products');
+  });
+
+  document.getElementById('clear-filters-btn').addEventListener('click', () =&gt; {
+    state = { cats: new Set(), q: '', min: null, max: null, sort: 'featured', view: state.view };
+    document.querySelectorAll('[data-filter-cat]').forEach(cb =&gt; cb.checked = false);
+    document.getElementById('price-min').value = '';
+    document.getElementById('price-max').value = '';
+    document.getElementById('sort-select').value = 'featured';
+    renderGrid();
+    showToast('All filters cleared');
+  });
+
+  document.getElementById('view-grid').addEventListener('click', (e) =&gt; {
+    state.view = 'grid';
+    e.currentTarget.style.background = 'var(--blue)'; e.currentTarget.style.color = 'var(--yellow)'; e.currentTarget.style.borderColor='var(--blue)';
+    const l = document.getElementById('view-list');
+    l.style.background = 'var(--grey-light)'; l.style.color = 'var(--blue-dark)'; l.style.borderColor='var(--grey)';
+    renderGrid();
+  });
+  document.getElementById('view-list').addEventListener('click', (e) =&gt; {
+    state.view = 'list';
+    e.currentTarget.style.background = 'var(--blue)'; e.currentTarget.style.color = 'var(--yellow)'; e.currentTarget.style.borderColor='var(--blue)';
+    const g = document.getElementById('view-grid');
+    g.style.background = 'var(--grey-light)'; g.style.color = 'var(--blue-dark)'; g.style.borderColor='var(--grey)';
+    renderGrid();
+  });
+
+  document.querySelectorAll('.sidebar__title[role=&quot;button&quot;]').forEach(title =&gt; {
+    title.addEventListener('click', () =&gt; {
+      const body = title.nextElementSibling;
+      const isOpen = title.classList.contains('open');
+      title.classList.toggle('open', !isOpen);
+      title.setAttribute('aria-expanded', String(!isOpen));
+      if (body) body.style.display = isOpen ? 'none' : '';
+    });
+  });
+
+  renderGrid();
+  CURRENT_RENDER_REFRESH = renderGrid;
+}
+
+/* ════════════════════════════════════════════════════════════
+   PRODUCT DETAIL VIEW
+════════════════════════════════════════════════════════════ */
+function renderProduct(sku) {
+  const app = document.getElementById('app');
+  const p = PRODUCTS_BY_SKU[sku];
+
+  if (!p) {
+    app.innerHTML = `
+    &lt;div class=&quot;container&quot; style=&quot;padding:60px 12px;text-align:center;&quot;&gt;
+      &lt;h1 style=&quot;color:var(--blue-dark);font-size:1.4rem;margin-bottom:12px;&quot;&gt;Product Not Found&lt;/h1&gt;
+      &lt;p style=&quot;margin-bottom:20px;color:var(--grey-dark);&quot;&gt;We couldn't find a product with SKU &quot;${esc(sku || '')}&quot;.&lt;/p&gt;
+      &lt;a href=&quot;#/catalog&quot; class=&quot;btn btn-blue&quot; data-route-link&gt;Browse the Catalogue&lt;/a&gt;
+    &lt;/div&gt;`;
+    CURRENT_RENDER_REFRESH = null;
+    return;
+  }
+
+  const priceLabel = p.priceFrom ? 'From' : 'Only';
+  const longDesc = p.longDesc || [p.desc, 'For full installation guidance and expert advice, ask in-store or pick up one of our Free Good Idea Leaflets.'];
+  const features = p.features || [p.desc];
+  const specs = p.specs || [['SKU / Product Code', p.sku], ['Category', catLabel(p.cat[0])], ['Price', fmt(p.price)], ['Availability', p.stock], ['VAT Included', 'Yes \u2014 All prices include VAT']];
+  const rating = p.rating || 4.0;
+  const reviewCount = p.reviewCount || 0;
+  const reviews = p.reviews || [];
+  const fullStars = Math.round(rating);
+
+  const related = PRODUCTS.filter(r =&gt; r.sku !== p.sku &amp;&amp; r.cat.some(c =&gt; p.cat.includes(c))).slice(0, 4);
+  const relatedFallback = related.length ? related : PRODUCTS.filter(r =&gt; r.sku !== p.sku).slice(0, 4);
+
+  app.innerHTML = `
+  &lt;div style=&quot;background: var(--cream); border-bottom: 2px solid var(--grey);&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;nav class=&quot;breadcrumb&quot; aria-label=&quot;Breadcrumb&quot;&gt;
+        &lt;a href=&quot;#/&quot; data-route-link&gt;Home&lt;/a&gt;
+        &lt;span class=&quot;breadcrumb__sep&quot;&gt;\u203a&lt;/span&gt;
+        &lt;a href=&quot;#/catalog?cat=${esc(p.cat[0])}&quot; data-route-link&gt;${esc(catLabel(p.cat[0]))}&lt;/a&gt;
+        &lt;span class=&quot;breadcrumb__sep&quot;&gt;\u203a&lt;/span&gt;
+        &lt;span class=&quot;breadcrumb__current&quot;&gt;${esc(p.name)} ${esc(p.sku)}&lt;/span&gt;
+      &lt;/nav&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;container&quot; style=&quot;padding-top: 20px; padding-bottom: 40px;&quot;&gt;
+
+    &lt;div class=&quot;product-detail&quot;&gt;
+
+      &lt;div class=&quot;product-detail__gallery&quot;&gt;
+        &lt;div class=&quot;product-detail__main-img&quot; id=&quot;main-img&quot;&gt;
+          &lt;div style=&quot;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--grey-dark);width:100%;height:100%;background:var(--grey-light);&quot;&gt;
+            &lt;div style=&quot;opacity:0.3;width:80px;height:80px;&quot;&gt;${ICONS[p.icon] || ICONS.tiles}&lt;/div&gt;
+            &lt;span style=&quot;font-family:'Oswald',sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;opacity:0.5;&quot;&gt;${esc(p.iconLabel || p.name)}&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;product-detail__thumbs&quot;&gt;
+          ${[0,1,2].map(i =&gt; `
+            &lt;div class=&quot;product-detail__thumb ${i===0?'active':''}&quot; data-thumb-idx=&quot;${i}&quot; style=&quot;display:flex;align-items:center;justify-content:center;background:var(--grey-light);&quot;&gt;
+              &lt;div style=&quot;opacity:0.4;width:30px;height:30px;&quot;&gt;${ICONS[p.icon] || ICONS.tiles}&lt;/div&gt;
+            &lt;/div&gt;`).join('')}
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;product-detail__info&quot;&gt;
+
+        &lt;div class=&quot;product-detail__sku&quot;&gt;SKU: ${esc(p.sku)}&lt;/div&gt;
+        &lt;h1 class=&quot;product-detail__name&quot;&gt;${esc(p.name)}&lt;/h1&gt;
+
+        &lt;div style=&quot;display: flex; gap: 8px; flex-wrap: wrap; align-items: center;&quot;&gt;
+          &lt;span class=&quot;badge-featured&quot;&gt;${esc(catLabel(p.cat[0]))}&lt;/span&gt;
+          &lt;div style=&quot;display:flex;gap:2px;&quot;&gt;
+            &lt;span style=&quot;color:var(--yellow-dark);font-size:1rem;&quot;&gt;${'\u2605'.repeat(fullStars)}&lt;/span&gt;&lt;span style=&quot;color:var(--grey);font-size:1rem;&quot;&gt;${'\u2605'.repeat(5-fullStars)}&lt;/span&gt;
+            &lt;span style=&quot;font-size:0.75rem;color:var(--grey-dark);margin-left:4px;&quot;&gt;(${reviewCount} reviews)&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;product-detail__price-box&quot;&gt;
+          &lt;div&gt;
+            &lt;div class=&quot;product-detail__price&quot;&gt;&lt;span class=&quot;product-detail__price-label&quot;&gt;${priceLabel}&lt;/span&gt;${fmt(p.price)}${p.unit ? `&lt;small style=&quot;font-size:0.5em&quot;&gt;${esc(p.unit)}&lt;/small&gt;` : ''}&lt;/div&gt;
+            &lt;div class=&quot;product-detail__vat&quot;&gt;All prices include VAT&lt;/div&gt;
+          &lt;/div&gt;
+          ${p.was ? `&lt;div style=&quot;text-align:right;&quot;&gt;&lt;div class=&quot;price-was&quot;&gt;Was ${fmt(p.was)}&lt;/div&gt;&lt;div class=&quot;price-save&quot;&gt;Save ${fmt(p.was - p.price)}&lt;/div&gt;&lt;/div&gt;` : ''}
+        &lt;/div&gt;
+
+        &lt;div class=&quot;product-detail__stock-bar product-detail__stock-bar--in&quot; role=&quot;status&quot;&gt;
+          \u2713 ${esc(p.stock)}
+        &lt;/div&gt;
+
+        &lt;div style=&quot;display: flex; flex-direction: column; gap: 10px;&quot;&gt;
+          &lt;div style=&quot;display: flex; align-items: center; gap: 12px; flex-wrap: wrap;&quot;&gt;
+            &lt;label style=&quot;font-family:'Oswald',sans-serif;font-weight:700;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--blue-dark);&quot; for=&quot;qty&quot;&gt;Quantity:&lt;/label&gt;
+            &lt;div class=&quot;qty-selector&quot; role=&quot;group&quot; aria-label=&quot;Quantity selector&quot;&gt;
+              &lt;button type=&quot;button&quot; id=&quot;qty-dec&quot; aria-label=&quot;Decrease quantity&quot;&gt;\u2212&lt;/button&gt;
+              &lt;input type=&quot;number&quot; id=&quot;qty&quot; value=&quot;1&quot; min=&quot;1&quot; max=&quot;99&quot; aria-label=&quot;Quantity&quot;&gt;
+              &lt;button type=&quot;button&quot; id=&quot;qty-inc&quot; aria-label=&quot;Increase quantity&quot;&gt;+&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;button class=&quot;btn btn-orange btn-lg btn-full&quot; id=&quot;add-cart-btn&quot;&gt;
+            ${CART_SVG}
+            Add to Cart
+          &lt;/button&gt;
+          &lt;a href=&quot;#/cart&quot; class=&quot;btn btn-blue btn-full&quot; data-route-link&gt;
+            &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M5 12h14M12 5l7 7-7 7&quot;/&gt;&lt;/svg&gt;
+            Buy Now \u2014 Go to Cart
+          &lt;/a&gt;
+        &lt;/div&gt;
+
+        &lt;div style=&quot;background: var(--cream); border: 2px solid var(--grey); padding: 12px 14px;&quot;&gt;
+          &lt;div style=&quot;font-family:'Oswald',sans-serif;font-weight:700;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--blue-dark);margin-bottom:8px;border-bottom:2px solid var(--orange);padding-bottom:5px;&quot;&gt;Key Features&lt;/div&gt;
+          &lt;ul style=&quot;display:flex;flex-direction:column;gap:5px;list-style:none;&quot;&gt;
+            ${features.map(f =&gt; `&lt;li style=&quot;font-size:0.82rem;display:flex;gap:8px;align-items:flex-start;&quot;&gt;&lt;span style=&quot;color:var(--green);font-weight:700;flex-shrink:0;&quot;&gt;\u2713&lt;/span&gt;${esc(f)}&lt;/li&gt;`).join('')}
+          &lt;/ul&gt;
+        &lt;/div&gt;
+
+        &lt;div style=&quot;display:grid;grid-template-columns:1fr 1fr;gap:8px;&quot;&gt;
+          &lt;div style=&quot;background:var(--blue);color:var(--yellow);padding:10px 12px;font-family:'Oswald',sans-serif;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;display:flex;align-items:center;gap:8px;&quot;&gt;
+            &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;rect x=&quot;1&quot; y=&quot;3&quot; width=&quot;15&quot; height=&quot;13&quot; rx=&quot;1&quot;/&gt;&lt;path d=&quot;M16 8h4a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-4&quot;/&gt;&lt;circle cx=&quot;5.5&quot; cy=&quot;18.5&quot; r=&quot;2.5&quot;/&gt;&lt;circle cx=&quot;18.5&quot; cy=&quot;18.5&quot; r=&quot;2.5&quot;/&gt;&lt;/svg&gt;
+            Free 7-Day Delivery
+          &lt;/div&gt;
+          &lt;div style=&quot;background:var(--green);color:white;padding:10px 12px;font-family:'Oswald',sans-serif;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;display:flex;align-items:center;gap:8px;&quot;&gt;
+            &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z&quot;/&gt;&lt;/svg&gt;
+            Price Guarantee
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div style=&quot;margin-top: 32px;&quot;&gt;
+      &lt;div style=&quot;display:flex;border-bottom:3px solid var(--blue);gap:0;&quot; role=&quot;tablist&quot;&gt;
+        &lt;button class=&quot;tab-btn active&quot; id=&quot;tab-desc&quot; role=&quot;tab&quot; aria-selected=&quot;true&quot;&gt;Description&lt;/button&gt;
+        &lt;button class=&quot;tab-btn&quot; id=&quot;tab-specs&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot;&gt;Specifications&lt;/button&gt;
+        &lt;button class=&quot;tab-btn&quot; id=&quot;tab-reviews&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot;&gt;Reviews (${reviewCount})&lt;/button&gt;
+      &lt;/div&gt;
+
+      &lt;div id=&quot;panel-desc&quot; role=&quot;tabpanel&quot; style=&quot;background:var(--white);border:2px solid var(--grey);border-top:none;padding:20px;&quot;&gt;
+        &lt;h2 style=&quot;font-size:1rem;color:var(--blue-dark);margin-bottom:10px;&quot;&gt;Product Description&lt;/h2&gt;
+        ${longDesc.map(par =&gt; `&lt;p style=&quot;font-size:0.85rem;line-height:1.6;margin-bottom:12px;&quot;&gt;${esc(par)}&lt;/p&gt;`).join('')}
+      &lt;/div&gt;
+
+      &lt;div id=&quot;panel-specs&quot; role=&quot;tabpanel&quot; style=&quot;background:var(--white);border:2px solid var(--grey);border-top:none;padding:0;display:none;&quot;&gt;
+        &lt;div class=&quot;product-detail__specs-title&quot;&gt;Technical Specifications&lt;/div&gt;
+        &lt;table class=&quot;specs-table&quot; aria-label=&quot;Product specifications&quot;&gt;
+          &lt;tbody&gt;
+            ${specs.map(([k, v]) =&gt; `&lt;tr&gt;&lt;td&gt;${esc(k)}&lt;/td&gt;&lt;td&gt;${esc(v)}&lt;/td&gt;&lt;/tr&gt;`).join('')}
+          &lt;/tbody&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+
+      &lt;div id=&quot;panel-reviews&quot; role=&quot;tabpanel&quot; style=&quot;background:var(--white);border:2px solid var(--grey);border-top:none;padding:20px;display:none;&quot;&gt;
+        &lt;div style=&quot;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;margin-bottom:20px;padding-bottom:16px;border-bottom:2px solid var(--grey);&quot;&gt;
+          &lt;div style=&quot;text-align:center;&quot;&gt;
+            &lt;div style=&quot;font-family:'Oswald',sans-serif;font-size:3rem;font-weight:700;color:var(--blue-dark);line-height:1;&quot;&gt;${rating}&lt;/div&gt;
+            &lt;div style=&quot;color:var(--yellow-dark);font-size:1.2rem;&quot;&gt;${'\u2605'.repeat(fullStars)}${'\u2606'.repeat(5-fullStars)}&lt;/div&gt;
+            &lt;div style=&quot;font-size:0.75rem;color:var(--grey-dark);&quot;&gt;${reviewCount} reviews&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div style=&quot;font-size:0.82rem;color:var(--grey-dark);&quot;&gt;
+            ${reviewCount ? 'Based on verified Wickes customer purchases.' : 'No reviews yet \u2014 be the first to share your experience in-store.'}
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div style=&quot;display:flex;flex-direction:column;gap:16px;&quot;&gt;
+          ${reviews.length ? reviews.map(r =&gt; `
+            &lt;div style=&quot;border-bottom:1px solid var(--grey);padding-bottom:14px;&quot;&gt;
+              &lt;div style=&quot;display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;&quot;&gt;
+                &lt;div&gt;
+                  &lt;span style=&quot;font-family:'Oswald',sans-serif;font-weight:700;font-size:0.85rem;color:var(--blue-dark);&quot;&gt;${esc(r.name)}&lt;/span&gt;
+                  &lt;span style=&quot;color:var(--yellow-dark);margin-left:8px;&quot;&gt;${'\u2605'.repeat(r.stars)}${'\u2606'.repeat(5-r.stars)}&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;span style=&quot;font-size:0.72rem;color:var(--grey-dark);&quot;&gt;${esc(r.date)}&lt;/span&gt;
+              &lt;/div&gt;
+              &lt;p style=&quot;font-size:0.82rem;line-height:1.5;color:#444;&quot;&gt;${esc(r.text)}&lt;/p&gt;
+            &lt;/div&gt;`).join('') : '&lt;p style=&quot;font-size:0.85rem;color:var(--grey-dark);&quot;&gt;No reviews to display.&lt;/p&gt;'}
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div style=&quot;margin-top: 32px;&quot;&gt;
+      &lt;div class=&quot;section-hdr&quot;&gt;
+        &lt;div class=&quot;section-hdr__bar section-hdr__bar--orange&quot;&gt;You May Also Need&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;product-grid&quot; style=&quot;grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));&quot;&gt;
+        ${relatedFallback.map(productCardHTML).join('')}
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  `;
+
+  document.getElementById('qty-dec').addEventListener('click', () =&gt; {
+    const input = document.getElementById('qty');
+    input.value = Math.max(1, (parseInt(input.value) || 1) - 1);
+  });
+  document.getElementById('qty-inc').addEventListener('click', () =&gt; {
+    const input = document.getElementById('qty');
+    input.value = Math.min(99, (parseInt(input.value) || 1) + 1);
+  });
+  document.getElementById('add-cart-btn').addEventListener('click', () =&gt; {
+    const qty = parseInt(document.getElementById('qty').value) || 1;
+    addToCart(p.sku, qty);
+    showToast('\u2713 Added ' + qty + 'x ' + p.name + ' to cart', 'success');
+    const btn = document.getElementById('add-cart-btn');
+    const original = btn.innerHTML;
+    btn.innerHTML = '\u2713 Added to Cart!';
+    btn.style.background = 'var(--green)';
+    btn.disabled = true;
+    setTimeout(() =&gt; { btn.innerHTML = original; btn.style.background = ''; btn.disabled = false; }, 2000);
+  });
+
+  ['desc', 'specs', 'reviews'].forEach(t =&gt; {
+    document.getElementById('tab-' + t).addEventListener('click', () =&gt; switchTab(t));
+  });
+  function switchTab(tab) {
+    ['desc', 'specs', 'reviews'].forEach(t =&gt; {
+      const btn = document.getElementById('tab-' + t);
+      const panel = document.getElementById('panel-' + t);
+      const active = t === tab;
+      btn.classList.toggle('active', active);
+      btn.setAttribute('aria-selected', String(active));
+      panel.style.display = active ? '' : 'none';
+    });
+  }
+
+  document.querySelectorAll('.product-detail__thumb').forEach(t =&gt; {
+    t.addEventListener('click', () =&gt; {
+      document.querySelectorAll('.product-detail__thumb').forEach(x =&gt; x.classList.remove('active'));
+      t.classList.add('active');
+    });
+  });
+
+  CURRENT_RENDER_REFRESH = null;
+}
+
+/* ════════════════════════════════════════════════════════════
+   CART VIEW
+════════════════════════════════════════════════════════════ */
+function renderCart() {
+  const app = document.getElementById('app');
+
+  app.innerHTML = `
+  &lt;div style=&quot;background: var(--cream); border-bottom: 2px solid var(--grey);&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;nav class=&quot;breadcrumb&quot; aria-label=&quot;Breadcrumb&quot;&gt;
+        &lt;a href=&quot;#/&quot; data-route-link&gt;Home&lt;/a&gt;
+        &lt;span class=&quot;breadcrumb__sep&quot;&gt;\u203a&lt;/span&gt;
+        &lt;span class=&quot;breadcrumb__current&quot;&gt;Shopping Cart&lt;/span&gt;
+      &lt;/nav&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div style=&quot;background: var(--blue-dark); padding: 12px 0;&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;div style=&quot;display: flex; align-items: center; justify-content: center; gap: 0;&quot;&gt;
+        &lt;div class=&quot;checkout-step checkout-step--active&quot;&gt;&lt;div class=&quot;checkout-step__num&quot;&gt;1&lt;/div&gt;&lt;span&gt;Cart&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;checkout-step__line&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;checkout-step&quot;&gt;&lt;div class=&quot;checkout-step__num&quot;&gt;2&lt;/div&gt;&lt;span&gt;Delivery&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;checkout-step__line&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;checkout-step&quot;&gt;&lt;div class=&quot;checkout-step__num&quot;&gt;3&lt;/div&gt;&lt;span&gt;Payment&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;checkout-step__line&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;checkout-step&quot;&gt;&lt;div class=&quot;checkout-step__num&quot;&gt;4&lt;/div&gt;&lt;span&gt;Confirm&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;container&quot; style=&quot;padding-top: 20px; padding-bottom: 40px;&quot;&gt;
+    &lt;div class=&quot;divider-bar&quot; style=&quot;margin-bottom: 16px;&quot;&gt;Your Shopping Cart&lt;/div&gt;
+
+    &lt;div class=&quot;cart-layout&quot;&gt;
+
+      &lt;div&gt;
+        &lt;div class=&quot;cart-table-header&quot;&gt;
+          &lt;span style=&quot;flex: 3;&quot;&gt;Product&lt;/span&gt;
+          &lt;span style=&quot;flex: 1; text-align: center;&quot;&gt;Unit Price&lt;/span&gt;
+          &lt;span style=&quot;flex: 1; text-align: center;&quot;&gt;Qty&lt;/span&gt;
+          &lt;span style=&quot;flex: 1; text-align: right;&quot;&gt;Total&lt;/span&gt;
+          &lt;span style=&quot;width: 32px;&quot;&gt;&lt;/span&gt;
+        &lt;/div&gt;
+
+        &lt;div id=&quot;cart-items&quot;&gt;&lt;/div&gt;
+
+        &lt;div id=&quot;empty-cart&quot; style=&quot;display:none; text-align:center; padding: 48px 24px; background: var(--white); border: 2px solid var(--grey);&quot;&gt;
+          &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;64&quot; height=&quot;64&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; style=&quot;opacity:0.2;margin:0 auto 16px;display:block;&quot;&gt;&lt;circle cx=&quot;9&quot; cy=&quot;21&quot; r=&quot;1&quot;/&gt;&lt;circle cx=&quot;20&quot; cy=&quot;21&quot; r=&quot;1&quot;/&gt;&lt;path d=&quot;M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6&quot;/&gt;&lt;/svg&gt;
+          &lt;div style=&quot;font-family:'Oswald',sans-serif;font-size:1.2rem;font-weight:700;color:var(--blue-dark);margin-bottom:8px;&quot;&gt;Your cart is empty&lt;/div&gt;
+          &lt;p style=&quot;font-size:0.85rem;color:var(--grey-dark);margin-bottom:20px;&quot;&gt;Browse our 1000's of DIY products at unbeatable prices.&lt;/p&gt;
+          &lt;a href=&quot;#/catalog&quot; class=&quot;btn btn-blue&quot; data-route-link&gt;Continue Shopping&lt;/a&gt;
+        &lt;/div&gt;
+
+        &lt;div style=&quot;display: flex; justify-content: space-between; align-items: center; margin-top: 12px; flex-wrap: wrap; gap: 8px;&quot; id=&quot;cart-actions&quot;&gt;
+          &lt;a href=&quot;#/catalog&quot; class=&quot;btn&quot; style=&quot;background:var(--grey-light);color:var(--blue-dark);border:2px solid var(--grey);font-size:0.78rem;&quot; data-route-link&gt;
+            &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M19 12H5M12 5l-7 7 7 7&quot;/&gt;&lt;/svg&gt;
+            Continue Shopping
+          &lt;/a&gt;
+          &lt;div style=&quot;display:flex;gap:8px;flex-wrap:wrap;&quot;&gt;
+            &lt;button class=&quot;btn&quot; style=&quot;background:var(--grey-light);color:var(--blue-dark);border:2px solid var(--grey);font-size:0.78rem;&quot; id=&quot;save-cart-btn&quot;&gt;Save Cart&lt;/button&gt;
+            &lt;button class=&quot;btn btn-orange btn-sm&quot; id=&quot;clear-cart-btn&quot;&gt;Clear Cart&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div style=&quot;background: var(--cream); border: 2px solid var(--grey); padding: 14px 16px; margin-top: 16px;&quot;&gt;
+          &lt;div style=&quot;font-family:'Oswald',sans-serif;font-weight:700;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--blue-dark);margin-bottom:10px;&quot;&gt;Promotional Code&lt;/div&gt;
+          &lt;div style=&quot;display:flex;gap:8px;&quot;&gt;
+            &lt;input type=&quot;text&quot; class=&quot;form-input&quot; placeholder=&quot;Enter promo code&quot; id=&quot;promo-input&quot; style=&quot;flex:1;&quot; aria-label=&quot;Promotional code&quot;&gt;
+            &lt;button class=&quot;btn btn-blue btn-sm&quot; id=&quot;apply-promo-btn&quot;&gt;Apply&lt;/button&gt;
+          &lt;/div&gt;
+          &lt;div id=&quot;promo-msg&quot; style=&quot;font-size:0.75rem;margin-top:6px;&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+
+      &lt;/div&gt;
+
+      &lt;div&gt;
+        &lt;div class=&quot;order-summary&quot;&gt;
+          &lt;div class=&quot;order-summary__title&quot;&gt;Order Summary&lt;/div&gt;
+          &lt;div class=&quot;order-summary__row&quot;&gt;&lt;span&gt;Subtotal (&lt;span id=&quot;item-count&quot;&gt;0&lt;/span&gt; items)&lt;/span&gt;&lt;span id=&quot;subtotal&quot;&gt;\u00a30.00&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;order-summary__row&quot;&gt;&lt;span&gt;VAT (included)&lt;/span&gt;&lt;span id=&quot;vat-amount&quot;&gt;\u00a30.00&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;order-summary__row&quot;&gt;&lt;span&gt;Delivery&lt;/span&gt;&lt;span style=&quot;color:var(--green);font-weight:700;&quot;&gt;FREE&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;order-summary__row&quot; id=&quot;savings-row&quot; style=&quot;color:var(--orange);font-weight:700;display:none;&quot;&gt;&lt;span&gt;You Save&lt;/span&gt;&lt;span id=&quot;savings&quot;&gt;\u2014&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;order-summary__total&quot;&gt;&lt;span&gt;Total&lt;/span&gt;&lt;span id=&quot;grand-total&quot;&gt;\u00a30.00&lt;/span&gt;&lt;/div&gt;
+          &lt;div style=&quot;font-size:0.72rem;color:var(--grey-dark);margin-bottom:12px;text-align:center;&quot;&gt;All prices include VAT&lt;/div&gt;
+          &lt;button class=&quot;btn btn-orange btn-lg btn-full&quot; id=&quot;checkout-btn&quot;&gt;
+            &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M5 12h14M12 5l7 7-7 7&quot;/&gt;&lt;/svg&gt;
+            Proceed to Checkout
+          &lt;/button&gt;
+          &lt;div style=&quot;display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:12px;&quot;&gt;
+            &lt;div style=&quot;background:var(--blue);color:var(--yellow);padding:8px;font-family:'Oswald',sans-serif;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;display:flex;align-items:center;gap:6px;justify-content:center;text-align:center;&quot;&gt;
+              &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot;&gt;&lt;path d=&quot;M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z&quot;/&gt;&lt;/svg&gt;
+              Price Guarantee
+            &lt;/div&gt;
+            &lt;div style=&quot;background:var(--green);color:white;padding:8px;font-family:'Oswald',sans-serif;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;display:flex;align-items:center;gap:6px;justify-content:center;text-align:center;&quot;&gt;
+              &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot;&gt;&lt;rect x=&quot;1&quot; y=&quot;3&quot; width=&quot;15&quot; height=&quot;13&quot; rx=&quot;1&quot;/&gt;&lt;path d=&quot;M16 8h4a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-4&quot;/&gt;&lt;circle cx=&quot;5.5&quot; cy=&quot;18.5&quot; r=&quot;2.5&quot;/&gt;&lt;circle cx=&quot;18.5&quot; cy=&quot;18.5&quot; r=&quot;2.5&quot;/&gt;&lt;/svg&gt;
+              Free Delivery
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div style=&quot;background:var(--yellow);border:3px solid var(--blue-dark);padding:10px 12px;margin-top:12px;text-align:center;&quot;&gt;
+            &lt;div style=&quot;font-family:'Oswald',sans-serif;font-size:0.7rem;font-weight:700;color:var(--blue-dark);text-transform:uppercase;letter-spacing:0.06em;&quot;&gt;WICKES HAMMER&lt;/div&gt;
+            &lt;div style=&quot;font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:700;color:var(--blue-dark);text-transform:uppercase;letter-spacing:0.04em;line-height:1.1;&quot;&gt;1000's of&lt;br&gt;DIY PRICES!&lt;/div&gt;
+            &lt;div style=&quot;font-size:0.68rem;color:var(--blue-dark);margin-top:4px;&quot;&gt;We won't be beaten \u2014 we'll beat it by a further 20%&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div style=&quot;background:var(--cream);border:2px solid var(--grey);padding:12px 14px;margin-top:12px;&quot;&gt;
+          &lt;div style=&quot;font-family:'Oswald',sans-serif;font-weight:700;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--blue-dark);margin-bottom:8px;display:flex;align-items:center;gap:6px;&quot;&gt;
+            &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;rect x=&quot;1&quot; y=&quot;3&quot; width=&quot;15&quot; height=&quot;13&quot; rx=&quot;1&quot;/&gt;&lt;path d=&quot;M16 8h4a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-4&quot;/&gt;&lt;circle cx=&quot;5.5&quot; cy=&quot;18.5&quot; r=&quot;2.5&quot;/&gt;&lt;circle cx=&quot;18.5&quot; cy=&quot;18.5&quot; r=&quot;2.5&quot;/&gt;&lt;/svg&gt;
+            Delivery Options
+          &lt;/div&gt;
+          &lt;ul style=&quot;font-size:0.78rem;display:flex;flex-direction:column;gap:5px;list-style:none;&quot;&gt;
+            &lt;li style=&quot;display:flex;justify-content:space-between;&quot;&gt;&lt;span&gt;Standard (5\u20137 days)&lt;/span&gt;&lt;span style=&quot;color:var(--green);font-weight:700;&quot;&gt;FREE&lt;/span&gt;&lt;/li&gt;
+            &lt;li style=&quot;display:flex;justify-content:space-between;&quot;&gt;&lt;span&gt;Express (2\u20133 days)&lt;/span&gt;&lt;span&gt;\u00a39.99&lt;/span&gt;&lt;/li&gt;
+            &lt;li style=&quot;display:flex;justify-content:space-between;&quot;&gt;&lt;span&gt;Next Day&lt;/span&gt;&lt;span&gt;\u00a314.99&lt;/span&gt;&lt;/li&gt;
+            &lt;li style=&quot;display:flex;justify-content:space-between;&quot;&gt;&lt;span&gt;Click &amp;amp; Collect&lt;/span&gt;&lt;span style=&quot;color:var(--green);font-weight:700;&quot;&gt;FREE&lt;/span&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+  `;
+
+  let promoApplied = false;
+
+  function renderCartItems() {
+    const lines = cartLines();
+    const wrap = document.getElementById('cart-items');
+    wrap.innerHTML = lines.map(l =&gt; `
+      &lt;div class=&quot;cart-item&quot; id=&quot;item-${l.sku}&quot;&gt;
+        &lt;div class=&quot;cart-item__img&quot;&gt;
+          &lt;div style=&quot;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--grey-light);&quot;&gt;
+            &lt;div style=&quot;opacity:0.35;width:32px;height:32px;&quot;&gt;${ICONS[l.product.icon] || ICONS.tiles}&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;cart-item__info&quot;&gt;
+          &lt;a href=&quot;#/product?sku=${encodeURIComponent(l.sku)}&quot; class=&quot;cart-item__name&quot; data-route-link&gt;${esc(l.product.name)}&lt;/a&gt;
+          &lt;div class=&quot;cart-item__sku&quot;&gt;SKU: ${esc(l.sku)}&lt;/div&gt;
+          &lt;div style=&quot;font-size:0.72rem;color:var(--green);font-weight:700;&quot;&gt;\u2713 ${esc(l.product.stock)}&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;cart-item__price&quot;&gt;${fmt(l.product.price)}&lt;/div&gt;
+        &lt;div class=&quot;cart-item__qty&quot;&gt;
+          &lt;div class=&quot;qty-selector&quot; role=&quot;group&quot; aria-label=&quot;Quantity for ${esc(l.product.name)}&quot;&gt;
+            &lt;button type=&quot;button&quot; data-qty-dec=&quot;${l.sku}&quot; aria-label=&quot;Decrease quantity&quot;&gt;\u2212&lt;/button&gt;
+            &lt;input type=&quot;number&quot; value=&quot;${l.qty}&quot; min=&quot;1&quot; max=&quot;99&quot; data-qty-input=&quot;${l.sku}&quot; aria-label=&quot;Quantity&quot;&gt;
+            &lt;button type=&quot;button&quot; data-qty-inc=&quot;${l.sku}&quot; aria-label=&quot;Increase quantity&quot;&gt;+&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;cart-item__total&quot;&gt;${fmt(l.lineTotal)}&lt;/div&gt;
+        &lt;button class=&quot;cart-item__remove&quot; data-remove=&quot;${l.sku}&quot; aria-label=&quot;Remove ${esc(l.product.name)} from cart&quot;&gt;
+          &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;line x1=&quot;18&quot; y1=&quot;6&quot; x2=&quot;6&quot; y2=&quot;18&quot;/&gt;&lt;line x1=&quot;6&quot; y1=&quot;6&quot; x2=&quot;18&quot; y2=&quot;18&quot;/&gt;&lt;/svg&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;`).join('');
+
+    wrap.querySelectorAll('[data-qty-dec]').forEach(b =&gt; b.addEventListener('click', () =&gt; {
+      const sku = b.dataset.qtyDec; setCartQty(sku, (CART[sku] || 1) - 1); refresh();
+    }));
+    wrap.querySelectorAll('[data-qty-inc]').forEach(b =&gt; b.addEventListener('click', () =&gt; {
+      const sku = b.dataset.qtyInc; setCartQty(sku, (CART[sku] || 1) + 1); refresh();
+    }));
+    wrap.querySelectorAll('[data-qty-input]').forEach(inp =&gt; inp.addEventListener('change', () =&gt; {
+      const sku = inp.dataset.qtyInput; setCartQty(sku, parseInt(inp.value) || 1); refresh();
+    }));
+    wrap.querySelectorAll('[data-remove]').forEach(b =&gt; b.addEventListener('click', () =&gt; {
+      const sku = b.dataset.remove;
+      const el = document.getElementById('item-' + sku);
+      if (el) {
+        el.style.transition = 'opacity 0.2s, transform 0.2s';
+        el.style.opacity = '0'; el.style.transform = 'translateX(20px)';
+        setTimeout(() =&gt; { removeFromCart(sku); refresh(); }, 200);
+      } else { removeFromCart(sku); refresh(); }
+      showToast('Item removed from cart');
+    }));
+
+    const empty = lines.length === 0;
+    document.getElementById('empty-cart').style.display = empty ? '' : 'none';
+    document.getElementById('cart-actions').style.display = empty ? 'none' : '';
+    const checkoutBtn = document.getElementById('checkout-btn');
+    checkoutBtn.disabled = empty;
+    checkoutBtn.style.opacity = empty ? '0.5' : '';
+  }
+
+  function renderTotals() {
+    const lines = cartLines();
+    const subtotal = lines.reduce((s, l) =&gt; s + l.lineTotal, 0);
+    const vat = subtotal * (1 - 1 / 1.2);
+    const count = lines.reduce((s, l) =&gt; s + l.qty, 0);
+    const discount = promoApplied ? subtotal * 0.2 : 0;
+    const total = subtotal - discount;
+
+    document.getElementById('subtotal').textContent = fmt(subtotal);
+    document.getElementById('vat-amount').textContent = fmt(vat);
+    document.getElementById('item-count').textContent = count;
+    document.getElementById('grand-total').textContent = fmt(total);
+
+    const savingsRow = document.getElementById('savings-row');
+    if (discount &gt; 0) {
+      savingsRow.style.display = '';
+      document.getElementById('savings').textContent = '\u2212' + fmt(discount);
+    } else {
+      savingsRow.style.display = 'none';
+    }
+  }
+
+  function refresh() {
+    renderCartItems();
+    renderTotals();
+    updateCartBadge();
+  }
+
+  document.getElementById('clear-cart-btn').addEventListener('click', () =&gt; {
+    clearCartAll(); refresh(); showToast('Cart cleared');
+  });
+  document.getElementById('save-cart-btn').addEventListener('click', () =&gt; {
+    showToast('Cart saved to your account', 'success');
+  });
+  document.getElementById('apply-promo-btn').addEventListener('click', () =&gt; {
+    const code = document.getElementById('promo-input').value.trim().toUpperCase();
+    const msgEl = document.getElementById('promo-msg');
+    if (code === 'WICKES20') {
+      promoApplied = true;
+      msgEl.style.color = 'var(--green)';
+      msgEl.textContent = '\u2713 Code applied: 20% discount added to your order!';
+      showToast('Promo code WICKES20 applied!', 'success');
+      renderTotals();
+    } else if (code === '') {
+      msgEl.style.color = 'var(--red)';
+      msgEl.textContent = 'Please enter a promotional code.';
+    } else {
+      msgEl.style.color = 'var(--red)';
+      msgEl.textContent = '\u2717 Invalid code. Try WICKES20 for 20% off.';
+    }
+  });
+  document.getElementById('checkout-btn').addEventListener('click', () =&gt; {
+    if (cartLines().length === 0) return;
+    showToast('Proceeding to checkout...', 'success');
+    setTimeout(() =&gt; {
+      alert('Checkout flow: In a full implementation this would proceed to the delivery address step.\n\nDemo promo code: WICKES20 (20% off)');
+    }, 400);
+  });
+
+  refresh();
+  CURRENT_RENDER_REFRESH = refresh;
+}
+
+/* ── Boot ────────────────────────────────────────────────── */
+router();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
 <hr>
 
   </article>
